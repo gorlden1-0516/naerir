@@ -30,16 +30,11 @@
         /* 左側固定選單 (Sticky Sidebar) */
         .sticky-sidebar { position: -webkit-sticky; position: sticky; top: 100px; z-index: 100; }
         .listFormMenu { align-items: flex-start; }
-        
-        /* 查詢頁面樣式 */
-        .pagination-container { display: flex; justify-content: center; align-items: center; margin-top: 20px; gap: 10px; }
-        .page-btn { cursor: pointer; padding: 5px 10px; border: 1px solid #dee2e6; background-color: #fff; color: #0d6efd; border-radius: 4px; }
-        .page-btn:hover { background-color: #e9ecef; }
-        .page-btn.disabled { color: #6c757d; pointer-events: none; background-color: #fff; border-color: #dee2e6; }
-        .page-info { margin: 0 10px; font-weight: bold; }
-        .action-btn { cursor: pointer; margin: 0 5px; font-size: 1.2rem; }
-        .btn-edit { color: #0d6efd; }
-        .btn-delete { color: #dc3545; }
+
+        /* 授權區塊樣式 */
+        .auth-section { border: 1px solid #dee2e6; border-radius: 0.25rem; padding: 1.5rem; background-color: #fff; margin-top: 1rem; }
+        .auth-title { font-weight: bold; margin-bottom: 1.5rem; border-bottom: 2px solid #0d6efd; padding-bottom: 0.5rem; color: #0d6efd; font-size: 1.1rem; }
+        .auth-label { font-weight: bold; min-width: 220px; }
     </style>
 </head>
 <body id="top" class="page focus tw-min-h-screen">
@@ -91,8 +86,62 @@
                     <div class="col"><a class="nav-link active" href="javascript:void(0);">步驟2: 上傳檔案</a></div>
                     <div class="col"><a class="nav-link disabled" href="#">步驟3: 確認並送出檢核</a></div>
                 </div></div>
-                <div class="col-sm"><div class="tabPane bg-light p-3"><div class="col-12 text-end mb-2"><span class="required-star">*</span> 為必填欄位</div><div class="row g-4"><div class="col-md-6"><div class="row"><label class="min_width-175 col-sm-auto col-form-label">政策建議 (檔案)</label><div class="col"><div class="dynamic-container"><div class="dynamic-field-group"><input type="file" class="form-control " id="field_8f1fe8ce" ></div></div><button type="button" class="btn btn-outline-success btn-add-field" onclick="addField(this)">+ 新增</button><span class="form-hint">PDF [可新增 PDF]</span></div></div></div><div class="col-md-6"><div class="row"><label class="min_width-175 col-sm-auto col-form-label">報告全文</label><div class="col"><div class="dynamic-container"><div class="dynamic-field-group"><input type="file" class="form-control " id="field_37b4b37e" ></div></div><button type="button" class="btn btn-outline-success btn-add-field" onclick="addField(this)">+ 新增</button><span class="form-hint">PDF [可新增 PDF]</span></div></div></div><div class="col-md-6"><div class="row"><label class="min_width-175 col-sm-auto col-form-label">備註 (附件)</label><div class="col"><div class="dynamic-container"><div class="dynamic-field-group"><input type="file" class="form-control " id="field_868c9865" ></div></div><button type="button" class="btn btn-outline-success btn-add-field" onclick="addField(this)">+ 新增</button><span class="form-hint">可上傳 PDF附件</span></div></div></div></div></div>
-                <div class="tabPane bg-light p-3 mt-3"><div class="row"><div class="col"><a class="btn_grey-light btn btn-light w-100" href="research_project_step1.html">回上一步</a></div><div class="col"><a class="btn_primary btn btn-primary w-100" href="javascript:void(0);" onclick="validateAndNavigate('research_project_step3.html')">下一步</a></div></div></div></div>
+                <div class="col-sm">
+                    <div class="tabPane bg-light p-3">
+                        <div class="col-12 text-end mb-2"><span class="required-star">*</span> 為必填欄位</div>
+                        <div class="row g-4">
+                            <div class="col-md-6"><div class="row"><label class="min_width-175 col-sm-auto col-form-label">政策建議 (檔案)</label><div class="col"><div class="dynamic-container"><div class="dynamic-field-group"><input type="file" class="form-control " id="field_8f1fe8ce" ></div></div><button type="button" class="btn btn-outline-success btn-add-field" onclick="addField(this)">+ 新增</button><span class="form-hint">PDF [可新增 PDF]</span></div></div></div>
+                            <div class="col-md-6"><div class="row"><label class="min_width-175 col-sm-auto col-form-label">報告全文</label><div class="col"><div class="dynamic-container"><div class="dynamic-field-group"><input type="file" class="form-control " id="field_37b4b37e" ></div></div><button type="button" class="btn btn-outline-success btn-add-field" onclick="addField(this)">+ 新增</button><span class="form-hint">PDF [可新增 PDF]</span></div></div></div>
+                            <div class="col-md-6"><div class="row"><label class="min_width-175 col-sm-auto col-form-label">備註 (附件)</label><div class="col"><div class="dynamic-container"><div class="dynamic-field-group"><input type="file" class="form-control " id="field_868c9865" ></div></div><button type="button" class="btn btn-outline-success btn-add-field" onclick="addField(this)">+ 新增</button><span class="form-hint">可上傳 PDF附件</span></div></div></div>
+                            
+                            <div class="col-12">
+                                <div class="auth-section">
+                                    <div class="auth-title">學術成果授權設定</div>
+                                    
+                                    <div class="row mb-4">
+                                        <label class="col-md-auto col-form-label auth-label">1. 選擇授權對象：</label>
+                                        <div class="col-md">
+                                            <div class="d-flex flex-column gap-2 mt-2 mt-md-0">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="authInternet">
+                                                    <label class="form-check-label" for="authInternet">公眾網路 (Internet)</label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="authIntranet">
+                                                    <label class="form-check-label" for="authIntranet">國家教育研究院及所屬單位 (Intranet)</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <label class="col-md-auto col-form-label auth-label">2. 設定出版品授權開放日期：</label>
+                                        <div class="col-md">
+                                            <div class="row align-items-center mb-3">
+                                                <label class="col-auto col-form-label" style="min-width: 150px;">授權開放起始日期：</label>
+                                                <div class="col-auto">
+                                                    <input type="text" class="form-control form_date" placeholder="YYYY/MM/DD" style="width: 160px;">
+                                                </div>
+                                            </div>
+                                            <div class="row align-items-center">
+                                                <label class="col-auto col-form-label" style="min-width: 150px;">授權開放結束日期：</label>
+                                                <div class="col-auto">
+                                                    <input type="text" class="form-control form_date" id="authEndDate" placeholder="YYYY/MM/DD" style="width: 160px;">
+                                                </div>
+                                                <div class="col-auto">
+                                                    <div class="form-check ms-2">
+                                                        <input class="form-check-input" type="checkbox" id="noTimeLimit" onchange="toggleEndDate()">
+                                                        <label class="form-check-label" for="noTimeLimit">不限時間</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+                    </div>
+                    <div class="tabPane bg-light p-3 mt-3"><div class="row"><div class="col"><a class="btn_grey-light btn btn-light w-100" href="research_project_step1.html">回上一步</a></div><div class="col"><a class="btn_primary btn btn-primary w-100" href="javascript:void(0);" onclick="validateAndNavigate('research_project_step3.html')">下一步</a></div></div></div></div>
             </div>
         </div>
     </div>
@@ -145,6 +194,16 @@
         initDatePicker();
     }
     function removeField(btn) { $(btn).closest('.dynamic-field-group').remove(); }
+
+    // 授權日期: 不限時間切換
+    function toggleEndDate() {
+        var isChecked = $('#noTimeLimit').is(':checked');
+        if (isChecked) {
+            $('#authEndDate').val('').prop('disabled', true);
+        } else {
+            $('#authEndDate').prop('disabled', false);
+        }
+    }
 </script>
 
 </body>
