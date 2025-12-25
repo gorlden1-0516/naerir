@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>研究人員履歷 - 資料維護 (中英合併版) - 國家教育研究院學術典藏系統</title>
+    <link rel="stylesheet" href="./Step3_files/bootstrap.min.css">
+    <link rel="stylesheet" href="./Step3_files/tailwind.min.css">
+    <link rel="stylesheet" href="./Step3_files/main.min.css">
+    <link rel="stylesheet" href="./Step3_files/style.min.css">
+    <link rel="stylesheet" href="./Step3_files/bootstrap-icons.css">
+    <link rel="stylesheet" href="./Step3_files/fontawesome.min.css">
+    <script src="./Step3_files/jquery.min.js.下載"></script>
+    <script src="./Step3_files/jquery-ui.min.js.下載"></script>
+    <link href="./Step3_files/bootstrap-datepicker.min.css" rel="stylesheet">
+    <script src="./Step3_files/bootstrap-datepicker-v1.js.下載"></script>
+    <style>
+        /* 通用樣式 */
+        .min_width-175 { min-width: 175px; text-align: right; margin-right: 10px; font-weight: 500; }
+        .required-star { color: #dc3545; margin-right: 4px; font-weight: bold; }
+        .form-hint { font-size: 0.85rem; color: #6c757d; display: block; margin-top: 0.25rem; }
+        
+        /* 表單動態欄位 */
+        .dynamic-field-group { display: flex; align-items: center; width: 100%; margin-bottom: 8px; }
+        .dynamic-field-group .form-control, .dynamic-field-group .form-select { flex-grow: 1; }
+        .btn-remove-field { margin-left: 10px; color: #dc3545; cursor: pointer; font-size: 1.2rem; font-weight: bold; font-family: Arial, sans-serif; display: flex; align-items: center; padding: 0 5px; }
+        .btn-remove-field:hover { color: #a71d2a; background-color: #f8d7da; border-radius: 4px; }
+        .btn-add-field { font-size: 0.9rem; padding: 4px 12px; margin-top: 5px; display: inline-block; font-weight: bold; }
+
+        /* 左側固定選單 (Sticky Sidebar) */
+        .sticky-sidebar { position: -webkit-sticky; position: sticky; top: 100px; z-index: 100; }
+        .listFormMenu { align-items: flex-start; }
+
+        /* 分隔線樣式 */
+        .section-divider { border-top: 1px dashed #ccc; margin: 20px 0; }
+        .section-title { font-size: 1.1rem; font-weight: bold; color: #495057; margin-bottom: 15px; border-left: 4px solid #0d6efd; padding-left: 10px; }
+    </style>
+</head>
+<body id="top" class="page focus tw-min-h-screen">
+    <header class="header-main">
+        <nav class="navbar navbar-expand-lg navbar-light navbar-main py-lg-0">
+            <div class="container-fluid flex-wrap">
+                <a class="navbar-brand" href="#">
+                    <img src="./Step3_files/logo.svg" alt="LOGO" class="d-none d-lg-flex flex-fill">
+                    <span class="d-lg-none">國家教育研究院</span>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse flex-lg-wrap col-lg-12" id="navbarSupportedContent">
+                    <div class="navbar-nav navbar-light navbar-dropdown navbar-primaryNav">
+                        <div class="nav-item"><a class="nav-link active" href="resume_combined.html">研究人員履歷資料維護</a></div>
+                        <div class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">學術資料建檔</a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="my_academic_data.html">我的學術資料查詢</a><div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="research_project_step1.html">研究計畫上傳</a>
+                                <a class="dropdown-item" href="work_plan_step1.html">工作計畫上傳</a>
+                                <a class="dropdown-item" href="journal_step1.html">期刊論文上傳</a>
+                                <a class="dropdown-item" href="book_step1.html">專書上傳</a>
+                                <a class="dropdown-item" href="chapter_step1.html">專章上傳</a>
+                                <a class="dropdown-item" href="conference_step1.html">研討會論文上傳</a>
+                            </div>
+                        </div>
+                        <div class="nav-item"><a class="nav-link" href="#">系統操作說明</a></div>
+                        <div class="nav-item"><a class="nav-link" href="#">帳號登入/登出</a></div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="pt-lg-3">
+            <div class="lg:tw-space-y-4 container-fluid py-2">
+                <div class="card card-body shadow-sm tw-border-0">
+                    <div class="min_height-550">
+                        <div class="row row-cols-lg-auto g-lg-4">
+                            <div class="col-lg-9 tw-flex-1">
+                                <h2 class="border-bottom tw-text-base sm:tw-text-2xl tw-font-bold overflow-hidden mb-4">研究人員履歷 - 資料維護 (中英合併)</h2>
+                                <div class="listFormMenu row g-3">
+                                    <div class="col-lg-3">
+                                        <div class="nav nav-pills row row-cols-auto row-cols-lg-1 g-2 flex-nowrap flex-lg-wrap overflow-auto sticky-sidebar">
+                                            <div class="col"><a class="nav-link active" href="javascript:void(0);">履歷資料編輯</a></div>
+                                            <div class="col"><a class="nav-link disabled" href="#">確認資料</a></div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-sm">
+                                        <div class="tabPane bg-light p-3">
+                                            <div class="col-12 text-end mb-2"><span class="required-star">*</span> 為必填欄位</div>
+                                            
+                                            <div class="section-title">基本資料 / Basic Information</div>
+                                            <div class="row g-4">
+                                                <div class="col-md-6">
+                                                    <div class="row">
+                                                        <label class="min_width-175 col-sm-auto col-form-label"><span class="required-star">*</span>中文姓名</label>
+                                                        <div class="col">
+                                                            <input type="text" class="form-control required-field" id="name_zh" placeholder="蔡明學" data-label="中文姓名">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="row">
+                                                        <label class="min_width-175 col-sm-auto col-form-label"><span class="required-star">*</span>English Name</label>
+                                                        <div class="col">
+                                                            <input type="text" class="form-control required-field" id="name_en" placeholder="Tsai, Ming-Hsueh" data-label="English Name">
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-6">
+                                                    <div class="row">
+                                                        <label class="min_width-175 col-sm-auto col-form-label"><span class="required-star">*</span>單位 (中文)</label>
+                                                        <div class="col">
+                                                            <select class="form-select required-field" id="unit_zh" multiple data-label="單位" style="height: 150px;">
+                                                                <option value="院長">院長</option>
+                                                                <option value="學術副院長">學術副院長</option>
+                                                                <option value="行政副院長">行政副院長</option>
+                                                                <option value="主任秘書">主任秘書</option>
+                                                                <option value="教育制度及政策研究中心">教育制度及政策研究中心</option>
+                                                                <option value="課程及教學研究中心">課程及教學研究中心</option>
+                                                                <option value="測驗及評量研究中心">測驗及評量研究中心</option>
+                                                                <option value="語文教育及編譯研究中心">語文教育及編譯研究中心</option>
+                                                                <option value="教科書研究中心">教科書研究中心</option>
+                                                                <option value="原住民族教育研究中心">原住民族教育研究中心</option>
+                                                                <option value="教育資源及出版中心">教育資源及出版中心</option>
+                                                                <option value="教育人力發展中心">教育人力發展中心</option>
+                                                                <option value="綜合規劃室">綜合規劃室</option>
+                                                                <option value="圖書館">圖書館</option>
+                                                            </select>
+                                                            <span class="form-hint">按住 Ctrl 鍵可多選</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="row">
+                                                        <label class="min_width-175 col-sm-auto col-form-label"><span class="required-star">*</span>Center (English)</label>
+                                                        <div class="col">
+                                                            <select class="form-select required-field" id="unit_en" multiple data-label="Center" style="height: 150px; overflow-x: auto;">
+                                                                <option value="President">President</option>
+                                                                <option value="Academic Vice President">Academic Vice President</option>
+                                                                <option value="Administrative Vice President">Administrative Vice President</option>
+                                                                <option value="Chief Secretary">Chief Secretary</option>
+                                                                <option value="Research Center for Education Systems and Policy">Research Center for Education Systems and Policy</option>
+                                                                <option value="Research Center for Curriculum and Instruction">Research Center for Curriculum and Instruction</option>
+                                                                <option value="Research Center for Testing and Assessment">Research Center for Testing and Assessment</option>
+                                                                <option value="Research Center for Translation, Compilation and Language Education">Research Center for Translation, Compilation and Language Education</option>
+                                                                <option value="Center for Textbook Research">Center for Textbook Research</option>
+                                                                <option value="Research Center for Indigenous Education">Research Center for Indigenous Education</option>
+                                                                <option value="Center for Educational Resources and Publishing">Center for Educational Resources and Publishing</option>
+                                                                <option value="Center for Educational Leadership and Professional Development">Center for Educational Leadership and Professional Development</option>
+                                                                <option value="Office of Planning">Office of Planning</option>
+                                                                <option value="Library">Library</option>
+                                                            </select>
+                                                            <span class="form-hint">Hold Ctrl to select multiple</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-6">
+                                                    <div class="row">
+                                                        <label class="min_width-175 col-sm-auto col-form-label"><span class="required-star">*</span>職稱 (中文)</label>
+                                                        <div class="col">
+                                                            <select class="form-select required-field" id="title_zh" data-label="職稱">
+                                                                <option value="">請選擇</option>
+                                                                <option value="研究員">研究員</option>
+                                                                <option value="副研究員">副研究員</option>
+                                                                <option value="助理研究員">助理研究員</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="row">
+                                                        <label class="min_width-175 col-sm-auto col-form-label"><span class="required-star">*</span>Title (English)</label>
+                                                        <div class="col">
+                                                            <select class="form-select required-field" id="title_en" data-label="Title">
+                                                                <option value="">Please Select</option>
+                                                                <option value="Research Fellow">Research Fellow</option>
+                                                                <option value="Associate Research Fellow">Associate Research Fellow</option>
+                                                                <option value="Assistant Research Fellow">Assistant Research Fellow</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-6">
+                                                    <div class="row">
+                                                        <label class="min_width-175 col-sm-auto col-form-label">行政職稱</label>
+                                                        <div class="col">
+                                                            <div class="dynamic-container">
+                                                                <div class="dynamic-field-group">
+                                                                    <input type="text" class="form-control" placeholder="中心主任">
+                                                                </div>
+                                                            </div>
+                                                            <button type="button" class="btn btn-outline-success btn-add-field" onclick="addField(this)">+ 新增</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="row">
+                                                        <label class="min_width-175 col-sm-auto col-form-label">Admin Title</label>
+                                                        <div class="col">
+                                                            <div class="dynamic-container">
+                                                                <div class="dynamic-field-group">
+                                                                    <input type="text" class="form-control" placeholder="Director">
+                                                                </div>
+                                                            </div>
+                                                            <button type="button" class="btn btn-outline-success btn-add-field" onclick="addField(this)">+ 新增</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="section-divider"></div>
+
+                                            <div class="section-title">聯絡資訊 / Contact Information</div>
+                                            <div class="row g-4">
+                                                <div class="col-md-12">
+                                                    <div class="row">
+                                                        <label class="min_width-175 col-sm-auto col-form-label"><span class="required-star">*</span>Email</label>
+                                                        <div class="col">
+                                                            <input type="text" class="form-control required-field" id="email" placeholder="tsai@mail.naer.edu.tw" data-label="Email">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="row">
+                                                        <label class="min_width-175 col-sm-auto col-form-label">電話 / TEL</label>
+                                                        <div class="col">
+                                                            <input type="text" class="form-control" id="tel" placeholder="02-7740-7128">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="row">
+                                                        <label class="min_width-175 col-sm-auto col-form-label">網站 / Website</label>
+                                                        <div class="col">
+                                                            <input type="text" class="form-control" id="website" placeholder="https://...">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="section-divider"></div>
+
+                                            <div class="section-title">學術專業 / Academic Expertise</div>
+                                            <div class="row g-4">
+                                                <div class="col-md-6">
+                                                    <div class="row">
+                                                        <label class="min_width-175 col-sm-auto col-form-label">研究專長</label>
+                                                        <div class="col">
+                                                            <input type="text" class="form-control" placeholder="教育視導; 學校組織效能">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="row">
+                                                        <label class="min_width-175 col-sm-auto col-form-label">Research Interests</label>
+                                                        <div class="col">
+                                                            <input type="text" class="form-control" placeholder="Education Supervision; School Effectiveness">
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-6">
+                                                    <div class="row">
+                                                        <label class="min_width-175 col-sm-auto col-form-label">學歷 (中文)</label>
+                                                        <div class="col">
+                                                            <div class="dynamic-container">
+                                                                <div class="dynamic-field-group">
+                                                                    <textarea class="form-control" rows="4" placeholder="國立臺北教育大學..."></textarea>
+                                                                </div>
+                                                            </div>
+                                                            <button type="button" class="btn btn-outline-success btn-add-field" onclick="addField(this)">+ 新增</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="row">
+                                                        <label class="min_width-175 col-sm-auto col-form-label">Education</label>
+                                                        <div class="col">
+                                                            <div class="dynamic-container">
+                                                                <div class="dynamic-field-group">
+                                                                    <textarea class="form-control" rows="4" placeholder="Ph.D. in Educational Policy..."></textarea>
+                                                                </div>
+                                                            </div>
+                                                            <button type="button" class="btn btn-outline-success btn-add-field" onclick="addField(this)">+ 新增</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-6">
+                                                    <div class="row">
+                                                        <label class="min_width-175 col-sm-auto col-form-label">經歷 (中文)</label>
+                                                        <div class="col">
+                                                            <div class="dynamic-container">
+                                                                <div class="dynamic-field-group">
+                                                                    <textarea class="form-control" rows="4"></textarea>
+                                                                </div>
+                                                            </div>
+                                                            <button type="button" class="btn btn-outline-success btn-add-field" onclick="addField(this)">+ 新增</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="row">
+                                                        <label class="min_width-175 col-sm-auto col-form-label">Experience</label>
+                                                        <div class="col">
+                                                            <div class="dynamic-container">
+                                                                <div class="dynamic-field-group">
+                                                                    <textarea class="form-control" rows="4"></textarea>
+                                                                </div>
+                                                            </div>
+                                                            <button type="button" class="btn btn-outline-success btn-add-field" onclick="addField(this)">+ 新增</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-6">
+                                                    <div class="row">
+                                                        <label class="min_width-175 col-sm-auto col-form-label">獎勵與榮譽</label>
+                                                        <div class="col">
+                                                            <div class="dynamic-container">
+                                                                <div class="dynamic-field-group">
+                                                                    <textarea class="form-control" rows="4"></textarea>
+                                                                </div>
+                                                            </div>
+                                                            <button type="button" class="btn btn-outline-success btn-add-field" onclick="addField(this)">+ 新增</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="row">
+                                                        <label class="min_width-175 col-sm-auto col-form-label">Awards & Honors</label>
+                                                        <div class="col">
+                                                            <div class="dynamic-container">
+                                                                <div class="dynamic-field-group">
+                                                                    <textarea class="form-control" rows="4"></textarea>
+                                                                </div>
+                                                            </div>
+                                                            <button type="button" class="btn btn-outline-success btn-add-field" onclick="addField(this)">+ 新增</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-6">
+                                                    <div class="row">
+                                                        <label class="min_width-175 col-sm-auto col-form-label">個人簡介</label>
+                                                        <div class="col">
+                                                            <textarea class="form-control" rows="6"></textarea>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="row">
+                                                        <label class="min_width-175 col-sm-auto col-form-label">Biography</label>
+                                                        <div class="col">
+                                                            <textarea class="form-control" rows="6"></textarea>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="section-divider"></div>
+
+                                            <div class="section-title">其他 / Other</div>
+                                            <div class="row g-4">
+                                                <div class="col-md-12">
+                                                    <div class="row">
+                                                        <label class="min_width-175 col-sm-auto col-form-label">個人照片</label>
+                                                        <div class="col">
+                                                            <input type="file" class="form-control">
+                                                            <span class="form-hint">請上傳照片 / Upload Photo</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="tabPane bg-light p-3 mt-3">
+                                            <div class="row">
+                                                <div class="col"><a class="btn_grey-light btn btn-light w-100 disabled" href="#">回上一頁</a></div>
+                                                <div class="col"><a class="btn_primary btn btn-primary w-100" href="javascript:void(0);" onclick="validateAndNavigate('resume_step3.html')">下一步：確認資料</a></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer py-3">
+        <div class="container-fluid pt-3">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <p class="small mb-0">國家教育研究院著作權聲明 Copyright © 2024 All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="./Step3_files/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        $(document).ready(function(){ initDatePicker(); });
+        function initDatePicker() {
+            $(".form_date").datepicker({ language: "zh-TW", format: "yyyy/mm/dd", autoclose: true, orientation: "bottom auto" });
+        }
+        function validateAndNavigate(url) {
+            var isValid = true;
+            $('.required-field').each(function() {
+                if ($.trim($(this).val()) === '') {
+                    var labelName = $(this).attr('data-label') || '必填欄位';
+                    alert('請填寫 [' + labelName + ']');
+                    this.scrollIntoView({behavior: "smooth", block: "center"});
+                    $(this).focus();
+                    isValid = false; return false;
+                }
+            });
+            if (isValid) {
+                if (url && url !== '#') window.location.href = url;
+                else if (url === '#') alert('資料檢查無誤，準備送出！');
+            }
+            return false;
+        }
+        function addField(btn) {
+            var container = $(btn).siblings('.dynamic-container');
+            var newGroup = container.find('.dynamic-field-group').first().clone();
+            newGroup.find('input, select, textarea').val('');
+            newGroup.find('*').removeAttr('id');
+            if (newGroup.find('.btn-remove-field').length === 0) newGroup.append('<span class="btn-remove-field" onclick="removeField(this)" title="刪除">X</span>');
+            container.append(newGroup);
+            initDatePicker();
+        }
+        function removeField(btn) { $(btn).closest('.dynamic-field-group').remove(); }
+    </script>
+</body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>工作計畫 - 步驟3: 確認並送出檢核 - 國家教育研究院學術典藏系統</title>
+    <link rel="stylesheet" href="./Step3_files/bootstrap.min.css">
+    <link rel="stylesheet" href="./Step3_files/tailwind.min.css">
+    <link rel="stylesheet" href="./Step3_files/main.min.css">
+    <link rel="stylesheet" href="./Step3_files/style.min.css">
+    <link rel="stylesheet" href="./Step3_files/bootstrap-icons.css">
+    <link rel="stylesheet" href="./Step3_files/fontawesome.min.css">
+    <script src="./Step3_files/jquery.min.js.下載"></script>
+    <script src="./Step3_files/jquery-ui.min.js.下載"></script>
+    <link href="./Step3_files/bootstrap-datepicker.min.css" rel="stylesheet">
+    <script src="./Step3_files/bootstrap-datepicker-v1.js.下載"></script>
+    <style>
+        /* 通用樣式 */
+        .min_width-175 { min-width: 175px; text-align: right; margin-right: 10px; font-weight: 500; }
+        .required-star { color: #dc3545; margin-right: 4px; font-weight: bold; }
+        .form-hint { font-size: 0.85rem; color: #6c757d; display: block; margin-top: 0.25rem; }
+        
+        /* 表單動態欄位 */
+        .dynamic-field-group { display: flex; align-items: center; width: 100%; margin-bottom: 8px; }
+        .dynamic-field-group .form-control, .dynamic-field-group .form-select { flex-grow: 1; }
+        .btn-remove-field { margin-left: 10px; color: #dc3545; cursor: pointer; font-size: 1.2rem; font-weight: bold; font-family: Arial, sans-serif; display: flex; align-items: center; padding: 0 5px; }
+        .btn-remove-field:hover { color: #a71d2a; background-color: #f8d7da; border-radius: 4px; }
+        .btn-add-field { font-size: 0.9rem; padding: 4px 12px; margin-top: 5px; display: inline-block; font-weight: bold; }
+
+        /* 左側固定選單 (Sticky Sidebar) */
+        .sticky-sidebar { position: -webkit-sticky; position: sticky; top: 100px; z-index: 100; }
+        .listFormMenu { align-items: flex-start; }
+        
+        /* 查詢頁面樣式 */
+        .pagination-container { display: flex; justify-content: center; align-items: center; margin-top: 20px; gap: 10px; }
+        .page-btn { cursor: pointer; padding: 5px 10px; border: 1px solid #dee2e6; background-color: #fff; color: #0d6efd; border-radius: 4px; }
+        .page-btn:hover { background-color: #e9ecef; }
+        .page-btn.disabled { color: #6c757d; pointer-events: none; background-color: #fff; border-color: #dee2e6; }
+        .page-info { margin: 0 10px; font-weight: bold; }
+        .action-btn { cursor: pointer; margin: 0 5px; font-size: 1.2rem; }
+        .btn-edit { color: #0d6efd; }
+        .btn-delete { color: #dc3545; }
+    </style>
+</head>
+<body id="top" class="page focus tw-min-h-screen">
+    <header class="header-main">
+        <nav class="navbar navbar-expand-lg navbar-light navbar-main py-lg-0">
+            <div class="container-fluid flex-wrap">
+                <a class="navbar-brand" href="#">
+                    <img src="./Step3_files/logo.svg" alt="LOGO" class="d-none d-lg-flex flex-fill">
+                    <span class="d-lg-none">國家教育研究院</span>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse flex-lg-wrap col-lg-12" id="navbarSupportedContent">
+                    <div class="navbar-nav navbar-light navbar-dropdown navbar-primaryNav">
+                        <div class="nav-item"><a class="nav-link" href="resume_step1.html">研究人員履歷資料維護</a></div>
+                        <div class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">學術資料建檔</a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="my_academic_data.html">我的學術資料查詢</a><div class="dropdown-divider"></div><a class="dropdown-item" href="research_project_step1.html">研究計畫上傳</a>
+<a class="dropdown-item" href="work_plan_step1.html">工作計畫上傳</a>
+<a class="dropdown-item" href="journal_step1.html">期刊論文上傳</a>
+<a class="dropdown-item" href="book_step1.html">專書上傳</a>
+<a class="dropdown-item" href="chapter_step1.html">專章上傳</a>
+<a class="dropdown-item" href="conference_step1.html">研討會論文上傳</a>
+
+                            </div>
+                        </div>
+                        <div class="nav-item"><a class="nav-link" href="#">系統操作說明</a></div>
+                        <div class="nav-item"><a class="nav-link" href="#">帳號登入/登出</a></div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="pt-lg-3">
+            <div class="lg:tw-space-y-4 container-fluid py-2">
+                <div class="card card-body shadow-sm tw-border-0">
+                    <div class="min_height-550">
+                        
+    <div class="row row-cols-lg-auto g-lg-4">
+        <div class="col-lg-9 tw-flex-1">
+            <h2 class="border-bottom tw-text-base sm:tw-text-2xl tw-font-bold overflow-hidden mb-4">工作計畫 - 步驟3: 確認並送出檢核</h2>
+            <div class="listFormMenu row g-3">
+                <div class="col-lg-3"><div class="nav nav-pills row row-cols-auto row-cols-lg-1 g-2 flex-nowrap flex-lg-wrap overflow-auto sticky-sidebar">
+                    <div class="col"><a class="nav-link" href="javascript:void(0);" onclick="validateAndNavigate('work_plan_step1.html')">步驟1: 填寫詮釋資料</a></div>
+                    <div class="col"><a class="nav-link" href="javascript:void(0);" onclick="validateAndNavigate('work_plan_step2.html')">步驟2: 上傳檔案</a></div>
+                    <div class="col"><a class="nav-link active" href="javascript:void(0);">步驟3: 確認並送出檢核</a></div>
+                </div></div>
+                <div class="col-sm"><div class="tabPane bg-light p-3"><div class="col-12"><div class="alert alert-info">請確認以下資料無誤後送出。</div><table class="table table-bordered table-striped"><tbody><tr><th scope="row" class="bg-light text-end" style="width: 250px;">計畫編號</th><td>(使用者輸入內容)</td></tr><tr><th scope="row" class="bg-light text-end" style="width: 250px;">GRB 編號</th><td>(使用者輸入內容)</td></tr><tr><th scope="row" class="bg-light text-end" style="width: 250px;">計畫名稱</th><td>戶外教育課程發展與實作</td></tr><tr><th scope="row" class="bg-light text-end" style="width: 250px;">計畫名稱(英文)</th><td>(使用者輸入內容)</td></tr><tr><th scope="row" class="bg-light text-end" style="width: 250px;">計畫類型</th><td>整合型計畫</td></tr><tr><th scope="row" class="bg-light text-end" style="width: 250px;">整合型計畫名稱</th><td>戶外教育研究室系列(I)</td></tr><tr><th scope="row" class="bg-light text-end" style="width: 250px;">整合型計畫名稱(英文)</th><td>(使用者輸入內容)</td></tr><tr><th scope="row" class="bg-light text-end" style="width: 250px;">所屬計畫</th><td>子計畫二</td></tr><tr><th scope="row" class="bg-light text-end" style="width: 250px;">計畫主持人</th><td>郭○○</td></tr><tr><th scope="row" class="bg-light text-end" style="width: 250px;">計畫主持人(英文)</th><td>Wang, Hsao-Min</td></tr><tr><th scope="row" class="bg-light text-end" style="width: 250px;">共同主持人</th><td>人名</td></tr><tr><th scope="row" class="bg-light text-end" style="width: 250px;">共同主持人(英文)</th><td>(使用者輸入內容)</td></tr><tr><th scope="row" class="bg-light text-end" style="width: 250px;">協同主持人</th><td>人名</td></tr><tr><th scope="row" class="bg-light text-end" style="width: 250px;">協同主持人(英文)</th><td>(使用者輸入內容)</td></tr><tr><th scope="row" class="bg-light text-end" style="width: 250px;">研究員</th><td>人名</td></tr><tr><th scope="row" class="bg-light text-end" style="width: 250px;">研究員(英文)</th><td>(使用者輸入內容)</td></tr><tr><th scope="row" class="bg-light text-end" style="width: 250px;">研究助理</th><td>人名</td></tr><tr><th scope="row" class="bg-light text-end" style="width: 250px;">研究助理(英文)</th><td>(使用者輸入內容)</td></tr><tr><th scope="row" class="bg-light text-end" style="width: 250px;">經費來源</th><td>國家教育研究院</td></tr><tr><th scope="row" class="bg-light text-end" style="width: 250px;">執行方式</th><td>自行研究</td></tr><tr><th scope="row" class="bg-light text-end" style="width: 250px;">執行機構</th><td>國家教育研究院</td></tr><tr><th scope="row" class="bg-light text-end" style="width: 250px;">執行單位</th><td>教科書發展中心</td></tr><tr><th scope="row" class="bg-light text-end" style="width: 250px;">年度</th><td>2017</td></tr><tr><th scope="row" class="bg-light text-end" style="width: 250px;">期程(起)</th><td>2017/01/01</td></tr><tr><th scope="row" class="bg-light text-end" style="width: 250px;">期程(迄)</th><td>2017/12/31</td></tr><tr><th scope="row" class="bg-light text-end" style="width: 250px;">執行狀態</th><td>執行中</td></tr><tr><th scope="row" class="bg-light text-end" style="width: 250px;">計畫經費</th><td>新臺幣 100,000元整</td></tr><tr><th scope="row" class="bg-light text-end" style="width: 250px;">研究領域</th><td>初等教育</td></tr><tr><th scope="row" class="bg-light text-end" style="width: 250px;">研究主題</th><td>戶外教育</td></tr><tr><th scope="row" class="bg-light text-end" style="width: 250px;">關鍵詞</th><td>(使用者輸入內容)</td></tr><tr><th scope="row" class="bg-light text-end" style="width: 250px;">關鍵詞(英文)</th><td>(使用者輸入內容)</td></tr><tr><th scope="row" class="bg-light text-end" style="width: 250px;">頁數</th><td>(使用者輸入內容)</td></tr><tr><th scope="row" class="bg-light text-end" style="width: 250px;">線上公開</th><td>公開</td></tr><tr><th scope="row" class="bg-light text-end" style="width: 250px;">相關連結</th><td>(使用者輸入內容)</td></tr><tr><th scope="row" class="bg-light text-end" style="width: 250px;">政策建議 (文字)</th><td>重要結論與建議如...</td></tr><tr><th scope="row" class="bg-light text-end" style="width: 250px;">備註 (文字)</th><td>1.報告名稱變更...</td></tr><tr><th scope="row" class="bg-light text-end" style="width: 250px;">摘要</th><td>(使用者輸入內容)</td></tr><tr><th scope="row" class="bg-light text-end" style="width: 250px;">Abstract</th><td>(使用者輸入內容)</td></tr><tr><th scope="row" class="bg-light text-end" style="width: 250px;">政策建議 (檔案)</th><td>PDF 全文檔</td></tr><tr><th scope="row" class="bg-light text-end" style="width: 250px;">報告全文</th><td>PDF 全文檔</td></tr><tr><th scope="row" class="bg-light text-end" style="width: 250px;">備註 (附件)</th><td>(使用者輸入內容)</td></tr></tbody></table></div></div>
+                <div class="tabPane bg-light p-3 mt-3"><div class="row"><div class="col"><a class="btn_grey-light btn btn-light w-100" href="work_plan_step2.html">回上一步</a></div><div class="col"><a class="btn_primary btn btn-primary w-100" href="javascript:void(0);" onclick="validateAndNavigate('#')">確認送出</a></div></div></div></div>
+            </div>
+        </div>
+    </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer py-3">
+        <div class="container-fluid pt-3">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <p class="small mb-0">國家教育研究院著作權聲明 Copyright © 2024 All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="./Step3_files/bootstrap.bundle.min.js"></script>
+    
+<script>
+    $(document).ready(function(){ initDatePicker(); });
+    function initDatePicker() {
+        $(".form_date").datepicker({ language: "zh-TW", format: "yyyy/mm/dd", autoclose: true, orientation: "bottom auto" });
+    }
+    function validateAndNavigate(url) {
+        var isValid = true;
+        $('.required-field').each(function() {
+            if ($.trim($(this).val()) === '') {
+                var labelName = $(this).attr('data-label') || '必填欄位';
+                alert('請填寫 [' + labelName + ']');
+                this.scrollIntoView({behavior: "smooth", block: "center"});
+                $(this).focus();
+                isValid = false; return false;
+            }
+        });
+        if (isValid) {
+            if (url && url !== '#') window.location.href = url;
+            else if (url === '#') alert('資料檢查無誤，準備送出！');
+        }
+        return false;
+    }
+    function addField(btn) {
+        var container = $(btn).siblings('.dynamic-container');
+        var newGroup = container.find('.dynamic-field-group').first().clone();
+        newGroup.find('input, select, textarea').val('');
+        newGroup.find('*').removeAttr('id');
+        if (newGroup.find('.btn-remove-field').length === 0) newGroup.append('<span class="btn-remove-field" onclick="removeField(this)" title="刪除">X</span>');
+        container.append(newGroup);
+        initDatePicker();
+    }
+    function removeField(btn) { $(btn).closest('.dynamic-field-group').remove(); }
+</script>
+
+</body>
+</html>

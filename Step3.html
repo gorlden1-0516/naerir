@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<!-- saved from url=(0072)https://isbn.ncl.edu.tw/NEW_ISBNNet/J05_PublisherRegister.php?Pact=Page2 -->
+<html lang="zh-Hant-TW"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+	<link rel="shortcut icon" type="image/x-icon" href="https://isbn.ncl.edu.tw/NEW_ISBNNet/new_page/img/ic_fav.png">
+	<link rel="bookmark" href="https://isbn.ncl.edu.tw/NEW_ISBNNet/new_page/img/ic_fav.png">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta http-equiv="REFRESH" content="1200; URL=./logout.php">
+	<title>首頁</title>
+	<link rel="stylesheet" href="./Step3_files/bootstrap.min.css">
+	<link rel="stylesheet" href="./Step3_files/bootstrap-icons.css">
+	<link rel="stylesheet" href="./Step3_files/tailwind.min.css">
+	<link rel="stylesheet" href="./Step3_files/fontawesome.min.css">
+	<link rel="stylesheet" href="./Step3_files/main.min.css">
+	<link rel="stylesheet" href="./Step3_files/colors.min.css">
+	<link rel="stylesheet" href="./Step3_files/editor.min.css">
+	<link rel="stylesheet" href="./Step3_files/style.min.css">
+	<script src="./Step3_files/jquery.min.js.下載"></script>
+	<!-- <script src="js/jquery.min 2.js"></script> -->
+	<!-- <link rel="stylesheet" href="new_page/css/jquery-ui.min.css"> -->
+	<script src="./Step3_files/jquery-ui.min.js.下載"></script>
+	<!--XBLOCK_SPEC_JS_CSS-->
+	<!-- Google tag (gtag.js) -->
+	<script async="" src="./Step3_files/js"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'G-F3RFFTEL1M');
+		
+		//Unload Events
+		$(window).on('unload',function(e) {
+		e = e || window.event;
+
+		var timestamp = localStorage.getItem('timestamp')
+		if(timestamp !=null && timestamp !=undefined){
+			var TimeNow = new Date().getTime(), Difference  = TimeNow - timestamp ;
+
+			if(Difference<20){
+			//Browser Closed
+			console.log('Browser Closed')
+			localStorage.removeItem('timestamp');
+		
+			//Your logout function
+			//logout();
+			var newWindow = window.open('logout.php');
+			setTimeout(function() {
+					newWindow.close();
+				}, 200);
+			}else{
+			//Tab Closed
+			console.log('Browser Tab Closed');
+			localStorage.setItem('timestamp',new Date().getTime());
+			}
+
+		}else{
+			//Other Event
+			localStorage.setItem('timestamp',new Date().getTime());
+		}
+		});
+	</script>
+<script>
+	
+		$(function () {
+			$('#datepicker').datepicker({
+				dateFormat: 'yy-mm-dd',
+				showOn: 'both', 
+				buttonImage: 'images/calendar.png',
+				buttonImageOnly: true
+			});
+			$('.ui-datepicker-trigger').css('position','absolute');
+		})
+
+	function CheckInputUp ( data, IDName )
+	{
+		if(data.value){
+        	document.getElementById(IDName).checked = true;
+        }else{
+        	document.getElementById(IDName).checked = false;
+        }
+	}
+
+	function ButtonClicked ( button )
+		{
+		document.F1.FB_clicked.value = button ;
+
+		if (document.F1.FB_clicked.value=='FB_申請進度')
+			{
+			document.F1.submit();
+			}
+		}
+	function DeleteVolume ( button, rowid )
+		{
+		document.F1.FB_clicked.value = button ;
+		document.F1.FB_RID2Delete.value = rowid ;
+
+		if (confirm('你確定要刪除勾選的資料嗎？'))
+			{
+			document.F1.submit();
+			}
+		else
+			{
+			return false;
+			}
+		}
+	function TranSet (val)
+		{
+		if (val==1)
+			{
+			document.getElementById('BlockTranSet').style.display = 'block';
+			}
+		if (val==0)
+			{
+			document.getElementById('BlockTranSet').style.display = 'none';
+			}
+		}
+	function ConfirmActions ()
+		{
+
+		if($.trim($('#F0_ZhFullname').val()) == '') {
+			$('#F0_ZhFullname').focus();
+			alert('欄位[出版者中文全稱]必填');
+			return false;
+		}
+
+		if($.trim($('#FO_MailCode3').val()) == '') {
+			$('#FO_MailCode3').focus();
+			alert('欄位[郵遞區號]必填');
+			return false;
+		}
+
+		if($.trim($('#FO_Addr').val()) == '') {
+			$('#FO_Addr').focus();
+			alert('欄位[出版者地址]必填');
+			return false;
+		}
+
+		if($.trim($('#FO_Applicant_PhoneNo').val()) == '') {
+			$('#FO_Applicant_PhoneNo').focus();
+			alert('欄位[出版者電話]必填');
+			return false;
+		}
+		if($.trim($('#FO_Applicant_EMail').val()) == '') {
+			$('#FO_Applicant_EMail').focus();
+			alert('欄位[出版者電子信箱]必填');
+			return false;
+		}
+		if($.trim($('#FO_Applicant_EMail').val())) {
+			var str = $.trim($('#FO_Applicant_EMail').val());
+			var mRE = new RegExp ("^[^@]*@[a-z|0-9|\.]+", 'gi');
+			var flg = mRE.test(str);
+			if (!flg)
+				{
+				$('#FO_Applicant_EMail').focus();
+				alert ('您輸入的電子信箱格式不正確!'); return false;
+				}
+		}
+
+		var IDAppTypes = $("input[name='F0_IDAppTypes[]']:checked")
+
+		if(IDAppTypes.length <= 0) {
+			alert('欄位[證件編號]必填');
+			return false;
+		}
+
+		if(IDAppTypes.length > 0){
+
+			if($('#F0_IDAppTypes_1').prop('checked') && $('#Unified_Number').val()==''){
+				$('#Unified_Number').focus();
+				alert('請填寫統一編號');
+				return false;
+			}
+
+			if($('#F0_IDAppTypes_2').prop('checked') && ($('#CaseNumber').val()=='' || $('#Approved_Case').val()=='') ){
+				$('#CaseNumber').focus();
+				$('#Approved_Case').focus();
+				alert('請填寫立案字號跟發證或立案機關');
+				return false;
+			}
+
+			if($('#F0_IDAppTypes_3').prop('checked') && $('#ID_Number').val()==''){
+				$('#ID_Number').focus();
+				alert('請填寫身分證號');
+				return false;
+			}
+
+			if($('#F0_IDAppTypes_4').prop('checked') && $('#Residency_Number').val()==''){
+				$('#Residency_Number').focus();
+				alert('請填寫居留證號');
+				return false;
+			}
+
+			if($('#F0_IDAppTypes_5').prop('checked') && ($('#OtherNumber').val()=='' || $('#OtherName').val()=='')){
+				$('#OtherNumber').focus();
+				$('#OtherName').focus();
+				alert('請填寫其他證號或證號名稱');
+				return false;
+			}
+
+			if($.trim($('#ContactPerson').val()) == '') {
+				$('#ContactPerson').focus();
+				alert('欄位[聯絡人姓名]必填');
+				return false;
+			}
+			if($.trim($('#ContactDepartment').val()) == '') {
+				$('#ContactDepartment').focus();
+				alert('欄位[聯絡人部門]必填');
+				return false;
+			}
+			if($.trim($('#ContactPhoneNo').val()) == '') {
+				$('#ContactPhoneNo').focus();
+				alert('欄位[聯絡人電話]必填');
+				return false;
+			}
+			if($.trim($('#ContactEMail').val()) == '') {
+				$('#ContactEMail').focus();
+				alert('欄位[聯絡人電子信箱]必填');
+				return false;
+			}
+			if($.trim($('#ContactEMail').val())) {
+				var str = $.trim($('#ContactEMail').val());
+				var mRE = new RegExp ("^[^@]*@[a-z|0-9|\.]+", 'gi');
+				var flg = mRE.test(str);
+				if (!flg)
+					{
+					$('#ContactEMail').focus();
+					alert ('您輸入的電子信箱格式不正確!'); return false;
+					}
+			}
+
+			if($("input[name='F0_AppTypes[]']:checked").length <= 0) {
+				alert('欄位[主要出版範圍]必填');
+				return false;
+			}
+
+			var OpenPersonelradios = $('input[name="FO_OpenPersonel"]').filter(':checked');
+			console.log(OpenPersonelradios)
+			if(OpenPersonelradios.length < 1 ){
+				alert('欄位[是否願意公開出版機構資料]必填');
+				return false;
+			}
+
+			var ApplyBehalfradios = $('input[name="FO_Apply_Behalf"]').filter(':checked');
+			if(ApplyBehalfradios.length < 1 ){
+				alert('欄位[是否為代申請件]必填');
+				return false;
+			}
+
+			if(ApplyBehalfradios.val() == 1 && $('#Fpower1_0_uploadresult').find('div').length == 0){
+				alert('未上傳委託書');
+				return false;
+			}
+
+			document.getElementById('F1').submit();
+
+			return true;
+		}
+	}
+
+	function ApplyBehalf(e){
+		if(e==2){
+			document.getElementById('Apply_Behalf').classList.remove('d-none');
+		}else{
+			document.getElementById('Apply_Behalf').classList.add('d-none');
+		}
+	}
+
+	$(document).ready(function ()
+		{
+
+		})
+	var countdownnumber=7071;
+	var countdownid;
+	function countdownfunc(){
+		var minute = Math.floor(countdownnumber / 60);
+		var second = countdownnumber % 60;
+		$('#showcountdown').html('剩下填寫並送出時間：'+ minute + ' 分 ' + second + ' 秒<br><br>在您填寫本次申請資料時，請勿同時使用系統其他功能，<br>或另開視窗建置另一筆資料，也請勿使用瀏覽器回上一頁的功能，感謝您的配合。');
+		if (countdownnumber<=0){ 
+			alert('因網頁停滯時間過久，資料必須重新填寫！！');
+			window.location.href = 'clean_session.php';
+		}else{
+			countdownnumber--;
+			if(countdownid){
+				clearTimeout(countdownid);
+			}
+			countdownid=setTimeout(countdownfunc,1000);
+		}
+	}
+</script></head>
+
+
+<body id="top" class="page focus tw-min-h-screen">
+	<div class="tw-text-center tw-leading-10 tw-text-white tw-bg-pink-900">
+		<noscript><meta http-equiv='refresh' content='0;url=./theme/theme01_tmpl/enable_javascript.html'></noscript>
+		<!-- <noscript class="tw-py-1">您的瀏覽器不支援JavaScript功能，若網頁功能無法正常使用時，請開啟瀏覽器JavaScript狀態！</noscript> -->
+	</div>
+	<!-- header -->
+	<a href="https://isbn.ncl.edu.tw/NEW_ISBNNet/J05_PublisherRegister.php?Pact=Page2#AC" class="visually-hidden-focusable">跳到主要內容</a>
+	<!-- 【頁首】含主導覽列 -->
+	<a accesskey="U" href="https://isbn.ncl.edu.tw/NEW_ISBNNet/J05_PublisherRegister.php?Pact=Page2#U" id="AU" name="U" title="上方導覽列區塊" class="visually-hidden-focusable">:::</a>
+	<header class="header-main">
+		<nav class="navbar navbar-expand-lg navbar-light navbar-main py-lg-0" aria-label="主導覽列 Main navigation">
+			<div class="container-fluid flex-wrap">
+				<a class="navbar-brand" href="https://isbn.ncl.edu.tw/NEW_ISBNNet/index.php">
+					<img src="./Step3_files/logo-mobile.svg" alt="LOGO圖，點擊回首頁" class="d-inline d-lg-none mx-0">
+					<img src="./Step3_files/logo.svg" alt="LOGO圖，點擊回首頁" class="d-none d-lg-flex flex-fill">
+					<h1 class="visually-hidden-focusable">國際標準書號整合服務</h1>
+				</a>
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="展開導覽列">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse flex-lg-wrap col-lg-12" id="navbarSupportedContent">
+					<!-- primaryNav主導覽列 -->
+					<div class="navbar-nav navbar-light navbar-dropdown navbar-primaryNav">
+						<div class="nav-item _cta">
+							<a class="nav-link" href="https://isbn.ncl.edu.tw/NEW_ISBNNet/J60_PublisherLogin.php?&amp;Pact=Login">
+								帳號登入/登出
+							</a>
+						</div>
+						<div class="nav-item">
+							<a class="nav-link" href="https://isbn.ncl.edu.tw/NEW_ISBNNet/J62_MyApplication.php?&amp;Pfuncid=83&amp;Pact=init">
+								研究人員履歷資料維護
+							</a>
+						</div>
+						<div class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" role="button" href="https://isbn.ncl.edu.tw/NEW_ISBNNet/J05_PublisherRegister.php?Pact=Page2#" id="mainNavLg-1" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								學術資料建檔
+							</a>
+							<div class="dropdown-menu" aria-labelledby="mainNavLg-1">
+								<a class="dropdown-item" href="https://isbn.ncl.edu.tw/NEW_ISBNNet/isbn_desc.php">研究計畫上傳</a>
+								<a class="dropdown-item" href="https://isbn.ncl.edu.tw/NEW_ISBNNet/cip_desc.php">工作計畫上傳</a>
+								<a class="dropdown-item" href="https://isbn.ncl.edu.tw/NEW_ISBNNet/cip_desc.php">期刊論文上傳</a>
+								<a class="dropdown-item" href="https://isbn.ncl.edu.tw/NEW_ISBNNet/cip_desc.php">專書上傳</a>
+								<a class="dropdown-item" href="https://isbn.ncl.edu.tw/NEW_ISBNNet/cip_desc.php">專章上傳</a>
+								<a class="dropdown-item" href="https://isbn.ncl.edu.tw/NEW_ISBNNet/cip_desc.php">研討會論文上傳</a>
+							</div>
+						</div>
+						
+						<div class="nav-item">
+							<a class="nav-link" href="https://isbn.ncl.edu.tw/NEW_ISBNNet/J65_MyConfirming.php?&amp;Pact=DisplayAll">
+								系統操作說明
+							</a>
+						</div>
+					</div>
+					<!-- /primaryNav主導覽列 -->
+
+				</div>
+			</div>
+		</nav>
+	</header>
+
+
+	<!-- /【頁首】含主導覽列 -->
+	<main>
+		<!-- page main content -->
+		<section class="pt-lg-3">
+			<!-- container -->
+			<div class="lg:tw-space-y-4 container-fluid py-2">
+				<!-- Breadcrumb & User -->
+				<div class="row row-cols-sm-auto align-items-center d-none d-lg-flex tw-relative">
+					<div class="tw-flex-1">
+						<!-- uk-breadcrumb -->
+						<nav aria-label="breadcrumb">
+							<!--##breadcrumb##-->
+							<ol class="breadcrumb m-0">
+								<!--##breadcrumb_list##-->
+							</ol>
+						</nav>
+						<!-- uk-breadcrumb -->
+					</div>
+				</div>
+				<!-- /Breadcrumb & User -->
+				<!-- accesskey -->
+				<div class="tw-relative">
+					<a class="text-decoration-none tw-px-1 tw-absolute d-none d-xl-block visually-hidden-focusable" href="https://isbn.ncl.edu.tw/NEW_ISBNNet/J05_PublisherRegister.php?Pact=Page2#C" id="AC" name="C" title="中央內容區塊" accesskey="C" style="left:-30px;top: -5px;">:::</a>
+				</div>
+				<!-- /accesskey -->
+				<!-- card -->
+				<div class="card card-body shadow-sm tw-border-0">
+					<!-- card body -->
+					<div class="min_height-550">
+						<!-- row -->
+							<div class="row row-cols-lg-auto g-lg-4">
+		<div class="col-lg-9 tw-flex-1">
+			<h2 class="border-bottom tw-text-base sm:tw-text-2xl tw-font-bold overflow-hidden mb-4">
+				<div class="row row-cols-auto g-4">
+					<div class="tw-flex-1">填寫基本資料</div>
+				</div>
+			</h2>
+			<div id="content" class="py-2 py-md-3 tw-space-y-4 lg:tw-space-y-6">
+				<form class="tw-space-y-4" id="F1" name="F1" method="post" action="https://isbn.ncl.edu.tw/NEW_ISBNNet/J05_PublisherRegister.php?Pact=Page2">
+					<div class="listFormMenu row g-3">
+						<div class="col-lg-3" role="tablist" aria-orientation="vertical">
+							<div class="nav nav-pills row row-cols-auto row-cols-lg-1 g-2 flex-nowrap flex-lg-wrap overflow-auto">
+								<div class="col"><a class="nav-link active" href="https://isbn.ncl.edu.tw/NEW_ISBNNet/J05_PublisherRegister.php?Pact=Page0">步驟1:填寫研究計畫詮釋資料</a></div>
+								<div class="col"><a class="nav-link" href="https://isbn.ncl.edu.tw/NEW_ISBNNet/J05_PublisherRegister.php?Pact=Page1">步驟2:上傳檔案</a></div>
+								<div class="col"><a class="nav-link" href="https://isbn.ncl.edu.tw/NEW_ISBNNet/J05_PublisherRegister.php?Pact=Page2" disabled="">步驟3:確認並送出檢核</a></div>
+							</div>
+						</div>
+						<div class="tab-content col-sm">
+							<p class="text-danger" id="showcountdown">剩下填寫並送出時間：117 分 34 秒<br><br>在您填寫本次申請資料時，請勿同時使用系統其他功能，<br>或另開視窗建置另一筆資料，也請勿使用瀏覽器回上一頁的功能，感謝您的配合。</p>
+							
+							<div class="tabPane bg-light p-3">
+								<div class="col-12">
+									<div class="row row-cols-1 row-cols-sm-2 g-2">
+										<div class="col"><a class="btn_grey-light btn btn-light w-100" href="https://isbn.ncl.edu.tw/NEW_ISBNNet/J05_PublisherRegister.php?&amp;Pact=Page1&amp;Pmsg=">回上一個步驟</a></div>
+										<div class="col"><a class="btn_primary btn btn-primary w-100" href="javascript:void(0);" onclick="ButtonClicked(&#39;FB_填第三頁&#39;);ConfirmActions();" "="">確定送出並進行下一個步驟</a></div>
+									</div>
+								</div>
+								<input type="hidden" name="FB_clicked" value="">
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<script src="./Step3_files/jquery.upload.js.下載">
+						<!-- /row -->
+					</div>
+					<!-- /card body -->
+				</div>
+				<!-- /card -->
+			</div>
+			<!-- /container -->
+		</section>
+		<!-- /page main content -->
+	</main>
+	<!-- /【內容】主要內容區塊 -->
+	<!-- 【頁尾】 -->
+	<footer class="footer py-3">
+		<a accesskey="Z" href="#Z" id="AZ" name="Z" title="下方功能區塊" class="visually-hidden-focusable">:::</a>
+		<!-- footerNav -->
+		<div class="d-flex justify-content-center align-items-center border-bottom nav navbar-footerNav">
+			<div class="nav-item">
+				<a class="nav-link" href="A40_Suggest.php?Pfuncid=320&Pact=ViewContent">
+					聯絡信箱
+				</a>
+			</div>
+			<div class="vr my-3"></div>
+			<div class="nav-item">
+				<a class="nav-link" target="_blank" href="https://www.ncl.edu.tw/content_281.html">
+					本館地圖及交通資訊
+				</a>
+			</div>
+		</div>
+		<!-- /footerNav -->
+		<div class="container-fluid pt-3">
+			<div class="row">
+				<div class="col-12 col-lg-auto d-flex align-items-center gap-3">
+					<a href="https://www.ncl.edu.tw/" target="_blank" title="國家圖書館首頁">
+						<img class="footer-logo" width="70" height="auto" src="new_page/img/logo-NCL.png" alt="國家圖書館LOGO">
+					</a>
+					<a href="/NEW_ISBNNet/" title="ISBN首頁">
+						<img class="footer-logo" width="70" height="auto" src="new_page/img/logo-ISBN.svg" alt="ISBN LOGO">
+					</a>
+					<a role="button" onclick="topFunction()" title="回到最上方" class="btn btn-lg btn-gotop"><i
+							class="bi bi-arrow-up-circle-fill"></i></a>
+				</div>
+				<div class="col">
+					<div class="row ">
+						<div class="col-12 col-md">
+							<p class="small mb-0">本館地址：100201臺北市中山南路20號<br>總機：(02)23619132</p>
+						</div>
+						<div class="col-12 col-md">
+							<p class="small mb-0">歡迎您，您是第 65245001 位拜訪者<br>最佳瀏覽狀態：螢幕解析度1440x960</p>
+						</div>
+						<div class="col-12 col-md col-xxl-5">
+							<p class="small mb-0">國家圖書館著作權聲明 Copyright © 2024 All rights reserved.<br>網頁更新日期：113-02-05</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<!-- /【頁尾】 -->
+	<div id="tooltip" class=""></div>
+
+	<!--BLOCK_SPEC_JS_CSS-->
+	<!--  Popper and Bootstrap JS -->
+	<script src="new_page/js/bootstrap.bundle.min.js"></script>
+	<script src="./Step3_files/script.min.js.下載"></script>
+	<!--  functions JS -->
+
+
+
+</div></div></div></section></main></body></html>

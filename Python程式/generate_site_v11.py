@@ -1,0 +1,553 @@
+import os
+import zipfile
+import shutil
+import hashlib
+
+# 定義輸出目錄
+OUTPUT_DIR = "NAER_Academic_Data_Entry_v11"
+if os.path.exists(OUTPUT_DIR):
+    shutil.rmtree(OUTPUT_DIR)
+os.makedirs(OUTPUT_DIR)
+
+# ---------------------------------------------------------
+# 1. 定義 HTML 模板 (通用)
+# ---------------------------------------------------------
+
+BASE_TEMPLATE = """<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>{page_title} - 國家教育研究院學術典藏系統</title>
+    <link rel="stylesheet" href="./Step3_files/bootstrap.min.css">
+    <link rel="stylesheet" href="./Step3_files/tailwind.min.css">
+    <link rel="stylesheet" href="./Step3_files/main.min.css">
+    <link rel="stylesheet" href="./Step3_files/style.min.css">
+    <script src="./Step3_files/jquery.min.js.下載"></script>
+    <script src="./Step3_files/jquery-ui.min.js.下載"></script>
+    <script src="./Step3_files/bootstrap.bundle.min.js"></script>
+    <style>
+        /* 通用樣式 */
+        .min_width-150 {{ min-width: 150px; text-align: right; margin-right: 10px; font-weight: 500; }}
+        .form-section-title {{
+            border-left: 5px solid #0d6efd;
+            padding-left: 10px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+            background-color: #f8f9fa;
+            padding: 8px 10px;
+        }}
+        
+        /* 規則表格樣式 */
+        .table-vcenter td, .table-vcenter th {{ vertical-align: middle; }}
+        .weight-input {{ width: 80px; text-align: center; }}
+        
+        /* 變數標籤樣式 */
+        .variable-tag {{
+            cursor: pointer;
+            margin-right: 5px;
+            margin-bottom: 5px;
+            font-size: 0.85rem;
+        }}
+        .variable-tag:hover {{
+            background-color: #e9ecef;
+            border-color: #adb5bd;
+        }}
+
+        /* 左側固定選單 (Sticky Sidebar) */
+        .sticky-sidebar {{ position: -webkit-sticky; position: sticky; top: 100px; z-index: 100; }}
+        .listFormMenu {{ align-items: flex-start; }}
+    </style>
+</head>
+<body id="top" class="page focus tw-min-h-screen">
+    <header class="header-main">
+        <nav class="navbar navbar-expand-lg navbar-light navbar-main py-lg-0">
+            <div class="container-fluid flex-wrap">
+                <a class="navbar-brand" href="#">
+                    <img src="./Step3_files/logo.svg" alt="LOGO" class="d-none d-lg-flex flex-fill">
+                    <span class="d-lg-none">國家教育研究院</span>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse flex-lg-wrap col-lg-12" id="navbarSupportedContent">
+                    <div class="navbar-nav navbar-light navbar-dropdown navbar-primaryNav">
+                        <div class="nav-item"><a class="nav-link" href="#">研究人員功能</a></div>
+                        <div class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle active" href="#" data-bs-toggle="dropdown">系統管理</a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item active" href="admin_evaluation_settings.html">評鑑規則與預警設定</a>
+                                <a class="dropdown-item" href="#">帳號權限管理</a>
+                            </div>
+                        </div>
+                        <div class="nav-item"><a class="nav-link" href="#">帳號登入/登出</a></div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="pt-lg-3">
+            <div class="lg:tw-space-y-4 container-fluid py-2">
+                <div class="card card-body shadow-sm tw-border-0">
+                    <div class="min_height-550">
+                        {main_content}
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer py-3">
+        <div class="container-fluid pt-3">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <p class="small mb-0">國家教育研究院著作權聲明 Copyright © 2024 All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    {extra_scripts}
+</body>
+</html>
+"""
+
+# ---------------------------------------------------------
+# 2. 管理端頁面內容
+# ---------------------------------------------------------
+
+admin_content = """
+<div class="row row-cols-lg-auto g-lg-4">
+    <div class="col-lg-9 tw-flex-1">
+        <h2 class="border-bottom tw-text-base sm:tw-text-2xl tw-font-bold overflow-hidden mb-4">
+            <span class="text-primary">⚙</span> 評鑑規則與預警設定
+        </h2>
+        
+        <ul class="nav nav-tabs mb-4" id="adminTabs" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="rules-tab" data-bs-toggle="tab" data-bs-target="#rules" type="button" role="tab">1. 評鑑規則設定</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="notify-tab" data-bs-toggle="tab" data-bs-target="#notify" type="button" role="tab">2. 預警通知設定</button>
+            </li>
+        </ul>
+
+        <div class="tab-content" id="adminTabsContent">
+            
+            <div class="tab-pane fade show active" id="rules" role="tabpanel">
+                <form id="rulesForm">
+                    <div class="form-section-title">一、基本門檻條件設定</div>
+                    <div class="row g-3 mb-4 ps-3">
+                        <div class="col-md-4">
+                            <label class="form-label fw-bold">A. 評鑑週期 (年)</label>
+                            <input type="number" class="form-control" value="3" min="1">
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label fw-bold">B. 總件數門檻 (≥)</label>
+                            <input type="number" class="form-control" value="6" min="0" step="0.5">
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label fw-bold">C. 主持人件數門檻 (≥)</label>
+                            <input type="number" class="form-control" value="3" min="0" step="0.5">
+                            <div class="form-text text-muted">僅計入「主持人」之研究計畫成果報告</div>
+                        </div>
+                    </div>
+
+                    <div class="form-section-title">二、成果類型權重規則設定</div>
+                    
+                    <div class="table-responsive mb-4">
+                        <table class="table table-bordered table-striped table-hover table-vcenter" id="rulesTable">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th width="8%" class="text-center">編號</th>
+                                    <th width="15%">類別條件</th>
+                                    <th width="15%">計畫類型</th>
+                                    <th width="15%">執行方式</th>
+                                    <th width="15%">角色條件</th>
+                                    <th width="10%">計入件數</th>
+                                    <th>備註說明</th>
+                                    <th width="8%" class="text-center">操作</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="text-center fw-bold rule-id">規則 1</td>
+                                    <td>
+                                        <select class="form-select form-select-sm">
+                                            <option value="研究計畫" selected>研究計畫</option>
+                                            <option value="工作計畫">工作計畫</option>
+                                            <option value="期刊論文">期刊論文</option>
+                                            <option value="專書">專書</option>
+                                            <option value="專章">專章</option>
+                                            <option value="研討會論文">研討會論文</option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <select class="form-select form-select-sm">
+                                            <option value="all">不限</option>
+                                            <option value="整合型計畫">整合型計畫</option>
+                                            <option value="個別型計畫">個別型計畫</option>
+                                            <option value="其它">其它</option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <select class="form-select form-select-sm">
+                                            <option value="all">不限</option>
+                                            <option value="自行研究">自行研究</option>
+                                            <option value="合作研究">合作研究</option>
+                                            <option value="共同研究">共同研究</option>
+                                            <option value="委託研究">委託研究</option>
+                                            <option value="補助">補助</option>
+                                            <option value="委辦">委辦</option>
+                                            <option value="學術補助">學術補助</option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <select class="form-select form-select-sm">
+                                            <option value="主持人" selected>主持人</option>
+                                            <option value="共同主持">共同主持</option>
+                                            <option value="協同主持">協同主持</option>
+                                            <option value="all">不限</option>
+                                        </select>
+                                    </td>
+                                    <td><input type="number" class="form-control form-control-sm weight-input" value="1" step="0.1"></td>
+                                    <td><input type="text" class="form-control form-control-sm" value="依內規第X條"></td>
+                                    <td class="text-center"><button type="button" class="btn btn-sm btn-outline-danger" onclick="deleteRow(this)">刪除</button></td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center fw-bold rule-id">規則 2</td>
+                                    <td>
+                                        <select class="form-select form-select-sm">
+                                            <option value="期刊論文" selected>期刊論文</option>
+                                            <option value="研究計畫">研究計畫</option>
+                                        </select>
+                                    </td>
+                                    <td><select class="form-select form-select-sm" disabled><option>N/A</option></select></td>
+                                    <td><select class="form-select form-select-sm" disabled><option>N/A</option></select></td>
+                                    <td>
+                                        <select class="form-select form-select-sm">
+                                            <option value="第一作者" selected>第一作者</option>
+                                            <option value="通訊作者">通訊作者</option>
+                                            <option value="all">不限</option>
+                                        </select>
+                                    </td>
+                                    <td><input type="number" class="form-control form-control-sm weight-input" value="2" step="0.1"></td>
+                                    <td><input type="text" class="form-control form-control-sm" value="TSSCI 期刊"></td>
+                                    <td class="text-center"><button type="button" class="btn btn-sm btn-outline-danger" onclick="deleteRow(this)">刪除</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <button type="button" class="btn btn-outline-success btn-sm" onclick="addRuleRow()">
+                            + 新增一條規則
+                        </button>
+                    </div>
+
+                    <div class="form-section-title">三、合併計分上限設定</div>
+                    <div class="row ps-3 mb-4">
+                        <div class="col-12">
+                            <div class="alert alert-warning py-2 small">
+                                <b>說明：</b> 請於下方選擇要合併計算的規則（可多選），並設定這些規則加總後的件數上限。
+                            </div>
+                            <table class="table table-sm table-bordered" id="capTable">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th>指定合併規則 (請選擇規則編號)</th>
+                                        <th width="15%">上限件數 (Max)</th>
+                                        <th width="8%" class="text-center">操作</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <select class="form-select form-select-sm cap-rule-select" multiple size="3">
+                                                <option value="1">規則 1</option>
+                                                <option value="2">規則 2</option>
+                                            </select>
+                                            <div class="form-text mt-0">按住 Ctrl 可複選</div>
+                                        </td>
+                                        <td class="align-middle"><input type="number" class="form-control form-control-sm" value="2"></td>
+                                        <td class="text-center align-middle"><button type="button" class="btn btn-sm btn-outline-danger" onclick="deleteRow(this)">刪除</button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <button type="button" class="btn btn-outline-secondary btn-sm" onclick="addCapRow()">
+                                + 新增上限規則
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="text-center mt-4">
+                        <button type="button" class="btn btn-primary px-5" onclick="saveSettings()">儲存評鑑規則</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="tab-pane fade" id="notify" role="tabpanel">
+                <form id="notifyForm">
+                    
+                    <div class="form-section-title">一、預警通知收件對象</div>
+                    <div class="mb-4 ps-3">
+                        <div class="d-flex gap-4">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="rcpt_researcher" checked>
+                                <label class="form-check-label" for="rcpt_researcher">研究人員本人</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="rcpt_supervisor">
+                                <label class="form-check-label" for="rcpt_supervisor">單位主管</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="rcpt_admin">
+                                <label class="form-check-label" for="rcpt_admin">國教院管理者</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-section-title">二、信件模板設定</div>
+                    
+                    <div class="row mb-3 ps-3">
+                        <label class="col-sm-2 col-form-label fw-bold">寄件者名稱</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" value="國家教育研究院 學術典藏系統">
+                        </div>
+                    </div>
+
+                    <ul class="nav nav-tabs mb-3 ps-3" id="langTabs" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="zh-tab" data-bs-toggle="tab" data-bs-target="#zh-content" type="button">中文模板</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="en-tab" data-bs-toggle="tab" data-bs-target="#en-content" type="button">English Template</button>
+                        </li>
+                    </ul>
+
+                    <div class="tab-content ps-3" id="langTabsContent">
+                        <div class="tab-pane fade show active" id="zh-content">
+                            <div class="mb-3">
+                                <label class="form-label fw-bold">信件主旨</label>
+                                <input type="text" class="form-control" value="【提醒】學術研究資料建置進度通知">
+                            </div>
+                            <div class="mb-2">
+                                <label class="form-label fw-bold">信件內文 (支援 HTML)</label>
+                                <div class="mb-2">
+                                    <span class="text-muted small me-2">插入變數:</span>
+                                    <span class="badge bg-light text-dark border variable-tag" onclick="insertVar('{name}')">{name} 姓名</span>
+                                    <span class="badge bg-light text-dark border variable-tag" onclick="insertVar('{total}')">{total} 目前總件數</span>
+                                    <span class="badge bg-light text-dark border variable-tag" onclick="insertVar('{pi}')">{pi} 目前主持件數</span>
+                                    <span class="badge bg-light text-dark border variable-tag" onclick="insertVar('{need_total}')">{need_total} 門檻總件數</span>
+                                    <span class="badge bg-light text-dark border variable-tag" onclick="insertVar('{gap_total}')">{gap_total} 尚缺總件數</span>
+                                    <span class="badge bg-light text-dark border variable-tag" onclick="insertVar('{deadline}')">{deadline} 截止日期</span>
+                                </div>
+                                <textarea class="form-control" id="body_zh" rows="10">
+<p>親愛的 {name} 您好：</p>
+<p>系統檢核您於本評鑑週期的學術產出建置進度，目前狀況如下：</p>
+<ul>
+    <li>目前累積總件數：<strong>{total}</strong> (目標：{need_total})</li>
+    <li>目前主持計畫數：<strong>{pi}</strong> (目標：{need_pi})</li>
+</ul>
+<p>尚缺 <strong>{gap_total}</strong> 件資料未達標，請您於 <strong>{deadline}</strong> 前儘速至系統完成建檔。</p>
+<p>國家教育研究院 學術典藏系統 敬上</p>
+                                </textarea>
+                            </div>
+                        </div>
+
+                        <div class="tab-pane fade" id="en-content">
+                            <div class="mb-3">
+                                <label class="form-label fw-bold">Subject</label>
+                                <input type="text" class="form-control" value="[Reminder] Academic Repository Data Entry Progress">
+                            </div>
+                            <div class="mb-2">
+                                <label class="form-label fw-bold">Body (HTML supported)</label>
+                                <div class="mb-2">
+                                    <span class="text-muted small me-2">Insert Variable:</span>
+                                    <span class="badge bg-light text-dark border variable-tag" onclick="insertVar('{name}', 'en')">{name}</span>
+                                    <span class="badge bg-light text-dark border variable-tag" onclick="insertVar('{total}', 'en')">{total}</span>
+                                    <span class="badge bg-light text-dark border variable-tag" onclick="insertVar('{gap_total}', 'en')">{gap_total}</span>
+                                    <span class="badge bg-light text-dark border variable-tag" onclick="insertVar('{deadline}', 'en')">{deadline}</span>
+                                </div>
+                                <textarea class="form-control" id="body_en" rows="10">
+<p>Dear {name},</p>
+<p>This is a reminder regarding your academic data entry progress for the current evaluation period:</p>
+<ul>
+    <li>Current Total Count: <strong>{total}</strong> (Target: {need_total})</li>
+    <li>Gap: <strong>{gap_total}</strong></li>
+</ul>
+<p>Please complete the data entry by <strong>{deadline}</strong>.</p>
+<p>Best regards,<br>NAER Academic Repository System</p>
+                                </textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="text-center mt-4">
+                        <button type="button" class="btn btn-primary px-5" onclick="saveSettings()">儲存通知設定</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+"""
+
+admin_script = """
+<script>
+    // 刪除列功能
+    function deleteRow(btn) {
+        if(confirm('確定要刪除此列嗎？')) {
+            $(btn).closest('tr').remove();
+            reindexRules();
+        }
+    }
+
+    // 重新編號規則並更新下方的選項
+    function reindexRules() {
+        var count = 0;
+        $('#rulesTable tbody tr').each(function(index) {
+            count = index + 1;
+            $(this).find('.rule-id').text('規則 ' + count);
+        });
+        updateCapOptions(count);
+    }
+
+    // 更新合併規則的下拉選單選項
+    function updateCapOptions(totalRules) {
+        var optionsHtml = '';
+        for(var i=1; i<=totalRules; i++) {
+            optionsHtml += '<option value="' + i + '">規則 ' + i + '</option>';
+        }
+        
+        // 更新所有既有的 select
+        $('.cap-rule-select').each(function() {
+            var selectedVals = $(this).val(); // 保存目前選取的值
+            $(this).html(optionsHtml);
+            $(this).val(selectedVals); // 嘗試還原選取 (若該規則還在)
+        });
+    }
+
+    // 新增規則列
+    function addRuleRow() {
+        var currentCount = $('#rulesTable tbody tr').length;
+        var newCount = currentCount + 1;
+        
+        var rowHtml = `
+        <tr>
+            <td class="text-center fw-bold rule-id">規則 ` + newCount + `</td>
+            <td>
+                <select class="form-select form-select-sm">
+                    <option value="">請選擇</option>
+                    <option value="研究計畫">研究計畫</option>
+                    <option value="工作計畫">工作計畫</option>
+                    <option value="期刊論文">期刊論文</option>
+                    <option value="專書">專書</option>
+                    <option value="專章">專章</option>
+                    <option value="研討會論文">研討會論文</option>
+                </select>
+            </td>
+            <td>
+                <select class="form-select form-select-sm">
+                    <option value="all">不限</option>
+                    <option value="整合型計畫">整合型計畫</option>
+                    <option value="個別型計畫">個別型計畫</option>
+                    <option value="其它">其它</option>
+                </select>
+            </td>
+            <td>
+                <select class="form-select form-select-sm">
+                    <option value="all">不限</option>
+                    <option value="自行研究">自行研究</option>
+                    <option value="合作研究">合作研究</option>
+                    <option value="共同研究">共同研究</option>
+                    <option value="委託研究">委託研究</option>
+                    <option value="補助">補助</option>
+                    <option value="委辦">委辦</option>
+                    <option value="學術補助">學術補助</option>
+                </select>
+            </td>
+            <td>
+                <select class="form-select form-select-sm">
+                    <option value="all">不限</option>
+                    <option value="主持人">主持人</option>
+                    <option value="共同主持">共同主持</option>
+                    <option value="協同主持">協同主持</option>
+                    <option value="第一作者">第一作者</option>
+                    <option value="通訊作者">通訊作者</option>
+                </select>
+            </td>
+            <td><input type="number" class="form-control form-control-sm weight-input" value="1" step="0.1"></td>
+            <td><input type="text" class="form-control form-control-sm" placeholder="說明"></td>
+            <td class="text-center"><button type="button" class="btn btn-sm btn-outline-danger" onclick="deleteRow(this)">刪除</button></td>
+        </tr>`;
+        $('#rulesTable tbody').append(rowHtml);
+        
+        // 更新下方選單
+        updateCapOptions(newCount);
+    }
+
+    // 新增上限列
+    function addCapRow() {
+        // 先取得目前的規則總數來產生正確的選項
+        var ruleCount = $('#rulesTable tbody tr').length;
+        var optionsHtml = '';
+        for(var i=1; i<=ruleCount; i++) {
+            optionsHtml += '<option value="' + i + '">規則 ' + i + '</option>';
+        }
+
+        var rowHtml = `
+        <tr>
+            <td>
+                <select class="form-select form-select-sm cap-rule-select" multiple size="3">
+                    ` + optionsHtml + `
+                </select>
+                <div class="form-text mt-0">按住 Ctrl 可複選</div>
+            </td>
+            <td class="align-middle"><input type="number" class="form-control form-control-sm" value="1"></td>
+            <td class="text-center align-middle"><button type="button" class="btn btn-sm btn-outline-danger" onclick="deleteRow(this)">刪除</button></td>
+        </tr>`;
+        $('#capTable tbody').append(rowHtml);
+    }
+
+    // 插入變數功能
+    function insertVar(variable, lang) {
+        var targetId = (lang === 'en') ? '#body_en' : '#body_zh';
+        var $txt = $(targetId);
+        var caretPos = $txt[0].selectionStart;
+        var textAreaTxt = $txt.val();
+        $txt.val(textAreaTxt.substring(0, caretPos) + variable + textAreaTxt.substring(caretPos) );
+        $txt.focus();
+    }
+
+    // 儲存模擬
+    function saveSettings() {
+        alert('設定已儲存！');
+    }
+    
+    // 初始化
+    $(document).ready(function() {
+        // 確保初始有兩條規則，所以更新下方的選單為規則 1~2
+        updateCapOptions(2);
+    });
+</script>
+"""
+
+with open(os.path.join(OUTPUT_DIR, "admin_evaluation_settings.html"), "w", encoding="utf-8") as f:
+    f.write(BASE_TEMPLATE.format(
+        page_title="評鑑規則與預警設定", 
+        main_content=admin_content, 
+        extra_scripts=admin_script
+    ))
+
+# ---------------------------------------------------------
+# 3. 打包
+# ---------------------------------------------------------
+zip_filename = "NAER_Academic_Data_Entry_v11.zip"
+with zipfile.ZipFile(zip_filename, 'w', zipfile.ZIP_DEFLATED) as zipf:
+    for root, dirs, files in os.walk(OUTPUT_DIR):
+        for file in files:
+            file_path = os.path.join(root, file)
+            zipf.write(file_path, arcname=file)
+
+print(f"成功生成 {zip_filename}！")
+print(f"請確保 HTML 檔案旁有 Step3_files 資料夾以載入樣式。")
