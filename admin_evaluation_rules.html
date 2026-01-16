@@ -46,6 +46,23 @@
         
         /* 模擬頁籤樣式 (因為現在是超連結) */
         .nav-tabs .nav-link { cursor: pointer; }
+        
+        /* 合併規則checkbox樣式 */
+        .cap-checkbox-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            padding: 10px;
+        }
+        .cap-checkbox-item {
+            flex: 0 0 calc(16.666% - 13px);
+            min-width: 120px;
+        }
+        .cap-checkbox-item label {
+            margin-bottom: 0;
+            cursor: pointer;
+            font-weight: normal;
+        }
     </style>
 </head>
 <body id="top" class="page focus tw-min-h-screen">
@@ -124,10 +141,9 @@
                             <thead class="table-dark">
                                 <tr>
                                     <th width="8%" class="text-center">編號</th>
-                                    <th width="15%">類別條件</th>
-                                    <th width="15%">計畫類型</th>
-                                    <th width="15%">執行方式</th>
-                                    <th width="15%">角色條件</th>
+                                    <th width="15%">資料類型</th>
+                                    <th width="15%">是否為本院</th>
+                                    <th width="15%">角色</th>
                                     <th width="10%">計入件數</th>
                                     <th>備註說明</th>
                                     <th width="8%" class="text-center">操作</th>
@@ -144,35 +160,29 @@
                                             <option value="專書">專書</option>
                                             <option value="專章">專章</option>
                                             <option value="研討會論文">研討會論文</option>
+                                            <option value="對策提要">對策提要</option>
+                                            <option value="政策建言">政策建言</option>
+                                            <option value="教育訊息">教育訊息</option>
                                         </select>
                                     </td>
                                     <td>
                                         <select class="form-select form-select-sm">
                                             <option value="all">不限</option>
-                                            <option value="整合型計畫">整合型計畫</option>
-                                            <option value="個別型計畫">個別型計畫</option>
-                                            <option value="其它">其它</option>
-                                        </select>
-                                    </td>
-                                    <td>
-                                        <select class="form-select form-select-sm">
-                                            <option value="all">不限</option>
-                                            <option value="自行研究">自行研究</option>
-                                            <option value="合作研究">合作研究</option>
-                                            <option value="共同研究">共同研究</option>
-                                            <option value="委託研究">委託研究</option>
-                                            <option value="補助">補助</option>
-                                            <option value="委辦">委辦</option>
-                                            <option value="學術補助">學術補助</option>
+                                            <option value="本院" selected>本院</option>
+                                            <option value="非本院">非本院</option>
                                         </select>
                                     </td>
                                     <td>
                                         <select class="form-select form-select-sm">
                                             <option value="all">不限</option>
                                             <option value="主持人" selected>主持人</option>
-                                            <option value="共同主持">共同主持</option>
-                                            <option value="協同主持">協同主持</option>
-                                            <option value="all">不限</option>
+                                            <option value="共同主持人">共同主持人</option>
+                                            <option value="協同主持人">協同主持人</option>
+                                            <option value="研究員">研究員</option>
+                                            <option value="研究助理">研究助理</option>
+                                            <option value="第一作者">第一作者</option>
+                                            <option value="通訊作者">通訊作者</option>
+                                            <option value="其餘作者">其餘作者</option>
                                         </select>
                                     </td>
                                     <td><input type="number" class="form-control form-control-sm weight-input" value="1" step="0.1"></td>
@@ -183,21 +193,599 @@
                                     <td class="text-center fw-bold rule-id">規則 2</td>
                                     <td>
                                         <select class="form-select form-select-sm">
-                                            <option value="期刊論文" selected>期刊論文</option>
                                             <option value="研究計畫">研究計畫</option>
+                                            <option value="工作計畫">工作計畫</option>
+                                            <option value="期刊論文" selected>期刊論文</option>
+                                            <option value="專書">專書</option>
+                                            <option value="專章">專章</option>
+                                            <option value="研討會論文">研討會論文</option>
+                                            <option value="對策提要">對策提要</option>
+                                            <option value="政策建言">政策建言</option>
+                                            <option value="教育訊息">教育訊息</option>
                                         </select>
                                     </td>
-                                    <td><select class="form-select form-select-sm" disabled><option>N/A</option></select></td>
-                                    <td><select class="form-select form-select-sm" disabled><option>N/A</option></select></td>
                                     <td>
                                         <select class="form-select form-select-sm">
+                                            <option value="all">不限</option>
+                                            <option value="本院">本院</option>
+                                            <option value="非本院">非本院</option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <select class="form-select form-select-sm">
+                                            <option value="all">不限</option>
+                                            <option value="主持人">主持人</option>
+                                            <option value="共同主持人">共同主持人</option>
+                                            <option value="協同主持人">協同主持人</option>
+                                            <option value="研究員">研究員</option>
+                                            <option value="研究助理">研究助理</option>
                                             <option value="第一作者" selected>第一作者</option>
                                             <option value="通訊作者">通訊作者</option>
-                                            <option value="all">不限</option>
+                                            <option value="其餘作者">其餘作者</option>
                                         </select>
                                     </td>
                                     <td><input type="number" class="form-control form-control-sm weight-input" value="2" step="0.1"></td>
                                     <td><input type="text" class="form-control form-control-sm" value="TSSCI 期刊"></td>
+                                    <td class="text-center"><button type="button" class="btn btn-sm btn-outline-danger" onclick="deleteRow(this)">刪除</button></td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center fw-bold rule-id">規則 3</td>
+                                    <td>
+                                        <select class="form-select form-select-sm">
+                                            <option value="">請選擇</option>
+                                            <option value="研究計畫">研究計畫</option>
+                                            <option value="工作計畫">工作計畫</option>
+                                            <option value="期刊論文">期刊論文</option>
+                                            <option value="專書">專書</option>
+                                            <option value="專章">專章</option>
+                                            <option value="研討會論文">研討會論文</option>
+                                            <option value="對策提要">對策提要</option>
+                                            <option value="政策建言">政策建言</option>
+                                            <option value="教育訊息">教育訊息</option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <select class="form-select form-select-sm">
+                                            <option value="all">不限</option>
+                                            <option value="本院">本院</option>
+                                            <option value="非本院">非本院</option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <select class="form-select form-select-sm">
+                                            <option value="all">不限</option>
+                                            <option value="主持人">主持人</option>
+                                            <option value="共同主持人">共同主持人</option>
+                                            <option value="協同主持人">協同主持人</option>
+                                            <option value="研究員">研究員</option>
+                                            <option value="研究助理">研究助理</option>
+                                            <option value="第一作者">第一作者</option>
+                                            <option value="通訊作者">通訊作者</option>
+                                            <option value="其餘作者">其餘作者</option>
+                                        </select>
+                                    </td>
+                                    <td><input type="number" class="form-control form-control-sm weight-input" value="1" step="0.1"></td>
+                                    <td><input type="text" class="form-control form-control-sm" placeholder="說明"></td>
+                                    <td class="text-center"><button type="button" class="btn btn-sm btn-outline-danger" onclick="deleteRow(this)">刪除</button></td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center fw-bold rule-id">規則 4</td>
+                                    <td>
+                                        <select class="form-select form-select-sm">
+                                            <option value="">請選擇</option>
+                                            <option value="研究計畫">研究計畫</option>
+                                            <option value="工作計畫">工作計畫</option>
+                                            <option value="期刊論文">期刊論文</option>
+                                            <option value="專書">專書</option>
+                                            <option value="專章">專章</option>
+                                            <option value="研討會論文">研討會論文</option>
+                                            <option value="對策提要">對策提要</option>
+                                            <option value="政策建言">政策建言</option>
+                                            <option value="教育訊息">教育訊息</option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <select class="form-select form-select-sm">
+                                            <option value="all">不限</option>
+                                            <option value="本院">本院</option>
+                                            <option value="非本院">非本院</option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <select class="form-select form-select-sm">
+                                            <option value="all">不限</option>
+                                            <option value="主持人">主持人</option>
+                                            <option value="共同主持人">共同主持人</option>
+                                            <option value="協同主持人">協同主持人</option>
+                                            <option value="研究員">研究員</option>
+                                            <option value="研究助理">研究助理</option>
+                                            <option value="第一作者">第一作者</option>
+                                            <option value="通訊作者">通訊作者</option>
+                                            <option value="其餘作者">其餘作者</option>
+                                        </select>
+                                    </td>
+                                    <td><input type="number" class="form-control form-control-sm weight-input" value="1" step="0.1"></td>
+                                    <td><input type="text" class="form-control form-control-sm" placeholder="說明"></td>
+                                    <td class="text-center"><button type="button" class="btn btn-sm btn-outline-danger" onclick="deleteRow(this)">刪除</button></td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center fw-bold rule-id">規則 5</td>
+                                    <td>
+                                        <select class="form-select form-select-sm">
+                                            <option value="">請選擇</option>
+                                            <option value="研究計畫">研究計畫</option>
+                                            <option value="工作計畫">工作計畫</option>
+                                            <option value="期刊論文">期刊論文</option>
+                                            <option value="專書">專書</option>
+                                            <option value="專章">專章</option>
+                                            <option value="研討會論文">研討會論文</option>
+                                            <option value="對策提要">對策提要</option>
+                                            <option value="政策建言">政策建言</option>
+                                            <option value="教育訊息">教育訊息</option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <select class="form-select form-select-sm">
+                                            <option value="all">不限</option>
+                                            <option value="本院">本院</option>
+                                            <option value="非本院">非本院</option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <select class="form-select form-select-sm">
+                                            <option value="all">不限</option>
+                                            <option value="主持人">主持人</option>
+                                            <option value="共同主持人">共同主持人</option>
+                                            <option value="協同主持人">協同主持人</option>
+                                            <option value="研究員">研究員</option>
+                                            <option value="研究助理">研究助理</option>
+                                            <option value="第一作者">第一作者</option>
+                                            <option value="通訊作者">通訊作者</option>
+                                            <option value="其餘作者">其餘作者</option>
+                                        </select>
+                                    </td>
+                                    <td><input type="number" class="form-control form-control-sm weight-input" value="1" step="0.1"></td>
+                                    <td><input type="text" class="form-control form-control-sm" placeholder="說明"></td>
+                                    <td class="text-center"><button type="button" class="btn btn-sm btn-outline-danger" onclick="deleteRow(this)">刪除</button></td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center fw-bold rule-id">規則 6</td>
+                                    <td>
+                                        <select class="form-select form-select-sm">
+                                            <option value="">請選擇</option>
+                                            <option value="研究計畫">研究計畫</option>
+                                            <option value="工作計畫">工作計畫</option>
+                                            <option value="期刊論文">期刊論文</option>
+                                            <option value="專書">專書</option>
+                                            <option value="專章">專章</option>
+                                            <option value="研討會論文">研討會論文</option>
+                                            <option value="對策提要">對策提要</option>
+                                            <option value="政策建言">政策建言</option>
+                                            <option value="教育訊息">教育訊息</option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <select class="form-select form-select-sm">
+                                            <option value="all">不限</option>
+                                            <option value="本院">本院</option>
+                                            <option value="非本院">非本院</option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <select class="form-select form-select-sm">
+                                            <option value="all">不限</option>
+                                            <option value="主持人">主持人</option>
+                                            <option value="共同主持人">共同主持人</option>
+                                            <option value="協同主持人">協同主持人</option>
+                                            <option value="研究員">研究員</option>
+                                            <option value="研究助理">研究助理</option>
+                                            <option value="第一作者">第一作者</option>
+                                            <option value="通訊作者">通訊作者</option>
+                                            <option value="其餘作者">其餘作者</option>
+                                        </select>
+                                    </td>
+                                    <td><input type="number" class="form-control form-control-sm weight-input" value="1" step="0.1"></td>
+                                    <td><input type="text" class="form-control form-control-sm" placeholder="說明"></td>
+                                    <td class="text-center"><button type="button" class="btn btn-sm btn-outline-danger" onclick="deleteRow(this)">刪除</button></td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center fw-bold rule-id">規則 7</td>
+                                    <td>
+                                        <select class="form-select form-select-sm">
+                                            <option value="">請選擇</option>
+                                            <option value="研究計畫">研究計畫</option>
+                                            <option value="工作計畫">工作計畫</option>
+                                            <option value="期刊論文">期刊論文</option>
+                                            <option value="專書">專書</option>
+                                            <option value="專章">專章</option>
+                                            <option value="研討會論文">研討會論文</option>
+                                            <option value="對策提要">對策提要</option>
+                                            <option value="政策建言">政策建言</option>
+                                            <option value="教育訊息">教育訊息</option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <select class="form-select form-select-sm">
+                                            <option value="all">不限</option>
+                                            <option value="本院">本院</option>
+                                            <option value="非本院">非本院</option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <select class="form-select form-select-sm">
+                                            <option value="all">不限</option>
+                                            <option value="主持人">主持人</option>
+                                            <option value="共同主持人">共同主持人</option>
+                                            <option value="協同主持人">協同主持人</option>
+                                            <option value="研究員">研究員</option>
+                                            <option value="研究助理">研究助理</option>
+                                            <option value="第一作者">第一作者</option>
+                                            <option value="通訊作者">通訊作者</option>
+                                            <option value="其餘作者">其餘作者</option>
+                                        </select>
+                                    </td>
+                                    <td><input type="number" class="form-control form-control-sm weight-input" value="1" step="0.1"></td>
+                                    <td><input type="text" class="form-control form-control-sm" placeholder="說明"></td>
+                                    <td class="text-center"><button type="button" class="btn btn-sm btn-outline-danger" onclick="deleteRow(this)">刪除</button></td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center fw-bold rule-id">規則 8</td>
+                                    <td>
+                                        <select class="form-select form-select-sm">
+                                            <option value="">請選擇</option>
+                                            <option value="研究計畫">研究計畫</option>
+                                            <option value="工作計畫">工作計畫</option>
+                                            <option value="期刊論文">期刊論文</option>
+                                            <option value="專書">專書</option>
+                                            <option value="專章">專章</option>
+                                            <option value="研討會論文">研討會論文</option>
+                                            <option value="對策提要">對策提要</option>
+                                            <option value="政策建言">政策建言</option>
+                                            <option value="教育訊息">教育訊息</option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <select class="form-select form-select-sm">
+                                            <option value="all">不限</option>
+                                            <option value="本院">本院</option>
+                                            <option value="非本院">非本院</option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <select class="form-select form-select-sm">
+                                            <option value="all">不限</option>
+                                            <option value="主持人">主持人</option>
+                                            <option value="共同主持人">共同主持人</option>
+                                            <option value="協同主持人">協同主持人</option>
+                                            <option value="研究員">研究員</option>
+                                            <option value="研究助理">研究助理</option>
+                                            <option value="第一作者">第一作者</option>
+                                            <option value="通訊作者">通訊作者</option>
+                                            <option value="其餘作者">其餘作者</option>
+                                        </select>
+                                    </td>
+                                    <td><input type="number" class="form-control form-control-sm weight-input" value="1" step="0.1"></td>
+                                    <td><input type="text" class="form-control form-control-sm" placeholder="說明"></td>
+                                    <td class="text-center"><button type="button" class="btn btn-sm btn-outline-danger" onclick="deleteRow(this)">刪除</button></td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center fw-bold rule-id">規則 9</td>
+                                    <td>
+                                        <select class="form-select form-select-sm">
+                                            <option value="">請選擇</option>
+                                            <option value="研究計畫">研究計畫</option>
+                                            <option value="工作計畫">工作計畫</option>
+                                            <option value="期刊論文">期刊論文</option>
+                                            <option value="專書">專書</option>
+                                            <option value="專章">專章</option>
+                                            <option value="研討會論文">研討會論文</option>
+                                            <option value="對策提要">對策提要</option>
+                                            <option value="政策建言">政策建言</option>
+                                            <option value="教育訊息">教育訊息</option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <select class="form-select form-select-sm">
+                                            <option value="all">不限</option>
+                                            <option value="本院">本院</option>
+                                            <option value="非本院">非本院</option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <select class="form-select form-select-sm">
+                                            <option value="all">不限</option>
+                                            <option value="主持人">主持人</option>
+                                            <option value="共同主持人">共同主持人</option>
+                                            <option value="協同主持人">協同主持人</option>
+                                            <option value="研究員">研究員</option>
+                                            <option value="研究助理">研究助理</option>
+                                            <option value="第一作者">第一作者</option>
+                                            <option value="通訊作者">通訊作者</option>
+                                            <option value="其餘作者">其餘作者</option>
+                                        </select>
+                                    </td>
+                                    <td><input type="number" class="form-control form-control-sm weight-input" value="1" step="0.1"></td>
+                                    <td><input type="text" class="form-control form-control-sm" placeholder="說明"></td>
+                                    <td class="text-center"><button type="button" class="btn btn-sm btn-outline-danger" onclick="deleteRow(this)">刪除</button></td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center fw-bold rule-id">規則 10</td>
+                                    <td>
+                                        <select class="form-select form-select-sm">
+                                            <option value="">請選擇</option>
+                                            <option value="研究計畫">研究計畫</option>
+                                            <option value="工作計畫">工作計畫</option>
+                                            <option value="期刊論文">期刊論文</option>
+                                            <option value="專書">專書</option>
+                                            <option value="專章">專章</option>
+                                            <option value="研討會論文">研討會論文</option>
+                                            <option value="對策提要">對策提要</option>
+                                            <option value="政策建言">政策建言</option>
+                                            <option value="教育訊息">教育訊息</option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <select class="form-select form-select-sm">
+                                            <option value="all">不限</option>
+                                            <option value="本院">本院</option>
+                                            <option value="非本院">非本院</option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <select class="form-select form-select-sm">
+                                            <option value="all">不限</option>
+                                            <option value="主持人">主持人</option>
+                                            <option value="共同主持人">共同主持人</option>
+                                            <option value="協同主持人">協同主持人</option>
+                                            <option value="研究員">研究員</option>
+                                            <option value="研究助理">研究助理</option>
+                                            <option value="第一作者">第一作者</option>
+                                            <option value="通訊作者">通訊作者</option>
+                                            <option value="其餘作者">其餘作者</option>
+                                        </select>
+                                    </td>
+                                    <td><input type="number" class="form-control form-control-sm weight-input" value="1" step="0.1"></td>
+                                    <td><input type="text" class="form-control form-control-sm" placeholder="說明"></td>
+                                    <td class="text-center"><button type="button" class="btn btn-sm btn-outline-danger" onclick="deleteRow(this)">刪除</button></td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center fw-bold rule-id">規則 11</td>
+                                    <td>
+                                        <select class="form-select form-select-sm">
+                                            <option value="">請選擇</option>
+                                            <option value="研究計畫">研究計畫</option>
+                                            <option value="工作計畫">工作計畫</option>
+                                            <option value="期刊論文">期刊論文</option>
+                                            <option value="專書">專書</option>
+                                            <option value="專章">專章</option>
+                                            <option value="研討會論文">研討會論文</option>
+                                            <option value="對策提要">對策提要</option>
+                                            <option value="政策建言">政策建言</option>
+                                            <option value="教育訊息">教育訊息</option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <select class="form-select form-select-sm">
+                                            <option value="all">不限</option>
+                                            <option value="本院">本院</option>
+                                            <option value="非本院">非本院</option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <select class="form-select form-select-sm">
+                                            <option value="all">不限</option>
+                                            <option value="主持人">主持人</option>
+                                            <option value="共同主持人">共同主持人</option>
+                                            <option value="協同主持人">協同主持人</option>
+                                            <option value="研究員">研究員</option>
+                                            <option value="研究助理">研究助理</option>
+                                            <option value="第一作者">第一作者</option>
+                                            <option value="通訊作者">通訊作者</option>
+                                            <option value="其餘作者">其餘作者</option>
+                                        </select>
+                                    </td>
+                                    <td><input type="number" class="form-control form-control-sm weight-input" value="1" step="0.1"></td>
+                                    <td><input type="text" class="form-control form-control-sm" placeholder="說明"></td>
+                                    <td class="text-center"><button type="button" class="btn btn-sm btn-outline-danger" onclick="deleteRow(this)">刪除</button></td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center fw-bold rule-id">規則 12</td>
+                                    <td>
+                                        <select class="form-select form-select-sm">
+                                            <option value="">請選擇</option>
+                                            <option value="研究計畫">研究計畫</option>
+                                            <option value="工作計畫">工作計畫</option>
+                                            <option value="期刊論文">期刊論文</option>
+                                            <option value="專書">專書</option>
+                                            <option value="專章">專章</option>
+                                            <option value="研討會論文">研討會論文</option>
+                                            <option value="對策提要">對策提要</option>
+                                            <option value="政策建言">政策建言</option>
+                                            <option value="教育訊息">教育訊息</option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <select class="form-select form-select-sm">
+                                            <option value="all">不限</option>
+                                            <option value="本院">本院</option>
+                                            <option value="非本院">非本院</option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <select class="form-select form-select-sm">
+                                            <option value="all">不限</option>
+                                            <option value="主持人">主持人</option>
+                                            <option value="共同主持人">共同主持人</option>
+                                            <option value="協同主持人">協同主持人</option>
+                                            <option value="研究員">研究員</option>
+                                            <option value="研究助理">研究助理</option>
+                                            <option value="第一作者">第一作者</option>
+                                            <option value="通訊作者">通訊作者</option>
+                                            <option value="其餘作者">其餘作者</option>
+                                        </select>
+                                    </td>
+                                    <td><input type="number" class="form-control form-control-sm weight-input" value="1" step="0.1"></td>
+                                    <td><input type="text" class="form-control form-control-sm" placeholder="說明"></td>
+                                    <td class="text-center"><button type="button" class="btn btn-sm btn-outline-danger" onclick="deleteRow(this)">刪除</button></td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center fw-bold rule-id">規則 13</td>
+                                    <td>
+                                        <select class="form-select form-select-sm">
+                                            <option value="">請選擇</option>
+                                            <option value="研究計畫">研究計畫</option>
+                                            <option value="工作計畫">工作計畫</option>
+                                            <option value="期刊論文">期刊論文</option>
+                                            <option value="專書">專書</option>
+                                            <option value="專章">專章</option>
+                                            <option value="研討會論文">研討會論文</option>
+                                            <option value="對策提要">對策提要</option>
+                                            <option value="政策建言">政策建言</option>
+                                            <option value="教育訊息">教育訊息</option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <select class="form-select form-select-sm">
+                                            <option value="all">不限</option>
+                                            <option value="本院">本院</option>
+                                            <option value="非本院">非本院</option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <select class="form-select form-select-sm">
+                                            <option value="all">不限</option>
+                                            <option value="主持人">主持人</option>
+                                            <option value="共同主持人">共同主持人</option>
+                                            <option value="協同主持人">協同主持人</option>
+                                            <option value="研究員">研究員</option>
+                                            <option value="研究助理">研究助理</option>
+                                            <option value="第一作者">第一作者</option>
+                                            <option value="通訊作者">通訊作者</option>
+                                            <option value="其餘作者">其餘作者</option>
+                                        </select>
+                                    </td>
+                                    <td><input type="number" class="form-control form-control-sm weight-input" value="1" step="0.1"></td>
+                                    <td><input type="text" class="form-control form-control-sm" placeholder="說明"></td>
+                                    <td class="text-center"><button type="button" class="btn btn-sm btn-outline-danger" onclick="deleteRow(this)">刪除</button></td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center fw-bold rule-id">規則 14</td>
+                                    <td>
+                                        <select class="form-select form-select-sm">
+                                            <option value="">請選擇</option>
+                                            <option value="研究計畫">研究計畫</option>
+                                            <option value="工作計畫">工作計畫</option>
+                                            <option value="期刊論文">期刊論文</option>
+                                            <option value="專書">專書</option>
+                                            <option value="專章">專章</option>
+                                            <option value="研討會論文">研討會論文</option>
+                                            <option value="對策提要">對策提要</option>
+                                            <option value="政策建言">政策建言</option>
+                                            <option value="教育訊息">教育訊息</option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <select class="form-select form-select-sm">
+                                            <option value="all">不限</option>
+                                            <option value="本院">本院</option>
+                                            <option value="非本院">非本院</option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <select class="form-select form-select-sm">
+                                            <option value="all">不限</option>
+                                            <option value="主持人">主持人</option>
+                                            <option value="共同主持人">共同主持人</option>
+                                            <option value="協同主持人">協同主持人</option>
+                                            <option value="研究員">研究員</option>
+                                            <option value="研究助理">研究助理</option>
+                                            <option value="第一作者">第一作者</option>
+                                            <option value="通訊作者">通訊作者</option>
+                                            <option value="其餘作者">其餘作者</option>
+                                        </select>
+                                    </td>
+                                    <td><input type="number" class="form-control form-control-sm weight-input" value="1" step="0.1"></td>
+                                    <td><input type="text" class="form-control form-control-sm" placeholder="說明"></td>
+                                    <td class="text-center"><button type="button" class="btn btn-sm btn-outline-danger" onclick="deleteRow(this)">刪除</button></td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center fw-bold rule-id">規則 15</td>
+                                    <td>
+                                        <select class="form-select form-select-sm">
+                                            <option value="">請選擇</option>
+                                            <option value="研究計畫">研究計畫</option>
+                                            <option value="工作計畫">工作計畫</option>
+                                            <option value="期刊論文">期刊論文</option>
+                                            <option value="專書">專書</option>
+                                            <option value="專章">專章</option>
+                                            <option value="研討會論文">研討會論文</option>
+                                            <option value="對策提要">對策提要</option>
+                                            <option value="政策建言">政策建言</option>
+                                            <option value="教育訊息">教育訊息</option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <select class="form-select form-select-sm">
+                                            <option value="all">不限</option>
+                                            <option value="本院">本院</option>
+                                            <option value="非本院">非本院</option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <select class="form-select form-select-sm">
+                                            <option value="all">不限</option>
+                                            <option value="主持人">主持人</option>
+                                            <option value="共同主持人">共同主持人</option>
+                                            <option value="協同主持人">協同主持人</option>
+                                            <option value="研究員">研究員</option>
+                                            <option value="研究助理">研究助理</option>
+                                            <option value="第一作者">第一作者</option>
+                                            <option value="通訊作者">通訊作者</option>
+                                            <option value="其餘作者">其餘作者</option>
+                                        </select>
+                                    </td>
+                                    <td><input type="number" class="form-control form-control-sm weight-input" value="1" step="0.1"></td>
+                                    <td><input type="text" class="form-control form-control-sm" placeholder="說明"></td>
+                                    <td class="text-center"><button type="button" class="btn btn-sm btn-outline-danger" onclick="deleteRow(this)">刪除</button></td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center fw-bold rule-id">規則 16</td>
+                                    <td>
+                                        <select class="form-select form-select-sm">
+                                            <option value="">請選擇</option>
+                                            <option value="研究計畫">研究計畫</option>
+                                            <option value="工作計畫">工作計畫</option>
+                                            <option value="期刊論文">期刊論文</option>
+                                            <option value="專書">專書</option>
+                                            <option value="專章">專章</option>
+                                            <option value="研討會論文">研討會論文</option>
+                                            <option value="對策提要">對策提要</option>
+                                            <option value="政策建言">政策建言</option>
+                                            <option value="教育訊息">教育訊息</option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <select class="form-select form-select-sm">
+                                            <option value="all">不限</option>
+                                            <option value="本院">本院</option>
+                                            <option value="非本院">非本院</option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <select class="form-select form-select-sm">
+                                            <option value="all">不限</option>
+                                            <option value="主持人">主持人</option>
+                                            <option value="共同主持人">共同主持人</option>
+                                            <option value="協同主持人">協同主持人</option>
+                                            <option value="研究員">研究員</option>
+                                            <option value="研究助理">研究助理</option>
+                                            <option value="第一作者">第一作者</option>
+                                            <option value="通訊作者">通訊作者</option>
+                                            <option value="其餘作者">其餘作者</option>
+                                        </select>
+                                    </td>
+                                    <td><input type="number" class="form-control form-control-sm weight-input" value="1" step="0.1"></td>
+                                    <td><input type="text" class="form-control form-control-sm" placeholder="說明"></td>
                                     <td class="text-center"><button type="button" class="btn btn-sm btn-outline-danger" onclick="deleteRow(this)">刪除</button></td>
                                 </tr>
                             </tbody>
@@ -224,13 +812,178 @@
                                 <tbody>
                                     <tr>
                                         <td>
-                                            <select class="form-select form-select-sm cap-rule-select" multiple size="3">
-                                                <option value="1">規則 1</option>
-                                                <option value="2">規則 2</option>
-                                            </select>
-                                            <div class="form-text mt-0">按住 Ctrl 可複選</div>
+                                            <div class="cap-checkbox-container cap-rule-checkboxes" data-row-index="0">
+                                                <div class="cap-checkbox-item">
+                                                    <label class="form-check-label">
+                                                        <input type="checkbox" class="form-check-input cap-rule-checkbox" value="1"> 規則 1
+                                                    </label>
+                                                </div>
+                                                <div class="cap-checkbox-item">
+                                                    <label class="form-check-label">
+                                                        <input type="checkbox" class="form-check-input cap-rule-checkbox" value="2"> 規則 2
+                                                    </label>
+                                                </div>
+                                                <div class="cap-checkbox-item">
+                                                    <label class="form-check-label">
+                                                        <input type="checkbox" class="form-check-input cap-rule-checkbox" value="3"> 規則 3
+                                                    </label>
+                                                </div>
+                                                <div class="cap-checkbox-item">
+                                                    <label class="form-check-label">
+                                                        <input type="checkbox" class="form-check-input cap-rule-checkbox" value="4"> 規則 4
+                                                    </label>
+                                                </div>
+                                                <div class="cap-checkbox-item">
+                                                    <label class="form-check-label">
+                                                        <input type="checkbox" class="form-check-input cap-rule-checkbox" value="5"> 規則 5
+                                                    </label>
+                                                </div>
+                                                <div class="cap-checkbox-item">
+                                                    <label class="form-check-label">
+                                                        <input type="checkbox" class="form-check-input cap-rule-checkbox" value="6"> 規則 6
+                                                    </label>
+                                                </div>
+                                                <div class="cap-checkbox-item">
+                                                    <label class="form-check-label">
+                                                        <input type="checkbox" class="form-check-input cap-rule-checkbox" value="7" checked> 規則 7
+                                                    </label>
+                                                </div>
+                                                <div class="cap-checkbox-item">
+                                                    <label class="form-check-label">
+                                                        <input type="checkbox" class="form-check-input cap-rule-checkbox" value="8" checked> 規則 8
+                                                    </label>
+                                                </div>
+                                                <div class="cap-checkbox-item">
+                                                    <label class="form-check-label">
+                                                        <input type="checkbox" class="form-check-input cap-rule-checkbox" value="9" checked> 規則 9
+                                                    </label>
+                                                </div>
+                                                <div class="cap-checkbox-item">
+                                                    <label class="form-check-label">
+                                                        <input type="checkbox" class="form-check-input cap-rule-checkbox" value="10" checked> 規則 10
+                                                    </label>
+                                                </div>
+                                                <div class="cap-checkbox-item">
+                                                    <label class="form-check-label">
+                                                        <input type="checkbox" class="form-check-input cap-rule-checkbox" value="11" checked> 規則 11
+                                                    </label>
+                                                </div>
+                                                <div class="cap-checkbox-item">
+                                                    <label class="form-check-label">
+                                                        <input type="checkbox" class="form-check-input cap-rule-checkbox" value="12"> 規則 12
+                                                    </label>
+                                                </div>
+                                                <div class="cap-checkbox-item">
+                                                    <label class="form-check-label">
+                                                        <input type="checkbox" class="form-check-input cap-rule-checkbox" value="13"> 規則 13
+                                                    </label>
+                                                </div>
+                                                <div class="cap-checkbox-item">
+                                                    <label class="form-check-label">
+                                                        <input type="checkbox" class="form-check-input cap-rule-checkbox" value="14"> 規則 14
+                                                    </label>
+                                                </div>
+                                                <div class="cap-checkbox-item">
+                                                    <label class="form-check-label">
+                                                        <input type="checkbox" class="form-check-input cap-rule-checkbox" value="15"> 規則 15
+                                                    </label>
+                                                </div>
+                                                <div class="cap-checkbox-item">
+                                                    <label class="form-check-label">
+                                                        <input type="checkbox" class="form-check-input cap-rule-checkbox" value="16"> 規則 16
+                                                    </label>
+                                                </div>
+                                            </div>
                                         </td>
                                         <td class="align-middle"><input type="number" class="form-control form-control-sm" value="2"></td>
+                                        <td class="text-center align-middle"><button type="button" class="btn btn-sm btn-outline-danger" onclick="deleteRow(this)">刪除</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="cap-checkbox-container cap-rule-checkboxes" data-row-index="1">
+                                                <div class="cap-checkbox-item">
+                                                    <label class="form-check-label">
+                                                        <input type="checkbox" class="form-check-input cap-rule-checkbox" value="1"> 規則 1
+                                                    </label>
+                                                </div>
+                                                <div class="cap-checkbox-item">
+                                                    <label class="form-check-label">
+                                                        <input type="checkbox" class="form-check-input cap-rule-checkbox" value="2"> 規則 2
+                                                    </label>
+                                                </div>
+                                                <div class="cap-checkbox-item">
+                                                    <label class="form-check-label">
+                                                        <input type="checkbox" class="form-check-input cap-rule-checkbox" value="3"> 規則 3
+                                                    </label>
+                                                </div>
+                                                <div class="cap-checkbox-item">
+                                                    <label class="form-check-label">
+                                                        <input type="checkbox" class="form-check-input cap-rule-checkbox" value="4"> 規則 4
+                                                    </label>
+                                                </div>
+                                                <div class="cap-checkbox-item">
+                                                    <label class="form-check-label">
+                                                        <input type="checkbox" class="form-check-input cap-rule-checkbox" value="5"> 規則 5
+                                                    </label>
+                                                </div>
+                                                <div class="cap-checkbox-item">
+                                                    <label class="form-check-label">
+                                                        <input type="checkbox" class="form-check-input cap-rule-checkbox" value="6"> 規則 6
+                                                    </label>
+                                                </div>
+                                                <div class="cap-checkbox-item">
+                                                    <label class="form-check-label">
+                                                        <input type="checkbox" class="form-check-input cap-rule-checkbox" value="7"> 規則 7
+                                                    </label>
+                                                </div>
+                                                <div class="cap-checkbox-item">
+                                                    <label class="form-check-label">
+                                                        <input type="checkbox" class="form-check-input cap-rule-checkbox" value="8"> 規則 8
+                                                    </label>
+                                                </div>
+                                                <div class="cap-checkbox-item">
+                                                    <label class="form-check-label">
+                                                        <input type="checkbox" class="form-check-input cap-rule-checkbox" value="9"> 規則 9
+                                                    </label>
+                                                </div>
+                                                <div class="cap-checkbox-item">
+                                                    <label class="form-check-label">
+                                                        <input type="checkbox" class="form-check-input cap-rule-checkbox" value="10"> 規則 10
+                                                    </label>
+                                                </div>
+                                                <div class="cap-checkbox-item">
+                                                    <label class="form-check-label">
+                                                        <input type="checkbox" class="form-check-input cap-rule-checkbox" value="11"> 規則 11
+                                                    </label>
+                                                </div>
+                                                <div class="cap-checkbox-item">
+                                                    <label class="form-check-label">
+                                                        <input type="checkbox" class="form-check-input cap-rule-checkbox" value="12"> 規則 12
+                                                    </label>
+                                                </div>
+                                                <div class="cap-checkbox-item">
+                                                    <label class="form-check-label">
+                                                        <input type="checkbox" class="form-check-input cap-rule-checkbox" value="13"> 規則 13
+                                                    </label>
+                                                </div>
+                                                <div class="cap-checkbox-item">
+                                                    <label class="form-check-label">
+                                                        <input type="checkbox" class="form-check-input cap-rule-checkbox" value="14" checked> 規則 14
+                                                    </label>
+                                                </div>
+                                                <div class="cap-checkbox-item">
+                                                    <label class="form-check-label">
+                                                        <input type="checkbox" class="form-check-input cap-rule-checkbox" value="15" checked> 規則 15
+                                                    </label>
+                                                </div>
+                                                <div class="cap-checkbox-item">
+                                                    <label class="form-check-label">
+                                                        <input type="checkbox" class="form-check-input cap-rule-checkbox" value="16" checked> 規則 16
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="align-middle"><input type="number" class="form-control form-control-sm" value="1"></td>
                                         <td class="text-center align-middle"><button type="button" class="btn btn-sm btn-outline-danger" onclick="deleteRow(this)">刪除</button></td>
                                     </tr>
                                 </tbody>
@@ -285,18 +1038,33 @@
         updateCapOptions(count);
     }
 
-    // 更新合併規則的下拉選單選項
+    // 更新合併規則的checkbox選項
     function updateCapOptions(totalRules) {
-        var optionsHtml = '';
+        var checkboxHtml = '';
         for(var i=1; i<=totalRules; i++) {
-            optionsHtml += '<option value="' + i + '">規則 ' + i + '</option>';
+            checkboxHtml += '<div class="cap-checkbox-item">' +
+                '<label class="form-check-label">' +
+                '<input type="checkbox" class="form-check-input cap-rule-checkbox" value="' + i + '"> 規則 ' + i +
+                '</label>' +
+                '</div>';
         }
         
-        // 更新所有既有的 select
-        $('.cap-rule-select').each(function() {
-            var selectedVals = $(this).val(); // 保存目前選取的值
-            $(this).html(optionsHtml);
-            $(this).val(selectedVals); // 嘗試還原選取
+        // 更新所有既有的checkbox容器
+        $('.cap-rule-checkboxes').each(function() {
+            var checkedVals = [];
+            $(this).find('.cap-rule-checkbox:checked').each(function() {
+                var val = parseInt($(this).val());
+                if(val <= totalRules) {
+                    checkedVals.push(val);
+                }
+            });
+            
+            $(this).html(checkboxHtml);
+            
+            // 還原選取的checkbox
+            checkedVals.forEach(function(val) {
+                $(this).find('.cap-rule-checkbox[value="' + val + '"]').prop('checked', true);
+            }.bind(this));
         });
     }
 
@@ -317,36 +1085,29 @@
                     <option value="專書">專書</option>
                     <option value="專章">專章</option>
                     <option value="研討會論文">研討會論文</option>
+                    <option value="對策提要">對策提要</option>
+                    <option value="政策建言">政策建言</option>
+                    <option value="教育訊息">教育訊息</option>
                 </select>
             </td>
             <td>
                 <select class="form-select form-select-sm">
                     <option value="all">不限</option>
-                    <option value="整合型計畫">整合型計畫</option>
-                    <option value="個別型計畫">個別型計畫</option>
-                    <option value="其它">其它</option>
-                </select>
-            </td>
-            <td>
-                <select class="form-select form-select-sm">
-                    <option value="all">不限</option>
-                    <option value="自行研究">自行研究</option>
-                    <option value="合作研究">合作研究</option>
-                    <option value="共同研究">共同研究</option>
-                    <option value="委託研究">委託研究</option>
-                    <option value="補助">補助</option>
-                    <option value="委辦">委辦</option>
-                    <option value="學術補助">學術補助</option>
+                    <option value="本院">本院</option>
+                    <option value="非本院">非本院</option>
                 </select>
             </td>
             <td>
                 <select class="form-select form-select-sm">
                     <option value="all">不限</option>
                     <option value="主持人">主持人</option>
-                    <option value="共同主持">共同主持</option>
-                    <option value="協同主持">協同主持</option>
+                    <option value="共同主持人">共同主持人</option>
+                    <option value="協同主持人">協同主持人</option>
+                    <option value="研究員">研究員</option>
+                    <option value="研究助理">研究助理</option>
                     <option value="第一作者">第一作者</option>
                     <option value="通訊作者">通訊作者</option>
+                    <option value="其餘作者">其餘作者</option>
                 </select>
             </td>
             <td><input type="number" class="form-control form-control-sm weight-input" value="1" step="0.1"></td>
@@ -362,18 +1123,22 @@
     // 新增上限列
     function addCapRow() {
         var ruleCount = $('#rulesTable tbody tr').length;
-        var optionsHtml = '';
+        var checkboxHtml = '';
         for(var i=1; i<=ruleCount; i++) {
-            optionsHtml += '<option value="' + i + '">規則 ' + i + '</option>';
+            checkboxHtml += '<div class="cap-checkbox-item">' +
+                '<label class="form-check-label">' +
+                '<input type="checkbox" class="form-check-input cap-rule-checkbox" value="' + i + '"> 規則 ' + i +
+                '</label>' +
+                '</div>';
         }
 
+        var rowIndex = $('#capTable tbody tr').length;
         var rowHtml = `
         <tr>
             <td>
-                <select class="form-select form-select-sm cap-rule-select" multiple size="3">
-                    ` + optionsHtml + `
-                </select>
-                <div class="form-text mt-0">按住 Ctrl 可複選</div>
+                <div class="cap-checkbox-container cap-rule-checkboxes" data-row-index="` + rowIndex + `">
+                    ` + checkboxHtml + `
+                </div>
             </td>
             <td class="align-middle"><input type="number" class="form-control form-control-sm" value="1"></td>
             <td class="text-center align-middle"><button type="button" class="btn btn-sm btn-outline-danger" onclick="deleteRow(this)">刪除</button></td>
@@ -388,7 +1153,7 @@
     
     // 初始化
     $(document).ready(function() {
-        updateCapOptions(2);
+        updateCapOptions(16);
     });
 </script>
 
