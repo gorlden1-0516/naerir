@@ -155,6 +155,18 @@
     <script src="./Step3_files/bootstrap.bundle.min.js"></script>
     
 <script>
+    // 根據資料類型計算評鑑件數
+    function getEvaluationCount(dataType) {
+        if (dataType === "工作計畫" || dataType === "研究計畫") {
+            // 工作計畫和研究計畫：預設為 1，可根據實際需求調整為 0.5
+            return 1;
+        } else if (dataType === "專書" || dataType === "專章" || dataType === "研討會論文" || dataType === "期刊論文") {
+            // 專書、專章、研討會論文、期刊論文：評鑑件數為 0.2
+            return 0.2;
+        }
+        return 1; // 預設值
+    }
+
     var allData = [];
     var types = ["研究計畫", "工作計畫", "期刊論文", "專書", "專章", "研討會論文"];
     for (var i = 1; i <= 35; i++) {
@@ -163,6 +175,7 @@
             id: i,
             type: t,
             title: t + "測試資料標題 No." + i + " - 關於教育研究的範例數據",
+            evaluationCount: getEvaluationCount(t)
         });
     }
 
@@ -202,11 +215,12 @@
             html = '<tr><td colspan="5" class="text-center text-muted py-4">查無資料</td></tr>';
         } else {
             $.each(pageData, function(index, item) {
+                var evalCount = item.evaluationCount !== undefined ? item.evaluationCount : getEvaluationCount(item.type);
                 html += '<tr>';
                 html += '<td>' + item.id + '</td>';
                 html += '<td><span class="badge bg-secondary badge-type">' + item.type + '</span></td>';
                 html += '<td>' + item.title + '</td>';
-                html += '<td class="text-center">1</td>';
+                html += '<td class="text-center">' + evalCount + '</td>';
                 html += '<td class="text-center">';
                 html += '<button class="btn btn-sm btn-outline-primary action-btn" onclick="editItem(' + item.id + ')">編輯</button>';
                 html += '<button class="btn btn-sm btn-outline-danger action-btn" onclick="deleteItem(' + item.id + ')">刪除</button>';
