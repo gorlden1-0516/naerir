@@ -21,10 +21,9 @@
         .form-hint { font-size: 0.85rem; color: #6c757d; display: block; margin-top: 0.25rem; }
         
         /* 表單動態欄位 */
-        .dynamic-field-group { display: flex; align-items: center; width: 100%; margin-bottom: 8px; gap: 8px; }
+        .dynamic-field-group { display: flex; align-items: center; width: 100%; margin-bottom: 8px; }
         .dynamic-field-group .form-control, .dynamic-field-group .form-select { flex-grow: 1; }
-        .dynamic-field-group .btn { flex-shrink: 0; white-space: nowrap; }
-        .btn-remove-field { color: #dc3545; cursor: pointer; font-size: 1.2rem; font-weight: bold; font-family: Arial, sans-serif; display: flex; align-items: center; padding: 0 5px; flex-shrink: 0; }
+        .btn-remove-field { margin-left: 10px; color: #dc3545; cursor: pointer; font-size: 1.2rem; font-weight: bold; font-family: Arial, sans-serif; display: flex; align-items: center; padding: 0 5px; }
         .btn-remove-field:hover { color: #a71d2a; background-color: #f8d7da; border-radius: 4px; }
         .btn-add-field { font-size: 0.9rem; padding: 4px 12px; margin-top: 5px; display: inline-block; font-weight: bold; }
 
@@ -45,110 +44,6 @@
         /* 條件顯示欄位 */
         .conditional-field {
             transition: all 0.3s ease;
-        }
-        
-        /* 國教院單位模態框樣式 */
-        .naer-unit-item {
-            cursor: pointer;
-            transition: background-color 0.2s ease;
-        }
-        .naer-unit-item:hover {
-            background-color: #e9ecef;
-        }
-        .naer-unit-item:active {
-            background-color: #dee2e6;
-        }
-        
-        /* 挑選本院人員模態框樣式 */
-        .naer-member-item {
-            cursor: pointer;
-            transition: all 0.2s ease;
-            border-left: 3px solid transparent;
-        }
-        .naer-member-item:hover {
-            background-color: #e7f3ff;
-            border-left-color: #0dcaf0;
-            transform: translateX(2px);
-        }
-        .naer-member-item:active {
-            background-color: #cfe2ff;
-        }
-        #naer_member_list h6 {
-            font-size: 1rem;
-            margin-top: 1rem;
-        }
-        #naer_member_list h6:first-child {
-            margin-top: 0;
-        }
-        
-        /* 國教院單位按鈕樣式 */
-        .btn[onclick*="openNaerUnitModal"] {
-            background-color: #0d6efd;
-            color: #fff;
-            border-color: #0d6efd;
-            font-weight: 500;
-        }
-        .btn[onclick*="openNaerUnitModal"]:hover {
-            background-color: #0b5ed7;
-            border-color: #0a58ca;
-            color: #fff;
-        }
-        .btn[onclick*="openNaerUnitModal"]:focus {
-            box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.5);
-        }
-        
-        /* 計畫參與人員整合欄位 */
-        .project-member-group {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            margin-bottom: 12px;
-            padding: 12px;
-            background-color: #f8f9fa;
-            border-radius: 4px;
-            border: 1px solid #dee2e6;
-        }
-        .project-member-group .form-select,
-        .project-member-group .form-control {
-            flex: 1;
-        }
-        .project-member-group .member-role {
-            min-width: 150px;
-        }
-        .project-member-group .member-name-zh {
-            min-width: 180px;
-        }
-        .project-member-group .member-name-en {
-            min-width: 200px;
-        }
-        .project-member-group .btn-primary {
-            background-color: #0d6efd;
-            border-color: #0d6efd;
-            color: #fff;
-            font-weight: 500;
-            white-space: nowrap;
-        }
-        .project-member-group .btn-primary:hover {
-            background-color: #0b5ed7;
-            border-color: #0a58ca;
-            color: #fff;
-        }
-        .project-member-group .btn-remove-member {
-            color: #dc3545;
-            cursor: pointer;
-            font-size: 1.2rem;
-            font-weight: bold;
-            padding: 0 8px;
-            min-width: 30px;
-            text-align: center;
-        }
-        .project-member-group .btn-remove-member:hover {
-            color: #a71d2a;
-            background-color: #f8d7da;
-            border-radius: 4px;
-        }
-        .project-members-container {
-            margin-bottom: 15px;
         }
     </style>
 </head>
@@ -379,42 +274,143 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-12">
+                            <div class="col-md-6">
                                 <div class="row">
-                                    <label class="min_width-175 col-sm-auto col-form-label">計畫參與人員</label>
+                                    <label class="min_width-175 col-sm-auto col-form-label">計畫主持人</label>
                                     <div class="col">
-                                        <div class="project-members-container" id="project_members_container">
-                                            <div class="project-member-group">
-                                                <select class="form-select member-role">
-                                                    <option value="">請選擇</option>
-                                                    <option value="計畫主持人">計畫主持人</option>
-                                                    <option value="共同主持人">共同主持人</option>
-                                                    <option value="協同主持人">協同主持人</option>
-                                                    <option value="研究員">研究員</option>
-                                                    <option value="研究助理">研究助理</option>
-                                                </select>
-                                                <input type="text" class="form-control member-name-zh" placeholder="中文姓名">
-                                                <input type="text" class="form-control member-name-en" placeholder="English Name">
-                                                <button type="button" class="btn btn-primary btn-sm" onclick="openNaerMemberModal(this)" title="挑選本院人員">挑選本院人員</button>
-                                                <span class="btn-remove-member" onclick="removeProjectMember(this)" title="刪除">X</span>
-                                            </div>
-                                            <div class="project-member-group">
-                                                <select class="form-select member-role">
-                                                    <option value="">請選擇</option>
-                                                    <option value="計畫主持人">計畫主持人</option>
-                                                    <option value="共同主持人">共同主持人</option>
-                                                    <option value="協同主持人">協同主持人</option>
-                                                    <option value="研究員">研究員</option>
-                                                    <option value="研究助理">研究助理</option>
-                                                </select>
-                                                <input type="text" class="form-control member-name-zh" placeholder="中文姓名">
-                                                <input type="text" class="form-control member-name-en" placeholder="English Name">
-                                                <button type="button" class="btn btn-primary btn-sm" onclick="openNaerMemberModal(this)" title="挑選本院人員">挑選本院人員</button>
-                                                <span class="btn-remove-member" onclick="removeProjectMember(this)" title="刪除">X</span>
+                                        <div class="dynamic-container">
+                                            <div class="dynamic-field-group">
+                                                <input type="text" class="form-control" id="field_e4500228" placeholder="郭○○">
                                             </div>
                                         </div>
-                                        <button type="button" class="btn btn-outline-success btn-add-field" onclick="addProjectMember()">+ 新增參與人員</button>
-                                        <span class="form-hint">可新增多組參與人員資料</span>
+                                        <button type="button" class="btn btn-outline-success btn-add-field" onclick="addField(this)">+ 新增</button>
+                                        <span class="form-hint">主持人不只1人時，可新增</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <label class="min_width-175 col-sm-auto col-form-label">計畫主持人(英文名)</label>
+                                    <div class="col">
+                                        <div class="dynamic-container">
+                                            <div class="dynamic-field-group">
+                                                <input type="text" class="form-control" id="field_37e92b69" placeholder="">
+                                            </div>
+                                        </div>
+                                        <button type="button" class="btn btn-outline-success btn-add-field" onclick="addField(this)">+ 新增</button>
+                                        <span class="form-hint"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <label class="min_width-175 col-sm-auto col-form-label">共同主持人</label>
+                                    <div class="col">
+                                        <div class="dynamic-container">
+                                            <div class="dynamic-field-group">
+                                                <input type="text" class="form-control" id="field_fc1bd65d" placeholder="">
+                                            </div>
+                                        </div>
+                                        <button type="button" class="btn btn-outline-success btn-add-field" onclick="addField(this)">+ 新增</button>
+                                        <span class="form-hint">不只1人時，可新增欄位</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <label class="min_width-175 col-sm-auto col-form-label">共同主持人(英文名)</label>
+                                    <div class="col">
+                                        <div class="dynamic-container">
+                                            <div class="dynamic-field-group">
+                                                <input type="text" class="form-control" id="field_08bd3380" placeholder="">
+                                            </div>
+                                        </div>
+                                        <button type="button" class="btn btn-outline-success btn-add-field" onclick="addField(this)">+ 新增</button>
+                                        <span class="form-hint">不只1人時，可新增欄位</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <label class="min_width-175 col-sm-auto col-form-label">協同主持人</label>
+                                    <div class="col">
+                                        <div class="dynamic-container">
+                                            <div class="dynamic-field-group">
+                                                <input type="text" class="form-control" id="field_326ae9e4" placeholder="">
+                                            </div>
+                                        </div>
+                                        <button type="button" class="btn btn-outline-success btn-add-field" onclick="addField(this)">+ 新增</button>
+                                        <span class="form-hint">不只1人時，可新增欄位</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <label class="min_width-175 col-sm-auto col-form-label">協同主持人(英文名)</label>
+                                    <div class="col">
+                                        <div class="dynamic-container">
+                                            <div class="dynamic-field-group">
+                                                <input type="text" class="form-control" id="field_06faeb5f" placeholder="">
+                                            </div>
+                                        </div>
+                                        <button type="button" class="btn btn-outline-success btn-add-field" onclick="addField(this)">+ 新增</button>
+                                        <span class="form-hint">不只1人時，可新增欄位</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <label class="min_width-175 col-sm-auto col-form-label">研究員</label>
+                                    <div class="col">
+                                        <div class="dynamic-container">
+                                            <div class="dynamic-field-group">
+                                                <input type="text" class="form-control" id="field_96473d5d" placeholder="">
+                                            </div>
+                                        </div>
+                                        <button type="button" class="btn btn-outline-success btn-add-field" onclick="addField(this)">+ 新增</button>
+                                        <span class="form-hint">不只1人時，可新增欄位</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <label class="min_width-175 col-sm-auto col-form-label">研究員(英文名)</label>
+                                    <div class="col">
+                                        <div class="dynamic-container">
+                                            <div class="dynamic-field-group">
+                                                <input type="text" class="form-control" id="field_91ba37bc" placeholder="">
+                                            </div>
+                                        </div>
+                                        <button type="button" class="btn btn-outline-success btn-add-field" onclick="addField(this)">+ 新增</button>
+                                        <span class="form-hint">不只1人時，可新增欄位</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <label class="min_width-175 col-sm-auto col-form-label">研究助理</label>
+                                    <div class="col">
+                                        <div class="dynamic-container">
+                                            <div class="dynamic-field-group">
+                                                <input type="text" class="form-control" id="field_490092e4" placeholder="">
+                                            </div>
+                                        </div>
+                                        <button type="button" class="btn btn-outline-success btn-add-field" onclick="addField(this)">+ 新增</button>
+                                        <span class="form-hint">不只1人時，可新增欄位</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <label class="min_width-175 col-sm-auto col-form-label">研究助理(英文名)</label>
+                                    <div class="col">
+                                        <div class="dynamic-container">
+                                            <div class="dynamic-field-group">
+                                                <input type="text" class="form-control" id="field_06895937" placeholder="">
+                                            </div>
+                                        </div>
+                                        <button type="button" class="btn btn-outline-success btn-add-field" onclick="addField(this)">+ 新增</button>
+                                        <span class="form-hint">不只1人時，可新增欄位</span>
                                     </div>
                                 </div>
                             </div>                            <div class="col-md-6">
@@ -435,15 +431,23 @@
                                 <div class="row">
                                     <label class="min_width-175 col-sm-auto col-form-label">執行方式</label>
                                     <div class="col">
-                                        <div class="dynamic-container" id="execution_method_container">
+                                        <div class="dynamic-container">
                                             <div class="dynamic-field-group">
-                                                <select class="form-select execution-method-select" id="field_8508cebf">
+                                                <select class="form-select" id="field_8508cebf">
                                                     <option value="">請選擇</option>
+                                                    <option value="自行研究">自行研究</option>
+                                                    <option value="合作研究">合作研究</option>
+                                                    <option value="共同研究">共同研究</option>
+                                                    <option value="委託研究">委託研究</option>
+                                                    <option value="補助">補助</option>
+                                                    <option value="委辦">委辦</option>
+                                                    <option value="學術補助">學術補助</option>
+                                                    <option value="其它">其它</option>
                                                 </select>
                                             </div>
                                         </div>
-                                        <button type="button" class="btn btn-outline-success btn-add-field" onclick="addExecutionMethodField(this)">+ 新增</button>
-                                        <span class="form-hint">可多選，選項依計畫屬性顯示</span>
+                                        <button type="button" class="btn btn-outline-success btn-add-field" onclick="addField(this)">+ 新增</button>
+                                        <span class="form-hint">可多選</span>
                                     </div>
                                 </div>
                             </div>
@@ -467,13 +471,12 @@
                                         <span class="required-star">*</span>執行單位
                                     </label>
                                     <div class="col">
-                                        <div class="dynamic-container" id="execution_unit_container">
+                                        <div class="dynamic-container">
                                             <div class="dynamic-field-group">
-                                                <input type="text" class="form-control required-field execution-unit-input" id="field_dbd12002" placeholder="教科書發展中心" data-label="執行單位">
-                                                <button type="button" class="btn btn-primary btn-sm" onclick="openNaerUnitModal(this)" title="選擇國教院單位">國教院單位</button>
+                                                <input type="text" class="form-control required-field" id="field_dbd12002" placeholder="教科書發展中心" data-label="執行單位">
                                             </div>
                                         </div>
-                                        <button type="button" class="btn btn-outline-success btn-add-field" onclick="addExecutionUnitField(this)">+ 新增</button>
+                                        <button type="button" class="btn btn-outline-success btn-add-field" onclick="addField(this)">+ 新增</button>
                                         <span class="form-hint">可多選、可新增欄位</span>
                                     </div>
                                 </div>
@@ -694,14 +697,6 @@
     $(document).ready(function(){ 
         initDatePicker();
         initConditionalFields();
-        updateRemoveButtons();
-        
-        // 當挑選本院人員模態框關閉時清空引用
-        $('#naerMemberModal').on('hidden.bs.modal hidden.modal', function () {
-            currentMemberNameZhInput = null;
-            currentMemberNameEnInput = null;
-            $('.modal-backdrop').remove();
-        });
     });
     
     function initDatePicker() {
@@ -722,74 +717,6 @@
                 $('#project_source').val('');
                 $('#project_source_other').val('');
                 $('#approval_number').val('').removeClass('required-field');
-            }
-            // 更新執行方式選項
-            updateExecutionMethodOptions(value);
-        });
-        
-        // 更新執行方式選項
-        function updateExecutionMethodOptions(projectAttribute) {
-            var options = [];
-            
-            if (projectAttribute === '院內研究計畫') {
-                options = [
-                    { value: '自行研究(本院經費-本院人員)', text: '自行研究(本院經費-本院人員)' },
-                    { value: '合作研究(本院經費-各方人員)', text: '合作研究(本院經費-各方人員)' },
-                    { value: '委託研究(經採購委託他機構人員)', text: '委託研究(經採購委託他機構人員)' },
-                    { value: '其它', text: '其它' }
-                ];
-            } else if (projectAttribute === '院外研究計畫') {
-                options = [
-                    { value: '委託研究(他機關經採購委託本院)', text: '委託研究(他機關經採購委託本院)' },
-                    { value: '委辦研究(行政指示或行政協助)', text: '委辦研究(行政指示或行政協助)' },
-                    { value: '補助研究', text: '補助研究' },
-                    { value: '學術補助(國科會專題研究補助)', text: '學術補助(國科會專題研究補助)' },
-                    { value: '其它', text: '其它' }
-                ];
-            } else {
-                // 如果沒有選擇計畫屬性，顯示空選項
-                options = [{ value: '', text: '請選擇' }];
-            }
-            
-            // 更新所有執行方式下拉選單
-            $('.execution-method-select').each(function() {
-                var currentValue = $(this).val();
-                $(this).empty();
-                
-                // 添加「請選擇」選項
-                $(this).append('<option value="">請選擇</option>');
-                
-                // 添加其他選項
-                options.forEach(function(option) {
-                    $(this).append('<option value="' + option.value + '">' + option.text + '</option>');
-                }.bind(this));
-                
-                // 如果當前值在新選項中存在，則保留；否則清空
-                if (currentValue && options.some(function(opt) { return opt.value === currentValue; })) {
-                    $(this).val(currentValue);
-                } else {
-                    $(this).val('');
-                }
-                
-                // 觸發change事件來處理「其它」選項
-                $(this).trigger('change');
-            });
-        }
-        
-        // 執行方式變更事件（處理「其它」選項）
-        $(document).on('change', '.execution-method-select', function() {
-            var value = $(this).val();
-            var container = $(this).closest('.dynamic-field-group');
-            var otherField = container.find('.execution-method-other-input');
-            
-            if (value === '其它') {
-                // 如果還沒有「其它」輸入欄位，則添加
-                if (otherField.length === 0) {
-                    container.append('<input type="text" class="form-control execution-method-other-input" placeholder="請填寫其它執行方式" style="margin-top: 5px;">');
-                }
-            } else {
-                // 移除「其它」輸入欄位
-                otherField.remove();
             }
         });
         
@@ -842,12 +769,6 @@
         $(document).on('change', '#sub_project_field .form-select', function() {
             // 當選擇子計畫三後，可以動態新增更多子計畫
         });
-        
-        // 初始化執行方式選項（如果已經選擇了計畫屬性）
-        var initialAttribute = $('#project_attribute').val();
-        if (initialAttribute) {
-            updateExecutionMethodOptions(initialAttribute);
-        }
     }
     
     function validateAndNavigate(url) {
@@ -938,434 +859,6 @@
     
     function removeField(btn) { 
         $(btn).closest('.dynamic-field-group').remove(); 
-    }
-    
-    // 新增執行方式欄位
-    function addExecutionMethodField(btn) {
-        var container = $(btn).siblings('.dynamic-container');
-        var firstGroup = container.find('.dynamic-field-group').first();
-        var newGroup = firstGroup.clone();
-        
-        // 清空值
-        newGroup.find('select').val('');
-        newGroup.find('input').val('');
-        newGroup.find('input.execution-method-other-input').remove();
-        
-        // 根據計畫屬性更新選項
-        var projectAttribute = $('#project_attribute').val();
-        if (projectAttribute) {
-            var options = [];
-            if (projectAttribute === '院內研究計畫') {
-                options = [
-                    { value: '自行研究(本院經費-本院人員)', text: '自行研究(本院經費-本院人員)' },
-                    { value: '合作研究(本院經費-各方人員)', text: '合作研究(本院經費-各方人員)' },
-                    { value: '委託研究(經採購委託他機構人員)', text: '委託研究(經採購委託他機構人員)' },
-                    { value: '其它', text: '其它' }
-                ];
-            } else if (projectAttribute === '院外研究計畫') {
-                options = [
-                    { value: '委託研究(他機關經採購委託本院)', text: '委託研究(他機關經採購委託本院)' },
-                    { value: '委辦研究(行政指示或行政協助)', text: '委辦研究(行政指示或行政協助)' },
-                    { value: '補助研究', text: '補助研究' },
-                    { value: '學術補助(國科會專題研究補助)', text: '學術補助(國科會專題研究補助)' },
-                    { value: '其它', text: '其它' }
-                ];
-            }
-            
-            var select = newGroup.find('select');
-            select.empty();
-            select.append('<option value="">請選擇</option>');
-            options.forEach(function(option) {
-                select.append('<option value="' + option.value + '">' + option.text + '</option>');
-            });
-        }
-        
-        // 確保有刪除按鈕
-        if (newGroup.find('.btn-remove-field').length === 0) {
-            newGroup.append('<span class="btn-remove-field" onclick="removeField(this)" title="刪除">X</span>');
-        }
-        
-        container.append(newGroup);
-    }
-    
-    // 新增計畫參與人員
-    function addProjectMember() {
-        var container = $('#project_members_container');
-        var firstGroup = container.find('.project-member-group').first();
-        var newGroup = firstGroup.clone();
-        
-        // 清空所有輸入值
-        newGroup.find('select').val('');
-        newGroup.find('input').val('');
-        
-        // 確保有「挑選本院人員」按鈕
-        if (newGroup.find('button[onclick*="openNaerMemberModal"]').length === 0) {
-            var nameEnInput = newGroup.find('.member-name-en');
-            nameEnInput.after('<button type="button" class="btn btn-primary btn-sm" onclick="openNaerMemberModal(this)" title="挑選本院人員">挑選本院人員</button>');
-        }
-        
-        // 確保有刪除按鈕
-        if (newGroup.find('.btn-remove-member').length === 0) {
-            newGroup.append('<span class="btn-remove-member" onclick="removeProjectMember(this)" title="刪除">X</span>');
-        }
-        
-        container.append(newGroup);
-        updateRemoveButtons();
-    }
-    
-    // 刪除計畫參與人員
-    function removeProjectMember(btn) {
-        var container = $('#project_members_container');
-        var groups = container.find('.project-member-group');
-        
-        // 至少保留一組，如果只有一組則不刪除
-        if (groups.length > 1) {
-            $(btn).closest('.project-member-group').remove();
-            updateRemoveButtons();
-        } else {
-            alert('至少需要保留一組參與人員資料');
-        }
-    }
-    
-    // 更新刪除按鈕顯示狀態
-    function updateRemoveButtons() {
-        var container = $('#project_members_container');
-        var groups = container.find('.project-member-group');
-        
-        // 如果只有一組，隱藏所有刪除按鈕；否則顯示所有刪除按鈕
-        if (groups.length <= 1) {
-            groups.find('.btn-remove-member').hide();
-        } else {
-            groups.find('.btn-remove-member').show();
-        }
-    }
-</script>
-
-<!-- 國教院單位選擇模態框 -->
-<div class="modal fade" id="naerUnitModal" tabindex="-1" aria-labelledby="naerUnitModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="naerUnitModalLabel">選擇國教院單位</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" data-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <div class="list-group">
-                    <button type="button" class="list-group-item list-group-item-action naer-unit-item" data-unit="教育制度及政策研究中心">教育制度及政策研究中心</button>
-                    <button type="button" class="list-group-item list-group-item-action naer-unit-item" data-unit="課程及教學研究中心">課程及教學研究中心</button>
-                    <button type="button" class="list-group-item list-group-item-action naer-unit-item" data-unit="測驗及評量研究中心">測驗及評量研究中心</button>
-                    <button type="button" class="list-group-item list-group-item-action naer-unit-item" data-unit="語文教育及編譯研究中心">語文教育及編譯研究中心</button>
-                    <button type="button" class="list-group-item list-group-item-action naer-unit-item" data-unit="教科書研究中心">教科書研究中心</button>
-                    <button type="button" class="list-group-item list-group-item-action naer-unit-item" data-unit="原住民族教育研究中心">原住民族教育研究中心</button>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" data-dismiss="modal">取消</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- 挑選本院人員模態框 -->
-<div class="modal fade" id="naerMemberModal" tabindex="-1" aria-labelledby="naerMemberModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="naerMemberModalLabel">挑選本院人員</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" data-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body" style="max-height: 600px; overflow-y: auto;">
-                <div id="naer_member_list">
-                    <!-- 單位和人員清單將由JavaScript動態生成 -->
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" data-dismiss="modal">取消</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<script>
-    // 開啟國教院單位選擇模態框
-    var currentExecutionUnitInput = null;
-    
-    // 本院人員資料（每個單位5人）
-    var naerMembers = {
-        '教育制度及政策研究中心': [
-            { nameZh: '陳建宏', nameEn: 'Chen, Chien-Hung' },
-            { nameZh: '林美玲', nameEn: 'Lin, Mei-Ling' },
-            { nameZh: '張志明', nameEn: 'Chang, Chih-Ming' },
-            { nameZh: '王淑芬', nameEn: 'Wang, Shu-Fen' },
-            { nameZh: '黃文傑', nameEn: 'Huang, Wen-Chieh' }
-        ],
-        '課程及教學研究中心': [
-            { nameZh: '李雅婷', nameEn: 'Lee, Ya-Ting' },
-            { nameZh: '吳志強', nameEn: 'Wu, Chih-Chiang' },
-            { nameZh: '劉佳宜', nameEn: 'Liu, Chia-Yi' },
-            { nameZh: '鄭文華', nameEn: 'Cheng, Wen-Hua' },
-            { nameZh: '許淑娟', nameEn: 'Hsu, Shu-Chuan' }
-        ],
-        '測驗及評量研究中心': [
-            { nameZh: '楊智勝', nameEn: 'Yang, Chih-Sheng' },
-            { nameZh: '謝佳蓉', nameEn: 'Hsieh, Chia-Jung' },
-            { nameZh: '蔡明哲', nameEn: 'Tsai, Ming-Che' },
-            { nameZh: '周雅芳', nameEn: 'Chou, Ya-Fang' },
-            { nameZh: '羅建宏', nameEn: 'Lo, Chien-Hung' }
-        ],
-        '語文教育及編譯研究中心': [
-            { nameZh: '徐美惠', nameEn: 'Hsu, Mei-Hui' },
-            { nameZh: '曾文彬', nameEn: 'Tseng, Wen-Pin' },
-            { nameZh: '蘇雅雯', nameEn: 'Su, Ya-Wen' },
-            { nameZh: '江志偉', nameEn: 'Chiang, Chih-Wei' },
-            { nameZh: '葉淑芬', nameEn: 'Yeh, Shu-Fen' }
-        ],
-        '教科書研究中心': [
-            { nameZh: '何建明', nameEn: 'Ho, Chien-Ming' },
-            { nameZh: '沈雅玲', nameEn: 'Shen, Ya-Ling' },
-            { nameZh: '馬文傑', nameEn: 'Ma, Wen-Chieh' },
-            { nameZh: '高淑華', nameEn: 'Kao, Shu-Hua' },
-            { nameZh: '趙志強', nameEn: 'Chao, Chih-Chiang' }
-        ],
-        '原住民族教育研究中心': [
-            { nameZh: '孫美玲', nameEn: 'Sun, Mei-Ling' },
-            { nameZh: '鍾文華', nameEn: 'Chung, Wen-Hua' },
-            { nameZh: '盧雅芳', nameEn: 'Lu, Ya-Fang' },
-            { nameZh: '魏建宏', nameEn: 'Wei, Chien-Hung' },
-            { nameZh: '韓淑娟', nameEn: 'Han, Shu-Chuan' }
-        ]
-    };
-    
-    // 當前要填入的姓名欄位引用
-    var currentMemberNameZhInput = null;
-    var currentMemberNameEnInput = null;
-    
-    // 開啟挑選本院人員模態框
-    function openNaerMemberModal(btn) {
-        // 找到對應的姓名輸入欄位
-        var memberGroup = $(btn).closest('.project-member-group');
-        currentMemberNameZhInput = memberGroup.find('.member-name-zh');
-        currentMemberNameEnInput = memberGroup.find('.member-name-en');
-        
-        // 生成人員清單HTML
-        generateMemberList();
-        
-        // 顯示模態框
-        var modalElement = document.getElementById('naerMemberModal');
-        if (modalElement) {
-            try {
-                if (typeof bootstrap !== 'undefined' && bootstrap.Modal) {
-                    var modal = bootstrap.Modal.getOrCreateInstance(modalElement);
-                    modal.show();
-                } else if (typeof $ !== 'undefined' && $.fn.modal) {
-                    $(modalElement).modal('show');
-                } else {
-                    $(modalElement).addClass('show').css('display', 'block');
-                    $('body').append('<div class="modal-backdrop fade show"></div>');
-                }
-            } catch (e) {
-                console.error('開啟模態框時發生錯誤:', e);
-                $(modalElement).addClass('show').css('display', 'block');
-                $('body').append('<div class="modal-backdrop fade show"></div>');
-            }
-        }
-    }
-    
-    // 生成人員清單HTML
-    function generateMemberList() {
-        var html = '';
-        var units = Object.keys(naerMembers);
-        
-        units.forEach(function(unit) {
-            html += '<div class="mb-4">';
-            html += '<h6 class="fw-bold text-primary mb-2 border-bottom pb-2">' + unit + '</h6>';
-            html += '<div class="list-group">';
-            
-            naerMembers[unit].forEach(function(member) {
-                html += '<button type="button" class="list-group-item list-group-item-action naer-member-item" ';
-                html += 'data-name-zh="' + member.nameZh + '" ';
-                html += 'data-name-en="' + member.nameEn + '">';
-                html += '<div class="d-flex justify-content-between align-items-center">';
-                html += '<span><strong>' + member.nameZh + '</strong></span>';
-                html += '<small class="text-muted">' + member.nameEn + '</small>';
-                html += '</div>';
-                html += '</button>';
-            });
-            
-            html += '</div>';
-            html += '</div>';
-        });
-        
-        $('#naer_member_list').html(html);
-    }
-    
-    // 處理人員選擇
-    $(document).on('click', '.naer-member-item', function() {
-        var nameZh = $(this).data('name-zh');
-        var nameEn = $(this).data('name-en');
-        
-        // 將選擇的人員姓名填入輸入欄位
-        if (currentMemberNameZhInput && currentMemberNameZhInput.length > 0) {
-            currentMemberNameZhInput.val(nameZh);
-        }
-        if (currentMemberNameEnInput && currentMemberNameEnInput.length > 0) {
-            currentMemberNameEnInput.val(nameEn);
-        }
-        
-        // 關閉模態框
-        var modalElement = document.getElementById('naerMemberModal');
-        if (modalElement) {
-            try {
-                if (typeof bootstrap !== 'undefined' && bootstrap.Modal) {
-                    var modal = bootstrap.Modal.getInstance(modalElement);
-                    if (modal) {
-                        modal.hide();
-                    } else {
-                        var newModal = bootstrap.Modal.getOrCreateInstance(modalElement);
-                        newModal.hide();
-                    }
-                } else if (typeof $ !== 'undefined' && $.fn.modal) {
-                    $(modalElement).modal('hide');
-                } else {
-                    $(modalElement).removeClass('show').css('display', 'none');
-                    $('.modal-backdrop').remove();
-                }
-            } catch (e) {
-                $(modalElement).removeClass('show').css('display', 'none');
-                $('.modal-backdrop').remove();
-            }
-        }
-        
-        // 清空引用
-        currentMemberNameZhInput = null;
-        currentMemberNameEnInput = null;
-    });
-    
-    // 當模態框關閉時清空引用（在現有的ready函數中處理）
-    
-    function openNaerUnitModal(btn) {
-        // 找到對應的輸入欄位
-        currentExecutionUnitInput = $(btn).siblings('.execution-unit-input');
-        
-        // 顯示模態框 - 兼容Bootstrap 4和5
-        var modalElement = document.getElementById('naerUnitModal');
-        if (modalElement) {
-            try {
-                // 嘗試使用Bootstrap 5的方式
-                if (typeof bootstrap !== 'undefined' && bootstrap.Modal) {
-                    var modal = bootstrap.Modal.getOrCreateInstance(modalElement);
-                    modal.show();
-                } else if (typeof $ !== 'undefined' && $.fn.modal) {
-                    // 使用Bootstrap 4/jQuery的方式
-                    $(modalElement).modal('show');
-                } else {
-                    // 直接顯示
-                    $(modalElement).addClass('show').css('display', 'block');
-                    $('body').append('<div class="modal-backdrop fade show"></div>');
-                }
-            } catch (e) {
-                console.error('開啟模態框時發生錯誤:', e);
-                // 備用方案：直接顯示
-                $(modalElement).addClass('show').css('display', 'block');
-                $('body').append('<div class="modal-backdrop fade show"></div>');
-            }
-        } else {
-            console.error('模態框元素未找到');
-            alert('無法開啟單位選擇視窗，請重新整理頁面後再試');
-        }
-    }
-    
-    // 處理單位選擇
-    $(document).on('click', '.naer-unit-item', function() {
-        var selectedUnit = $(this).data('unit');
-        
-        // 將選擇的單位填入輸入欄位
-        if (currentExecutionUnitInput && currentExecutionUnitInput.length > 0) {
-            currentExecutionUnitInput.val(selectedUnit);
-        }
-        
-        // 關閉模態框 - 兼容Bootstrap 4和5
-        var modalElement = document.getElementById('naerUnitModal');
-        if (modalElement) {
-            try {
-                if (typeof bootstrap !== 'undefined' && bootstrap.Modal) {
-                    var modal = bootstrap.Modal.getInstance(modalElement);
-                    if (modal) {
-                        modal.hide();
-                    } else {
-                        var newModal = bootstrap.Modal.getOrCreateInstance(modalElement);
-                        newModal.hide();
-                    }
-                } else if (typeof $ !== 'undefined' && $.fn.modal) {
-                    $(modalElement).modal('hide');
-                } else {
-                    $(modalElement).removeClass('show').css('display', 'none');
-                    $('.modal-backdrop').remove();
-                }
-            } catch (e) {
-                // 備用方案：直接隱藏
-                $(modalElement).removeClass('show').css('display', 'none');
-                $('.modal-backdrop').remove();
-            }
-        }
-        
-        // 清空當前輸入欄位引用
-        currentExecutionUnitInput = null;
-    });
-    
-    // 當模態框關閉時清空引用 - 兼容Bootstrap 4和5
-    $(document).ready(function() {
-        $('#naerUnitModal').on('hidden.bs.modal hidden.modal', function () {
-            currentExecutionUnitInput = null;
-            // 移除backdrop（如果存在）
-            $('.modal-backdrop').remove();
-        });
-        
-        // 點擊backdrop關閉模態框
-        $(document).on('click', '.modal-backdrop', function() {
-            var modalElement = document.getElementById('naerUnitModal');
-            if (modalElement) {
-                if (typeof bootstrap !== 'undefined' && bootstrap.Modal) {
-                    var modal = bootstrap.Modal.getInstance(modalElement);
-                    if (modal) modal.hide();
-                } else if (typeof $ !== 'undefined' && $.fn.modal) {
-                    $(modalElement).modal('hide');
-                } else {
-                    $(modalElement).removeClass('show').css('display', 'none');
-                    $(this).remove();
-                }
-            }
-        });
-    });
-    
-    // 新增執行單位欄位
-    function addExecutionUnitField(btn) {
-        var container = $(btn).siblings('.dynamic-container');
-        var firstGroup = container.find('.dynamic-field-group').first();
-        var newGroup = firstGroup.clone();
-        
-        // 清空值
-        var input = newGroup.find('input');
-        input.val('');
-        
-        // 確保輸入框有正確的類名
-        if (!input.hasClass('execution-unit-input')) {
-            input.addClass('execution-unit-input');
-        }
-        
-        // 確保有「國教院單位」按鈕
-        if (newGroup.find('.btn-primary').length === 0 || !newGroup.find('button[onclick*="openNaerUnitModal"]').length) {
-            // 移除可能存在的舊按鈕
-            newGroup.find('button[onclick*="openNaerUnitModal"]').remove();
-            input.after('<button type="button" class="btn btn-primary btn-sm" onclick="openNaerUnitModal(this)" title="選擇國教院單位">國教院單位</button>');
-        }
-        
-        // 確保有刪除按鈕
-        if (newGroup.find('.btn-remove-field').length === 0) {
-            newGroup.append('<span class="btn-remove-field" onclick="removeField(this)" title="刪除">X</span>');
-        }
-        
-        container.append(newGroup);
     }
 </script>
 

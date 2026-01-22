@@ -160,11 +160,13 @@
         if (dataType === "工作計畫" || dataType === "研究計畫") {
             // 工作計畫和研究計畫：預設為 1，可根據實際需求調整為 0.5
             return 1;
-        } else if (dataType === "專書" || dataType === "專章" || dataType === "研討會論文" || dataType === "期刊論文") {
-            // 專書、專章、研討會論文、期刊論文：評鑑件數為 0.2
+        } else if (dataType === "專書" || dataType === "專章" || dataType === "期刊論文") {
+            // 專書、專章、期刊論文：評鑑件數為 0.2
             return 0.2;
+        } else if (dataType === "研討會論文") {
+            // 研討會論文：評鑑件數為 0
+            return 0;
         }
-        return 1; // 預設值
     }
 
     var allData = [];
