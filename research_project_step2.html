@@ -103,12 +103,16 @@
                                         <div class="col-md">
                                             <div class="d-flex flex-column gap-2 mt-2 mt-md-0">
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" id="authInternet">
+                                                    <input class="form-check-input" type="checkbox" id="authInternet" onchange="handleAuthOptionChange()">
                                                     <label class="form-check-label" for="authInternet">公眾網路 (Internet)</label>
                                                 </div>
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" id="authIntranet">
+                                                    <input class="form-check-input" type="checkbox" id="authIntranet" onchange="handleAuthOptionChange()">
                                                     <label class="form-check-label" for="authIntranet">國家教育研究院及所屬單位 (Intranet)</label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="authNoPublic" onchange="handleAuthOptionChange()">
+                                                    <label class="form-check-label" for="authNoPublic">不公開</label>
                                                 </div>
                                             </div>
                                         </div>
@@ -202,6 +206,23 @@
             $('#authEndDate').val('').prop('disabled', true);
         } else {
             $('#authEndDate').prop('disabled', false);
+        }
+    }
+    
+    // 處理授權對象選項變更（互斥邏輯）
+    function handleAuthOptionChange() {
+        var authInternet = $('#authInternet').is(':checked');
+        var authIntranet = $('#authIntranet').is(':checked');
+        var authNoPublic = $('#authNoPublic').is(':checked');
+        
+        // 如果選擇「不公開」，取消其他選項
+        if (authNoPublic) {
+            $('#authInternet').prop('checked', false);
+            $('#authIntranet').prop('checked', false);
+        }
+        // 如果選擇其他任一選項，取消「不公開」
+        if (authInternet || authIntranet) {
+            $('#authNoPublic').prop('checked', false);
         }
     }
 </script>
