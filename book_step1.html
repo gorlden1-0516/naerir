@@ -40,6 +40,50 @@
         .action-btn { cursor: pointer; margin: 0 5px; font-size: 1.2rem; }
         .btn-edit { color: #0d6efd; }
         .btn-delete { color: #dc3545; }
+
+        /* 作者整合欄位（同計畫參與人員樣式） */
+        .project-member-group {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 12px;
+            padding: 12px;
+            background-color: #f8f9fa;
+            border-radius: 4px;
+            border: 1px solid #dee2e6;
+        }
+        .project-member-group .form-select,
+        .project-member-group .form-control { flex: 1; }
+        .project-member-group .member-role { min-width: 150px; }
+        .project-member-group .member-name-zh { min-width: 180px; }
+        .project-member-group .member-name-en { min-width: 200px; }
+        .project-member-group .btn-primary {
+            background-color: #0d6efd;
+            border-color: #0d6efd;
+            color: #fff;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+        .project-member-group .btn-primary:hover {
+            background-color: #0b5ed7;
+            border-color: #0a58ca;
+            color: #fff;
+        }
+        .project-member-group .btn-remove-member {
+            color: #dc3545;
+            cursor: pointer;
+            font-size: 1.2rem;
+            font-weight: bold;
+            padding: 0 8px;
+            min-width: 30px;
+            text-align: center;
+        }
+        .project-member-group .btn-remove-member:hover {
+            color: #a71d2a;
+            background-color: #f8d7da;
+            border-radius: 4px;
+        }
+        .project-members-container { margin-bottom: 15px; }
     </style>
 </head>
 <body id="top" class="page focus tw-min-h-screen">
@@ -91,7 +135,7 @@
                     <div class="col"><a class="nav-link" href="javascript:void(0);" onclick="validateAndNavigate('book_step2.html')">步驟2: 上傳檔案</a></div>
                     <div class="col"><a class="nav-link disabled" href="#">步驟3: 確認並送出檢核</a></div>
                 </div></div>
-                <div class="col-sm"><div class="tabPane bg-light p-3"><div class="col-12 text-end mb-2"><span class="required-star">*</span> 為必填欄位</div><div class="row g-4"><div class="col-12"><div class="row"><label class="min_width-175 col-sm-auto col-form-label"><span class="required-star">*</span>正題名</label><div class="col"><input type="text" class="form-control required-field" id="field_2f267519" placeholder="教育政策與制度之回顧及展望" data-label="正題名"><span class="form-hint"></span></div></div></div><div class="col-12"><div class="row"><label class="min_width-175 col-sm-auto col-form-label"><span class="required-star">*</span>副題名</label><div class="col"><input type="text" class="form-control required-field" id="field_a2654df0" placeholder="" data-label="副題名"><span class="form-hint"></span></div></div></div><div class="col-12"><div class="row"><label class="min_width-175 col-sm-auto col-form-label"><span class="required-star">*</span>並列題名</label><div class="col"><input type="text" class="form-control required-field" id="field_a84032e9" placeholder="" data-label="並列題名"><span class="form-hint">此書的英文題名</span></div></div></div><div class="col-md-6"><div class="row"><label class="min_width-175 col-sm-auto col-form-label">作者</label><div class="col"><div class="dynamic-container"><div class="dynamic-field-group"><input type="text" class="form-control " id="field_62cea749" placeholder="○○○" ></div></div><button type="button" class="btn btn-outline-success btn-add-field" onclick="addField(this)">+ 新增</button><span class="form-hint">可新增作者</span></div></div></div><div class="col-md-6"><div class="row"><label class="min_width-175 col-sm-auto col-form-label">作者(英文)</label><div class="col"><div class="dynamic-container"><div class="dynamic-field-group"><input type="text" class="form-control " id="field_d6f2c05b" placeholder="" ></div></div><button type="button" class="btn btn-outline-success btn-add-field" onclick="addField(this)">+ 新增</button><span class="form-hint">可新增</span></div></div></div><div class="col-md-6"><div class="row"><label class="min_width-175 col-sm-auto col-form-label">出版年月</label><div class="col"><input type="text" class="form-control " id="field_7ec1c4ff" placeholder="2024/02" ><span class="form-hint">YYYY/MM</span></div></div></div><div class="col-md-6"><div class="row"><label class="min_width-175 col-sm-auto col-form-label">出版地</label><div class="col"><input type="text" class="form-control " id="field_b490cece" placeholder="新北市" ><span class="form-hint"></span></div></div></div><div class="col-md-6"><div class="row"><label class="min_width-175 col-sm-auto col-form-label">出版者</label><div class="col"><input type="text" class="form-control " id="field_f15c9ea5" placeholder="國家教育研究院" ><span class="form-hint"></span></div></div></div><div class="col-md-6"><div class="row"><label class="min_width-175 col-sm-auto col-form-label">版本</label><div class="col"><input type="text" class="form-control " id="field_fe2df04a" placeholder="初版" ><span class="form-hint"></span></div></div></div><div class="col-md-6"><div class="row"><label class="min_width-175 col-sm-auto col-form-label">ISBN</label><div class="col"><input type="text" class="form-control " id="field_9609dddf" placeholder="978-626-345-425-5" ><span class="form-hint"></span></div></div></div><div class="col-md-6"><div class="row"><label class="min_width-175 col-sm-auto col-form-label">GPN</label><div class="col"><input type="text" class="form-control " id="field_ed492dd5" placeholder="4711300006" ><span class="form-hint"></span></div></div></div><div class="col-md-6"><div class="row"><label class="min_width-175 col-sm-auto col-form-label">相關連結</label><div class="col"><div class="dynamic-container"><div class="dynamic-field-group"><input type="text" class="form-control " id="field_445a9609" placeholder="https://gpi.culture.tw/..." ></div></div><button type="button" class="btn btn-outline-success btn-add-field" onclick="addField(this)">+ 新增</button><span class="form-hint">可新增</span></div></div></div></div></div>
+                <div class="col-sm"><div class="tabPane bg-light p-3"><div class="col-12 text-end mb-2"><span class="required-star">*</span> 為必填欄位</div><div class="row g-4"><div class="col-12"><div class="row"><label class="min_width-175 col-sm-auto col-form-label"><span class="required-star">*</span>正題名</label><div class="col"><input type="text" class="form-control required-field" id="field_2f267519" placeholder="教育政策與制度之回顧及展望" data-label="正題名"><span class="form-hint"></span></div></div></div><div class="col-12"><div class="row"><label class="min_width-175 col-sm-auto col-form-label"><span class="required-star">*</span>副題名</label><div class="col"><input type="text" class="form-control required-field" id="field_a2654df0" placeholder="" data-label="副題名"><span class="form-hint"></span></div></div></div><div class="col-12"><div class="row"><label class="min_width-175 col-sm-auto col-form-label"><span class="required-star">*</span>並列題名</label><div class="col"><input type="text" class="form-control required-field" id="field_a84032e9" placeholder="" data-label="並列題名"><span class="form-hint">此書的英文題名</span></div></div></div><div class="col-12"><div class="row"><label class="min_width-175 col-sm-auto col-form-label">作者</label><div class="col"><div class="project-members-container" id="author_members_container"><div class="project-member-group"><select class="form-select member-role"><option value="">請選擇</option><option value="第一作者">第一作者</option><option value="通訊作者">通訊作者</option><option value="共同作者">共同作者</option></select><input type="text" class="form-control member-name-zh" placeholder="中文姓名"><input type="text" class="form-control member-name-en" placeholder="English Name"><button type="button" class="btn btn-primary btn-sm" onclick="openNaerMemberModal(this)" title="挑選本院人員">挑選本院人員</button><span class="btn-remove-member" onclick="removeAuthorMember(this)" title="刪除">X</span></div><div class="project-member-group"><select class="form-select member-role"><option value="">請選擇</option><option value="第一作者">第一作者</option><option value="通訊作者">通訊作者</option><option value="共同作者">共同作者</option></select><input type="text" class="form-control member-name-zh" placeholder="中文姓名"><input type="text" class="form-control member-name-en" placeholder="English Name"><button type="button" class="btn btn-primary btn-sm" onclick="openNaerMemberModal(this)" title="挑選本院人員">挑選本院人員</button><span class="btn-remove-member" onclick="removeAuthorMember(this)" title="刪除">X</span></div></div><button type="button" class="btn btn-outline-success btn-add-field" onclick="addAuthorMember()">+ 新增作者</button><span class="form-hint">可新增多組作者資料</span></div></div></div><div class="col-md-6"><div class="row"><label class="min_width-175 col-sm-auto col-form-label">出版年月</label><div class="col"><input type="text" class="form-control " id="field_7ec1c4ff" placeholder="2024/02" ><span class="form-hint">YYYY/MM</span></div></div></div><div class="col-md-6"><div class="row"><label class="min_width-175 col-sm-auto col-form-label">出版地</label><div class="col"><input type="text" class="form-control " id="field_b490cece" placeholder="新北市" ><span class="form-hint"></span></div></div></div><div class="col-md-6"><div class="row"><label class="min_width-175 col-sm-auto col-form-label">出版者</label><div class="col"><input type="text" class="form-control " id="field_f15c9ea5" placeholder="國家教育研究院" ><span class="form-hint"></span></div></div></div><div class="col-md-6"><div class="row"><label class="min_width-175 col-sm-auto col-form-label">版本</label><div class="col"><input type="text" class="form-control " id="field_fe2df04a" placeholder="初版" ><span class="form-hint"></span></div></div></div><div class="col-md-6"><div class="row"><label class="min_width-175 col-sm-auto col-form-label">ISBN</label><div class="col"><input type="text" class="form-control " id="field_9609dddf" placeholder="978-626-345-425-5" ><span class="form-hint"></span></div></div></div><div class="col-md-6"><div class="row"><label class="min_width-175 col-sm-auto col-form-label">GPN</label><div class="col"><input type="text" class="form-control " id="field_ed492dd5" placeholder="4711300006" ><span class="form-hint"></span></div></div></div><div class="col-md-6"><div class="row"><label class="min_width-175 col-sm-auto col-form-label">相關連結</label><div class="col"><div class="dynamic-container"><div class="dynamic-field-group"><input type="text" class="form-control " id="field_445a9609" placeholder="https://gpi.culture.tw/..." ></div></div><button type="button" class="btn btn-outline-success btn-add-field" onclick="addField(this)">+ 新增</button><span class="form-hint">可新增</span></div></div></div></div></div>
                 <div class="tabPane bg-light p-3 mt-3"><div class="row"><div class="col"><a class="btn_grey-light btn btn-light w-100 disabled" href="#">回上一頁</a></div><div class="col"><a class="btn_primary btn btn-primary w-100" href="javascript:void(0);" onclick="validateAndNavigate('book_step2.html')">下一步</a></div></div></div></div>
             </div>
         </div>
@@ -114,7 +158,15 @@
     <script src="./Step3_files/bootstrap.bundle.min.js"></script>
     
 <script>
-    $(document).ready(function(){ initDatePicker(); });
+    $(document).ready(function(){
+        initDatePicker();
+        updateAuthorRemoveButtons();
+        $('#naerMemberModal').on('hidden.bs.modal hidden.modal', function () {
+            currentMemberNameZhInput = null;
+            currentMemberNameEnInput = null;
+            $('.modal-backdrop').remove();
+        });
+    });
     function initDatePicker() {
         $(".form_date").datepicker({ language: "zh-TW", format: "yyyy/mm/dd", autoclose: true, orientation: "bottom auto" });
     }
@@ -145,6 +197,175 @@
         initDatePicker();
     }
     function removeField(btn) { $(btn).closest('.dynamic-field-group').remove(); }
+
+    function addAuthorMember() {
+        var container = $('#author_members_container');
+        var firstGroup = container.find('.project-member-group').first();
+        var newGroup = firstGroup.clone();
+        newGroup.find('select').val('');
+        newGroup.find('input').val('');
+        if (newGroup.find('button[onclick*="openNaerMemberModal"]').length === 0) {
+            var nameEnInput = newGroup.find('.member-name-en');
+            nameEnInput.after('<button type="button" class="btn btn-primary btn-sm" onclick="openNaerMemberModal(this)" title="挑選本院人員">挑選本院人員</button>');
+        }
+        if (newGroup.find('.btn-remove-member').length === 0) {
+            newGroup.append('<span class="btn-remove-member" onclick="removeAuthorMember(this)" title="刪除">X</span>');
+        }
+        container.append(newGroup);
+        updateAuthorRemoveButtons();
+    }
+    function removeAuthorMember(btn) {
+        var container = $('#author_members_container');
+        var groups = container.find('.project-member-group');
+        if (groups.length > 1) {
+            $(btn).closest('.project-member-group').remove();
+            updateAuthorRemoveButtons();
+        } else {
+            alert('至少需要保留一組作者資料');
+        }
+    }
+    function updateAuthorRemoveButtons() {
+        var container = $('#author_members_container');
+        var groups = container.find('.project-member-group');
+        if (groups.length <= 1) {
+            groups.find('.btn-remove-member').hide();
+        } else {
+            groups.find('.btn-remove-member').show();
+        }
+    }
+</script>
+
+<!-- 挑選本院人員模態框 -->
+<div class="modal fade" id="naerMemberModal" tabindex="-1" aria-labelledby="naerMemberModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="naerMemberModalLabel">挑選本院人員</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" data-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" style="max-height: 600px; overflow-y: auto;">
+                <div id="naer_member_list"></div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" data-dismiss="modal">取消</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    var currentMemberNameZhInput = null;
+    var currentMemberNameEnInput = null;
+    var naerMembers = {
+        '教育制度及政策研究中心': [
+            { nameZh: '陳建宏', nameEn: 'Chen, Chien-Hung' },
+            { nameZh: '林美玲', nameEn: 'Lin, Mei-Ling' },
+            { nameZh: '張志明', nameEn: 'Chang, Chih-Ming' },
+            { nameZh: '王淑芬', nameEn: 'Wang, Shu-Fen' },
+            { nameZh: '黃文傑', nameEn: 'Huang, Wen-Chieh' }
+        ],
+        '課程及教學研究中心': [
+            { nameZh: '李雅婷', nameEn: 'Lee, Ya-Ting' },
+            { nameZh: '吳志強', nameEn: 'Wu, Chih-Chiang' },
+            { nameZh: '劉佳宜', nameEn: 'Liu, Chia-Yi' },
+            { nameZh: '鄭文華', nameEn: 'Cheng, Wen-Hua' },
+            { nameZh: '許淑娟', nameEn: 'Hsu, Shu-Chuan' }
+        ],
+        '測驗及評量研究中心': [
+            { nameZh: '楊智勝', nameEn: 'Yang, Chih-Sheng' },
+            { nameZh: '謝佳蓉', nameEn: 'Hsieh, Chia-Jung' },
+            { nameZh: '蔡明哲', nameEn: 'Tsai, Ming-Che' },
+            { nameZh: '周雅芳', nameEn: 'Chou, Ya-Fang' },
+            { nameZh: '羅建宏', nameEn: 'Lo, Chien-Hung' }
+        ],
+        '語文教育及編譯研究中心': [
+            { nameZh: '徐美惠', nameEn: 'Hsu, Mei-Hui' },
+            { nameZh: '曾文彬', nameEn: 'Tseng, Wen-Pin' },
+            { nameZh: '蘇雅雯', nameEn: 'Su, Ya-Wen' },
+            { nameZh: '江志偉', nameEn: 'Chiang, Chih-Wei' },
+            { nameZh: '葉淑芬', nameEn: 'Yeh, Shu-Fen' }
+        ],
+        '教科書研究中心': [
+            { nameZh: '何建明', nameEn: 'Ho, Chien-Ming' },
+            { nameZh: '沈雅玲', nameEn: 'Shen, Ya-Ling' },
+            { nameZh: '馬文傑', nameEn: 'Ma, Wen-Chieh' },
+            { nameZh: '高淑華', nameEn: 'Kao, Shu-Hua' },
+            { nameZh: '趙志強', nameEn: 'Chao, Chih-Chiang' }
+        ],
+        '原住民族教育研究中心': [
+            { nameZh: '孫美玲', nameEn: 'Sun, Mei-Ling' },
+            { nameZh: '鍾文華', nameEn: 'Chung, Wen-Hua' },
+            { nameZh: '盧雅芳', nameEn: 'Lu, Ya-Fang' },
+            { nameZh: '魏建宏', nameEn: 'Wei, Chien-Hung' },
+            { nameZh: '韓淑娟', nameEn: 'Han, Shu-Chuan' }
+        ]
+    };
+    function openNaerMemberModal(btn) {
+        var memberGroup = $(btn).closest('.project-member-group');
+        currentMemberNameZhInput = memberGroup.find('.member-name-zh');
+        currentMemberNameEnInput = memberGroup.find('.member-name-en');
+        generateMemberList();
+        var modalElement = document.getElementById('naerMemberModal');
+        if (modalElement) {
+            try {
+                if (typeof bootstrap !== 'undefined' && bootstrap.Modal) {
+                    var modal = bootstrap.Modal.getOrCreateInstance(modalElement);
+                    modal.show();
+                } else if (typeof $ !== 'undefined' && $.fn.modal) {
+                    $(modalElement).modal('show');
+                } else {
+                    $(modalElement).addClass('show').css('display', 'block');
+                    $('body').append('<div class="modal-backdrop fade show"></div>');
+                }
+            } catch (e) {
+                $(modalElement).addClass('show').css('display', 'block');
+                $('body').append('<div class="modal-backdrop fade show"></div>');
+            }
+        }
+    }
+    function generateMemberList() {
+        var html = '';
+        var units = Object.keys(naerMembers);
+        units.forEach(function(unit) {
+            html += '<div class="mb-4">';
+            html += '<h6 class="fw-bold text-primary mb-2 border-bottom pb-2">' + unit + '</h6>';
+            html += '<div class="list-group">';
+            naerMembers[unit].forEach(function(member) {
+                html += '<button type="button" class="list-group-item list-group-item-action naer-member-item" ';
+                html += 'data-name-zh="' + member.nameZh + '" data-name-en="' + member.nameEn + '">';
+                html += '<div class="d-flex justify-content-between align-items-center">';
+                html += '<span><strong>' + member.nameZh + '</strong></span>';
+                html += '<small class="text-muted">' + member.nameEn + '</small>';
+                html += '</div></button>';
+            });
+            html += '</div></div>';
+        });
+        $('#naer_member_list').html(html);
+    }
+    $(document).on('click', '.naer-member-item', function() {
+        var nameZh = $(this).data('name-zh');
+        var nameEn = $(this).data('name-en');
+        if (currentMemberNameZhInput && currentMemberNameZhInput.length > 0) currentMemberNameZhInput.val(nameZh);
+        if (currentMemberNameEnInput && currentMemberNameEnInput.length > 0) currentMemberNameEnInput.val(nameEn);
+        var modalElement = document.getElementById('naerMemberModal');
+        if (modalElement) {
+            try {
+                if (typeof bootstrap !== 'undefined' && bootstrap.Modal) {
+                    var modal = bootstrap.Modal.getInstance(modalElement);
+                    if (modal) modal.hide();
+                    else bootstrap.Modal.getOrCreateInstance(modalElement).hide();
+                } else if (typeof $ !== 'undefined' && $.fn.modal) {
+                    $(modalElement).modal('hide');
+                } else {
+                    $(modalElement).removeClass('show').css('display', 'none');
+                    $('.modal-backdrop').remove();
+                }
+            } catch (e) {
+                $(modalElement).removeClass('show').css('display', 'none');
+                $('.modal-backdrop').remove();
+            }
+        }
+    });
 </script>
 
 </body>

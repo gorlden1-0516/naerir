@@ -113,12 +113,16 @@
                                         <div class="col-md">
                                             <div class="d-flex flex-column gap-2 mt-2 mt-md-0">
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" id="authInternet">
+                                                    <input class="form-check-input" type="radio" name="authTarget" id="authInternet" value="internet">
                                                     <label class="form-check-label" for="authInternet">公眾網路 (Internet)</label>
                                                 </div>
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" id="authIntranet">
+                                                    <input class="form-check-input" type="radio" name="authTarget" id="authIntranet" value="intranet">
                                                     <label class="form-check-label" for="authIntranet">國家教育研究院及所屬單位 (Intranet)</label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" name="authTarget" id="authNoPublic" value="noPublic">
+                                                    <label class="form-check-label" for="authNoPublic">不公開</label>
                                                 </div>
                                             </div>
                                         </div>
