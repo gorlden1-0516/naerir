@@ -177,6 +177,7 @@
                                 <a class="dropdown-item" href="book_step1.html">專書上傳</a>
                                 <a class="dropdown-item" href="chapter_step1.html">專章上傳</a>
                                 <a class="dropdown-item" href="conference_step1.html">研討會論文上傳</a>
+<a class="dropdown-item" href="summary_step1.html">提要/建言/訊息上傳</a>
 
                             </div>
                         </div>
@@ -214,7 +215,7 @@
                 <div class="col-sm">
                     <div class="tabPane bg-light p-3">
                         <div class="col-12 text-end mb-2">
-                            <span class="required-star">*</span> 為必填欄位
+                            <span class="required-star">*</span> 為必填欄位　<span style="color:#0d6efd;font-weight:bold;">*</span> 至少填寫其中一項
                         </div>
                         <div class="row g-4">
                             <div class="col-md-6">
@@ -224,7 +225,7 @@
                                     </label>
                                     <div class="col">
                                         <input type="text" class="form-control required-field" id="field_d8baaedb" placeholder="NAER-106-12-G-1-01-00-1-01" data-label="計畫編號">
-                                        <span class="form-hint">國家教育研究院編號</span>
+                                        <span class="form-hint">研究計畫編號</span>
                                     </div>
                                 </div>
                             </div>
@@ -247,10 +248,10 @@
                             <div class="col-12">
                                 <div class="row">
                                     <label class="min_width-175 col-sm-auto col-form-label">
-                                        <span class="required-star">*</span>計畫名稱
+                                        <span style="color:#0d6efd;font-weight:bold;">*</span>計畫名稱
                                     </label>
                                     <div class="col">
-                                        <input type="text" class="form-control required-field" id="field_cfc05367" placeholder="國小自然科數位教科書單元發展與實作研究" data-label="計畫名稱">
+                                        <input type="text" class="form-control plan-title-required" id="field_cfc05367" placeholder="國小自然科數位教科書單元發展與實作研究" data-label="計畫名稱">
                                         <span class="form-hint"></span>
                                     </div>
                                 </div>
@@ -258,19 +259,19 @@
                             <div class="col-12">
                                 <div class="row">
                                     <label class="min_width-175 col-sm-auto col-form-label">
-                                        <span class="required-star">*</span>計畫名稱(英文)
+                                        <span style="color:#0d6efd;font-weight:bold;">*</span>計畫名稱（外文）
                                     </label>
                                     <div class="col">
-                                        <input type="text" class="form-control required-field" id="field_7b53fc2c" placeholder="A Development and Implementation Study..." data-label="計畫名稱(英文)">
+                                        <input type="text" class="form-control plan-title-required" id="field_7b53fc2c" placeholder="A Development and Implementation Study..." data-label="計畫名稱（外文）">
                                         <span class="form-hint"></span>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-12">
                                 <div class="row">
-                                    <label class="min_width-175 col-sm-auto col-form-label">計畫屬性</label>
+                                    <label class="min_width-175 col-sm-auto col-form-label"><span class="required-star">*</span>計畫屬性</label>
                                     <div class="col">
-                                        <select class="form-select" id="project_attribute">
+                                        <select class="form-select required-field" id="project_attribute" data-label="計畫屬性">
                                             <option value="">請選擇</option>
                                             <option value="院內研究計畫">院內研究計畫</option>
                                             <option value="院外研究計畫">院外研究計畫</option>
@@ -279,109 +280,125 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-6 conditional-field" id="project_source_field" style="display:none;">
-                                <div class="row">
-                                    <label class="min_width-175 col-sm-auto col-form-label">研究計畫來源</label>
-                                    <div class="col">
-                                        <select class="form-select" id="project_source">
-                                            <option value="">請選擇</option>
-                                            <option value="中心規劃型">中心規劃型</option>
-                                            <option value="政策任務型">政策任務型</option>
-                                            <option value="自由競爭型">自由競爭型</option>
-                                            <option value="快打型">快打型</option>
-                                            <option value="其它">其它</option>
-                                        </select>
-                                        <span class="form-hint">僅於計畫屬性為「院內研究計畫」時顯示</span>
+                            <div class="col-12 conditional-field" id="project_source_field" style="display:none;">
+                                <div class="row g-3 align-items-start">
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <label class="min_width-175 col-sm-auto col-form-label">研究計畫來源</label>
+                                            <div class="col">
+                                                <select class="form-select" id="project_source">
+                                                    <option value="">請選擇</option>
+                                                    <option value="中心規劃型">中心規劃型</option>
+                                                    <option value="政策任務型">政策任務型</option>
+                                                    <option value="自由競爭型">自由競爭型</option>
+                                                    <option value="快打型">快打型</option>
+                                                    <option value="其它">其它</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6" id="approval_number_field" style="display:none;">
+                                        <div class="row">
+                                            <label class="min_width-175 col-sm-auto col-form-label">
+                                                <span class="required-star">*</span>本院公文核准號
+                                            </label>
+                                            <div class="col">
+                                                <input type="text" class="form-control required-field" id="approval_number" placeholder="請填寫本院公文核准號" data-label="本院公文核准號">
+                                                <span class="form-hint">當研究計畫來源為「快打型」時必填</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6" id="project_source_other_field" style="display:none;">
+                                        <div class="row">
+                                            <label class="min_width-175 col-sm-auto col-form-label"><span class="required-star">*</span>其它（請填寫）</label>
+                                            <div class="col">
+                                                <input type="text" class="form-control required-field" id="project_source_other" placeholder="請填寫其它研究計畫來源" data-label="研究計畫來源（其它）">
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-6 conditional-field" id="project_source_other_field" style="display:none;">
-                                <div class="row">
-                                    <label class="min_width-175 col-sm-auto col-form-label">其它（請填寫）</label>
-                                    <div class="col">
-                                        <input type="text" class="form-control" id="project_source_other" placeholder="請填寫其它研究計畫來源">
+                            <div class="col-12">
+                                <div class="row g-3 align-items-start">
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <label class="min_width-175 col-sm-auto col-form-label">計畫類型</label>
+                                            <div class="col">
+                                                <select class="form-select" id="field_25bd4fa7">
+                                                    <option value="">請選擇</option>
+                                                    <option value="整合型計畫">整合型計畫</option>
+                                                    <option value="個別型計畫">個別型計畫</option>
+                                                    <option value="單一整合型計畫">單一整合型計畫</option>
+                                                    <option value="其它">其它</option>
+                                                </select>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6 conditional-field" id="approval_number_field" style="display:none;">
-                                <div class="row">
-                                    <label class="min_width-175 col-sm-auto col-form-label">
-                                        <span class="required-star">*</span>本院公文核准號
-                                    </label>
-                                    <div class="col">
-                                        <input type="text" class="form-control required-field" id="approval_number" placeholder="請填寫本院公文核准號" data-label="本院公文核准號">
-                                        <span class="form-hint">當研究計畫來源為「快打型」時必填</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="row">
-                                    <label class="min_width-175 col-sm-auto col-form-label">計畫類型</label>
-                                    <div class="col">
-                                        <select class="form-select" id="field_25bd4fa7">
-                                            <option value="">請選擇</option>
-                                            <option value="整合型計畫">整合型計畫</option>
-                                            <option value="個別型計畫">個別型計畫</option>
-                                            <option value="單一整合型計畫">單一整合型計畫</option>
-                                            <option value="其它">其它</option>
-                                        </select>
-                                        <span class="form-hint">單選項目</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6 conditional-field" id="project_type_other_field" style="display:none;">
-                                <div class="row">
-                                    <label class="min_width-175 col-sm-auto col-form-label">其它（請填寫）</label>
-                                    <div class="col">
-                                        <input type="text" class="form-control" id="project_type_other" placeholder="請填寫其它計畫類型">
+                                    <div class="col-md-6" id="project_type_other_field" style="display:none;">
+                                        <div class="row">
+                                            <label class="min_width-175 col-sm-auto col-form-label"><span class="required-star">*</span>其它（請填寫）</label>
+                                            <div class="col">
+                                                <input type="text" class="form-control required-field" id="project_type_other" placeholder="請填寫其它計畫類型" data-label="計畫類型（其它）">
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-12 conditional-field" id="integrated_project_name_zh_field" style="display:none;">
                                 <div class="row">
                                     <label class="min_width-175 col-sm-auto col-form-label">
-                                        <span class="required-star">*</span>整合型計畫名稱
+                                        <span style="color:#0d6efd;font-weight:bold;">*</span>整合型計畫名稱
                                     </label>
                                     <div class="col">
-                                        <input type="text" class="form-control required-field" id="field_214ab4b7" placeholder="我國數位教科書研發與評鑑之研究(I)" data-label="整合型計畫名稱">
-                                        <span class="form-hint">當計畫類型為「整合型計畫」時必填</span>
+                                        <input type="text" class="form-control integrated-title-required" id="field_214ab4b7" placeholder="我國數位教科書研發與評鑑之研究(I)" data-label="整合型計畫名稱">
+                                        <span class="form-hint">當計畫類型為「整合型計畫」時至少填寫其中一項</span>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-12 conditional-field" id="integrated_project_name_en_field" style="display:none;">
                                 <div class="row">
                                     <label class="min_width-175 col-sm-auto col-form-label">
-                                        <span class="required-star">*</span>整合型計畫名稱(英文)
+                                        <span style="color:#0d6efd;font-weight:bold;">*</span>整合型計畫名稱（外文）
                                     </label>
                                     <div class="col">
-                                        <input type="text" class="form-control required-field" id="field_0f5e4295" placeholder="An Research on the Development..." data-label="整合型計畫名稱(英文)">
-                                        <span class="form-hint">當計畫類型為「整合型計畫」時必填</span>
+                                        <input type="text" class="form-control integrated-title-required" id="field_0f5e4295" placeholder="An Research on the Development..." data-label="整合型計畫名稱（外文）">
+                                        <span class="form-hint">當計畫類型為「整合型計畫」時至少填寫其中一項</span>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-6 conditional-field" id="sub_project_field" style="display:none;">
+                            <div class="col-12 conditional-field" id="sub_project_field" style="display:none;">
                                 <div class="row">
                                     <label class="min_width-175 col-sm-auto col-form-label">所屬計畫</label>
                                     <div class="col">
                                         <div class="dynamic-container">
-                                            <div class="dynamic-field-group">
-                                                <select class="form-select" id="field_f003d702">
+                                            <div class="dynamic-field-group sub-project-group align-items-center">
+                                                <select class="form-select sub-project-select flex-shrink-0" id="field_f003d702" style="max-width:180px;">
                                                     <option value="">請選擇</option>
                                                     <option value="總計畫">總計畫</option>
-                                                    <option value="子計畫一">子計畫一</option>
-                                                    <option value="子計畫二">子計畫二</option>
-                                                    <option value="子計畫三">子計畫三</option>
+                                                    <option value="計畫一">計畫一</option>
+                                                    <option value="計畫二">計畫二</option>
+                                                    <option value="計畫三">計畫三</option>
+                                                    <option value="計畫四">計畫四</option>
+                                                    <option value="計畫五">計畫五</option>
+                                                    <option value="計畫六">計畫六</option>
+                                                    <option value="計畫七">計畫七</option>
+                                                    <option value="計畫八">計畫八</option>
+                                                    <option value="計畫九">計畫九</option>
+                                                    <option value="計畫十">計畫十</option>
+                                                    <option value="其他">其他</option>
                                                 </select>
+                                                <label class="col-form-label sub-project-other-label mx-2" style="display:none;white-space:nowrap;"><span class="required-star">*</span>其他（請填寫）</label>
+                                                <input type="text" class="form-control sub-project-other required-field" placeholder="請填寫其他所屬計畫" style="display:none;" data-label="所屬計畫（其他）">
                                             </div>
                                         </div>
                                         <button type="button" class="btn btn-outline-success btn-add-field" onclick="addField(this)">+ 新增</button>
-                                        <span class="form-hint">當計畫類型為「整合型計畫」時顯示，可新增</span>
+                                        <span class="form-hint">可新增多組</span>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="row">
-                                    <label class="min_width-175 col-sm-auto col-form-label">計畫參與人員</label>
+                                    <label class="min_width-175 col-sm-auto col-form-label">參與人員</label>
                                     <div class="col">
                                         <div class="project-members-container" id="project_members_container">
                                             <div class="project-member-group">
@@ -392,6 +409,7 @@
                                                     <option value="協同主持人">協同主持人</option>
                                                     <option value="研究員">研究員</option>
                                                     <option value="研究助理">研究助理</option>
+                                                    <option value="計畫參與人員">計畫參與人員</option>
                                                 </select>
                                                 <input type="text" class="form-control member-name-zh" placeholder="中文姓名">
                                                 <input type="text" class="form-control member-name-en" placeholder="English Name">
@@ -406,6 +424,7 @@
                                                     <option value="協同主持人">協同主持人</option>
                                                     <option value="研究員">研究員</option>
                                                     <option value="研究助理">研究助理</option>
+                                                    <option value="計畫參與人員">計畫參與人員</option>
                                                 </select>
                                                 <input type="text" class="form-control member-name-zh" placeholder="中文姓名">
                                                 <input type="text" class="form-control member-name-en" placeholder="English Name">
@@ -421,13 +440,7 @@
                                 <div class="row">
                                     <label class="min_width-175 col-sm-auto col-form-label">經費來源</label>
                                     <div class="col">
-                                        <div class="dynamic-container">
-                                            <div class="dynamic-field-group">
-                                                <input type="text" class="form-control" id="field_c7e38d7e" placeholder="國家教育研究院">
-                                            </div>
-                                        </div>
-                                        <button type="button" class="btn btn-outline-success btn-add-field" onclick="addField(this)">+ 新增</button>
-                                        <span class="form-hint">可多選、可新增欄位</span>
+                                        <input type="text" class="form-control" id="field_c7e38d7e" placeholder="國家教育研究院">
                                     </div>
                                 </div>
                             </div>
@@ -435,72 +448,61 @@
                                 <div class="row">
                                     <label class="min_width-175 col-sm-auto col-form-label">執行方式</label>
                                     <div class="col">
-                                        <div class="dynamic-container" id="execution_method_container">
-                                            <div class="dynamic-field-group">
-                                                <select class="form-select execution-method-select" id="field_8508cebf">
-                                                    <option value="">請選擇</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <button type="button" class="btn btn-outline-success btn-add-field" onclick="addExecutionMethodField(this)">+ 新增</button>
-                                        <span class="form-hint">可多選，選項依計畫屬性顯示</span>
+                                        <select class="form-select execution-method-select" id="field_8508cebf">
+                                            <option value="">請選擇</option>
+                                        </select>
+                                        <span class="form-hint">選項依計畫屬性顯示</span>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-12">
                                 <div class="row">
-                                    <label class="min_width-175 col-sm-auto col-form-label">執行機構</label>
+                                    <label class="min_width-175 col-sm-auto col-form-label">執行機構 /<br>執行單位</label>
                                     <div class="col">
-                                        <div class="dynamic-container">
-                                            <div class="dynamic-field-group">
-                                                <input type="text" class="form-control" id="field_db4fbc5f" placeholder="國家教育研究院">
+                                        <div class="d-flex gap-2 mb-1" style="font-size:0.82rem;color:#6c757d;">
+                                            <span style="flex:1;">執行機構</span>
+                                            <span style="flex:1;">執行單位</span>
+                                            <span style="width:88px;"></span>
+                                        </div>
+                                        <div class="dynamic-container" id="execution_inst_unit_container">
+                                            <div class="dynamic-field-group execution-inst-unit-pair">
+                                                <input type="text" class="form-control execution-inst-input" id="field_db4fbc5f" placeholder="如：國家教育研究院" style="flex:1;">
+                                                <input type="text" class="form-control execution-unit-input" id="field_dbd12002" placeholder="如：教科書發展中心" style="flex:1;">
+                                                <button type="button" class="btn btn-primary btn-sm" onclick="openNaerUnitModal(this)" title="選擇國教院單位" style="white-space:nowrap;">國教院單位</button>
                                             </div>
                                         </div>
-                                        <button type="button" class="btn btn-outline-success btn-add-field" onclick="addField(this)">+ 新增</button>
-                                        <span class="form-hint">可多選、可新增欄位</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="row">
-                                    <label class="min_width-175 col-sm-auto col-form-label">
-                                        <span class="required-star">*</span>執行單位
-                                    </label>
-                                    <div class="col">
-                                        <div class="dynamic-container" id="execution_unit_container">
-                                            <div class="dynamic-field-group">
-                                                <input type="text" class="form-control required-field execution-unit-input" id="field_dbd12002" placeholder="教科書發展中心" data-label="執行單位">
-                                                <button type="button" class="btn btn-primary btn-sm" onclick="openNaerUnitModal(this)" title="選擇國教院單位">國教院單位</button>
-                                            </div>
-                                        </div>
-                                        <button type="button" class="btn btn-outline-success btn-add-field" onclick="addExecutionUnitField(this)">+ 新增</button>
-                                        <span class="form-hint">可多選、可新增欄位</span>
+                                        <button type="button" class="btn btn-outline-success btn-add-field" onclick="addExecutionPair()">+ 新增</button>
+                                        <span class="form-hint">可新增多組；選擇國教院單位時將自動填入同列執行機構</span>
                                     </div>
                                 </div>
                             </div>                            <div class="col-md-6">
                                 <div class="row">
-                                    <label class="min_width-175 col-sm-auto col-form-label">年度</label>
+                                    <label class="min_width-175 col-sm-auto col-form-label"><span class="required-star">*</span>年度</label>
                                     <div class="col">
-                                        <input type="text" class="form-control" id="field_9dfd1938" placeholder="2017">
-                                        <span class="form-hint">西元年</span>
+                                        <input type="text" class="form-control required-field" id="field_9dfd1938" placeholder="2017" data-label="年度">
+                                        <span class="form-hint">西元年 YYYY</span>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-6">
-                                <div class="row">
-                                    <label class="min_width-175 col-sm-auto col-form-label">期程(起)</label>
-                                    <div class="col">
-                                        <input type="text" class="form-control form_date" id="field_2d0a2977" placeholder="YYYY/MM/DD">
-                                        <span class="form-hint">YYYY/MM/DD</span>
+                            <div class="col-12">
+                                <div class="row g-3 align-items-start">
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <label class="min_width-175 col-sm-auto col-form-label"><span class="required-star">*</span>執行期程(起)</label>
+                                            <div class="col">
+                                                <input type="text" class="form-control form_date required-field" id="field_2d0a2977" placeholder="YYYY/MM/DD" data-label="執行期程(起)">
+                                                <span class="form-hint">YYYY/MM/DD</span>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="row">
-                                    <label class="min_width-175 col-sm-auto col-form-label">期程(迄)</label>
-                                    <div class="col">
-                                        <input type="text" class="form-control form_date" id="field_8d959930" placeholder="YYYY/MM/DD">
-                                        <span class="form-hint">YYYY/MM/DD</span>
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <label class="min_width-175 col-sm-auto col-form-label"><span class="required-star">*</span>執行期程(訖)</label>
+                                            <div class="col">
+                                                <input type="text" class="form-control form_date required-field" id="field_8d959930" placeholder="YYYY/MM/DD" data-label="執行期程(訖)">
+                                                <span class="form-hint">YYYY/MM/DD</span>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -522,111 +524,64 @@
                                 <div class="row">
                                     <label class="min_width-175 col-sm-auto col-form-label">計畫經費</label>
                                     <div class="col">
-                                        <input type="text" class="form-control" id="field_fe5395ae" placeholder="新臺幣 100,000元整">
-                                        <span class="form-hint"></span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="row">
-                                    <label class="min_width-175 col-sm-auto col-form-label">研究領域</label>
-                                    <div class="col">
-                                        <div class="dynamic-container">
-                                            <div class="dynamic-field-group">
-                                                <select class="form-select" id="field_a8fbc15b">
-                                                    <option value="">請選擇</option>
-                                                    <option value="高等教育">高等教育</option>
-                                                    <option value="初等教育">初等教育</option>
-                                                    <option value="技職教育">技職教育</option>
-                                                    <option value="中等教育">中等教育</option>
-                                                    <option value="學前教育">學前教育</option>
-                                                    <option value="社會教育">社會教育</option>
-                                                    <option value="國際兩岸">國際兩岸</option>
-                                                    <option value="特殊教育">特殊教育</option>
-                                                    <option value="資訊教育">資訊教育</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <button type="button" class="btn btn-outline-success btn-add-field" onclick="addField(this)">+ 新增</button>
-                                        <span class="form-hint">可新增項目</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="row">
-                                    <label class="min_width-175 col-sm-auto col-form-label">研究主題</label>
-                                    <div class="col">
-                                        <div class="dynamic-container">
-                                            <div class="dynamic-field-group">
-                                                <input type="text" class="form-control" id="field_ce1d81c1" placeholder="十二年國民基本教育">
-                                            </div>
-                                        </div>
-                                        <button type="button" class="btn btn-outline-success btn-add-field" onclick="addField(this)">+ 新增</button>
-                                        <span class="form-hint">可新增</span>
+                                        <input type="text" class="form-control num-only" id="field_fe5395ae" placeholder="請填寫數字金額">
+                                        <span class="form-hint">僅限數字</span>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-12">
+                                <div class="row">
+                                    <label class="min_width-175 col-sm-auto col-form-label">摘要</label>
+                                    <div class="col">
+                                        <textarea class="form-control" id="field_3ae14696" rows="5" placeholder=""></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="row">
+                                    <label class="min_width-175 col-sm-auto col-form-label">摘要（外文）</label>
+                                    <div class="col">
+                                        <textarea class="form-control" id="field_3e9fdcd7" rows="5" placeholder=""></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
                                 <div class="row">
                                     <label class="min_width-175 col-sm-auto col-form-label">關鍵詞</label>
                                     <div class="col">
-                                        <input type="text" class="form-control" id="field_eac6edef" placeholder="數位教科書; 自然科">
-                                        <span class="form-hint">以分號分開</span>
+                                        <div class="dynamic-container">
+                                            <div class="dynamic-field-group">
+                                                <input type="text" class="form-control" id="field_eac6edef" placeholder="">
+                                            </div>
+                                        </div>
+                                        <button type="button" class="btn btn-outline-success btn-add-field" onclick="addField(this)">+ 新增</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <label class="min_width-175 col-sm-auto col-form-label">關鍵詞（外文）</label>
+                                    <div class="col">
+                                        <div class="dynamic-container">
+                                            <div class="dynamic-field-group">
+                                                <input type="text" class="form-control" id="field_af607fda" placeholder="">
+                                            </div>
+                                        </div>
+                                        <button type="button" class="btn btn-outline-success btn-add-field" onclick="addField(this)">+ 新增</button>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-12">
-                                <div class="row">
-                                    <label class="min_width-175 col-sm-auto col-form-label">關鍵詞(英文)</label>
-                                    <div class="col">
-                                        <input type="text" class="form-control" id="field_af607fda" placeholder="">
-                                        <span class="form-hint">以分號分開</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="row">
-                                    <label class="min_width-175 col-sm-auto col-form-label">頁數</label>
-                                    <div class="col">
-                                        <input type="text" class="form-control" id="field_e8202e1b" placeholder="">
-                                        <span class="form-hint"></span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="row">
-                                    <label class="min_width-175 col-sm-auto col-form-label">線上公開</label>
-                                    <div class="col">
-                                        <select class="form-select" id="field_cdf80d67">
-                                            <option value="">請選擇</option>
-                                            <option value="公開">公開</option>
-                                            <option value="延後公開">延後公開</option>
-                                            <option value="不公開">不公開</option>
-                                        </select>
-                                        <span class="form-hint"></span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
                                 <div class="row">
                                     <label class="min_width-175 col-sm-auto col-form-label">相關連結</label>
                                     <div class="col">
                                         <div class="dynamic-container">
                                             <div class="dynamic-field-group">
-                                                <input type="text" class="form-control" id="field_445a9609" placeholder="">
+                                                <input type="text" class="form-control me-2" id="field_445a9609_name" placeholder="網站名稱（如：GRB 政府研究資訊網）" style="flex: 1;"><input type="text" class="form-control" id="field_445a9609" placeholder="https://..." style="flex: 2;">
                                             </div>
                                         </div>
                                         <button type="button" class="btn btn-outline-success btn-add-field" onclick="addField(this)">+ 新增</button>
-                                        <span class="form-hint">可新增</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="row">
-                                    <label class="min_width-175 col-sm-auto col-form-label">政策建議 (文字)</label>
-                                    <div class="col">
-                                        <textarea class="form-control" id="field_d34a620a" rows="5" placeholder="一、建立數位環境..."></textarea>
-                                        <span class="form-hint">文字可編輯，重要結論與建議</span>
+                                        <span class="form-hint">第一欄填網站名稱，第二欄填網址，可新增多組</span>
                                     </div>
                                 </div>
                             </div>
@@ -636,24 +591,6 @@
                                     <div class="col">
                                         <textarea class="form-control" id="field_d11d59c6" rows="5" placeholder="1.報告名稱變更..."></textarea>
                                         <span class="form-hint">可填入備註事項</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="row">
-                                    <label class="min_width-175 col-sm-auto col-form-label">摘要</label>
-                                    <div class="col">
-                                        <textarea class="form-control" id="field_3ae14696" rows="5" placeholder=""></textarea>
-                                        <span class="form-hint"></span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="row">
-                                    <label class="min_width-175 col-sm-auto col-form-label">摘要(英文)</label>
-                                    <div class="col">
-                                        <textarea class="form-control" id="field_3e9fdcd7" rows="5" placeholder=""></textarea>
-                                        <span class="form-hint"></span>
                                     </div>
                                 </div>
                             </div>
@@ -695,6 +632,44 @@
         initDatePicker();
         initConditionalFields();
         updateRemoveButtons();
+
+        // 計畫名稱群組：有任一欄輸入時清除紅框
+        $(document).on('input', '.plan-title-required', function() {
+            if ($.trim($('#field_cfc05367').val()) !== '' || $.trim($('#field_7b53fc2c').val()) !== '') {
+                $('#field_cfc05367, #field_7b53fc2c').removeClass('is-invalid');
+            }
+        });
+        // 整合型計畫名稱群組：有任一欄輸入時清除紅框
+        $(document).on('input', '.integrated-title-required', function() {
+            if ($.trim($('#field_214ab4b7').val()) !== '' || $.trim($('#field_0f5e4295').val()) !== '') {
+                $('#field_214ab4b7, #field_0f5e4295').removeClass('is-invalid');
+            }
+        });
+        
+        // 所屬計畫「其他」：在同列右側顯示欄位名稱與輸入框
+        $(document).on('change', '#sub_project_field .sub-project-select', function() {
+            var group = $(this).closest('.sub-project-group');
+            if ($(this).val() === '其他') {
+                group.find('.sub-project-other-label').show();
+                group.find('.sub-project-other').show();
+            } else {
+                group.find('.sub-project-other-label').hide();
+                group.find('.sub-project-other').hide().val('');
+            }
+        });
+
+        // 計畫經費：只允許數字
+        $(document).on('keydown', '.num-only', function(e) {
+            var allowedKeys = ['Backspace','Delete','Tab','ArrowLeft','ArrowRight','ArrowUp','ArrowDown','Home','End'];
+            if (allowedKeys.indexOf(e.key) !== -1) return;
+            if (e.key === 'a' && (e.ctrlKey || e.metaKey)) return;
+            if (e.key === 'c' && (e.ctrlKey || e.metaKey)) return;
+            if (e.key === 'v' && (e.ctrlKey || e.metaKey)) return;
+            if (!/^\d$/.test(e.key)) e.preventDefault();
+        });
+        $(document).on('input', '.num-only', function() {
+            $(this).val($(this).val().replace(/[^\d]/g, ''));
+        });
         
         // 當挑選本院人員模態框關閉時清空引用
         $('#naerMemberModal').on('hidden.bs.modal hidden.modal', function () {
@@ -820,14 +795,12 @@
                 $('#integrated_project_name_zh_field').show();
                 $('#integrated_project_name_en_field').show();
                 $('#sub_project_field').show();
-                $('#field_214ab4b7').addClass('required-field');
-                $('#field_0f5e4295').addClass('required-field');
             } else {
                 $('#integrated_project_name_zh_field').hide();
                 $('#integrated_project_name_en_field').hide();
                 $('#sub_project_field').hide();
-                $('#field_214ab4b7').val('').removeClass('required-field');
-                $('#field_0f5e4295').val('').removeClass('required-field');
+                $('#field_214ab4b7').val('').removeClass('is-invalid');
+                $('#field_0f5e4295').val('').removeClass('is-invalid');
             }
             
             if (value === '其它') {
@@ -852,18 +825,42 @@
     
     function validateAndNavigate(url) {
         var isValid = true;
+
+        // 群組1：計畫名稱 或 計畫名稱（外文）至少填一
+        var planTitleZh = $.trim($('#field_cfc05367').val());
+        var planTitleEn = $.trim($('#field_7b53fc2c').val());
+        if (planTitleZh === '' && planTitleEn === '') {
+            alert('請至少填寫【計畫名稱】或【計畫名稱（外文）】其中一項');
+            $('#field_cfc05367').addClass('is-invalid')[0].scrollIntoView({behavior:'smooth',block:'center'});
+            $('#field_7b53fc2c').addClass('is-invalid');
+            $('#field_cfc05367').focus(); isValid = false;
+        } else { $('#field_cfc05367, #field_7b53fc2c').removeClass('is-invalid'); }
+
+        // 群組2：整合型計畫名稱 或 整合型計畫名稱（外文）至少填一（僅整合型計畫顯示時）
+        if (isValid && $('#integrated_project_name_zh_field').is(':visible')) {
+            var intTitleZh = $.trim($('#field_214ab4b7').val());
+            var intTitleEn = $.trim($('#field_0f5e4295').val());
+            if (intTitleZh === '' && intTitleEn === '') {
+                alert('請至少填寫【整合型計畫名稱】或【整合型計畫名稱（外文）】其中一項');
+                $('#field_214ab4b7').addClass('is-invalid')[0].scrollIntoView({behavior:'smooth',block:'center'});
+                $('#field_0f5e4295').addClass('is-invalid');
+                $('#field_214ab4b7').focus(); isValid = false;
+            } else { $('#field_214ab4b7, #field_0f5e4295').removeClass('is-invalid'); }
+        }
         
-        // 檢查條件必填欄位
-        $('.required-field:visible').each(function() {
-            if ($.trim($(this).val()) === '') {
-                var labelName = $(this).attr('data-label') || $(this).closest('.row').find('label').text().replace('*', '').trim() || '必填欄位';
-                alert('請填寫 [' + labelName + ']');
-                this.scrollIntoView({behavior: "smooth", block: "center"});
-                $(this).focus();
-                isValid = false; 
-                return false;
-            }
-        });
+        // 檢查一般必填欄位（僅可見欄位）
+        if (isValid) {
+            $('.required-field:visible').each(function() {
+                if ($.trim($(this).val()) === '') {
+                    var labelName = $(this).attr('data-label') || $(this).closest('.row').find('label').text().replace('*', '').trim() || '必填欄位';
+                    alert('請填寫 [' + labelName + ']');
+                    this.scrollIntoView({behavior: "smooth", block: "center"});
+                    $(this).focus();
+                    isValid = false; 
+                    return false;
+                }
+            });
+        }
         
         if (isValid) {
             if (url && url !== '#') window.location.href = url;
@@ -880,39 +877,12 @@
         newGroup.find('*').removeAttr('id');
         
         // 如果是所屬計畫欄位，需要動態生成新的選項並同步到所有select
+        // 所屬計畫：克隆時隱藏其他(請填寫)欄位並清除 required-field 的顯示狀態
         var isSubProjectField = container.closest('#sub_project_field').length > 0;
         if (isSubProjectField) {
-            var allSelects = container.find('select');
-            var maxOptionIndex = 3; // 預設已有：總計畫、子計畫一、二、三（索引0-3）
-            
-            // 找出現有選項中最大的索引
-            allSelects.each(function() {
-                var selectedValue = $(this).val();
-                if (selectedValue && selectedValue.startsWith('子計畫')) {
-                    var numStr = selectedValue.replace('子計畫', '');
-                    var index = getNumberFromChinese(numStr);
-                    if (index > maxOptionIndex) {
-                        maxOptionIndex = index;
-                    }
-                }
-            });
-            
-            // 生成下一個選項並同步到所有select
-            var nextIndex = maxOptionIndex + 1;
-            if (nextIndex <= 10) { // 限制最多10個選項
-                var newOptionValue = '子計畫' + getChineseNumber(nextIndex - 1);
-                var newOptionText = newOptionValue;
-                
-                // 同步更新所有select的選項
-                allSelects.each(function() {
-                    if ($(this).find('option[value="' + newOptionValue + '"]').length === 0) {
-                        $(this).append('<option value="' + newOptionValue + '">' + newOptionText + '</option>');
-                    }
-                });
-                
-                // 為新欄位設定預設值
-                newGroup.find('select').val(newOptionValue);
-            }
+            newGroup.find('.sub-project-select').val('');
+            newGroup.find('.sub-project-other-label').hide();
+            newGroup.find('.sub-project-other').hide().val('');
         }
         
         if (newGroup.find('.btn-remove-field').length === 0) {
@@ -920,6 +890,27 @@
         }
         container.append(newGroup);
         initDatePicker();
+    }
+    
+    // 新增執行機構/執行單位配對列
+    function addExecutionPair() {
+        var container = $('#execution_inst_unit_container');
+        var firstPair = container.find('.execution-inst-unit-pair').first();
+        var newPair = firstPair.clone();
+        newPair.find('input').val('').removeAttr('id');
+        if (newPair.find('.btn-remove-field').length === 0) {
+            newPair.append('<span class="btn-remove-field" onclick="removeExecutionPair(this)" title="刪除">X</span>');
+        }
+        container.append(newPair);
+    }
+    
+    function removeExecutionPair(btn) {
+        var container = $('#execution_inst_unit_container');
+        if (container.find('.execution-inst-unit-pair').length > 1) {
+            $(btn).closest('.execution-inst-unit-pair').remove();
+        } else {
+            alert('至少需要保留一組執行機構/執行單位資料');
+        }
     }
     
     function getChineseNumber(num) {
@@ -1282,6 +1273,11 @@
         // 將選擇的單位填入輸入欄位
         if (currentExecutionUnitInput && currentExecutionUnitInput.length > 0) {
             currentExecutionUnitInput.val(selectedUnit);
+            // 自動填入同列的執行機構
+            var $pairRow = currentExecutionUnitInput.closest('.execution-inst-unit-pair');
+            if ($pairRow.length > 0) {
+                $pairRow.find('.execution-inst-input').val('國家教育研究院');
+            }
         }
         
         // 關閉模態框 - 兼容Bootstrap 4和5

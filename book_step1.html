@@ -109,6 +109,7 @@
 <a class="dropdown-item" href="book_step1.html">專書上傳</a>
 <a class="dropdown-item" href="chapter_step1.html">專章上傳</a>
 <a class="dropdown-item" href="conference_step1.html">研討會論文上傳</a>
+<a class="dropdown-item" href="summary_step1.html">提要/建言/訊息上傳</a>
 
                             </div>
                         </div>
@@ -135,7 +136,7 @@
                     <div class="col"><a class="nav-link" href="javascript:void(0);" onclick="validateAndNavigate('book_step2.html')">步驟2: 上傳檔案</a></div>
                     <div class="col"><a class="nav-link disabled" href="#">步驟3: 確認並送出檢核</a></div>
                 </div></div>
-                <div class="col-sm"><div class="tabPane bg-light p-3"><div class="col-12 text-end mb-2"><span class="required-star">*</span> 為必填欄位</div><div class="row g-4"><div class="col-12"><div class="row"><label class="min_width-175 col-sm-auto col-form-label"><span class="required-star">*</span>正題名</label><div class="col"><input type="text" class="form-control required-field" id="field_2f267519" placeholder="教育政策與制度之回顧及展望" data-label="正題名"><span class="form-hint"></span></div></div></div><div class="col-12"><div class="row"><label class="min_width-175 col-sm-auto col-form-label"><span class="required-star">*</span>副題名</label><div class="col"><input type="text" class="form-control required-field" id="field_a2654df0" placeholder="" data-label="副題名"><span class="form-hint"></span></div></div></div><div class="col-12"><div class="row"><label class="min_width-175 col-sm-auto col-form-label"><span class="required-star">*</span>並列題名</label><div class="col"><input type="text" class="form-control required-field" id="field_a84032e9" placeholder="" data-label="並列題名"><span class="form-hint">此書的英文題名</span></div></div></div><div class="col-12"><div class="row"><label class="min_width-175 col-sm-auto col-form-label">作者</label><div class="col"><div class="project-members-container" id="author_members_container"><div class="project-member-group"><select class="form-select member-role"><option value="">請選擇</option><option value="第一作者">第一作者</option><option value="通訊作者">通訊作者</option><option value="共同作者">共同作者</option></select><input type="text" class="form-control member-name-zh" placeholder="中文姓名"><input type="text" class="form-control member-name-en" placeholder="English Name"><button type="button" class="btn btn-primary btn-sm" onclick="openNaerMemberModal(this)" title="挑選本院人員">挑選本院人員</button><span class="btn-remove-member" onclick="removeAuthorMember(this)" title="刪除">X</span></div><div class="project-member-group"><select class="form-select member-role"><option value="">請選擇</option><option value="第一作者">第一作者</option><option value="通訊作者">通訊作者</option><option value="共同作者">共同作者</option></select><input type="text" class="form-control member-name-zh" placeholder="中文姓名"><input type="text" class="form-control member-name-en" placeholder="English Name"><button type="button" class="btn btn-primary btn-sm" onclick="openNaerMemberModal(this)" title="挑選本院人員">挑選本院人員</button><span class="btn-remove-member" onclick="removeAuthorMember(this)" title="刪除">X</span></div></div><button type="button" class="btn btn-outline-success btn-add-field" onclick="addAuthorMember()">+ 新增作者</button><span class="form-hint">可新增多組作者資料</span></div></div></div><div class="col-md-6"><div class="row"><label class="min_width-175 col-sm-auto col-form-label">出版年月</label><div class="col"><input type="text" class="form-control " id="field_7ec1c4ff" placeholder="2024/02" ><span class="form-hint">YYYY/MM</span></div></div></div><div class="col-md-6"><div class="row"><label class="min_width-175 col-sm-auto col-form-label">出版地</label><div class="col"><input type="text" class="form-control " id="field_b490cece" placeholder="新北市" ><span class="form-hint"></span></div></div></div><div class="col-md-6"><div class="row"><label class="min_width-175 col-sm-auto col-form-label">出版者</label><div class="col"><input type="text" class="form-control " id="field_f15c9ea5" placeholder="國家教育研究院" ><span class="form-hint"></span></div></div></div><div class="col-md-6"><div class="row"><label class="min_width-175 col-sm-auto col-form-label">版本</label><div class="col"><input type="text" class="form-control " id="field_fe2df04a" placeholder="初版" ><span class="form-hint"></span></div></div></div><div class="col-md-6"><div class="row"><label class="min_width-175 col-sm-auto col-form-label">ISBN</label><div class="col"><input type="text" class="form-control " id="field_9609dddf" placeholder="978-626-345-425-5" ><span class="form-hint"></span></div></div></div><div class="col-md-6"><div class="row"><label class="min_width-175 col-sm-auto col-form-label">GPN</label><div class="col"><input type="text" class="form-control " id="field_ed492dd5" placeholder="4711300006" ><span class="form-hint"></span></div></div></div><div class="col-md-6"><div class="row"><label class="min_width-175 col-sm-auto col-form-label">相關連結</label><div class="col"><div class="dynamic-container"><div class="dynamic-field-group"><input type="text" class="form-control " id="field_445a9609" placeholder="https://gpi.culture.tw/..." ></div></div><button type="button" class="btn btn-outline-success btn-add-field" onclick="addField(this)">+ 新增</button><span class="form-hint">可新增</span></div></div></div></div></div>
+                <div class="col-sm"><div class="tabPane bg-light p-3"><div class="col-12 text-end mb-2"><span class="required-star">*</span> 為必填欄位　<span style="color:#0d6efd;font-weight:bold;">*</span> 至少填寫其中一項</div><div class="row g-4"><div class="col-12"><div class="row"><label class="min_width-175 col-sm-auto col-form-label"><span style="color:#0d6efd;font-weight:bold;">*</span>題名</label><div class="col"><input type="text" class="form-control title-any-required" id="field_2f267519" placeholder="教育政策與制度之回顧及展望" data-label="題名"><span class="form-hint"></span></div></div></div><div class="col-12"><div class="row"><label class="min_width-175 col-sm-auto col-form-label"><span style="color:#0d6efd;font-weight:bold;">*</span>題名（外文）</label><div class="col"><input type="text" class="form-control title-any-required" id="field_a84032e9" placeholder="" data-label="題名（外文）"><span class="form-hint">此書的外文題名</span></div></div></div><div class="col-12"><div class="row"><label class="min_width-175 col-sm-auto col-form-label">作者</label><div class="col"><div class="project-members-container" id="author_members_container"><div class="project-member-group"><select class="form-select member-role"><option value="">請選擇</option><option value="第一作者">第一作者</option><option value="通訊作者">通訊作者</option><option value="其餘作者">其餘作者</option></select><input type="text" class="form-control member-name-zh" placeholder="中文姓名"><input type="text" class="form-control member-name-en" placeholder="English Name"><button type="button" class="btn btn-primary btn-sm" onclick="openNaerMemberModal(this)" title="挑選本院人員">挑選本院人員</button><span class="btn-remove-member" onclick="removeAuthorMember(this)" title="刪除">X</span></div><div class="project-member-group"><select class="form-select member-role"><option value="">請選擇</option><option value="第一作者">第一作者</option><option value="通訊作者">通訊作者</option><option value="其餘作者">其餘作者</option></select><input type="text" class="form-control member-name-zh" placeholder="中文姓名"><input type="text" class="form-control member-name-en" placeholder="English Name"><button type="button" class="btn btn-primary btn-sm" onclick="openNaerMemberModal(this)" title="挑選本院人員">挑選本院人員</button><span class="btn-remove-member" onclick="removeAuthorMember(this)" title="刪除">X</span></div></div><button type="button" class="btn btn-outline-success btn-add-field" onclick="addAuthorMember()">+ 新增作者</button><span class="form-hint">可新增多組作者資料</span></div></div></div><div class="col-md-6"><div class="row"><label class="min_width-175 col-sm-auto col-form-label"><span class="required-star">*</span>出版年月</label><div class="col"><input type="text" class="form-control required-field" id="field_7ec1c4ff" placeholder="2024/02" data-label="出版年月"><span class="form-hint">YYYY/MM</span></div></div></div><div class="col-md-6"><div class="row"><label class="min_width-175 col-sm-auto col-form-label">出版地</label><div class="col"><input type="text" class="form-control " id="field_b490cece" placeholder="新北市" ><span class="form-hint"></span></div></div></div><div class="col-md-6"><div class="row"><label class="min_width-175 col-sm-auto col-form-label"><span class="required-star">*</span>出版者</label><div class="col"><input type="text" class="form-control required-field" id="field_f15c9ea5" placeholder="國家教育研究院" data-label="出版者"><span class="form-hint"></span></div></div></div><div class="col-md-6"><div class="row"><label class="min_width-175 col-sm-auto col-form-label">版本</label><div class="col"><input type="text" class="form-control " id="field_fe2df04a" placeholder="初版" ><span class="form-hint"></span></div></div></div><div class="col-md-6"><div class="row"><label class="min_width-175 col-sm-auto col-form-label">ISBN</label><div class="col"><input type="text" class="form-control num-hyphen-only" id="field_9609dddf" placeholder="978-626-345-425-5"><span class="form-hint">只能輸入數字與 -</span></div></div></div><div class="col-md-6"><div class="row"><label class="min_width-175 col-sm-auto col-form-label">GPN</label><div class="col"><input type="text" class="form-control num-hyphen-only" id="field_ed492dd5" placeholder="4711300006"><span class="form-hint">只能輸入數字與 -</span></div></div></div><div class="col-12"><div class="row"><label class="min_width-175 col-sm-auto col-form-label">相關連結</label><div class="col"><div class="dynamic-container"><div class="dynamic-field-group"><input type="text" class="form-control me-2" id="field_445a9609_name" placeholder="網站名稱（如：GRB 政府研究資訊網）" style="flex: 1;"><input type="text" class="form-control" id="field_445a9609" placeholder="https://gpi.culture.tw/..." style="flex: 2;"></div></div><button type="button" class="btn btn-outline-success btn-add-field" onclick="addField(this)">+ 新增</button><span class="form-hint">第一欄填網站名稱，第二欄填網址，可新增多組</span></div></div></div></div></div>
                 <div class="tabPane bg-light p-3 mt-3"><div class="row"><div class="col"><a class="btn_grey-light btn btn-light w-100 disabled" href="#">回上一頁</a></div><div class="col"><a class="btn_primary btn btn-primary w-100" href="javascript:void(0);" onclick="validateAndNavigate('book_step2.html')">下一步</a></div></div></div></div>
             </div>
         </div>
@@ -161,6 +162,28 @@
     $(document).ready(function(){
         initDatePicker();
         updateAuthorRemoveButtons();
+
+        // 題名群組：有任一欄輸入時即清除紅框
+        $(document).on('input', '.title-any-required', function() {
+            if ($.trim($('#field_2f267519').val()) !== '' || $.trim($('#field_a84032e9').val()) !== '') {
+                $('#field_2f267519, #field_a84032e9').removeClass('is-invalid');
+            }
+        });
+
+        // ISBN / GPN 防呆：只允許數字與 -
+        $(document).on('keydown', '.num-hyphen-only', function(e) {
+            var allowed = [
+                'Backspace','Delete','Tab','Escape','Enter','Home','End',
+                'ArrowLeft','ArrowRight','ArrowUp','ArrowDown'
+            ];
+            if (allowed.indexOf(e.key) !== -1) return;
+            if ((e.ctrlKey || e.metaKey) && ['a','c','v','x'].indexOf(e.key.toLowerCase()) !== -1) return;
+            if (!/^[0-9\-]$/.test(e.key)) e.preventDefault();
+        });
+        $(document).on('input', '.num-hyphen-only', function() {
+            var clean = $(this).val().replace(/[^0-9\-]/g, '');
+            if ($(this).val() !== clean) $(this).val(clean);
+        });
         $('#naerMemberModal').on('hidden.bs.modal hidden.modal', function () {
             currentMemberNameZhInput = null;
             currentMemberNameEnInput = null;
@@ -172,15 +195,32 @@
     }
     function validateAndNavigate(url) {
         var isValid = true;
-        $('.required-field').each(function() {
-            if ($.trim($(this).val()) === '') {
-                var labelName = $(this).attr('data-label') || '必填欄位';
-                alert('請填寫 [' + labelName + ']');
-                this.scrollIntoView({behavior: "smooth", block: "center"});
-                $(this).focus();
-                isValid = false; return false;
-            }
-        });
+
+        // 題名群組：至少填寫題名或題名（外文）其中一項
+        var titleZh = $.trim($('#field_2f267519').val());
+        var titleEn = $.trim($('#field_a84032e9').val());
+        if (titleZh === '' && titleEn === '') {
+            alert('請至少填寫【題名】或【題名（外文）】其中一項');
+            $('#field_2f267519').addClass('is-invalid')[0].scrollIntoView({behavior: 'smooth', block: 'center'});
+            $('#field_a84032e9').addClass('is-invalid');
+            $('#field_2f267519').focus();
+            isValid = false;
+        } else {
+            $('#field_2f267519, #field_a84032e9').removeClass('is-invalid');
+        }
+
+        if (isValid) {
+            $('.required-field').each(function() {
+                if ($.trim($(this).val()) === '') {
+                    var labelName = $(this).attr('data-label') || '必填欄位';
+                    alert('請填寫 [' + labelName + ']');
+                    this.scrollIntoView({behavior: "smooth", block: "center"});
+                    $(this).focus();
+                    isValid = false; return false;
+                }
+            });
+        }
+
         if (isValid) {
             if (url && url !== '#') window.location.href = url;
             else if (url === '#') alert('資料檢查無誤，準備送出！');

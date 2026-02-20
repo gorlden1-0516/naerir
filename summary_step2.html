@@ -3,7 +3,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>專書 - 步驟2: 上傳檔案 - 國家教育研究院學術典藏系統</title>
+    <title>提要/建言/訊息 - 步驟2: 上傳檔案 - 國家教育研究院學術典藏系統</title>
     <link rel="stylesheet" href="./Step3_files/bootstrap.min.css">
     <link rel="stylesheet" href="./Step3_files/tailwind.min.css">
     <link rel="stylesheet" href="./Step3_files/main.min.css">
@@ -19,7 +19,7 @@
         .min_width-175 { min-width: 175px; text-align: right; margin-right: 10px; font-weight: 500; }
         .required-star { color: #dc3545; margin-right: 4px; font-weight: bold; }
         .form-hint { font-size: 0.85rem; color: #6c757d; display: block; margin-top: 0.25rem; }
-        
+
         /* 表單動態欄位 */
         .dynamic-field-group { display: flex; align-items: center; width: 100%; margin-bottom: 8px; }
         .dynamic-field-group .form-control, .dynamic-field-group .form-select { flex-grow: 1; }
@@ -54,14 +54,15 @@
                         <div class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">學術資料建檔</a>
                             <div class="dropdown-menu">
-                                <a class="dropdown-item" href="my_academic_data.html">我的學術資料查詢</a><div class="dropdown-divider"></div><a class="dropdown-item" href="research_project_step1.html">研究計畫上傳</a>
-<a class="dropdown-item" href="work_plan_step1.html">工作計畫上傳</a>
-<a class="dropdown-item" href="journal_step1.html">期刊論文上傳</a>
-<a class="dropdown-item" href="book_step1.html">專書上傳</a>
-<a class="dropdown-item" href="chapter_step1.html">專章上傳</a>
-<a class="dropdown-item" href="conference_step1.html">研討會論文上傳</a>
-<a class="dropdown-item" href="summary_step1.html">提要/建言/訊息上傳</a>
-
+                                <a class="dropdown-item" href="my_academic_data.html">我的學術資料查詢</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="research_project_step1.html">研究計畫上傳</a>
+                                <a class="dropdown-item" href="work_plan_step1.html">工作計畫上傳</a>
+                                <a class="dropdown-item" href="journal_step1.html">期刊論文上傳</a>
+                                <a class="dropdown-item" href="book_step1.html">專書上傳</a>
+                                <a class="dropdown-item" href="chapter_step1.html">專章上傳</a>
+                                <a class="dropdown-item" href="conference_step1.html">研討會論文上傳</a>
+                                <a class="dropdown-item active" href="summary_step1.html">提要/建言/訊息上傳</a>
                             </div>
                         </div>
                         <div class="nav-item"><a class="nav-link" href="#">系統操作說明</a></div>
@@ -77,22 +78,41 @@
             <div class="lg:tw-space-y-4 container-fluid py-2">
                 <div class="card card-body shadow-sm tw-border-0">
                     <div class="min_height-550">
-                        
+
     <div class="row row-cols-lg-auto g-lg-4">
         <div class="col-lg-9 tw-flex-1">
-            <h2 class="border-bottom tw-text-base sm:tw-text-2xl tw-font-bold overflow-hidden mb-4">專書 - 步驟2: 上傳檔案</h2>
+            <h2 class="border-bottom tw-text-base sm:tw-text-2xl tw-font-bold overflow-hidden mb-4">提要/建言/訊息 - 步驟2: 上傳檔案</h2>
             <div class="listFormMenu row g-3">
-                <div class="col-lg-3"><div class="nav nav-pills row row-cols-auto row-cols-lg-1 g-2 flex-nowrap flex-lg-wrap overflow-auto sticky-sidebar">
-                    <div class="col"><a class="nav-link" href="javascript:void(0);" onclick="validateAndNavigate('book_step1.html')">步驟1: 填寫詮釋資料</a></div>
-                    <div class="col"><a class="nav-link active" href="javascript:void(0);">步驟2: 上傳檔案</a></div>
-                    <div class="col"><a class="nav-link disabled" href="#">步驟3: 確認並送出審核</a></div>
-                </div></div>
+                <div class="col-lg-3">
+                    <div class="nav nav-pills row row-cols-auto row-cols-lg-1 g-2 flex-nowrap flex-lg-wrap overflow-auto sticky-sidebar">
+                        <div class="col"><a class="nav-link" href="javascript:void(0);" onclick="validateAndNavigate('summary_step1.html')">步驟1: 填寫詮釋資料</a></div>
+                        <div class="col"><a class="nav-link active" href="javascript:void(0);">步驟2: 上傳檔案</a></div>
+                        <div class="col"><a class="nav-link disabled" href="#">步驟3: 確認並送出檢核</a></div>
+                    </div>
+                </div>
                 <div class="col-sm">
                     <div class="tabPane bg-light p-3">
                         <div class="col-12 text-end mb-2"><span class="required-star">*</span> 為必填欄位</div>
                         <div class="row g-4">
-                            <div class="col-12"><div class="row"><label class="min_width-175 col-sm-auto col-form-label">全文上傳</label><div class="col"><div class="dynamic-container"><div class="dynamic-field-group flex-column flex-sm-row gap-2 align-items-start"><input type="text" class="form-control" placeholder="檔案名稱（如有封面，請將封面設為第一個）"><input type="file" class="form-control" id="field_db0f6f37"></div></div><button type="button" class="btn btn-outline-success btn-add-field" onclick="addField(this)">+ 新增</button><span class="form-hint">第一欄填檔案名稱，第二欄上傳PDF檔；如有封面需為第一個上傳檔案，可新增多組</span></div></div></div>
-                            
+
+                            <!-- 全文上傳 -->
+                            <div class="col-12">
+                                <div class="row">
+                                    <label class="min_width-175 col-sm-auto col-form-label">全文上傳</label>
+                                    <div class="col">
+                                        <div class="dynamic-container">
+                                            <div class="dynamic-field-group flex-column flex-sm-row gap-2 align-items-start">
+                                                <input type="text" class="form-control" placeholder="檔案名稱">
+                                                <input type="file" class="form-control" id="field_summary_file">
+                                            </div>
+                                        </div>
+                                        <button type="button" class="btn btn-outline-success btn-add-field" onclick="addField(this)">+ 新增</button>
+                                        <span class="form-hint">第一欄填檔案名稱，第二欄上傳PDF檔，可新增多組</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 學術成果授權設定 -->
                             <div class="col-12">
                                 <div class="auth-section">
                                     <div id="pdfRequiredNotice" class="alert alert-warning d-flex align-items-center mb-3" role="alert">
@@ -100,7 +120,7 @@
                                         <span>請先上傳 PDF 全文檔，方可進行授權設定；若已設定授權，也請務必上傳 PDF 全文檔。</span>
                                     </div>
                                     <div class="auth-title">學術成果授權設定</div>
-                                    
+
                                     <div class="row mb-4">
                                         <label class="col-md-3 col-form-label auth-label"><span class="required-star">*</span>1. 線上公開範圍：</label>
                                         <div class="col-md-9">
@@ -129,38 +149,46 @@
                                     </div>
 
                                     <div id="authDateSection">
-                                    <div class="row">
-                                        <label class="col-md-3 col-form-label auth-label"><span class="required-star">*</span>2. 線上公開日期：</label>
-                                        <div class="col-md-9">
-                                            <div class="row align-items-center mb-3">
-                                                <label class="col-auto col-form-label" style="min-width: 150px;"><span class="required-star">*</span>授權開放起始日期：</label>
-                                                <div class="col-auto">
-                                                    <input type="text" class="form-control form_date" id="authStartDate" placeholder="YYYY/MM/DD" style="width: 160px;">
+                                        <div class="row">
+                                            <label class="col-md-3 col-form-label auth-label"><span class="required-star">*</span>2. 線上公開日期：</label>
+                                            <div class="col-md-9">
+                                                <div class="row align-items-center mb-3">
+                                                    <label class="col-auto col-form-label" style="min-width: 150px;"><span class="required-star">*</span>授權開放起始日期：</label>
+                                                    <div class="col-auto">
+                                                        <input type="text" class="form-control form_date" id="authStartDate" placeholder="YYYY/MM/DD" style="width: 160px;">
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="row align-items-center">
-                                                <label class="col-auto col-form-label" style="min-width: 150px;"><span class="required-star">*</span>授權開放結束日期：</label>
-                                                <div class="col-auto">
-                                                    <input type="text" class="form-control form_date" id="authEndDate" placeholder="YYYY/MM/DD 或不限" style="width: 160px;">
-                                                </div>
-                                                <div class="col-auto">
-                                                    <div class="form-check ms-2">
-                                                        <input class="form-check-input" type="checkbox" id="noTimeLimit" onchange="toggleEndDate()">
-                                                        <label class="form-check-label" for="noTimeLimit">不限時間</label>
+                                                <div class="row align-items-center">
+                                                    <label class="col-auto col-form-label" style="min-width: 150px;"><span class="required-star">*</span>授權開放結束日期：</label>
+                                                    <div class="col-auto">
+                                                        <input type="text" class="form-control form_date" id="authEndDate" placeholder="YYYY/MM/DD 或不限" style="width: 160px;">
+                                                    </div>
+                                                    <div class="col-auto">
+                                                        <div class="form-check ms-2">
+                                                            <input class="form-check-input" type="checkbox" id="noTimeLimit" onchange="toggleEndDate()">
+                                                            <label class="form-check-label" for="noTimeLimit">不限時間</label>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    </div>
                                 </div>
                             </div>
-                            </div>
+
+                        </div>
                     </div>
-                    <div class="tabPane bg-light p-3 mt-3"><div class="row"><div class="col"><a class="btn_grey-light btn btn-light w-100" href="book_step1.html">回上一步</a></div><div class="col"><a class="btn_primary btn btn-primary w-100" href="javascript:void(0);" onclick="validateAndNavigate('book_step3.html')">下一步</a></div></div></div></div>
+                    <div class="tabPane bg-light p-3 mt-3">
+                        <div class="row">
+                            <div class="col"><a class="btn_grey-light btn btn-light w-100" href="summary_step1.html">回上一步</a></div>
+                            <div class="col"><a class="btn_primary btn btn-primary w-100" href="javascript:void(0);" onclick="validateAndNavigate('summary_step3.html')">下一步：確認送出</a></div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+
                     </div>
                 </div>
             </div>
@@ -177,7 +205,7 @@
         </div>
     </footer>
     <script src="./Step3_files/bootstrap.bundle.min.js"></script>
-    
+
 <script>
     $(document).ready(function(){
         initDatePicker();

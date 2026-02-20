@@ -60,6 +60,7 @@
 <a class="dropdown-item" href="book_step1.html">專書上傳</a>
 <a class="dropdown-item" href="chapter_step1.html">專章上傳</a>
 <a class="dropdown-item" href="conference_step1.html">研討會論文上傳</a>
+<a class="dropdown-item" href="summary_step1.html">提要/建言/訊息上傳</a>
 
                             </div>
                         </div>
@@ -90,47 +91,57 @@
                     <div class="tabPane bg-light p-3">
                         <div class="col-12 text-end mb-2"><span class="required-star">*</span> 為必填欄位</div>
                         <div class="row g-4">
-                            <div class="col-md-6"><div class="row"><label class="min_width-175 col-sm-auto col-form-label">政策建議 (檔案)</label><div class="col"><div class="dynamic-container"><div class="dynamic-field-group"><input type="file" class="form-control " id="field_8f1fe8ce" ></div></div><button type="button" class="btn btn-outline-success btn-add-field" onclick="addField(this)">+ 新增</button><span class="form-hint">PDF [可新增 PDF]</span></div></div></div>
-                            <div class="col-md-6"><div class="row"><label class="min_width-175 col-sm-auto col-form-label">報告全文</label><div class="col"><div class="dynamic-container"><div class="dynamic-field-group"><input type="file" class="form-control " id="field_37b4b37e" ></div></div><button type="button" class="btn btn-outline-success btn-add-field" onclick="addField(this)">+ 新增</button><span class="form-hint">PDF [可新增 PDF]</span></div></div></div>
-                            <div class="col-md-6"><div class="row"><label class="min_width-175 col-sm-auto col-form-label">備註 (附件)</label><div class="col"><div class="dynamic-container"><div class="dynamic-field-group"><input type="file" class="form-control " id="field_868c9865" ></div></div><button type="button" class="btn btn-outline-success btn-add-field" onclick="addField(this)">+ 新增</button><span class="form-hint">可上傳 PDF 附件</span></div></div></div>
+                            <div class="col-12"><div class="row"><label class="min_width-175 col-sm-auto col-form-label">全文上傳</label><div class="col"><div class="dynamic-container"><div class="dynamic-field-group flex-column flex-sm-row gap-2 align-items-start"><input type="text" class="form-control" placeholder="檔案名稱"><input type="file" class="form-control" id="field_37b4b37e"></div></div><button type="button" class="btn btn-outline-success btn-add-field" onclick="addField(this)">+ 新增</button><span class="form-hint">第一欄填檔案名稱，第二欄上傳PDF檔，可新增多組</span></div></div></div>
                             
                             <div class="col-12">
                                 <div class="auth-section">
+                                    <div id="pdfRequiredNotice" class="alert alert-warning d-flex align-items-center mb-3" role="alert">
+                                        <i class="bi bi-exclamation-triangle-fill me-2 flex-shrink-0"></i>
+                                        <span>請先上傳 PDF 全文檔，方可進行授權設定；若已設定授權，也請務必上傳 PDF 全文檔。</span>
+                                    </div>
                                     <div class="auth-title">學術成果授權設定</div>
                                     
                                     <div class="row mb-4">
-                                        <label class="col-md-3 col-form-label auth-label">1. 線上公開範圍：</label>
+                                        <label class="col-md-3 col-form-label auth-label"><span class="required-star">*</span>1. 線上公開範圍：</label>
                                         <div class="col-md-9">
                                             <div class="d-flex flex-column gap-2 mt-2 mt-md-0">
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="authTarget" id="authInternet" value="internet">
+                                                    <input class="form-check-input" type="radio" name="authTarget" id="authInternet" value="internet" onchange="handleAuthRangeChange()">
                                                     <label class="form-check-label" for="authInternet">公眾網路 (Internet)</label>
                                                 </div>
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="authTarget" id="authIntranet" value="intranet">
+                                                    <input class="form-check-input" type="radio" name="authTarget" id="authIntranet" value="intranet" onchange="handleAuthRangeChange()">
                                                     <label class="form-check-label" for="authIntranet">國家教育研究院及所屬單位 (Intranet)</label>
                                                 </div>
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="authTarget" id="authNoPublic" value="noPublic">
+                                                    <input class="form-check-input" type="radio" name="authTarget" id="authNoPublic" value="noPublic" onchange="handleAuthRangeChange()">
                                                     <label class="form-check-label" for="authNoPublic">不公開</label>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
 
+                                    <div class="row mb-4" id="noPublicReasonRow" style="display:none;">
+                                        <label class="col-md-3 col-form-label auth-label"><span class="required-star">*</span>不公開原因：</label>
+                                        <div class="col-md-9">
+                                            <textarea class="form-control" id="noPublicReason" rows="3" placeholder="請填寫不公開原因" data-label="不公開原因"></textarea>
+                                        </div>
+                                    </div>
+
+                                    <div id="authDateSection">
                                     <div class="row">
-                                        <label class="col-md-3 col-form-label auth-label">2. 線上公開日期：</label>
+                                        <label class="col-md-3 col-form-label auth-label"><span class="required-star">*</span>2. 線上公開日期：</label>
                                         <div class="col-md-9">
                                             <div class="row align-items-center mb-3">
-                                                <label class="col-auto col-form-label" style="min-width: 150px;">授權開放起始日期：</label>
+                                                <label class="col-auto col-form-label" style="min-width: 150px;"><span class="required-star">*</span>授權開放起始日期：</label>
                                                 <div class="col-auto">
-                                                    <input type="text" class="form-control form_date" placeholder="YYYY/MM/DD" style="width: 160px;">
+                                                    <input type="text" class="form-control form_date" id="authStartDate" placeholder="YYYY/MM/DD" style="width: 160px;">
                                                 </div>
                                             </div>
                                             <div class="row align-items-center">
-                                                <label class="col-auto col-form-label" style="min-width: 150px;">授權開放結束日期：</label>
+                                                <label class="col-auto col-form-label" style="min-width: 150px;"><span class="required-star">*</span>授權開放結束日期：</label>
                                                 <div class="col-auto">
-                                                    <input type="text" class="form-control form_date" id="authEndDate" placeholder="YYYY/MM/DD" style="width: 160px;">
+                                                    <input type="text" class="form-control form_date" id="authEndDate" placeholder="YYYY/MM/DD 或不限" style="width: 160px;">
                                                 </div>
                                                 <div class="col-auto">
                                                     <div class="form-check ms-2">
@@ -140,6 +151,7 @@
                                                 </div>
                                             </div>
                                         </div>
+                                    </div>
                                     </div>
                                 </div>
                             </div>
@@ -167,10 +179,45 @@
     <script src="./Step3_files/bootstrap.bundle.min.js"></script>
     
 <script>
-    $(document).ready(function(){ initDatePicker(); });
+    $(document).ready(function(){
+        initDatePicker();
+        updatePdfUploadStatus();
+
+        $(document).on('change', 'input[type="file"]', function() {
+            updatePdfUploadStatus();
+        });
+
+        $(document).on('focus', '#authStartDate, #authEndDate', function() {
+            if (!hasPdfUploaded()) {
+                alert('請先上傳 PDF 全文檔，方可設定授權日期。');
+                $(this).blur();
+            }
+        });
+    });
+
     function initDatePicker() {
         $(".form_date").datepicker({ language: "zh-TW", format: "yyyy/mm/dd", autoclose: true, orientation: "bottom auto" });
     }
+
+    function hasPdfUploaded() {
+        var hasFile = false;
+        $('input[type="file"]').each(function() {
+            if (this.files && this.files.length > 0) {
+                hasFile = true;
+                return false;
+            }
+        });
+        return hasFile;
+    }
+
+    function updatePdfUploadStatus() {
+        if (hasPdfUploaded()) {
+            $('#pdfRequiredNotice').hide();
+        } else {
+            $('#pdfRequiredNotice').show();
+        }
+    }
+
     function validateAndNavigate(url) {
         var isValid = true;
         $('.required-field').each(function() {
@@ -182,12 +229,44 @@
                 isValid = false; return false;
             }
         });
-        if (isValid) {
-            if (url && url !== '#') window.location.href = url;
-            else if (url === '#') alert('資料檢查無誤，準備送出！');
+        if (!isValid) return false;
+
+        var hasPdf = hasPdfUploaded();
+        var authSelected = $('input[name="authTarget"]:checked').length > 0;
+        var hasStartDate = $.trim($('#authStartDate').val()) !== '';
+        var hasNoPublicReason = $.trim($('#noPublicReason').val()) !== '';
+
+        if (hasPdf && !authSelected) {
+            alert('已上傳 PDF 全文檔，請選擇「線上公開範圍」。');
+            document.getElementById('authInternet').scrollIntoView({behavior: "smooth", block: "center"});
+            return false;
         }
+        if (hasPdf && authSelected && !$('#authNoPublic').is(':checked') && !hasStartDate) {
+            alert('已上傳 PDF 全文檔，請填寫「授權開放起始日期」。');
+            $('#authStartDate').focus();
+            return false;
+        }
+        if (hasPdf && $('#authNoPublic').is(':checked') && !hasNoPublicReason) {
+            alert('請填寫「不公開原因」。');
+            $('#noPublicReason').focus();
+            return false;
+        }
+        if (!hasPdf && authSelected) {
+            alert('已設定「線上公開範圍」，請上傳 PDF 全文檔。');
+            $('input[type="file"]').first().focus();
+            return false;
+        }
+        if (!hasPdf && (hasStartDate || $.trim($('#authEndDate').val()) !== '')) {
+            alert('已填寫授權日期，請上傳 PDF 全文檔。');
+            $('input[type="file"]').first().focus();
+            return false;
+        }
+
+        if (url && url !== '#') window.location.href = url;
+        else if (url === '#') alert('資料檢查無誤，準備送出！');
         return false;
     }
+
     function addField(btn) {
         var container = $(btn).siblings('.dynamic-container');
         var newGroup = container.find('.dynamic-field-group').first().clone();
@@ -199,13 +278,31 @@
     }
     function removeField(btn) { $(btn).closest('.dynamic-field-group').remove(); }
 
-    // 授權日期: 不限時間切換
     function toggleEndDate() {
         var isChecked = $('#noTimeLimit').is(':checked');
         if (isChecked) {
             $('#authEndDate').val('').prop('disabled', true);
         } else {
             $('#authEndDate').prop('disabled', false);
+        }
+    }
+
+    function handleAuthRangeChange() {
+        if (!hasPdfUploaded()) {
+            alert('請先上傳 PDF 全文檔，方可設定授權範圍。');
+            $('input[name="authTarget"]').prop('checked', false);
+            return;
+        }
+        var isNoPublic = $('#authNoPublic').is(':checked');
+        if (isNoPublic) {
+            $('#noPublicReasonRow').show();
+            $('#authDateSection').hide();
+            $('#noTimeLimit').prop('checked', false);
+            $('#authStartDate, #authEndDate').val('').prop('disabled', false);
+        } else {
+            $('#noPublicReasonRow').hide();
+            $('#noPublicReason').val('');
+            $('#authDateSection').show();
         }
     }
 </script>
