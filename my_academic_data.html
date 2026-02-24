@@ -17,14 +17,14 @@
     <style>
         /* 通用樣式 */
         .min_width-175 { min-width: 175px; text-align: right; margin-right: 10px; font-weight: 500; }
-        .required-star { color: #dc3545; margin-right: 4px; font-weight: bold; }
+        .required-star { color: #981e32; margin-right: 4px; font-weight: bold; }
         .form-hint { font-size: 0.85rem; color: #6c757d; display: block; margin-top: 0.25rem; }
         
         /* 表單動態欄位 */
         .dynamic-field-group { display: flex; align-items: center; width: 100%; margin-bottom: 8px; }
         .dynamic-field-group .form-control, .dynamic-field-group .form-select { flex-grow: 1; }
-        .btn-remove-field { margin-left: 10px; color: #dc3545; cursor: pointer; font-size: 1.2rem; font-weight: bold; font-family: Arial, sans-serif; display: flex; align-items: center; padding: 0 5px; }
-        .btn-remove-field:hover { color: #a71d2a; background-color: #f8d7da; border-radius: 4px; }
+        .btn-remove-field { margin-left: 10px; color: #981e32; cursor: pointer; font-size: 1.2rem; font-weight: bold; font-family: Arial, sans-serif; display: flex; align-items: center; padding: 0 5px; }
+        .btn-remove-field:hover { color: #981e32; background-color: #f8d7da; border-radius: 4px; }
         .btn-add-field { font-size: 0.9rem; padding: 4px 12px; margin-top: 5px; display: inline-block; font-weight: bold; }
 
         /* 左側固定選單 (Sticky Sidebar) */
@@ -41,6 +41,137 @@
         /* 查詢結果表格樣式 */
         .badge-type { width: 120px; display: inline-block; text-align: center; font-size: 0.9rem; } /* 固定寬度讓視覺整齊 */
         .action-btn { margin: 0 2px; font-size: 0.9rem; }
+
+        /* === 國教院色系覆寫 === */
+        :root {
+            --naer-primary: #981e32;
+            --naer-primary-hover: #981e32;
+            --naer-navy: #2C3E6B;
+        }
+
+        /* 導覽列：深紅底、白字 */
+        .header-main .navbar-primaryNav {
+            background-color: var(--naer-primary) !important;
+        }
+        .header-main .navbar-primaryNav .nav-link {
+            color: #FFFFFF !important;
+            font-weight: 500;
+        }
+        .header-main .navbar-primaryNav .nav-link:hover,
+        .header-main .navbar-primaryNav .nav-link:focus {
+            color: #FFD700 !important;
+        }
+        .header-main .navbar-primaryNav .dropdown-menu {
+            border-color: var(--naer-primary);
+        }
+        .header-main .navbar-primaryNav .dropdown-item:hover {
+            background-color: #f8e8e8;
+            color: var(--naer-primary);
+        }
+
+        /* 品牌區域文字：深紅 */
+        .header-main .navbar-brand,
+        .header-main .navbar-brand span {
+            color: var(--naer-primary) !important;
+            font-weight: bold;
+        }
+
+        /* 黃色底線裝飾 */
+        .header-main .navbar-primaryNav {
+            position: relative;
+            border-bottom: 3px solid var(--naer-accent);
+        }
+
+        /* 查詢按鈕：深紅色 */
+        #my-academic-query .btn-primary,
+        .card-body .btn-primary {
+            background-color: var(--naer-primary) !important;
+            border-color: var(--naer-primary) !important;
+            color: #FFFFFF !important;
+        }
+        #my-academic-query .btn-primary:hover,
+        .card-body .btn-primary:hover {
+            background-color: var(--naer-primary-hover) !important;
+            border-color: var(--naer-primary-hover) !important;
+        }
+
+        /* 表格標頭：深紅底白字 */
+        .table-dark,
+        .table-dark th {
+            background-color: var(--naer-primary) !important;
+            --bs-table-bg: var(--naer-primary) !important;
+            color: #FFFFFF !important;
+            border-color: var(--naer-primary) !important;
+        }
+
+        /* 資料類型標籤：無背景、深紅文字 */
+        .badge-type {
+            background-color: transparent !important;
+            color: #981e32 !important;
+            font-weight: 600;
+        }
+
+        /* 編輯按鈕：深藍 */
+        .btn-outline-primary.action-btn {
+            color: var(--naer-navy) !important;
+            border-color: var(--naer-navy) !important;
+            background-color: transparent !important;
+        }
+        .btn-outline-primary.action-btn:hover {
+            color: #FFFFFF !important;
+            background-color: var(--naer-navy) !important;
+        }
+
+        /* 刪除按鈕：深紅外框 */
+        .btn-outline-danger.action-btn {
+            color: var(--naer-primary) !important;
+            border-color: var(--naer-primary) !important;
+        }
+        .btn-outline-danger.action-btn:hover {
+            color: #FFFFFF !important;
+            background-color: var(--naer-primary) !important;
+        }
+
+        /* 分頁按鈕：深藍 */
+        .page-btn {
+            color: #2C3E6B;
+            border-color: #2C3E6B;
+        }
+        .page-btn:hover {
+            background-color: #2C3E6B;
+            color: #FFFFFF;
+        }
+
+        /* 頁尾：深灰底白字 */
+        body .footer {
+            background-color: #f8f9fa !important;
+            color: #333333 !important;
+        }
+        body .footer p,
+        body .footer .small {
+            color: #333333 !important;
+        }
+
+        /* 隱藏頁面底部橘色長條 */
+        body::after, body::before,
+        .page::after, .page::before,
+        #top::after, #top::before,
+        footer::after, footer::before,
+        .footer::after, .footer::before,
+        footer.footer::after, footer.footer::before,
+        main::after, main::before,
+        section::after, section::before {
+            display: none !important;
+            content: none !important;
+            height: 0 !important;
+            background: none !important;
+            background-color: transparent !important;
+            border: none !important;
+        }
+        footer, .footer, footer.footer {
+            border-bottom: none !important;
+            border-top: none !important;
+        }
     </style>
 </head>
 <body id="top" class="page focus tw-min-h-screen">
@@ -148,7 +279,7 @@
         <div class="container-fluid pt-3">
             <div class="row">
                 <div class="col-12 text-center">
-                    <p class="small mb-0">國家教育研究院著作權聲明 Copyright © 2024 All rights reserved.</p>
+                    <p class="small mb-0">國家教育研究院著作權所有 Copyright © 2024 All rights reserved.</p>
                 </div>
             </div>
         </div>
@@ -164,14 +295,14 @@
         } else if (dataType === "專書" || dataType === "專章" || dataType === "期刊論文") {
             // 專書、專章、期刊論文：評鑑件數為 0.2
             return 0.2;
-        } else if (dataType === "研討會論文") {
+        } else if (dataType === "會議論文") {
             // 研討會論文：評鑑件數為 0
             return 0;
         }
     }
 
     var allData = [];
-    var types = ["研究計畫", "工作計畫", "期刊論文", "專書", "專章", "研討會論文"];
+    var types = ["研究計畫", "工作計畫", "期刊論文", "專書", "專章", "會議論文"];
     for (var i = 1; i <= 35; i++) {
         var t = types[i % types.length];
         allData.push({
@@ -221,7 +352,7 @@
                 var evalCount = item.evaluationCount !== undefined ? item.evaluationCount : getEvaluationCount(item.type);
                 html += '<tr>';
                 html += '<td>' + item.id + '</td>';
-                html += '<td><span class="badge bg-secondary badge-type">' + item.type + '</span></td>';
+                html += '<td><span class="badge badge-type">' + item.type + '</span></td>';
                 html += '<td>' + item.title + '</td>';
                 html += '<td class="text-center">' + evalCount + '</td>';
                 html += '<td class="text-center">';
