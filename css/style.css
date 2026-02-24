@@ -108,13 +108,19 @@
     border-color: var(--naer-primary) !important;
 }
 
-/* === 挑選本院人員按鈕：深藍 === */
-button[onclick*="openNaerMemberModal"] {
+/* === 挑選本院人員 & 國教院單位按鈕：深藍 === */
+.card-body button[onclick*="openNaerMemberModal"],
+button.btn.btn-primary[onclick*="openNaerMemberModal"],
+.card-body button[onclick*="openNaerUnitModal"],
+button.btn.btn-primary[onclick*="openNaerUnitModal"] {
     background-color: var(--naer-navy) !important;
     border-color: var(--naer-navy) !important;
     color: #FFFFFF !important;
 }
-button[onclick*="openNaerMemberModal"]:hover {
+.card-body button[onclick*="openNaerMemberModal"]:hover,
+button.btn.btn-primary[onclick*="openNaerMemberModal"]:hover,
+.card-body button[onclick*="openNaerUnitModal"]:hover,
+button.btn.btn-primary[onclick*="openNaerUnitModal"]:hover {
     background-color: #1e2d4d !important;
     border-color: #1e2d4d !important;
 }
