@@ -292,32 +292,51 @@
                                 </div>
                             </div>
 
-                            <!-- 經費來源（必填，單值） -->
-                            <div class="col-md-6">
+                            <!-- 經費來源（必填，多值） -->
+                            <div class="col-12">
                                 <div class="row">
                                     <label class="min_width-175 col-sm-auto col-form-label"><span class="required-star">*</span>經費來源</label>
                                     <div class="col">
-                                        <input type="text" class="form-control required-field" id="field_c7e38d7e" placeholder="國家教育研究院" data-label="經費來源">
+                                        <div class="dynamic-container">
+                                            <div class="dynamic-field-group">
+                                                <input type="text" class="form-control required-field" id="field_c7e38d7e" placeholder="國家教育研究院" data-label="經費來源">
+                                                <span class="btn-remove-field" onclick="removeField(this)" title="刪除">X</span>
+                                            </div>
+                                        </div>
+                                        <button type="button" class="btn btn-outline-success btn-add-field" onclick="addField(this)">+ 新增</button>
+                                        <span class="form-hint">可新增多個經費來源</span>
                                     </div>
                                 </div>
                             </div>
 
-                            <!-- 執行方式（必填，單值） -->
-                            <div class="col-md-6">
-                                <div class="row">
-                                    <label class="min_width-175 col-sm-auto col-form-label"><span class="required-star">*</span>執行方式</label>
-                                    <div class="col">
-                                        <select class="form-select required-field" id="field_8508cebf" data-label="執行方式">
-                                            <option value="">請選擇</option>
-                                            <option value="自行研究">自行研究</option>
-                                            <option value="合作研究">合作研究</option>
-                                            <option value="共同研究">共同研究</option>
-                                            <option value="委託研究">委託研究</option>
-                                            <option value="補助">補助</option>
-                                            <option value="委辦">委辦</option>
-                                            <option value="學術補助">學術補助</option>
-                                            <option value="其它">其它</option>
-                                        </select>
+                            <!-- 執行方式（必填，單獨一列，選其它時顯示填寫欄） -->
+                            <div class="col-12">
+                                <div class="row align-items-center g-3">
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <label class="min_width-175 col-sm-auto col-form-label"><span class="required-star">*</span>執行方式</label>
+                                            <div class="col">
+                                                <select class="form-select required-field" id="field_8508cebf" data-label="執行方式" onchange="handleExecMethodChange()">
+                                                    <option value="">請選擇</option>
+                                                    <option value="自行研究">自行研究</option>
+                                                    <option value="合作研究">合作研究</option>
+                                                    <option value="共同研究">共同研究</option>
+                                                    <option value="委託研究">委託研究</option>
+                                                    <option value="補助">補助</option>
+                                                    <option value="委辦">委辦</option>
+                                                    <option value="學術補助">學術補助</option>
+                                                    <option value="其它">其它</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 conditional-field" id="exec_method_other_col" style="display:none;">
+                                        <div class="row">
+                                            <label class="min_width-175 col-sm-auto col-form-label"><span class="required-star">*</span>其它（請填寫）</label>
+                                            <div class="col">
+                                                <input type="text" class="form-control required-field" id="field_exec_method_other" placeholder="請填寫其他執行方式" data-label="執行方式（其它）">
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -621,6 +640,16 @@
             else if (url === '#') alert('資料檢查無誤，準備送出！');
         }
         return false;
+    }
+
+    function handleExecMethodChange() {
+        var val = $('#field_8508cebf').val();
+        if (val === '其它') {
+            $('#exec_method_other_col').show();
+        } else {
+            $('#exec_method_other_col').hide();
+            $('#field_exec_method_other').val('');
+        }
     }
 
     function addField(btn) {
