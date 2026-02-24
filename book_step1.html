@@ -223,10 +223,23 @@
 
         if (isValid) {
             var hasFirstAuthor = false;
-            $('#author_members_container .member-role').each(function() {
-                if ($(this).val() === '第一作者') { hasFirstAuthor = true; return false; }
+            var authorNameError = null;
+            $('#author_members_container .project-member-group').each(function() {
+                var role = $.trim($(this).find('.member-role').val());
+                var nameZh = $.trim($(this).find('.member-name-zh').val());
+                var nameEn = $.trim($(this).find('.member-name-en').val());
+                if (role === '第一作者') { hasFirstAuthor = true; }
+                if (role !== '' && nameZh === '' && nameEn === '') {
+                    authorNameError = this;
+                    return false;
+                }
             });
-            if (!hasFirstAuthor) {
+            if (authorNameError) {
+                alert('選擇作者職稱後，至少須填寫【中文姓名】或【English Name】其中一項');
+                authorNameError.scrollIntoView({behavior: 'smooth', block: 'center'});
+                $(authorNameError).find('.member-name-zh').focus();
+                isValid = false;
+            } else if (!hasFirstAuthor) {
                 alert('作者欄位至少需要設定一位【第一作者】');
                 $('#author_members_container')[0].scrollIntoView({behavior: 'smooth', block: 'center'});
                 isValid = false;
