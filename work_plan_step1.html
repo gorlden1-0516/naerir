@@ -203,10 +203,10 @@
                             <!-- 整合型計畫名稱（計畫類型=整合型時顯示） -->
                             <div class="col-12 conditional-field" id="integrated_project_name_zh_field" style="display:none;">
                                 <div class="row">
-                                    <label class="min_width-175 col-sm-auto col-form-label"><span style="color:#0d6efd;font-weight:bold;">*</span>整合型計畫名稱</label>
+                                    <label class="min_width-175 col-sm-auto col-form-label">整合型計畫名稱</label>
                                     <div class="col">
-                                        <input type="text" class="form-control integrated-title-required" id="field_214ab4b7" placeholder="戶外教育研究室系列(I)" data-label="整合型計畫名稱">
-                                        <span class="form-hint">當計畫類型為「整合型計畫」時至少填寫其中一項</span>
+                                        <input type="text" class="form-control" id="field_214ab4b7" placeholder="戶外教育研究室系列(I)" data-label="整合型計畫名稱">
+                                        <span class="form-hint"></span>
                                     </div>
                                 </div>
                             </div>
@@ -214,10 +214,10 @@
                             <!-- 整合型計畫名稱（外文）（計畫類型=整合型時顯示） -->
                             <div class="col-12 conditional-field" id="integrated_project_name_en_field" style="display:none;">
                                 <div class="row">
-                                    <label class="min_width-175 col-sm-auto col-form-label"><span style="color:#0d6efd;font-weight:bold;">*</span>整合型計畫名稱（外文）</label>
+                                    <label class="min_width-175 col-sm-auto col-form-label">整合型計畫名稱（外文）</label>
                                     <div class="col">
-                                        <input type="text" class="form-control integrated-title-required" id="field_0f5e4295" placeholder="" data-label="整合型計畫名稱（外文）">
-                                        <span class="form-hint">當計畫類型為「整合型計畫」時至少填寫其中一項</span>
+                                        <input type="text" class="form-control" id="field_0f5e4295" placeholder="" data-label="整合型計畫名稱（外文）">
+                                        <span class="form-hint"></span>
                                     </div>
                                 </div>
                             </div>
@@ -242,14 +242,9 @@
                                                     <option value="計畫八">計畫八</option>
                                                     <option value="計畫九">計畫九</option>
                                                     <option value="計畫十">計畫十</option>
-                                                    <option value="其他">其他</option>
                                                 </select>
-                                                <label class="col-form-label sub-project-other-label mx-2" style="display:none;white-space:nowrap;"><span class="required-star">*</span>其他（請填寫）</label>
-                                                <input type="text" class="form-control sub-project-other required-field" placeholder="請填寫其他所屬計畫" style="display:none;" data-label="所屬計畫（其他）">
                                             </div>
                                         </div>
-                                        <button type="button" class="btn btn-outline-success btn-add-field" onclick="addField(this)">+ 新增</button>
-                                        <span class="form-hint">可新增多組</span>
                                     </div>
                                 </div>
                             </div>
@@ -484,7 +479,7 @@
                                     <label class="min_width-175 col-sm-auto col-form-label">備註 (文字)</label>
                                     <div class="col">
                                         <textarea class="form-control" id="field_d11d59c6" rows="5" placeholder="1.報告名稱變更..."></textarea>
-                                        <span class="form-hint">可填入備註事項</span>
+                                        <span class="form-hint">前端（臺）不顯示此欄位內容，只做建檔備註使用</span>
                                     </div>
                                 </div>
                             </div>
@@ -527,12 +522,6 @@
         $(document).on('input', '.plan-title-required', function() {
             if ($.trim($('#field_cfc05367').val()) !== '' || $.trim($('#field_7b53fc2c').val()) !== '') {
                 $('#field_cfc05367, #field_7b53fc2c').removeClass('is-invalid');
-            }
-        });
-        // 整合型計畫名稱群組：有任一欄輸入時清除紅框
-        $(document).on('input', '.integrated-title-required', function() {
-            if ($.trim($('#field_214ab4b7').val()) !== '' || $.trim($('#field_0f5e4295').val()) !== '') {
-                $('#field_214ab4b7, #field_0f5e4295').removeClass('is-invalid');
             }
         });
 
@@ -614,17 +603,6 @@
             $('#field_cfc05367').focus(); isValid = false;
         } else { $('#field_cfc05367, #field_7b53fc2c').removeClass('is-invalid'); }
 
-        // 群組2：整合型計畫名稱（僅整合型計畫欄位顯示時檢查）
-        if (isValid && $('#integrated_project_name_zh_field').is(':visible')) {
-            var intTitleZh = $.trim($('#field_214ab4b7').val());
-            var intTitleEn = $.trim($('#field_0f5e4295').val());
-            if (intTitleZh === '' && intTitleEn === '') {
-                alert('請至少填寫【整合型計畫名稱】或【整合型計畫名稱（外文）】其中一項');
-                $('#field_214ab4b7').addClass('is-invalid')[0].scrollIntoView({behavior:'smooth',block:'center'});
-                $('#field_0f5e4295').addClass('is-invalid');
-                $('#field_214ab4b7').focus(); isValid = false;
-            } else { $('#field_214ab4b7, #field_0f5e4295').removeClass('is-invalid'); }
-        }
 
         // 一般必填欄位（僅可見欄位）
         if (isValid) {
