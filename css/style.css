@@ -86,6 +86,14 @@
     font-weight: bold;
 }
 
+/* === 左側步驟導覽：當前步驟底色與文字 === */
+.nav-pills .nav-link.active,
+.nav-pills .show > .nav-link {
+    background-color: #EADDCA !important;
+    color: #981e32 !important;
+    font-weight: 600;
+}
+
 /* === 按鈕：深紅色主按鈕 === */
 #my-academic-query .btn-primary,
 .card-body .btn-primary {
