@@ -164,6 +164,48 @@ body .footer .small {
     color: #333333 !important;
 }
 
+/* === 挑選本院人員模態框：深紅／深藍字體與按鈕 === */
+#naerMemberModal .modal-title {
+    color: #981e32 !important;
+    font-weight: 600;
+}
+#naerMemberModal #naer_member_list h6 {
+    color: #981e32 !important;
+    border-bottom-color: #EADDCA !important;
+    font-size: 1rem;
+    margin-top: 1rem;
+}
+#naerMemberModal #naer_member_list h6:first-child {
+    margin-top: 0;
+}
+#naerMemberModal .naer-member-item {
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border-left: 3px solid transparent;
+    color: #2C3E6B !important;
+}
+#naerMemberModal .naer-member-item strong,
+#naerMemberModal .naer-member-item .text-muted {
+    color: #2C3E6B !important;
+}
+#naerMemberModal .naer-member-item:hover {
+    background-color: #e8ecf5 !important;
+    border-left-color: #2C3E6B !important;
+}
+#naerMemberModal .naer-member-item:active {
+    background-color: #dde1ef !important;
+}
+#naerMemberModal .modal-footer .btn-secondary {
+    background-color: #2C3E6B !important;
+    border-color: #2C3E6B !important;
+    color: #FFFFFF !important;
+}
+#naerMemberModal .modal-footer .btn-secondary:hover {
+    background-color: #1e2d4d !important;
+    border-color: #1e2d4d !important;
+    color: #FFFFFF !important;
+}
+
 /* === 隱藏頁面底部橘色長條 === */
 body::after, body::before,
 .page::after, .page::before,

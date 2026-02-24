@@ -60,27 +60,7 @@
             background-color: #dee2e6;
         }
         
-        /* 挑選本院人員模態框樣式 */
-        .naer-member-item {
-            cursor: pointer;
-            transition: all 0.2s ease;
-            border-left: 3px solid transparent;
-        }
-        .naer-member-item:hover {
-            background-color: #e7f3ff;
-            border-left-color: #0dcaf0;
-            transform: translateX(2px);
-        }
-        .naer-member-item:active {
-            background-color: #cfe2ff;
-        }
-        #naer_member_list h6 {
-            font-size: 1rem;
-            margin-top: 1rem;
-        }
-        #naer_member_list h6:first-child {
-            margin-top: 0;
-        }
+        /* 挑選本院人員模態框樣式已移至 css/style.css */
         
         /* 國教院單位按鈕樣式 */
         .btn[onclick*="openNaerUnitModal"] {
@@ -175,9 +155,9 @@
                                 <a class="dropdown-item" href="research_project_step1.html">研究計畫建檔</a>
                                 <a class="dropdown-item" href="work_plan_step1.html">工作計畫建檔</a>
                                 <a class="dropdown-item" href="journal_step1.html">期刊論文建檔</a>
+                                <a class="dropdown-item" href="conference_step1.html">會議論文建檔</a>
                                 <a class="dropdown-item" href="book_step1.html">專書建檔</a>
                                 <a class="dropdown-item" href="chapter_step1.html">專章建檔</a>
-                                <a class="dropdown-item" href="conference_step1.html">會議論文建檔</a>
 <a class="dropdown-item" href="summary_step1.html">提要/建言/訊息建檔</a>
 
                             </div>
@@ -640,6 +620,7 @@
         </div>
     </footer>
     <script src="./js/bootstrap.bundle.min.js"></script>
+    <script src="./js/naer-modals-close.js"></script>
     
 <script>
     $(document).ready(function(){ 
