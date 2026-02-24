@@ -19,7 +19,7 @@
         .min_width-175 { min-width: 175px; text-align: right; margin-right: 10px; font-weight: 500; }
         .required-star { color: #dc3545; margin-right: 4px; font-weight: bold; }
         .form-hint { font-size: 0.85rem; color: #6c757d; display: block; margin-top: 0.25rem; }
-
+        
         /* 表單動態欄位 */
         .dynamic-field-group { display: flex; align-items: center; width: 100%; margin-bottom: 8px; gap: 8px; }
         .dynamic-field-group .form-control, .dynamic-field-group .form-select { flex-grow: 1; }
@@ -31,7 +31,7 @@
         /* 左側固定選單 */
         .sticky-sidebar { position: -webkit-sticky; position: sticky; top: 100px; z-index: 100; }
         .listFormMenu { align-items: flex-start; }
-
+        
         /* 查詢頁面樣式 */
         .pagination-container { display: flex; justify-content: center; align-items: center; margin-top: 20px; gap: 10px; }
         .page-btn { cursor: pointer; padding: 5px 10px; border: 1px solid #dee2e6; background-color: #fff; color: #0d6efd; border-radius: 4px; }
@@ -123,16 +123,16 @@
             <div class="lg:tw-space-y-4 container-fluid py-2">
                 <div class="card card-body shadow-sm tw-border-0">
                     <div class="min_height-550">
-
+                        
     <div class="row row-cols-lg-auto g-lg-4">
         <div class="col-lg-9 tw-flex-1">
             <h2 class="border-bottom tw-text-base sm:tw-text-2xl tw-font-bold overflow-hidden mb-4">工作計畫 - 步驟1: 填寫詮釋資料</h2>
             <div class="listFormMenu row g-3">
                 <div class="col-lg-3">
                     <div class="nav nav-pills row row-cols-auto row-cols-lg-1 g-2 flex-nowrap flex-lg-wrap overflow-auto sticky-sidebar">
-                        <div class="col"><a class="nav-link active" href="javascript:void(0);">步驟1: 填寫詮釋資料</a></div>
-                        <div class="col"><a class="nav-link" href="javascript:void(0);" onclick="validateAndNavigate('work_plan_step2.html')">步驟2: 上傳檔案</a></div>
-                        <div class="col"><a class="nav-link disabled" href="#">步驟3: 確認並送出檢核</a></div>
+                    <div class="col"><a class="nav-link active" href="javascript:void(0);">步驟1: 填寫詮釋資料</a></div>
+                    <div class="col"><a class="nav-link" href="javascript:void(0);" onclick="validateAndNavigate('work_plan_step2.html')">步驟2: 上傳檔案</a></div>
+                    <div class="col"><a class="nav-link disabled" href="#">步驟3: 確認並送出檢核</a></div>
                     </div>
                 </div>
                 <div class="col-sm">
@@ -531,7 +531,7 @@
         </div>
     </footer>
     <script src="./Step3_files/bootstrap.bundle.min.js"></script>
-
+    
 <script>
     $(document).ready(function(){
         initDatePicker();
@@ -626,14 +626,14 @@
         // 一般必填欄位（僅可見欄位）
         if (isValid) {
             $('.required-field:visible').each(function() {
-                if ($.trim($(this).val()) === '') {
+            if ($.trim($(this).val()) === '') {
                     var labelName = $(this).attr('data-label') || $(this).closest('.row').find('label').text().replace('*', '').trim() || '必填欄位';
-                    alert('請填寫 [' + labelName + ']');
-                    this.scrollIntoView({behavior: "smooth", block: "center"});
-                    $(this).focus();
-                    isValid = false; return false;
-                }
-            });
+                alert('請填寫 [' + labelName + ']');
+                this.scrollIntoView({behavior: "smooth", block: "center"});
+                $(this).focus();
+                isValid = false; return false;
+            }
+        });
         }
         if (isValid) {
             var memberNameError = null;

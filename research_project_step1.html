@@ -827,11 +827,11 @@
         // 檢查一般必填欄位（僅可見欄位）
         if (isValid) {
             $('.required-field:visible').each(function() {
-                if ($.trim($(this).val()) === '') {
+            if ($.trim($(this).val()) === '') {
                     var labelName = $(this).attr('data-label') || $(this).closest('.row').find('label').text().replace('*', '').trim() || '必填欄位';
-                    alert('請填寫 [' + labelName + ']');
-                    this.scrollIntoView({behavior: "smooth", block: "center"});
-                    $(this).focus();
+                alert('請填寫 [' + labelName + ']');
+                this.scrollIntoView({behavior: "smooth", block: "center"});
+                $(this).focus();
                     isValid = false; 
                     return false;
                 }
