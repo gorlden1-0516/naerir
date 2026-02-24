@@ -208,7 +208,7 @@
                                         <div class="project-members-container" id="author_members_container">
                                             <div class="project-member-group">
                                                 <input type="text" class="form-control member-name-zh" placeholder="中文姓名">
-                                                <input type="text" class="form-control member-name-en" placeholder="English Name">
+                                                <input type="text" class="form-control member-name-en" placeholder="Last Name, Middle Name, First Name">
                                                 <button type="button" class="btn btn-primary btn-sm"
                                                     onclick="openNaerMemberModal(this)" title="挑選本院人員">挑選本院人員</button>
                                                 <span class="btn-remove-member" onclick="removeAuthorMember(this)" title="刪除">X</span>
@@ -340,6 +340,23 @@
                 $('#publish_location_other').focus();
                 return false;
             }
+        }
+
+        // 每位作者至少須填寫中文姓名或 English Name 其中一項
+        var authorNameError = null;
+        $('#author_members_container .project-member-group').each(function() {
+            var nameZh = $.trim($(this).find('.member-name-zh').val());
+            var nameEn = $.trim($(this).find('.member-name-en').val());
+            if (nameZh === '' && nameEn === '') {
+                authorNameError = this;
+                return false;
+            }
+        });
+        if (authorNameError) {
+            alert('每位作者至少須填寫【中文姓名】或【English Name】其中一項');
+            authorNameError.scrollIntoView({behavior: 'smooth', block: 'center'});
+            $(authorNameError).find('.member-name-zh').focus();
+            return false;
         }
 
         if (url && url !== '#') window.location.href = url;
@@ -497,6 +514,22 @@
     $(document).on('click', '.naer-member-item', function() {
         var nameZh = $(this).data('name-zh');
         var nameEn = $(this).data('name-en');
+        var currentGroup = currentMemberNameZhInput ? currentMemberNameZhInput.closest('.project-member-group') : null;
+        var container = currentGroup ? currentGroup.closest('.project-members-container') : null;
+        if (container && container.length) {
+            var isDuplicate = false;
+            container.find('.project-member-group').each(function() {
+                if (this !== currentGroup[0]) {
+                    var zh = $.trim($(this).find('.member-name-zh').val());
+                    var en = $.trim($(this).find('.member-name-en').val());
+                    if ((zh === nameZh && zh !== '') || (en === nameEn && en !== '')) { isDuplicate = true; return false; }
+                }
+            });
+            if (isDuplicate) {
+                alert('該人員已在作者名單中，請勿重複選擇');
+                return;
+            }
+        }
         if (currentMemberNameZhInput) currentMemberNameZhInput.val(nameZh);
         if (currentMemberNameEnInput) currentMemberNameEnInput.val(nameEn);
         var modalElement = document.getElementById('naerMemberModal');
