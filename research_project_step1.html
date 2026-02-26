@@ -409,14 +409,14 @@
                                     </div>
                                 </div>
                             </div>
-                            <!-- 經費來源（必填，多值） -->
+                            <!-- 經費來源（非必填，多值） -->
                             <div class="col-12">
                                 <div class="row">
-                                    <label class="min_width-175 col-sm-auto col-form-label"><span class="required-star">*</span>經費來源</label>
+                                    <label class="min_width-175 col-sm-auto col-form-label">經費來源</label>
                                     <div class="col">
                                         <div class="dynamic-container">
                                             <div class="dynamic-field-group">
-                                                <input type="text" class="form-control required-field" id="field_c7e38d7e" placeholder="國家教育研究院" data-label="經費來源">
+                                                <input type="text" class="form-control" id="field_c7e38d7e" placeholder="國家教育研究院">
                                                 <span class="btn-remove-field" onclick="removeField(this)" title="刪除">X</span>
                                             </div>
                                         </div>
@@ -451,7 +451,7 @@
                             </div>
                             <div class="col-12">
                                 <div class="row">
-                                    <label class="min_width-175 col-sm-auto col-form-label">執行機構 /<br>執行單位</label>
+                                    <label class="min_width-175 col-sm-auto col-form-label"><span class="required-star">*</span>執行機構 /<br>執行單位</label>
                                     <div class="col">
                                         <div class="d-flex gap-2 mb-1" style="font-size:0.82rem;color:#6c757d;">
                                             <span style="flex:1;">執行機構</span>
@@ -460,8 +460,8 @@
                                         </div>
                                         <div class="dynamic-container" id="execution_inst_unit_container">
                                             <div class="dynamic-field-group execution-inst-unit-pair">
-                                                <input type="text" class="form-control execution-inst-input" id="field_db4fbc5f" placeholder="如：國家教育研究院" style="flex:1;">
-                                                <input type="text" class="form-control execution-unit-input" id="field_dbd12002" placeholder="如：教科書發展中心" style="flex:1;">
+                                                <input type="text" class="form-control execution-inst-input required-field" id="field_db4fbc5f" placeholder="如：國家教育研究院" style="flex:1;" data-label="執行機構">
+                                                <input type="text" class="form-control execution-unit-input required-field" id="field_dbd12002" placeholder="如：教科書發展中心" style="flex:1;" data-label="執行單位">
                                                 <button type="button" class="btn btn-primary btn-sm" onclick="openNaerUnitModal(this)" title="選擇國教院單位" style="white-space:nowrap;">國教院單位</button>
                                             </div>
                                         </div>
@@ -821,10 +821,14 @@
         }
         if (isValid) {
             var memberNameError = null;
+            var hasPrincipalInvestigator = false;
             $('#project_members_container .project-member-group').each(function() {
                 var role = $.trim($(this).find('.member-role').val());
                 var nameZh = $.trim($(this).find('.member-name-zh').val());
                 var nameEn = $.trim($(this).find('.member-name-en').val());
+                if (role === '計畫主持人' && (nameZh !== '' || nameEn !== '')) {
+                    hasPrincipalInvestigator = true;
+                }
                 if (role !== '' && nameZh === '' && nameEn === '') {
                     memberNameError = this;
                     return false;
@@ -834,6 +838,13 @@
                 alert('選擇參與人員職稱後，至少須填寫【中文姓名】或【English Name】其中一項');
                 memberNameError.scrollIntoView({behavior: 'smooth', block: 'center'});
                 $(memberNameError).find('.member-name-zh').focus();
+                isValid = false;
+            } else if (!hasPrincipalInvestigator) {
+                alert('參與人員中至少需要一位【計畫主持人】');
+                var pmContainer = document.getElementById('project_members_container');
+                if (pmContainer) {
+                    pmContainer.scrollIntoView({behavior: 'smooth', block: 'center'});
+                }
                 isValid = false;
             }
         }
