@@ -164,6 +164,8 @@
     $(document).ready(function(){
         initDatePicker();
         updateAuthorRemoveButtons();
+        // 作者類型固定為「作者」，不允許使用者調整
+        $('.member-role').prop('disabled', true).attr('aria-disabled', 'true');
         // 題名群組：有任一欄輸入時清除紅框
         $(document).on('input', '.title-any-required', function() {
             if ($.trim($('#field_27c720ad').val()) !== '' || $.trim($('#field_ade5a118').val()) !== '') {
@@ -267,7 +269,7 @@
         var container = $('#author_members_container');
         var firstGroup = container.find('.project-member-group').first();
         var newGroup = firstGroup.clone();
-        newGroup.find('select.member-role').val('作者');
+        newGroup.find('select.member-role').val('作者').prop('disabled', true).attr('aria-disabled', 'true');
         newGroup.find('.member-name-zh, .member-name-en').val('');
         if (newGroup.find('button[onclick*="openNaerMemberModal"]').length === 0) {
             var nameEnInput = newGroup.find('.member-name-en');
