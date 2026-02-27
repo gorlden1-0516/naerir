@@ -67,6 +67,9 @@
         /* 指定合併規則 checkbox 深藍色 */
         .cap-checkbox-container .form-check-input { accent-color: #002e6d; }
         .cap-checkbox-container .form-check-input:checked { background-color: #002e6d; border-color: #002e6d; }
+        /* 是否套用此規則 radio 深藍色 */
+        .rule-enabled-group .form-check-input { accent-color: #002e6d; }
+        .rule-enabled-group .form-check-input:checked { background-color: #002e6d; border-color: #002e6d; }
         /* 返回規則列表按鈕深藍色 */
         .btn-back-rule-list { color: #002e6d; border-color: #002e6d; background-color: transparent; }
         .btn-back-rule-list:hover { background-color: #002e6d; border-color: #002e6d; color: #fff; }
@@ -127,7 +130,7 @@
         <div class="tab-content">
             <div class="tab-pane fade show active">
                 <form id="rulesForm">
-                    <div class="row g-3 mb-3 ps-3">
+                    <div class="row g-3 mb-3 ps-3 rule-enabled-group">
                         <div class="col-md-6">
                             <label class="form-label fw-bold d-block">是否套用此規則</label>
                             <div class="form-check form-check-inline">
