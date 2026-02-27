@@ -78,6 +78,12 @@
     background-color: #f8e8e8;
     color: var(--naer-primary);
 }
+/* 移除功能列選單被選取時的鵝黃色底色 */
+.header-main .navbar-primaryNav .dropdown-item.active,
+.header-main .navbar-primaryNav .dropdown-item:active {
+    background-color: transparent !important;
+    color: var(--naer-primary) !important;
+}
 
 /* === 品牌區域文字：深紅 === */
 .header-main .navbar-brand,
