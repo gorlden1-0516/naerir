@@ -67,6 +67,9 @@
         /* 指定合併規則 checkbox 深藍色 */
         .cap-checkbox-container .form-check-input { accent-color: #002e6d; }
         .cap-checkbox-container .form-check-input:checked { background-color: #002e6d; border-color: #002e6d; }
+        /* 返回規則列表按鈕深藍色 */
+        .btn-back-rule-list { color: #002e6d; border-color: #002e6d; background-color: transparent; }
+        .btn-back-rule-list:hover { background-color: #002e6d; border-color: #002e6d; color: #fff; }
     </style>
 </head>
 <body id="top" class="page focus tw-min-h-screen">
@@ -105,12 +108,12 @@
                         
 <div class="row row-cols-lg-auto g-lg-4">
     <div class="col-lg-9 tw-flex-1">
-        <h2 class="border-bottom tw-text-base sm:tw-text-2xl tw-font-bold overflow-hidden mb-4">
-            <span class="text-primary"></span> 評鑑規則與預警設定
-        </h2>
-        <p class="mb-3">
-            <a href="admin_evaluation_rules_list.html" class="text-decoration-none">&larr; 返回規則列表</a>
-        </p>
+        <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-4">
+            <h2 class="border-bottom tw-text-base sm:tw-text-2xl tw-font-bold overflow-hidden mb-0">
+                <span class="text-primary"></span> 評鑑規則與預警設定
+            </h2>
+            <a href="admin_evaluation_rules_list.html" class="btn btn-back-rule-list text-nowrap">&larr; 返回規則列表</a>
+        </div>
 
         <ul class="nav nav-tabs mb-4">
             <li class="nav-item">
