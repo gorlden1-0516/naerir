@@ -47,6 +47,14 @@
         
         /* 模擬頁籤樣式 (因為現在是超連結) */
         .nav-tabs .nav-link { cursor: pointer; }
+        /* 一、預警通知收件對象 checkbox 深藍色 */
+        .recipient-check-group .form-check-input { accent-color: #002e6d; }
+        .recipient-check-group .form-check-input:checked { background-color: #002e6d; border-color: #002e6d; }
+        /* 中文模板 / English Template 按鈕未選擇時深藍色 */
+        .template-btn-group .btn-outline-primary { color: #002e6d; border-color: #002e6d; }
+        .template-btn-group .btn-outline-primary:hover { background-color: #002e6d; border-color: #002e6d; color: #fff; }
+        .template-btn-group .btn-primary { background-color: #002e6d; border-color: #002e6d; }
+        .template-btn-group .btn-primary:hover { background-color: #004080; border-color: #004080; }
     </style>
 </head>
 <body id="top" class="page focus tw-min-h-screen">
@@ -103,7 +111,7 @@
                 <form id="notifyForm">
                     
                     <div class="form-section-title">一、預警通知收件對象</div>
-                    <div class="mb-4 ps-3">
+                    <div class="mb-4 ps-3 recipient-check-group">
                         <div class="d-flex gap-4">
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox" id="rcpt_researcher" checked>
@@ -130,7 +138,7 @@
                     </div>
 
                     <div class="ps-3 mb-3">
-                        <div class="btn-group" role="group">
+                        <div class="btn-group template-btn-group" role="group">
                             <button type="button" class="btn btn-primary" id="btn-zh" onclick="switchLang('zh')">中文模板</button>
                             <button type="button" class="btn btn-outline-primary" id="btn-en" onclick="switchLang('en')">English Template</button>
                         </div>

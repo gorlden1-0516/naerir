@@ -15,6 +15,15 @@
     <link href="./css/bootstrap-datepicker.min.css" rel="stylesheet">
     <script src="./js/bootstrap-datepicker-v1.js"></script>
     <link rel="stylesheet" href="./css/style.css">
+    <style>
+        .btn-eval-period { background-color: #002e6d; border-color: #002e6d; color: #fff; }
+        .btn-eval-period:hover { background-color: #004080; border-color: #004080; color: #fff; }
+        /* 設定評鑑週期 Modal 內按鈕深藍色系 */
+        #evalPeriodModal .modal-footer .btn-primary { background-color: #002e6d; border-color: #002e6d; color: #fff; }
+        #evalPeriodModal .modal-footer .btn-primary:hover { background-color: #004080; border-color: #004080; color: #fff; }
+        #evalPeriodModal .modal-footer .btn-secondary { background-color: transparent; border-color: #002e6d; color: #002e6d; }
+        #evalPeriodModal .modal-footer .btn-secondary:hover { background-color: #002e6d; border-color: #002e6d; color: #fff; }
+    </style>
 
 </head>
 <body id="top" class="page focus tw-min-h-screen">
@@ -62,6 +71,12 @@
     <div class="col-12">
         <h2 class="border-bottom tw-text-base sm:tw-text-2xl tw-font-bold mb-4">我的學術資料查詢</h2>
         
+        <div class="mb-3 d-flex justify-content-end">
+            <button type="button" class="btn btn-eval-period" id="btnEvalPeriod" onclick="openEvalPeriodModal()" aria-label="設定評鑑週期">
+                設定評鑑週期
+            </button>
+        </div>
+
         <div class="bg-light p-4 rounded mb-4">
             <div class="row g-3 align-items-end">
                 <div class="col-md-4">
@@ -111,12 +126,40 @@
         </div>
     </div>
 </div>
+    </div>
+</div>
 
                     </div>
                 </div>
             </div>
         </section>
     </main>
+
+    <!-- 設定評鑑週期 Modal（放在 body 下層以確保可正常彈出） -->
+    <div class="modal fade" id="evalPeriodModal" tabindex="-1" aria-labelledby="evalPeriodModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="evalPeriodModalLabel">設定評鑑週期</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" data-dismiss="modal" onclick="closeEvalPeriodModal()" aria-label="關閉"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="evalPeriodStart" class="form-label">評鑑週期(起)</label>
+                        <input type="text" class="form-control form_date" id="evalPeriodStart" placeholder="請選擇日期" readonly>
+                    </div>
+                    <div class="mb-3">
+                        <label for="evalPeriodEnd" class="form-label">評鑑週期(訖)</label>
+                        <input type="text" class="form-control form_date" id="evalPeriodEnd" placeholder="請選擇日期" readonly>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" data-dismiss="modal" onclick="closeEvalPeriodModal()">取消</button>
+                    <button type="button" class="btn btn-primary" id="evalPeriodConfirm">確定</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <footer class="footer py-3">
         <div class="container-fluid pt-3">
@@ -130,6 +173,90 @@
     <script src="./js/bootstrap.bundle.min.js"></script>
     
 <script>
+    function initDatePicker() {
+        $(".form_date").datepicker({
+            language: "zh-TW",
+            format: "yyyy/mm/dd",
+            autoclose: true,
+            orientation: "bottom auto"
+        });
+    }
+
+    function openEvalPeriodModal() {
+        var modalElement = document.getElementById('evalPeriodModal');
+        if (!modalElement) return;
+        try {
+            if (typeof bootstrap !== 'undefined' && bootstrap.Modal) {
+                var modal = bootstrap.Modal.getOrCreateInstance(modalElement);
+                modal.show();
+            } else if (typeof $ !== 'undefined' && $.fn.modal) {
+                $(modalElement).modal('show');
+            } else {
+                $(modalElement).addClass('show').css('display', 'block');
+                $('body').addClass('modal-open').append('<div class="modal-backdrop fade show" onclick="closeEvalPeriodModal()"></div>');
+            }
+        } catch (e) {
+            $(modalElement).addClass('show').css('display', 'block');
+            $('body').addClass('modal-open').append('<div class="modal-backdrop fade show" onclick="closeEvalPeriodModal()"></div>');
+        }
+    }
+
+    function closeEvalPeriodModal() {
+        var modalElement = document.getElementById('evalPeriodModal');
+        if (!modalElement) return;
+        try {
+            if (typeof bootstrap !== 'undefined' && bootstrap.Modal) {
+                var modal = bootstrap.Modal.getInstance(modalElement);
+                if (modal) modal.hide();
+                else bootstrap.Modal.getOrCreateInstance(modalElement).hide();
+            } else if (typeof $ !== 'undefined' && $.fn.modal) {
+                $(modalElement).modal('hide');
+            } else {
+                $(modalElement).removeClass('show').css('display', 'none');
+                $('body').removeClass('modal-open');
+                $('.modal-backdrop').remove();
+            }
+        } catch (e) {
+            $(modalElement).removeClass('show').css('display', 'none');
+            $('body').removeClass('modal-open');
+            $('.modal-backdrop').remove();
+        }
+    }
+
+    $(document).ready(function() {
+        initDatePicker();
+        renderTable();
+
+        // Modal 顯示時重新綁定 datepicker（避免被 modal 蓋住）
+        $('#evalPeriodModal').on('shown.bs.modal shown.modal', function() {
+            $('#evalPeriodStart').datepicker('destroy');
+            $('#evalPeriodEnd').datepicker('destroy');
+            $('#evalPeriodStart').datepicker({
+                language: "zh-TW",
+                format: "yyyy/mm/dd",
+                autoclose: true,
+                orientation: "bottom auto"
+            });
+            $('#evalPeriodEnd').datepicker({
+                language: "zh-TW",
+                format: "yyyy/mm/dd",
+                autoclose: true,
+                orientation: "bottom auto"
+            });
+        });
+
+        $('#evalPeriodConfirm').on('click', function() {
+            var start = $('#evalPeriodStart').val();
+            var end = $('#evalPeriodEnd').val();
+            if (start && end) {
+                alert('評鑑週期已設定：' + start + ' ~ ' + end);
+                closeEvalPeriodModal();
+            } else {
+                alert('請設定評鑑週期(起)與評鑑週期(訖)。');
+            }
+        });
+    });
+
     // 根據資料類型計算評鑑件數
     function getEvaluationCount(dataType) {
         if (dataType === "工作計畫" || dataType === "研究計畫") {

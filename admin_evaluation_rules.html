@@ -64,6 +64,9 @@
             cursor: pointer;
             font-weight: normal;
         }
+        /* 指定合併規則 checkbox 深藍色 */
+        .cap-checkbox-container .form-check-input { accent-color: #002e6d; }
+        .cap-checkbox-container .form-check-input:checked { background-color: #002e6d; border-color: #002e6d; }
     </style>
 </head>
 <body id="top" class="page focus tw-min-h-screen">
@@ -83,7 +86,7 @@
                         <div class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle active" href="#" data-bs-toggle="dropdown">系統管理</a>
                             <div class="dropdown-menu">
-                                <a class="dropdown-item" href="admin_evaluation_rules.html">評鑑規則與預警設定</a>
+                                <a class="dropdown-item" href="admin_evaluation_rules_list.html">評鑑規則與預警設定</a>
                                 <a class="dropdown-item" href="#">帳號權限管理</a>
                             </div>
                         </div>
@@ -105,7 +108,10 @@
         <h2 class="border-bottom tw-text-base sm:tw-text-2xl tw-font-bold overflow-hidden mb-4">
             <span class="text-primary"></span> 評鑑規則與預警設定
         </h2>
-        
+        <p class="mb-3">
+            <a href="admin_evaluation_rules_list.html" class="text-decoration-none">&larr; 返回規則列表</a>
+        </p>
+
         <ul class="nav nav-tabs mb-4">
             <li class="nav-item">
                 <a class="nav-link active fw-bold" href="admin_evaluation_rules.html">1. 評鑑規則設定</a>
