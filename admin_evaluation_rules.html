@@ -12,6 +12,7 @@
     <script src="./js/jquery-ui.min.js"></script>
     <script src="./js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="./css/style.css">
+    <script src="./js/naer-nav.js"></script>
     <style>
         /* 通用樣式 */
         .min_width-150 { min-width: 150px; text-align: right; margin-right: 10px; font-weight: 500; }
@@ -77,29 +78,31 @@
 </head>
 <body id="top" class="page focus tw-min-h-screen">
     <header class="header-main">
-        <nav class="navbar navbar-expand-lg navbar-light navbar-main py-lg-0">
-            <div class="container-fluid flex-wrap">
-                <a class="navbar-brand" href="#">
-                    <img src="./images/logo.svg" alt="LOGO" class="d-none d-lg-flex flex-fill">
-                    <span class="d-lg-none">國家教育研究院</span>
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse flex-lg-wrap col-lg-12" id="navbarSupportedContent">
-                    <div class="navbar-nav navbar-light navbar-dropdown navbar-primaryNav">
-                        <div class="nav-item"><a class="nav-link" href="#">研究人員功能</a></div>
-                        <div class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle active" href="#" data-bs-toggle="dropdown">系統管理</a>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" href="admin_evaluation_rules_list.html">評鑑規則與預警設定</a>
-                                <a class="dropdown-item" href="#">帳號權限管理</a>
-                            </div>
-                        </div>
-                        <div class="nav-item"><a class="nav-link" href="#">帳號登入/登出</a></div>
-                    </div>
+        <div class="headerContainer bg-white">
+            <div class="logoBG">
+                <div class="logoContainer d-flex align-items-center container-fluid px-3 px-lg-5 py-2">
+                    <a class="logo me-3" href="index.html">
+                        <h1 class="visually-hidden-focusable">國家教育研究院-研究成果典藏庫</h1>
+                        <img class="w-100" src="img/logo.svg" alt="國家教育研究院Logo" width="118">
+                    </a>
+                    <a class="logo2 navbar-brand d-none d-lg-block" href="#" title="">
+                        <img src="img/logo2.svg" alt="登入服務Logo" width="104">
+                    </a>
                 </div>
             </div>
+        </div>
+        <nav class="header-main-nav">
+            <ul class="nav-list">
+                <li class="nav-item"><a class="nav-link" href="resume_view.html">研究人員功能</a></li>
+                <li class="nav-item dropdown" id="navDropdownAcademic">
+                    <a class="nav-link dropdown-toggle active" href="#" id="dropdownAcademicToggle" aria-haspopup="true" aria-expanded="false">系統管理</a>
+                    <ul class="dropdown-menu" id="dropdownAcademicMenu">
+                        <li><a class="dropdown-item" href="admin_evaluation_rules_list.html">評鑑規則與預警設定</a></li>
+                        <li><a class="dropdown-item" href="#">帳號權限管理</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item"><a class="nav-link" href="#">帳號登入/登出</a></li>
+            </ul>
         </nav>
     </header>
 

@@ -9,6 +9,28 @@
     --naer-navy: #2C3E6B;
 }
 
+/* === 內頁導角 6px（index.html 僅載入 style.min.css 不載入本檔，故不受影響） === */
+body.page .form-control,
+body.page .form-select,
+body.page input.form-control,
+body.page select.form-select,
+body.page textarea.form-control {
+    border-radius: 6px !important;
+}
+body.page .header-main-nav .dropdown-menu {
+    border-radius: 6px !important;
+}
+body.page .btn,
+body.page button.btn {
+    border-radius: 6px !important;
+}
+/* 建檔頁左側步驟按鈕（步驟1、步驟2、步驟3） */
+body.page .nav-pills .nav-link,
+body.page .sticky-sidebar .nav-link {
+    border-radius: 6px !important;
+    text-align: left !important;
+}
+
 /* === 通用樣式 === */
 .min_width-175 { min-width: 175px; text-align: right; margin-right: 10px; font-weight: 500; }
 .required-star { color: var(--naer-primary); margin-right: 4px; font-weight: bold; }
@@ -23,7 +45,7 @@
     font-size: 1.2rem; font-weight: bold; font-family: Arial, sans-serif;
     display: flex; align-items: center; padding: 0 5px;
 }
-.btn-remove-field:hover { color: var(--naer-primary); background-color: #f8d7da; border-radius: 4px; }
+.btn-remove-field:hover { color: var(--naer-primary); background-color: #f8d7da; border-radius: 6px; }
 .btn-add-field { font-size: 0.9rem; padding: 4px 12px; margin-top: 5px; display: inline-block; font-weight: bold; }
 
 /* === 左側固定選單 === */
@@ -35,7 +57,7 @@
 .page-btn {
     cursor: pointer; padding: 5px 12px;
     border: 1px solid #2C3E6B; background-color: #fff;
-    color: #2C3E6B; border-radius: 4px; font-weight: bold;
+    color: #2C3E6B; border-radius: 6px; font-weight: bold;
 }
 .page-btn:hover { background-color: #2C3E6B; color: #FFFFFF; }
 .page-btn.disabled { color: #6c757d; pointer-events: none; background-color: #fff; border-color: #dee2e6; }
@@ -231,4 +253,142 @@ section::after, section::before {
 footer, .footer, footer.footer {
     border-bottom: none !important;
     border-top: none !important;
+}
+
+/* ============================================
+   我的學術資料查詢頁 (my_academic_data.html)
+   ============================================ */
+
+/* 設定評鑑週期按鈕：深藍色 */
+.btn-eval-period {
+    background-color: #002e6d;
+    border-color: #002e6d;
+    color: #fff;
+}
+.btn-eval-period:hover {
+    background-color: #004080;
+    border-color: #004080;
+    color: #fff;
+}
+
+/* 設定評鑑週期 Modal 內按鈕深藍色系 */
+#evalPeriodModal .modal-footer .btn-primary {
+    background-color: #002e6d;
+    border-color: #002e6d;
+    color: #fff;
+}
+#evalPeriodModal .modal-footer .btn-primary:hover {
+    background-color: #004080;
+    border-color: #004080;
+    color: #fff;
+}
+#evalPeriodModal .modal-footer .btn-secondary {
+    background-color: transparent;
+    border-color: #002e6d;
+    color: #002e6d;
+}
+#evalPeriodModal .modal-footer .btn-secondary:hover {
+    background-color: #002e6d;
+    border-color: #002e6d;
+    color: #fff;
+}
+
+/* 功能列：目標 90px（若頁面有 150% 縮放，設 60px 可顯示為 90px） */
+.header-main-nav {
+    background-color: #981e32;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.header-main-nav .nav-list {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    height: 60px;
+}
+.header-main-nav .nav-list .nav-item {
+    height: 60px;
+    display: flex;
+    align-items: center;
+}
+.header-main-nav .nav-list .nav-link {
+    color: #fff !important;
+    padding: 0 1rem;
+    font-weight: 500;
+    white-space: nowrap;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    height: 60px;
+}
+.header-main-nav .nav-list .nav-link:hover {
+    color: #fff !important;
+    text-decoration: none;
+}
+.header-main-nav .dropdown {
+    position: relative;
+    height: 60px;
+    display: flex;
+    align-items: center;
+}
+.header-main-nav .dropdown-toggle::after {
+    display: inline-block;
+    margin-left: 0.255em;
+    vertical-align: middle;
+    content: "";
+    border-top: 0.3em solid #fff;
+    border-right: 0.3em solid transparent;
+    border-left: 0.3em solid transparent;
+}
+.header-main-nav .dropdown-menu {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    z-index: 1050;
+    display: none;
+    min-width: 200px;
+    background: #fff;
+    border: 1px solid rgba(0,0,0,.15);
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.175);
+    padding: .5rem 0;
+    list-style: none;
+}
+.header-main-nav .dropdown-menu.show {
+    display: block;
+}
+.header-main-nav .dropdown-item {
+    color: #212529;
+    padding: .35rem 1rem;
+    display: block;
+    white-space: nowrap;
+    text-decoration: none;
+}
+.header-main-nav .dropdown-item:hover {
+    background: #f8e8e8;
+    color: #981e32;
+}
+.header-main-nav .dropdown-divider {
+    height: 0;
+    margin: .5rem 0;
+    overflow: hidden;
+    border-top: 1px solid #e9ecef;
+}
+
+/* 我的學術資料查詢頁：資料表與查詢按鈕 */
+.table thead.table-dark th {
+    background-color: #981e32 !important;
+    border-color: #981e32;
+    color: #fff !important;
+}
+.table tbody td:nth-child(2) {
+    color: #981e32;
+}
+.bg-light .btn-primary {
+    background-color: #981e32 !important;
+    border-color: #981e32 !important;
 }
