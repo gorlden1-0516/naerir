@@ -268,7 +268,7 @@
                                                 </select>
                                                 <input type="text" class="form-control member-name-zh" placeholder="中文姓名">
                                                 <input type="text" class="form-control member-name-en" placeholder="Last Name, Middle Name, First Name">
-                                                <button type="button" class="btn btn-primary btn-sm" onclick="openNaerMemberModal(this)" title="挑選本院人員">挑選本院人員</button>
+                                                <button type="button" class="btn btn-primary btn-sm" onclick="openNaerMemberModal(this)" title="挑選本院研究人員">挑選本院研究人員</button>
                                                 <span class="btn-remove-member" onclick="removeProjectMember(this)" title="刪除">X</span>
                                             </div>
                                             <div class="project-member-group">
@@ -283,7 +283,7 @@
                                                 </select>
                                                 <input type="text" class="form-control member-name-zh" placeholder="中文姓名">
                                                 <input type="text" class="form-control member-name-en" placeholder="Last Name, Middle Name, First Name">
-                                                <button type="button" class="btn btn-primary btn-sm" onclick="openNaerMemberModal(this)" title="挑選本院人員">挑選本院人員</button>
+                                                <button type="button" class="btn btn-primary btn-sm" onclick="openNaerMemberModal(this)" title="挑選本院研究人員">挑選本院研究人員</button>
                                                 <span class="btn-remove-member" onclick="removeProjectMember(this)" title="刪除">X</span>
                                             </div>
                                         </div>
@@ -594,7 +594,7 @@
             $(this).val($(this).val().replace(/[^\d]/g, ''));
         });
 
-        // 挑選本院人員模態框關閉時清空引用
+        // 挑選本院研究人員模態框關閉時清空引用
         $('#naerMemberModal').on('hidden.bs.modal hidden.modal', function () {
             currentMemberNameZhInput = null;
             currentMemberNameEnInput = null;
@@ -735,7 +735,7 @@
         newGroup.find('select').val('');
         newGroup.find('input').val('');
         if (newGroup.find('button[onclick*="openNaerMemberModal"]').length === 0) {
-            newGroup.find('.member-name-en').after('<button type="button" class="btn btn-primary btn-sm" onclick="openNaerMemberModal(this)" title="挑選本院人員">挑選本院人員</button>');
+            newGroup.find('.member-name-en').after('<button type="button" class="btn btn-primary btn-sm" onclick="openNaerMemberModal(this)" title="挑選本院研究人員">挑選本院研究人員</button>');
         }
         if (newGroup.find('.btn-remove-member').length === 0) {
             newGroup.append('<span class="btn-remove-member" onclick="removeProjectMember(this)" title="刪除">X</span>');
@@ -787,12 +787,12 @@
     </div>
 </div>
 
-<!-- 挑選本院人員模態框 -->
+<!-- 挑選本院研究人員模態框 -->
 <div class="modal fade" id="naerMemberModal" tabindex="-1" aria-labelledby="naerMemberModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="naerMemberModalLabel">挑選本院人員</h5>
+                <h5 class="modal-title" id="naerMemberModalLabel">挑選本院研究人員</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" data-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body" style="max-height: 600px; overflow-y: auto;">
