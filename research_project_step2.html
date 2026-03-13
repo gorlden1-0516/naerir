@@ -199,6 +199,9 @@
         $('#finalReportUploaded').on('change', function() {
             toggleAuthSection();
         });
+        $(document).on('change', 'input[name="fulltextFileType"]', function() {
+            toggleAuthSection();
+        });
 
         $(document).on('change', 'input[type="file"]', function() {
             updatePdfUploadStatus();
@@ -229,15 +232,34 @@
         return found;
     }
 
+    function isSinglePeriodFileType() {
+        return $('input[name="fulltextFileType"]:checked').val() === '單期檔案';
+    }
+    function isMultiPeriodFileType() {
+        return $('input[name="fulltextFileType"]:checked').val() === '多期或跨年度檔案';
+    }
+    function isAuthSectionVisible() {
+        if (isSinglePeriodFileType()) return true;
+        if (isMultiPeriodFileType() && $('#finalReportUploaded').is(':checked') && hasFinalReportFileUploaded()) return true;
+        return false;
+    }
+
     function toggleAuthSection() {
+        var isSingle = isSinglePeriodFileType();
+        var isMulti = isMultiPeriodFileType();
         var boxChecked = $('#finalReportUploaded').is(':checked');
         var hasFinalReportFile = hasFinalReportFileUploaded();
-        if (boxChecked && hasFinalReportFile) {
+        if (isSingle || (isMulti && boxChecked && hasFinalReportFile)) {
             $('#checkFinalReportNotice').hide();
             $('#authSectionContent').show();
             updatePdfUploadStatus();
         } else {
             $('#checkFinalReportNotice').show();
+            if (!isSingle && !isMulti) {
+                $('#checkFinalReportNotice span').text('請先選擇全文檔案類型（單期檔案或多期或跨年度檔案），方可進行學術成果授權設定。');
+            } else {
+                $('#checkFinalReportNotice span').text('請先勾選「已完成結案報告上傳」並在全文上傳中上傳結案報告檔案，方可進行學術成果授權設定。');
+            }
             $('#authSectionContent').hide();
         }
     }
@@ -258,7 +280,7 @@
     }
 
     function updatePdfUploadStatus() {
-        if (!$('#finalReportUploaded').is(':checked')) return;
+        if (!isAuthSectionVisible()) return;
         if (hasPdfUploaded()) {
             $('#pdfRequiredNotice').hide();
         } else {
@@ -279,18 +301,18 @@
         });
         if (!isValid) return false;
 
-        var finalReportChecked = $('#finalReportUploaded').is(':checked');
+        var authVisible = isAuthSectionVisible();
         var hasPdf = hasPdfUploaded();
         var authSelected = $('input[name="authTarget"]:checked').length > 0;
         var hasStartDate = $.trim($('#authStartDate').val()) !== '';
         var hasNoPublicReason = $.trim($('#noPublicReason').val()) !== '';
 
-        if (finalReportChecked) {
-            if (!hasFinalReportFileUploaded()) {
-                alert('請在全文上傳中選擇「結案報告」並上傳檔案，方可進行學術成果授權設定。');
-                $('.dynamic-container').closest('.col-12').get(0).scrollIntoView({ behavior: 'smooth', block: 'center' });
-                return false;
-            }
+        if (isMultiPeriodFileType() && $('#finalReportUploaded').is(':checked') && !hasFinalReportFileUploaded()) {
+            alert('請在全文上傳中選擇「結案報告」並上傳檔案，方可進行學術成果授權設定。');
+            $('.dynamic-container').closest('.col-12').get(0).scrollIntoView({ behavior: 'smooth', block: 'center' });
+            return false;
+        }
+        if (authVisible) {
             if (hasPdf && !authSelected) {
                 alert('已上傳 PDF 全文檔，請選擇「線上公開範圍」。');
                 document.getElementById('authInternet').scrollIntoView({behavior: "smooth", block: "center"});
@@ -344,7 +366,9 @@
     }
 
     function handleAuthRangeChange() {
-        if (!$('#finalReportUploaded').is(':checked')) return;
+        if (!isAuthSectionVisible()) return;
+        if (isMultiPeriodFileType() && !$('#finalReportUploaded').is(':checked')) return;
+        if (isMultiPeriodFileType() && !hasFinalReportFileUploaded()) return;
         if (!hasPdfUploaded()) {
             alert('請先上傳 PDF 全文檔，方可設定授權範圍。');
             $('input[name="authTarget"]').prop('checked', false);
