@@ -100,10 +100,12 @@
                 <thead class="table-dark">
                     <tr>
                         <th scope="col" width="5%">#</th>
-                        <th scope="col" width="15%">資料類型</th>
+                        <th scope="col" width="12%">資料類型</th>
                         <th scope="col">題名</th>
-                        <th scope="col" width="10%" class="text-center">評鑑件數</th>
-                        <th scope="col" width="15%" class="text-center">功能</th>
+                        <th scope="col" width="10%">建檔者</th>
+                        <th scope="col" width="10%">狀態</th>
+                        <th scope="col" width="8%" class="text-center">評鑑件數</th>
+                        <th scope="col" width="18%" class="text-center">功能</th>
                     </tr>
                 </thead>
                 <tbody id="dataTableBody">
@@ -279,6 +281,8 @@
         }
     }
 
+    var filerNames = ["王小明", "李美華", "陳志明", "林雅婷", "張偉傑", "吳淑芬", "黃建國", "劉雅琳", "周俊宏", "鄭雅惠", "許志偉", "楊淑娟", "謝明哲", "趙雅芬", "孫大偉"];
+    var statusList = ["資料編輯中", "檢核中", "資料待補", "檢核完成", "申請修改"];
     var allData = [];
     var types = ["研究計畫", "工作計畫", "期刊論文", "專書", "專章", "會議論文"];
     for (var i = 1; i <= 35; i++) {
@@ -287,6 +291,8 @@
             id: i,
             type: t,
             title: t + "測試資料標題 No." + i + " - 關於教育研究的範例數據",
+            filer: filerNames[i % filerNames.length],
+            status: statusList[i % statusList.length],
             evaluationCount: getEvaluationCount(t)
         });
     }
@@ -324,17 +330,23 @@
         
         var html = '';
         if (pageData.length === 0) {
-            html = '<tr><td colspan="5" class="text-center text-muted py-4">查無資料</td></tr>';
+            html = '<tr><td colspan="7" class="text-center text-muted py-4">查無資料</td></tr>';
         } else {
             $.each(pageData, function(index, item) {
                 var evalCount = item.evaluationCount !== undefined ? item.evaluationCount : getEvaluationCount(item.type);
+                var filer = item.filer || '-';
+                var status = item.status || '-';
                 html += '<tr>';
                 html += '<td>' + item.id + '</td>';
                 html += '<td><span class="badge badge-type">' + item.type + '</span></td>';
                 html += '<td>' + item.title + '</td>';
+                html += '<td>' + filer + '</td>';
+                html += '<td>' + status + '</td>';
                 html += '<td class="text-center">' + evalCount + '</td>';
                 html += '<td class="text-center">';
+                html += '<button class="btn btn-sm btn-outline-secondary action-btn" onclick="viewItem(' + item.id + ')">檢視</button>';
                 html += '<button class="btn btn-sm btn-outline-primary action-btn" onclick="editItem(' + item.id + ')">編輯</button>';
+                html += '<button class="btn btn-sm btn-outline-warning action-btn" onclick="requestModifyItem(' + item.id + ')">申請修改</button>';
                 html += '<button class="btn btn-sm btn-outline-danger action-btn" onclick="deleteItem(' + item.id + ')">刪除</button>';
                 html += '</td>';
                 html += '</tr>';
@@ -367,8 +379,16 @@
         renderTable();
     }
 
+    function viewItem(id) {
+        alert('檢視資料 ID: ' + id + '。\n(系統將跳轉至該資料的檢視頁面)');
+    }
+
     function editItem(id) {
         alert('準備編輯資料 ID: ' + id + '。\n(系統將跳轉至該資料類型的編輯頁面)');
+    }
+
+    function requestModifyItem(id) {
+        alert('申請修改資料 ID: ' + id + '。\n(系統將送出申請修改流程)');
     }
 
     function deleteItem(id) {
