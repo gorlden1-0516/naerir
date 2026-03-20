@@ -15,6 +15,19 @@
     <link href="./css/bootstrap-datepicker.min.css" rel="stylesheet">
     <script src="./js/bootstrap-datepicker-v1.js"></script>
     <link rel="stylesheet" href="./css/style.css">
+    <style>
+        /* 評鑑件數說明：靠右、醒目紅色 */
+        .eval-pass-count-hint {
+            color: #c8102e !important;
+            font-weight: 700;
+            font-size: 0.95rem;
+            line-height: 1.45;
+        }
+        .eval-pass-count-hint strong {
+            color: #a30d24 !important;
+            font-size: 1.05em;
+        }
+    </style>
 
 </head>
 <body id="top" class="page focus tw-min-h-screen">
@@ -65,10 +78,13 @@
     <div class="col-12">
         <h2 class="border-bottom tw-text-base sm:tw-text-2xl tw-font-bold mb-4">我的學術資料查詢</h2>
         
-        <div class="mb-3 d-flex justify-content-end">
-            <button type="button" class="btn btn-eval-period" id="btnEvalPeriod" onclick="openEvalPeriodModal()" aria-label="設定評鑑週期">
-                設定評鑑週期
-            </button>
+        <div class="mb-3">
+            <div class="d-flex justify-content-end">
+                <button type="button" class="btn btn-eval-period" id="btnEvalPeriod" onclick="openEvalPeriodModal()" aria-label="設定評鑑週期">
+                    設定評鑑週期
+                </button>
+            </div>
+            <p class="mb-0 mt-2 text-end eval-pass-count-hint" id="evalPeriodPassCountHint">您在評鑑週期內可通過的評鑑件數為：<strong id="evalPeriodPassCount">0</strong>件。</p>
         </div>
 
         <div class="bg-light p-4 rounded mb-4">
@@ -319,6 +335,22 @@
         renderTable();
     }
 
+    function getFilteredEvaluationSum() {
+        var sum = 0;
+        for (var i = 0; i < filteredData.length; i++) {
+            var item = filteredData[i];
+            var c = item.evaluationCount !== undefined ? item.evaluationCount : getEvaluationCount(item.type);
+            sum += Number(c) || 0;
+        }
+        return sum;
+    }
+
+    function updateEvalPassCountHint() {
+        var sum = getFilteredEvaluationSum();
+        var text = (Math.abs(sum % 1) < 1e-9) ? String(sum) : sum.toFixed(1);
+        $('#evalPeriodPassCount').text(text);
+    }
+
     function renderTable() {
         var totalPages = Math.ceil(filteredData.length / pageSize);
         if (totalPages === 0) totalPages = 1;
@@ -365,6 +397,8 @@
             $('.page-btn[onclick*="next"]').addClass('disabled');
             $('.page-btn[onclick*="last"]').addClass('disabled');
         }
+
+        updateEvalPassCountHint();
     }
 
     function changePage(action) {
