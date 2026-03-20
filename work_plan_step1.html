@@ -260,9 +260,9 @@
                                     <div class="col">
                                         <div class="project-members-container" id="project_members_container">
                                             <div class="project-member-group">
-                                                <select class="form-select member-role">
+                                                <select class="form-select member-role" disabled>
                                                     <option value="">請選擇</option>
-                                                    <option value="計畫主持人">計畫主持人</option>
+                                                    <option value="計畫主持人" selected>計畫主持人</option>
                                                     <option value="共同主持人">共同主持人</option>
                                                     <option value="協同主持人">協同主持人</option>
                                                     <option value="研究員">研究員</option>
@@ -272,7 +272,7 @@
                                                 <input type="text" class="form-control member-name-zh" placeholder="中文姓名">
                                                 <input type="text" class="form-control member-name-en" placeholder="Last Name, Middle Name, First Name">
                                                 <button type="button" class="btn btn-primary btn-sm" onclick="openNaerMemberModal(this)" title="挑選本院研究人員">挑選本院研究人員</button>
-                                                <span class="btn-remove-member" onclick="removeProjectMember(this)" title="刪除">X</span>
+                                                <button type="button" class="btn btn-outline-secondary btn-sm btn-clear-first-member" onclick="clearFirstProjectMember(this)" title="清除">清除</button>
                                             </div>
                                             <div class="project-member-group">
                                                 <select class="form-select member-role">
@@ -732,6 +732,8 @@
         var newGroup = firstGroup.clone();
         newGroup.find('select').val('');
         newGroup.find('input').val('');
+        newGroup.find('.member-role').prop('disabled', false);
+        newGroup.find('.btn-clear-first-member').remove();
         if (newGroup.find('button[onclick*="openNaerMemberModal"]').length === 0) {
             newGroup.find('.member-name-en').after('<button type="button" class="btn btn-primary btn-sm" onclick="openNaerMemberModal(this)" title="挑選本院研究人員">挑選本院研究人員</button>');
         }
@@ -740,6 +742,12 @@
         }
         container.append(newGroup);
         updateRemoveButtons();
+    }
+
+    function clearFirstProjectMember(btn) {
+        var group = $(btn).closest('.project-member-group');
+        group.find('.member-name-zh').val('');
+        group.find('.member-name-en').val('');
     }
 
     function removeProjectMember(btn) {

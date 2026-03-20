@@ -96,14 +96,14 @@
                     <div class="tabPane bg-light p-3">
                         <div class="col-12 text-end mb-2"><span class="required-star">*</span> 為必填欄位</div>
                         <div class="row g-4">
-                            <div class="col-12"><div class="row"><label class="min_width-175 col-sm-auto col-form-label">全文上傳</label><div class="col"><div class="dynamic-container"><div class="dynamic-field-group flex-column flex-sm-row gap-2 align-items-start"><select class="form-select form-control fulltext-filename-select"><option value="" selected>請選擇全文檔案名稱</option><option value="第一次期中報告">第一次期中報告</option><option value="第二次期中報告">第二次期中報告</option><option value="第三次期中報告">第三次期中報告</option><option value="第四次期中報告">第四次期中報告</option><option value="第五次期中報告">第五次期中報告</option><option value="期末報告">期末報告</option></select><input type="file" class="form-control" id="field_37b4b37e"></div></div><button type="button" class="btn btn-outline-success btn-add-field" onclick="addField(this)">+ 新增</button><span class="form-hint">第一欄選檔案名稱，第二欄上傳PDF檔，可新增多組</span></div></div></div>
                             <div class="col-12"><div class="row"><label class="min_width-175 col-sm-auto col-form-label">全文檔案類型</label><div class="col"><div class="d-flex flex-column gap-2"><div class="form-check"><input class="form-check-input" type="radio" name="fulltextFileType" id="fulltextFileTypeSingle" value="單期檔案"><label class="form-check-label" for="fulltextFileTypeSingle">單期檔案</label></div><div class="form-check"><input class="form-check-input" type="radio" name="fulltextFileType" id="fulltextFileTypeMulti" value="多期或跨年度檔案"><label class="form-check-label" for="fulltextFileTypeMulti">多期或跨年度檔案</label></div></div></div></div></div>
+                            <div class="col-12"><div class="row"><label class="min_width-175 col-sm-auto col-form-label">全文上傳</label><div class="col"><div class="dynamic-container"><div class="dynamic-field-group flex-column flex-sm-row gap-2 align-items-start"><select class="form-select form-control fulltext-filename-select"><option value="" selected>請選擇全文檔案名稱</option><option value="第一次期中報告">第一次期中報告</option><option value="第二次期中報告">第二次期中報告</option><option value="第三次期中報告">第三次期中報告</option><option value="第四次期中報告">第四次期中報告</option><option value="第五次期中報告">第五次期中報告</option><option value="期末報告">期末報告</option></select><input type="file" class="form-control" id="field_37b4b37e"></div></div><button type="button" class="btn btn-outline-success btn-add-field" onclick="addField(this)">+ 新增</button><span class="form-hint">第一欄選檔案名稱，第二欄上傳PDF檔，可新增多組</span></div></div></div>
                             <div class="col-12"><div class="row"><label class="min_width-175 col-sm-auto col-form-label"></label><div class="col"><div class="form-check"><input class="form-check-input" type="checkbox" id="finalReportUploaded" name="finalReportUploaded" value="1"><label class="form-check-label" for="finalReportUploaded">已完成結案報告上傳</label></div></div></div>
                             <div class="col-12">
                                 <div class="auth-section">
                                     <div id="checkFinalReportNotice" class="alert alert-info d-flex align-items-center mb-3" role="alert">
                                         <i class="bi bi-info-circle-fill me-2 flex-shrink-0"></i>
-                                        <span>請先勾選「已完成結案報告上傳」並在全文上傳中上傳結案報告檔案，方可進行學術成果授權設定。</span>
+                                        <span>請先勾選「已完成結案報告上傳」並在全文上傳中上傳期末報告檔案，方可進行學術成果授權設定。</span>
                                     </div>
                                     <div id="authSectionContent" style="display:none;">
                                     <div id="pdfRequiredNotice" class="alert alert-warning d-flex align-items-center mb-3" role="alert">
@@ -224,7 +224,7 @@
         $('.dynamic-container .dynamic-field-group').each(function() {
             var sel = $(this).find('.fulltext-filename-select');
             var fileInput = $(this).find('input[type="file"]');
-            if (sel.length && fileInput.length && sel.val() === '結案報告' && fileInput[0].files && fileInput[0].files.length > 0) {
+            if (sel.length && fileInput.length && sel.val() === '期末報告' && fileInput[0].files && fileInput[0].files.length > 0) {
                 found = true;
                 return false;
             }
@@ -258,7 +258,7 @@
             if (!isSingle && !isMulti) {
                 $('#checkFinalReportNotice span').text('請先選擇全文檔案類型（單期檔案或多期或跨年度檔案），方可進行學術成果授權設定。');
             } else {
-                $('#checkFinalReportNotice span').text('請先勾選「已完成結案報告上傳」並在全文上傳中上傳結案報告檔案，方可進行學術成果授權設定。');
+                $('#checkFinalReportNotice span').text('請先勾選「已完成結案報告上傳」並在全文上傳中上傳期末報告檔案，方可進行學術成果授權設定。');
             }
             $('#authSectionContent').hide();
         }
@@ -308,7 +308,7 @@
         var hasNoPublicReason = $.trim($('#noPublicReason').val()) !== '';
 
         if (isMultiPeriodFileType() && $('#finalReportUploaded').is(':checked') && !hasFinalReportFileUploaded()) {
-            alert('請在全文上傳中選擇「結案報告」並上傳檔案，方可進行學術成果授權設定。');
+            alert('請在全文上傳中選擇「期末報告」並上傳檔案，方可進行學術成果授權設定。');
             $('.dynamic-container').closest('.col-12').get(0).scrollIntoView({ behavior: 'smooth', block: 'center' });
             return false;
         }
