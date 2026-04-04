@@ -123,7 +123,7 @@
                 <div class="col-sm">
                     <div class="tabPane bg-light p-3">
                         <div class="col-12 text-end mb-2">
-                            <span class="required-star">*</span> 為必填欄位
+                            <span class="required-star">*</span> 為必填欄位　<span style="color:#0d6efd;font-weight:bold;">*</span> 至少填寫其中一項
                         </div>
                         <div class="row g-4">
 
@@ -202,6 +202,32 @@
                                         <input type="text" class="form-control form_date required-field"
                                             id="publish_date" placeholder="YYYY/MM/DD" data-label="陳報/刊登日">
                                         <span class="form-hint">依此日期是否落在評鑑週期內計算符合件數。</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 題名 + 題名（外文）：至少填一 -->
+                            <div class="col-12">
+                                <div class="row">
+                                    <label class="min_width-175 col-sm-auto col-form-label">
+                                        <span style="color:#0d6efd;font-weight:bold;">*</span>題名
+                                    </label>
+                                    <div class="col">
+                                        <input type="text" class="form-control title-any-required" id="summary_title_zh"
+                                            placeholder="《臺灣新意象》教材設計與發展之實踐智慧" data-label="題名">
+                                        <span class="form-hint"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="row">
+                                    <label class="min_width-175 col-sm-auto col-form-label">
+                                        <span style="color:#0d6efd;font-weight:bold;">*</span>題名（外文）
+                                    </label>
+                                    <div class="col">
+                                        <input type="text" class="form-control title-any-required" id="summary_title_en"
+                                            placeholder="The Practical Wisdom of Curriculum Design..." data-label="題名（外文）">
+                                        <span class="form-hint"></span>
                                     </div>
                                 </div>
                             </div>
@@ -288,6 +314,12 @@
         initDatePicker();
         syncAuthorRowActionButtons();
         $('#author_members_container .member-role').prop('disabled', true).attr('aria-disabled', 'true');
+        // 題名群組：有任一欄輸入時清除紅框
+        $(document).on('input', '.title-any-required', function() {
+            if ($.trim($('#summary_title_zh').val()) !== '' || $.trim($('#summary_title_en').val()) !== '') {
+                $('#summary_title_zh, #summary_title_en').removeClass('is-invalid');
+            }
+        });
 
         $('#naerMemberModal').on('hidden.bs.modal hidden.modal', function () {
             currentMemberNameZhInput = null;
@@ -324,6 +356,18 @@
 
     function validateAndNavigate(url) {
         var isValid = true;
+
+        // 題名 或 題名（外文）至少填一
+        var titleZh = $.trim($('#summary_title_zh').val());
+        var titleEn = $.trim($('#summary_title_en').val());
+        if (titleZh === '' && titleEn === '') {
+            alert('請至少填寫【題名】或【題名（外文）】其中一項');
+            $('#summary_title_zh').addClass('is-invalid')[0].scrollIntoView({behavior:'smooth',block:'center'});
+            $('#summary_title_en').addClass('is-invalid');
+            $('#summary_title_zh').focus();
+            return false;
+        }
+        $('#summary_title_zh, #summary_title_en').removeClass('is-invalid');
 
         // 檢查一般必填欄位
         $('.required-field').each(function() {
