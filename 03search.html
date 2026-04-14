@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html class="text-m" lang="zh-Hant-TW">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="Developer" content="楊軒羽 Shen Yang | Front-end Developer | 前端設計工程師">
+		<title>國家教育研究院-研究成果典藏庫</title>
+		<!-- favicon -->
+		<link rel="shortcut icon" type="image/gif" href="img/blank.gif" />
+		<!-- /favicon -->
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="css/bootstrap-icons.css">
+		<link rel="stylesheet" type="text/css" href="css/fontawesome.min.css">
+		<link rel="stylesheet" type="text/css" href="css/swiper-bundle.min.css">
+		<link rel="stylesheet" type="text/css" href="css/tailwind.css">
+		<link rel="stylesheet" type="text/css" href="css/main.min.css">
+		<link rel="stylesheet" type="text/css" href="css/style.min.css">
+	</head>
+
+	<body id="top" class="page focus tw:min-h-screen">
+		<div class="tw:text-center tw:leading-10 tw:text-white tw:bg-pink-900"><noscript class="tw:py-1">您的瀏覽器不支援JavaScript功能，若網頁功能無法正常使用時，請開啟瀏覽器JavaScript狀態！</noscript></div>
+		<!-- header -->
+		<header class="header shadow-lg ps-2 ps-lg-0">
+			<span class="d-none d-lg-inline-block tw:absolute z-1"><a id="gotocenter" class="btn btn-primary visually-hidden-focusable" href="#AC" title="移到主要內容">跳到主要內容</a></span>
+			<!-- container -->
+		  <div class="headerContainer bg-white">
+		    <nav class="navbar navbar-expand-md gap-1 p-0 tw:h-[69px]">
+		      <!-- navbarBg -->
+		      <div class="navbarBg w-100">
+		        <!-- navbarContainer -->
+		        <div class="navbarContainer d-flex justify-content-between align-items-center container-fluid px-3 px-lg-5">
+		          <!-- Logo -->
+		          <div class="logoBG">
+		            <div class="logoContainer d-flex align-items-center w-100 me-auto">
+		              <a class="logo me-3" href="index.html">
+		                <h1 class="visually-hidden-focusable">國家教育研究院-研究成果典藏庫</h1>
+		                <img class="w-100" src="img/logo.svg" alt="國家圖書館Logo" width="118">
+		              </a>
+		              <a class="logo2 navbar-brand d-none d-lg-block" href="" title="">
+		                <img src="img/logo2.svg" alt="登入服務Logo" width="104">
+		              </a>
+		            </div>
+		          </div>
+		          <!-- /Logo -->
+		          <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbarOffcanvas" aria-controls="navbarOffcanvas">
+		            <i class="h2 bi bi-list tw:leading-0"></i>
+		            <span class="visually-hidden">開啟選單</span>
+		          </button>
+		          <!-- offcanvas -->
+		          <div id="navbarOffcanvas" class="mainmenuBG bg-white bg-opacity-90 offcanvas offcanvas-start tw:group" tabindex="-1" aria-labelledby="offcanvasTitle">
+		            <div class="mainmenuContainer d-flex flex-column flex-lg-row justify-content-end h-100">
+		              <div class="offcanvas-header">
+		                <h2 id="offcanvasTitle" class="offcanvas-title h5"><img src="img/logo.svg" alt="網站Logo" width="118"></h2>
+		                <button type="button" class="btnClose h4 ms-auto me-2" data-bs-dismiss="offcanvas" aria-label="Close"><i class="bi bi-x-lg"></i></button>
+		              </div>
+		              <span class="d-none d-lg-inline-block"><a class="btn btn-link text-decoration-none text-body" href="#U" id="AU" name="U" title="上方功能區塊" accesskey="U">:::</a></span>
+		              <ul id="mainmenuAccordion" class="mainmenu navbar-nav gap-lg-2 offcanvas-body justify-content-center justify-content-md-end align-items-center tw:**:[&amp;.nav-link.active]:text-(--bs-primary)!">
+		                <li class="nav-item flex-shrink-0">
+		                  <a class="nav-link fw-bold tw:text-[#444444]! tw:hover:text-(--bs-primary)! tw:group-[.show]:my-5" href="">系統簡介</a>
+		                </li>
+		                <li class="nav-item flex-shrink-0">
+		                  <a class="nav-link fw-bold tw:text-[#444444]! tw:hover:text-(--bs-primary)! tw:group-[.show]:my-5 active" href="">進階檢索</a>
+		                </li>
+		                <li class="nav-item flex-shrink-0">
+		                  <a class="nav-link fw-bold tw:text-[#444444]! tw:hover:text-(--bs-primary)! tw:group-[.show]:my-5" href="">學術著作</a>
+		                </li>
+		                <li class="nav-item flex-shrink-0">
+		                  <a class="nav-link fw-bold tw:text-[#444444]! tw:hover:text-(--bs-primary)! tw:group-[.show]:my-5" href="">研究計劃成果</a>
+		                </li>
+		                <li class="nav-item flex-shrink-0">
+		                  <a class="nav-link fw-bold tw:text-[#444444]! tw:hover:text-(--bs-primary)! tw:group-[.show]:my-5" href="">研究人員</a>
+		                </li>
+		                <li class="nav-item flex-shrink-0">
+		                  <a class="nav-link fw-bold tw:text-[#444444]! tw:hover:text-(--bs-primary)! tw:group-[.show]:my-5" href="">EN</a>
+		                </li>
+		              </ul>
+		            </div>
+		          </div>
+		          <!-- /offcanvas -->
+		        </div>
+		        <!-- /navbarContainer -->
+		      </div>
+		      <!-- /navbarBg -->
+		    </nav>
+		  </div>
+		  <!-- /container -->
+		</header>
+		<!-- /header -->
+
+		<main>
+			<!-- main content -->
+			<section>
+			  <!-- content -->
+			  <div id="content" class="vstack position-relative">
+			    <!-- accesskey -->
+			    <div class="position-absolute d-none d-lg-inline-block">
+			      <a class="btn btn-link text-decoration-none text-body text-nowrap position-absolute" href="#C" id="AC" name="C" title="中央內容區塊" accesskey="C" style="left:20px; top:20px;">:::</a>
+			    </div>
+			    <!-- /accesskey -->
+			    <div class="container-lg py-3 my-5 pt-5">
+			      <h2 class="text-primary fw-bold border-bottom border-primary pb-4 mb-5 tw:text-[calc(28rem/16)]!">進階檢索</h2>
+			      <p class="fw-medium tw:text-[calc(18rem/16)]!">本院目前聘有約 60 多位研究人員，其研究專長包含教育行政、課程教學、測驗評量、資訊科技，以及語言、歷史、政治等學科領域，各自負有研究發展與行政服務之職責。</p>
+			    </div>
+			    <!-- /container -->
+			    <div class="list vstack gap-4 px-3 tw:pt-8 tw:lg:pt-14 tw:bg-[#F3F3F3] tw:pb-24">
+			      <div class="container-lg px-0 vstack gap-5">
+			        <div class="row g-2 gx-md-4 gx-xxl-5">
+			          <div class="col d-md-none">
+			            <div class="hstack gap-2">
+			              <div class="search input-group bg-white rounded-3 row g-0 z-1 tw:h-[44px] tw:lg:h-[48px]">
+			                <div class="col-auto">
+			                  <div class="dropdown h-100">
+			                    <button id="dropdownBtn01" class="btn btn-primary text-primary fw-semibold bg-transparent border-0 border-end rounded-0 align-items-center px-lg-4 h-100" type="button" data-bs-toggle="dropdown" aria-expanded="false">不限範圍<i class="bi bi-chevron-down ms-2" aria-hidden="true"></i></button>
+			                    <ul class="dropdown-menu border-0 rounded-3 tw:min-w-full!" aria-labelledby="dropdownBtn01">
+			                      <li><button class="dropdown-item bg-transparent tw:hover:text-(--bs-primary)! tw:[&.active]:text-(--bs-primary)! active" type="button" data-value="">不限範圍</button></li>
+			                      <li><button class="dropdown-item bg-transparent tw:hover:text-(--bs-primary)! tw:[&.active]:text-(--bs-primary)!" type="button" data-value="1">Item</button></li>
+			                      <li><button class="dropdown-item bg-transparent tw:hover:text-(--bs-primary)! tw:[&.active]:text-(--bs-primary)!" type="button" data-value="2">Item</button></li>
+			                      <li><button class="dropdown-item bg-transparent tw:hover:text-(--bs-primary)! tw:[&.active]:text-(--bs-primary)!" type="button" data-value="3">Item</button></li>
+			                    </ul>
+			                  </div>
+			                </div>
+			                <div class="col">
+			                  <input id="input-mobile" class="form-control border-end-0 h-100 fw-medium tw:border-transparent! tw:placeholder:text-[#A5A5A5]!" type="text" placeholder="請輸入關鍵字" aria-label="輸入文字搭配下拉選單選項">
+			                </div>
+			                <div class="col-auto">
+			                  <button class="btn btn-primary text-primary bg-transparent border border-primary border-opacity-0 pe-lg-4 h-100" type="button"><i class="bi bi-search" aria-hidden="true"></i><span class="visually-hidden">搜尋</span></button>
+			                </div>
+			              </div>
+			              <!-- /input-group -->
+			              <button class="btn btn-link fw-medium bg-white rounded-3 flex-shrink-0 tw:h-[44px] tw:lg:h-[48px]" type="button"><span class="d-none d-md-inline-block me-2">縮小範圍</span><i class="bi bi-zoom-out" aria-hidden="true"></i></button>
+			            </div>
+			            <!-- /search -->
+			          </div>
+			          <div class="col-md-4 col-xxl-3 order-md-first">
+			            <div class="vstack gap-3">
+			              <button class="btn btn-primary text-primary bg-white border-0 rounded-3 fw-semibold collapsed d-md-none tw:group" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOption" aria-expanded="false" aria-controls="collapseOption">進階篩選<i class="bi bi-chevron-down ms-2 tw:group-[:not(.collapsed)]:before:content-['\F286']!" aria-hidden="true"></i></button>
+			              <div id="collapseOption" class="vstack gap-3 collapse">
+			                <div class="bg-white rounded-3 p-3">
+			                  <div class="vstack gap-3">
+			                    <div class="hstack">
+			                      <div class="text-primary fw-semibold me-auto tw:text-[calc(18rem/16)]!">篩選條件</div>
+			                      <button class="btn px-0 rounded-0 text-decoration-underline" type="button">全部清空</button>
+			                    </div>
+			                    <div class="vstack gap-3">
+			                      <button class="btn text-body fw-medium border-0 rounded-0 p-0 bg-transparent text-start hstack" type="button" title="刪除條件">年分：1984<i class="bi bi-x-lg ps-1 ms-auto tw:text-xs"></i><span class="visually-hidden">刪除</span></button>
+			                      <button class="btn text-body fw-medium border-0 rounded-0 p-0 bg-transparent text-start hstack" type="button" title="刪除條件">年分：1984<i class="bi bi-x-lg ps-1 ms-auto tw:text-xs"></i><span class="visually-hidden">刪除</span></button>
+			                      <div class="hstack gap-2 justify-content-end">
+			                        <button class="btn btn-primary rounded-0 fw-medium" type="button">套用</button>
+			                      </div>
+			                    </div>
+			                    <hr class="my-0">
+			                    <div class="hstack">
+			                      <div class="text-primary fw-semibold me-auto tw:text-[calc(18rem/16)]!">已套用篩選條件</div>
+			                      <button class="btn px-0 rounded-0 text-decoration-underline" type="button">全部清空</button>
+			                    </div>
+			                    <div class="vstack gap-3">
+			                      <button class="btn text-body fw-medium border-0 rounded-0 p-0 bg-transparent text-start hstack" type="button" title="刪除條件">年分：1984<i class="bi bi-x-lg ps-1 ms-auto tw:text-xs"></i><span class="visually-hidden">刪除</span></button>
+			                      <button class="btn text-body fw-medium border-0 rounded-0 p-0 bg-transparent text-start hstack" type="button" title="刪除條件">年分：1984<i class="bi bi-x-lg ps-1 ms-auto tw:text-xs"></i><span class="visually-hidden">刪除</span></button>
+			                    </div>
+			                  </div>
+			                  <!-- /vstack -->
+			                </div>
+			                <!-- /bg-white -->
+			                <div class="bg-white rounded-3 p-3">
+			                  <ul id="accordion" class="list-group list-group-flush accordion gap-3 tw:[&.accordion]:[--bs-accordion-btn-active-icon:var(--bs-accordion-btn-icon)]!">
+			                    <li class="list-group-item bg-transparent accordion-item px-1 pt-0 pb-3 tw:border-[rgb(206_212_218/70%)]!">
+			                      <div class="accordion-header d-flex align-items-center">
+			                        <button class="accordion-button text-body bg-transparent shadow-none rounded-0 p-0 mb-3 tw:text-[calc(18rem/16)]!" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1" aria-expanded="true" aria-controls="collapse1">資料類型</button>
+			                      </div>
+			                      <!-- /accordion-header -->
+			                      <div id="collapse1" class="accordion-collapse collapse show vstack gap-3" data-bs-parent="#accordion">
+			                        <div class="hstack flex-wrap gap-2">
+			                          <div class="form-check me-auto">
+			                            <input id="checka1" class="form-check-input rounded-1" type="checkbox" value="" checked>
+			                            <label class="form-check-label" for="checka1">文字資料</label>
+			                          </div>
+			                          <span class="text-cyan bg-cyan bg-opacity-10 d-inline-flex align-items-center tw:px-[6px] tw:h-[21px] tw:text-[calc(14rem/16)]">100</span>
+			                        </div>
+			                        <div class="hstack flex-wrap gap-2">
+			                          <div class="form-check me-auto">
+			                            <input id="checka2" class="form-check-input rounded-1" type="checkbox" value="">
+			                            <label class="form-check-label" for="checka2">影音資料</label>
+			                          </div>
+			                          <span class="text-cyan bg-cyan bg-opacity-10 d-inline-flex align-items-center tw:px-[6px] tw:h-[21px] tw:text-[calc(14rem/16)]">100</span>
+			                        </div>
+			                        <div class="hstack flex-wrap gap-2">
+			                          <div class="form-check me-auto">
+			                            <input id="checka3" class="form-check-input rounded-1" type="checkbox" value="">
+			                            <label class="form-check-label" for="checka3">圖像資料</label>
+			                          </div>
+			                          <span class="text-cyan bg-cyan bg-opacity-10 d-inline-flex align-items-center tw:px-[6px] tw:h-[21px] tw:text-[calc(14rem/16)]">100</span>
+			                        </div>
+			                        <div class="hstack justify-content-end">
+			                          <button class="btn rounded-0 text-decoration-underline p-0" type="button" data-bs-toggle="collapse" data-bs-target="#collapseMore1" aria-expanded="false" aria-controls="collapseMore1">展開全部</button>
+			                        </div>
+			                        <div id="collapseMore1" class="collapse">
+			                          <div class="hstack flex-wrap gap-2">
+			                            <div class="form-check me-auto">
+			                              <input id="morea1" class="form-check-input rounded-1" type="checkbox" value="" checked>
+			                              <label class="form-check-label" for="morea1">item</label>
+			                            </div>
+			                            <span class="text-cyan bg-cyan bg-opacity-10 d-inline-flex align-items-center tw:px-[6px] tw:h-[21px] tw:text-[calc(14rem/16)]">100</span>
+			                          </div>
+			                        </div>
+			                      </div>
+			                      <!-- /collapse -->
+			                    </li>
+			                    <li class="list-group-item bg-transparent accordion-item px-1 pt-0 pb-3 tw:border-[rgb(206_212_218/70%)]!">
+			                      <div class="accordion-header d-flex align-items-center">
+			                        <button class="accordion-button text-body bg-transparent shadow-none rounded-0 p-0 mb-3 tw:text-[calc(18rem/16)]!" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2" aria-expanded="true" aria-controls="collapse2">典藏項目</button>
+			                      </div>
+			                      <!-- /accordion-header -->
+			                      <div id="collapse2" class="accordion-collapse collapse show vstack gap-3" data-bs-parent="#accordion">
+			                        <div class="hstack flex-wrap gap-2">
+			                          <div class="form-check me-auto">
+			                            <input id="checkb1" class="form-check-input rounded-1" type="checkbox" value="" checked>
+			                            <label class="form-check-label" for="checkb1">論文/報告</label>
+			                          </div>
+			                          <span class="text-cyan bg-cyan bg-opacity-10 d-inline-flex align-items-center tw:px-[6px] tw:h-[21px] tw:text-[calc(14rem/16)]">435</span>
+			                        </div>
+			                        <div class="hstack flex-wrap gap-2">
+			                          <div class="form-check me-auto">
+			                            <input id="checkb2" class="form-check-input rounded-1" type="checkbox" value="">
+			                            <label class="form-check-label" for="checkb2">刊物</label>
+			                          </div>
+			                          <span class="text-cyan bg-cyan bg-opacity-10 d-inline-flex align-items-center tw:px-[6px] tw:h-[21px] tw:text-[calc(14rem/16)]">452</span>
+			                        </div>
+			                        <div class="hstack flex-wrap gap-2">
+			                          <div class="form-check me-auto">
+			                            <input id="checkb3" class="form-check-input rounded-1" type="checkbox" value="">
+			                            <label class="form-check-label" for="checkb3">典禮/講座</label>
+			                          </div>
+			                          <span class="text-cyan bg-cyan bg-opacity-10 d-inline-flex align-items-center tw:px-[6px] tw:h-[21px] tw:text-[calc(14rem/16)]">18</span>
+			                        </div>
+			                        <div class="hstack flex-wrap gap-2">
+			                          <div class="form-check me-auto">
+			                            <input id="checkb4" class="form-check-input rounded-1" type="checkbox" value="">
+			                            <label class="form-check-label" for="checkb4">華神影音（其他）</label>
+			                          </div>
+			                          <span class="text-cyan bg-cyan bg-opacity-10 d-inline-flex align-items-center tw:px-[6px] tw:h-[21px] tw:text-[calc(14rem/16)]">752</span>
+			                        </div>
+			                        <div class="hstack flex-wrap gap-2">
+			                          <div class="form-check me-auto">
+			                            <input id="checkb5" class="form-check-input rounded-1" type="checkbox" value="">
+			                            <label class="form-check-label" for="checkb5">照片/圖片</label>
+			                          </div>
+			                          <span class="text-cyan bg-cyan bg-opacity-10 d-inline-flex align-items-center tw:px-[6px] tw:h-[21px] tw:text-[calc(14rem/16)]">721</span>
+			                        </div>
+			                        <div class="hstack justify-content-end">
+			                          <button class="btn rounded-0 text-decoration-underline p-0" type="button" data-bs-toggle="collapse" data-bs-target="#collapseMore2" aria-expanded="false" aria-controls="collapseMore2">展開全部</button>
+			                        </div>
+			                        <div id="collapseMore2" class="collapse">
+			                          <div class="hstack flex-wrap gap-2">
+			                            <div class="form-check me-auto">
+			                              <input id="moreb1" class="form-check-input rounded-1" type="checkbox" value="" checked>
+			                              <label class="form-check-label" for="moreb1">item</label>
+			                            </div>
+			                            <span class="text-cyan bg-cyan bg-opacity-10 d-inline-flex align-items-center tw:px-[6px] tw:h-[21px] tw:text-[calc(14rem/16)]">100</span>
+			                          </div>
+			                        </div>
+			                      </div>
+			                      <!-- /collapse -->
+			                    </li>
+			                    <li class="list-group-item bg-transparent accordion-item px-1 pt-0 pb-3 tw:border-[rgb(206_212_218/70%)]!">
+			                      <div class="accordion-header d-flex align-items-center">
+			                        <button class="accordion-button text-body bg-transparent shadow-none rounded-0 p-0 mb-3 tw:text-[calc(18rem/16)]!" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3" aria-expanded="true" aria-controls="collapse3">主要編著者</button>
+			                      </div>
+			                      <!-- /accordion-header -->
+			                      <div id="collapse3" class="accordion-collapse collapse show vstack gap-3" data-bs-parent="#accordion">
+			                        <div class="hstack flex-wrap gap-2">
+			                          <div class="form-check me-auto">
+			                            <input id="checkc1" class="form-check-input rounded-1" type="checkbox" value="" checked>
+			                            <label class="form-check-label" for="checkc1">李大明</label>
+			                          </div>
+			                          <span class="text-cyan bg-cyan bg-opacity-10 d-inline-flex align-items-center tw:px-[6px] tw:h-[21px] tw:text-[calc(14rem/16)]">100</span>
+			                        </div>
+			                        <div class="hstack flex-wrap gap-2">
+			                          <div class="form-check me-auto">
+			                            <input id="checkc2" class="form-check-input rounded-1" type="checkbox" value="">
+			                            <label class="form-check-label" for="checkc2">陳小小</label>
+			                          </div>
+			                          <span class="text-cyan bg-cyan bg-opacity-10 d-inline-flex align-items-center tw:px-[6px] tw:h-[21px] tw:text-[calc(14rem/16)]">100</span>
+			                        </div>
+			                        <div class="hstack justify-content-end">
+			                          <button class="btn rounded-0 text-decoration-underline p-0" type="button" data-bs-toggle="collapse" data-bs-target="#collapseMore3" aria-expanded="false" aria-controls="collapseMore3">展開全部</button>
+			                        </div>
+			                        <div id="collapseMore3" class="collapse">
+			                          <div class="hstack flex-wrap gap-2">
+			                            <div class="form-check me-auto">
+			                              <input id="morec1" class="form-check-input rounded-1" type="checkbox" value="" checked>
+			                              <label class="form-check-label" for="morec1">item</label>
+			                            </div>
+			                            <span class="text-cyan bg-cyan bg-opacity-10 d-inline-flex align-items-center tw:px-[6px] tw:h-[21px] tw:text-[calc(14rem/16)]">100</span>
+			                          </div>
+			                        </div>
+			                      </div>
+			                      <!-- /collapse -->
+			                    </li>
+			                    <li class="list-group-item bg-transparent accordion-item px-1 pt-0 pb-3 tw:border-[rgb(206_212_218/70%)]!">
+			                      <div class="accordion-header d-flex align-items-center">
+			                        <button class="accordion-button text-body bg-transparent shadow-none rounded-0 p-0 mb-3 tw:text-[calc(18rem/16)]!" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4" aria-expanded="true" aria-controls="collapse4">西元年</button>
+			                      </div>
+			                      <!-- /accordion-header -->
+			                      <div id="collapse4" class="accordion-collapse collapse show vstack gap-3" data-bs-parent="#accordion">
+			                        <div class="hstack flex-wrap gap-2">
+			                          <div class="form-check me-auto">
+			                            <input id="checkd1" class="form-check-input rounded-1" type="checkbox" value="" checked>
+			                            <label class="form-check-label" for="checkd1">2025</label>
+			                          </div>
+			                          <span class="text-cyan bg-cyan bg-opacity-10 d-inline-flex align-items-center tw:px-[6px] tw:h-[21px] tw:text-[calc(14rem/16)]">100</span>
+			                        </div>
+			                        <div class="hstack flex-wrap gap-2">
+			                          <div class="form-check me-auto">
+			                            <input id="checkd2" class="form-check-input rounded-1" type="checkbox" value="">
+			                            <label class="form-check-label" for="checkd2">2001</label>
+			                          </div>
+			                          <span class="text-cyan bg-cyan bg-opacity-10 d-inline-flex align-items-center tw:px-[6px] tw:h-[21px] tw:text-[calc(14rem/16)]">100</span>
+			                        </div>
+			                        <div class="hstack justify-content-end">
+			                          <button class="btn rounded-0 text-decoration-underline p-0" type="button" data-bs-toggle="collapse" data-bs-target="#collapseMore4" aria-expanded="false" aria-controls="collapseMore4">展開全部</button>
+			                        </div>
+			                        <div id="collapseMore4" class="collapse">
+			                          <div class="hstack flex-wrap gap-2">
+			                            <div class="form-check me-auto">
+			                              <input id="mored1" class="form-check-input rounded-1" type="checkbox" value="" checked>
+			                              <label class="form-check-label" for="mored1">item</label>
+			                            </div>
+			                            <span class="text-cyan bg-cyan bg-opacity-10 d-inline-flex align-items-center tw:px-[6px] tw:h-[21px] tw:text-[calc(14rem/16)]">100</span>
+			                          </div>
+			                        </div>
+			                      </div>
+			                      <!-- /collapse -->
+			                    </li>
+			                    <li class="list-group-item bg-transparent accordion-item px-1 pt-0 pb-3 tw:border-[rgb(206_212_218/70%)]!">
+			                      <div class="accordion-header d-flex align-items-center">
+			                        <button class="accordion-button text-body bg-transparent shadow-none rounded-0 p-0 mb-3 tw:text-[calc(18rem/16)]!" type="button" data-bs-toggle="collapse" data-bs-target="#collapse5" aria-expanded="true" aria-controls="collapse5">關鍵字</button>
+			                      </div>
+			                      <!-- /accordion-header -->
+			                      <div id="collapse5" class="accordion-collapse collapse show vstack gap-3" data-bs-parent="#accordion">
+			                        <div class="hstack flex-wrap gap-2">
+			                          <div class="form-check me-auto">
+			                            <input id="checke1" class="form-check-input rounded-1" type="checkbox" value="" checked>
+			                            <label class="form-check-label" for="checke1">論文</label>
+			                          </div>
+			                          <span class="text-cyan bg-cyan bg-opacity-10 d-inline-flex align-items-center tw:px-[6px] tw:h-[21px] tw:text-[calc(14rem/16)]">100</span>
+			                        </div>
+			                        <div class="hstack flex-wrap gap-2">
+			                          <div class="form-check me-auto">
+			                            <input id="checke2" class="form-check-input rounded-1" type="checkbox" value="">
+			                            <label class="form-check-label" for="checke2">華神</label>
+			                          </div>
+			                          <span class="text-cyan bg-cyan bg-opacity-10 d-inline-flex align-items-center tw:px-[6px] tw:h-[21px] tw:text-[calc(14rem/16)]">100</span>
+			                        </div>
+			                        <div class="hstack justify-content-end">
+			                          <button class="btn rounded-0 text-decoration-underline p-0" type="button" data-bs-toggle="collapse" data-bs-target="#collapseMore5" aria-expanded="false" aria-controls="collapseMore5">展開全部</button>
+			                        </div>
+			                        <div id="collapseMore5" class="collapse">
+			                          <div class="hstack flex-wrap gap-2">
+			                            <div class="form-check me-auto">
+			                              <input id="moree1" class="form-check-input rounded-1" type="checkbox" value="" checked>
+			                              <label class="form-check-label" for="moree1">item</label>
+			                            </div>
+			                            <span class="text-cyan bg-cyan bg-opacity-10 d-inline-flex align-items-center tw:px-[6px] tw:h-[21px] tw:text-[calc(14rem/16)]">100</span>
+			                          </div>
+			                        </div>
+			                      </div>
+			                      <!-- /collapse -->
+			                    </li>
+			                  </ul>
+			                </div>
+			                <!-- /bg-white -->
+			              </div>
+			            </div>
+			          </div>
+			          <!-- /left -->
+			          <div class="col-md-8 col-xxl-9 vstack gap-4">
+			            <div class="hstack gap-2 d-none d-md-flex">
+			              <div class="search input-group bg-white rounded-3 row g-0 z-1 tw:h-[44px] tw:lg:h-[48px]">
+			                <div class="col-auto">
+			                  <div class="dropdown h-100">
+			                    <button id="dropdownBtn02" class="btn btn-primary text-primary fw-semibold bg-transparent border-0 border-end rounded-0 align-items-center px-lg-4 h-100" type="button" data-bs-toggle="dropdown" aria-expanded="false">不限範圍<i class="bi bi-chevron-down ms-2" aria-hidden="true"></i></button>
+			                    <ul class="dropdown-menu border-0 rounded-3 tw:min-w-full!" aria-labelledby="dropdownBtn02">
+			                      <li><button class="dropdown-item bg-transparent tw:hover:text-(--bs-primary)! tw:[&.active]:text-(--bs-primary)! active" type="button" data-value="">不限範圍</button></li>
+			                      <li><button class="dropdown-item bg-transparent tw:hover:text-(--bs-primary)! tw:[&.active]:text-(--bs-primary)!" type="button" data-value="1">Item</button></li>
+			                      <li><button class="dropdown-item bg-transparent tw:hover:text-(--bs-primary)! tw:[&.active]:text-(--bs-primary)!" type="button" data-value="2">Item</button></li>
+			                      <li><button class="dropdown-item bg-transparent tw:hover:text-(--bs-primary)! tw:[&.active]:text-(--bs-primary)!" type="button" data-value="3">Item</button></li>
+			                    </ul>
+			                  </div>
+			                </div>
+			                <div class="col">
+			                  <input id="input-group-input" class="form-control border-end-0 h-100 fw-medium tw:border-transparent! tw:placeholder:text-[#A5A5A5]!" type="text" placeholder="請輸入關鍵字" aria-label="輸入文字搭配下拉選單選項">
+			                </div>
+			                <div class="col-auto">
+			                  <button class="btn btn-primary text-primary bg-transparent border border-primary border-opacity-0 pe-lg-4 h-100" type="button"><i class="bi bi-search" aria-hidden="true"></i><span class="visually-hidden">搜尋</span></button>
+			                </div>
+			              </div>
+			              <!-- /input-group -->
+			              <button class="btn btn-link fw-medium bg-white rounded-3 flex-shrink-0 tw:h-[44px] tw:lg:h-[48px]" type="button"><span class="d-none d-md-inline-block me-2">縮小範圍</span><i class="bi bi-zoom-out" aria-hidden="true"></i></button>
+			            </div>
+			            <!-- /search -->
+			            <div class="vstack gap-4 tw:group/all">
+			              <div class="sort">
+			                <div class="row g-2 row-gap-2 align-items-center">
+			                  <div class="col-xxl-auto me-xxl-auto">
+			                    <p class="tw:max-w-[556px]">查詢條件：<span class="text-primary">( 包含 "肉身" 或是 "人性" / 查詢模式 - 精確 ) </span> 總共找到<span class="text-primary">1,123</span>筆結果</p>
+			                  </div>
+			                  <div class="col-4 col-sm-auto">
+			                    <div class="dropdown">
+			                      <button id="dropdownBtn1" class="btn btn-primary text-primary bg-white border-0 rounded-3 justify-content-center w-100" type="button" data-bs-toggle="dropdown" data-bs-auto-close="outside">功能<i class="bi bi-chevron-down ms-2" aria-hidden="true"></i></button>
+			                      <ul class="dropdown-menu border-0 rounded-3 tw:min-w-full!" aria-labelledby="dropdownBtn1">
+			                        <li><a class="dropdown-item bg-transparent tw:hover:text-(--bs-primary)! tw:[&.active]:text-(--bs-primary)! active" href="">Item</a></li>
+			                        <li><a class="dropdown-item bg-transparent tw:hover:text-(--bs-primary)! tw:[&.active]:text-(--bs-primary)!" href="">Item</a></li>
+			                        <li><a class="dropdown-item bg-transparent tw:hover:text-(--bs-primary)! tw:[&.active]:text-(--bs-primary)!" href="">Item</a></li>
+			                      </ul>
+			                    </div>
+			                  </div>
+			                  <div class="col-4 col-sm-auto">
+			                    <div class="dropdown">
+			                      <button id="dropdownBtn2" class="btn btn-primary text-primary bg-white border-0 rounded-3 justify-content-center w-100" type="button" data-bs-toggle="dropdown" data-bs-auto-close="outside">排序<i class="bi bi-chevron-down ms-2" aria-hidden="true"></i></button>
+			                      <ul class="dropdown-menu border-0 rounded-3 tw:min-w-full!" aria-labelledby="dropdownBtn2">
+			                        <li><a class="dropdown-item bg-transparent tw:hover:text-(--bs-primary)! tw:[&.active]:text-(--bs-primary)! active" href="">Item</a></li>
+			                        <li><a class="dropdown-item bg-transparent tw:hover:text-(--bs-primary)! tw:[&.active]:text-(--bs-primary)!" href="">Item</a></li>
+			                        <li><a class="dropdown-item bg-transparent tw:hover:text-(--bs-primary)! tw:[&.active]:text-(--bs-primary)!" href="">Item</a></li>
+			                      </ul>
+			                    </div>
+			                  </div>
+			                  <div class="col-4 col-sm-auto">
+			                    <div class="dropdown">
+			                      <button id="dropdownBtn3" class="btn btn-primary text-primary bg-white border-0 rounded-3 justify-content-center w-100" type="button" data-bs-toggle="dropdown" data-bs-auto-close="outside">數量<i class="bi bi-chevron-down ms-2" aria-hidden="true"></i></button>
+			                      <ul class="dropdown-menu border-0 rounded-3 tw:min-w-full!" aria-labelledby="dropdownBtn3">
+			                        <li><a class="dropdown-item bg-transparent tw:hover:text-(--bs-primary)! tw:[&.active]:text-(--bs-primary)! active" href="">Item</a></li>
+			                        <li><a class="dropdown-item bg-transparent tw:hover:text-(--bs-primary)! tw:[&.active]:text-(--bs-primary)!" href="">Item</a></li>
+			                        <li><a class="dropdown-item bg-transparent tw:hover:text-(--bs-primary)! tw:[&.active]:text-(--bs-primary)!" href="">Item</a></li>
+			                      </ul>
+			                    </div>
+			                  </div>
+			                </div>
+			                <!-- /row -->
+			              </div>
+			              <!-- /sort -->
+			              <div class="view hstack gap-2 fw-medium">顯示方式
+			                <div class="btn-group z-0" role="group" aria-label="群組選項按鈕">
+			                  <div class="tw:has-checked:order-first">
+			                    <input id="btnradio1" class="btn-check tw:checked:[&+.btn]:text-(--bs-primary)!" type="radio" name="btnradio" autocomplete="off" checked>
+			                    <label class="btn text-body border-0 rounded-0 py-0" for="btnradio1"><i class="bi bi-card-image fs-5"></i><span class="visually-hidden">圖文顯示</span></label>
+			                  </div>
+			                  <div class="tw:has-checked:order-first">
+			                    <input id="btnradio2" class="btn-check tw:checked:[&+.btn]:text-(--bs-primary)!" type="radio" name="btnradio" autocomplete="off">
+			                    <label class="btn text-body border-0 rounded-0 py-0" for="btnradio2"><i class="bi bi-list-task fs-5"></i><span class="visually-hidden">列表顯示</span></label>
+			                  </div>
+			                </div>
+			                <div class="hstack gap-2 ms-auto">
+			                  <label class="form-check-label" for="checkall">全選</label>
+			                  <input id="checkall" class="form-check-input rounded-1 m-0" type="checkbox" value="">
+			                </div>
+			              </div>
+			              <ul class="searchList list-group list-group-flush gap-2 mt-n4">
+			                <li class="list-group-item list-group-item-action px-0 py-3 tw:border-b! tw:border-black/7!">
+			                  <div class="row g-3 gx-xxl-4 mb-1">
+			                    <div class="col-auto">
+			                      <button class="btn border-0 rounded-0 pt-0 px-0 me-auto mt-n1 mt-md-0 tw:group" type="button" data-bs-toggle="button"><i class="bi bi-bookmark-plus tw:group-[.active]:before:content-['\F199']!"></i><span class="tw:sr-only tw:group-[.active]:hidden">加入收藏</span><span class="tw:hidden tw:group-[.active]:sr-only tw:group-[.active]:block">移除收藏</span></button>
+			                    </div>
+			                    <div class="col-md order-last order-md-2">
+			                      <div class="vstack gap-4 position-relative fw-medium h-100">
+			                        <div class="vstack gap-3">
+			                          <h2 class="fw-medium lh-base m-0 tw:text-[calc(18rem/16)]! tw:line-clamp-3 tw:lg:line-clamp-2"><a class="stretched-link text-body" href="">道成肉身中的神性與人性關係之詮釋分歧：以亞歷山大的區利羅與君士坦丁堡的涅斯托留之書信為例</a></h2>
+			                          <div class="hstack flex-wrap gap-2 mt-n2">
+			                            <span class="badge text-primary fw-normal bg-primary bg-opacity-10 rounded-0 p-2 tw:text-[calc(14rem/16)]!">宣教博士</span>
+			                            <span class="badge text-primary fw-normal bg-primary bg-opacity-10 rounded-0 p-2 tw:text-[calc(14rem/16)]!">2025</span>
+			                          </div>
+			                          <p class="fw-normal">-</p>
+			                        </div>
+			                        <span class="hstack gap-1 mt-auto"><span class="material-symbols-rounded" aria-hidden="true">account_circle</span>邱婉茜</span>
+			                      </div>
+			                    </div>
+			                    <div class="col col-md-auto order-md-3 tw:group-has-[#btnradio2:checked]/all:hidden">
+			                      <div class="hstack justify-content-center">
+			                        <div class="ratio tw:w-[162px]! tw:[&.ratio]:[--bs-aspect-ratio:calc(100%*232/162)]">
+			                          <img class="object-fit-cover rounded-3" src="img/searchList.jpg" alt="">
+			                        </div>
+			                      </div>
+			                    </div>
+			                    <div class="col-auto order-md-last">
+			                      <div class="form-check d-flex justify-content-end fw-medium p-0">
+			                        <input id="checkList1" class="form-check-input rounded-1 m-0" type="checkbox" value="">
+			                        <label class="visually-hidden" for="checkList1">勾選</label>
+			                      </div>
+			                    </div>
+			                  </div>
+			                </li>
+			                <li class="list-group-item list-group-item-action px-0 py-3 tw:border-b! tw:border-black/7!">
+			                  <div class="row g-3 gx-xxl-4 mb-1">
+			                    <div class="col-auto">
+			                      <button class="btn border-0 rounded-0 pt-0 px-0 me-auto mt-n1 mt-md-0 tw:group active" type="button" data-bs-toggle="button"><i class="bi bi-bookmark-plus tw:group-[.active]:before:content-['\F199']!"></i><span class="tw:sr-only tw:group-[.active]:hidden">加入收藏</span><span class="tw:hidden tw:group-[.active]:sr-only tw:group-[.active]:block">移除收藏</span></button>
+			                    </div>
+			                    <div class="col-md order-last order-md-2">
+			                      <div class="vstack gap-4 position-relative fw-medium h-100">
+			                        <div class="vstack gap-3">
+			                          <h2 class="fw-medium lh-base m-0 tw:text-[calc(18rem/16)]! tw:line-clamp-3 tw:lg:line-clamp-2"><a class="stretched-link text-body" href="">道成肉身中的神性與人性關係之詮釋分歧：以亞歷山大的區利羅與君士坦丁堡的涅斯托留之書信為例</a></h2>
+			                          <div class="hstack flex-wrap gap-2 mt-n2">
+			                            <span class="badge text-primary fw-normal bg-primary bg-opacity-10 rounded-0 p-2 tw:text-[calc(14rem/16)]!">宣教博士</span>
+			                            <span class="badge text-primary fw-normal bg-primary bg-opacity-10 rounded-0 p-2 tw:text-[calc(14rem/16)]!">2025</span>
+			                          </div>
+			                          <p class="fw-normal">道成肉身中的神性與人性關係之詮釋分歧：以亞歷山大的區利羅與君士坦丁堡的涅斯托留之書信為例道成肉身中的神性與人性關係之詮釋分歧：以亞歷山大的區利羅</p>
+			                        </div>
+			                        <span class="hstack gap-1 mt-auto"><span class="material-symbols-rounded" aria-hidden="true">account_circle</span>邱婉茜</span>
+			                      </div>
+			                    </div>
+			                    <div class="col col-md-auto order-md-3 tw:group-has-[#btnradio2:checked]/all:hidden">
+			                      <div class="hstack justify-content-center">
+			                        <div class="ratio tw:w-[162px]! tw:[&.ratio]:[--bs-aspect-ratio:calc(100%*232/162)]">
+			                          <img class="object-fit-cover rounded-3" src="img/searchList.jpg" alt="">
+			                        </div>
+			                      </div>
+			                    </div>
+			                    <div class="col-auto order-md-last">
+			                      <div class="form-check d-flex justify-content-end fw-medium p-0">
+			                        <input id="checkList2" class="form-check-input rounded-1 m-0" type="checkbox" value="" checked>
+			                        <label class="visually-hidden" for="checkList2">勾選</label>
+			                      </div>
+			                    </div>
+			                  </div>
+			                </li>
+			                <li class="list-group-item list-group-item-action px-0 py-3 tw:border-b! tw:border-black/7!">
+			                  <div class="row g-3 gx-xxl-4 mb-1">
+			                    <div class="col-auto">
+			                      <button class="btn border-0 rounded-0 pt-0 px-0 me-auto mt-n1 mt-md-0 tw:group" type="button" data-bs-toggle="button"><i class="bi bi-bookmark-plus tw:group-[.active]:before:content-['\F199']!"></i><span class="tw:sr-only tw:group-[.active]:hidden">加入收藏</span><span class="tw:hidden tw:group-[.active]:sr-only tw:group-[.active]:block">移除收藏</span></button>
+			                    </div>
+			                    <div class="col-md order-last order-md-2">
+			                      <div class="vstack gap-4 position-relative fw-medium h-100">
+			                        <div class="vstack gap-3">
+			                          <h2 class="fw-medium lh-base m-0 tw:text-[calc(18rem/16)]! tw:line-clamp-3 tw:lg:line-clamp-2"><a class="stretched-link text-body" href="">道成肉身中的神性與人性關係之詮釋分歧：以亞歷山大的區利羅與君士坦丁堡的涅斯托留之書信為例</a></h2>
+			                          <div class="hstack flex-wrap gap-2 mt-n2">
+			                            <span class="badge text-primary fw-normal bg-primary bg-opacity-10 rounded-0 p-2 tw:text-[calc(14rem/16)]!">宣教博士</span>
+			                            <span class="badge text-primary fw-normal bg-primary bg-opacity-10 rounded-0 p-2 tw:text-[calc(14rem/16)]!">2025</span>
+			                          </div>
+			                          <p class="fw-normal">-</p>
+			                        </div>
+			                        <span class="hstack gap-1 mt-auto"><span class="material-symbols-rounded" aria-hidden="true">account_circle</span>邱婉茜</span>
+			                      </div>
+			                    </div>
+			                    <div class="col col-md-auto order-md-3 tw:group-has-[#btnradio2:checked]/all:hidden">
+			                      <div class="hstack justify-content-center">
+			                        <div class="ratio tw:w-[162px]! tw:[&.ratio]:[--bs-aspect-ratio:calc(100%*232/162)]">
+			                          <img class="object-fit-cover rounded-3" src="img/searchList.jpg" alt="">
+			                        </div>
+			                      </div>
+			                    </div>
+			                    <div class="col-auto order-md-last">
+			                      <div class="form-check d-flex justify-content-end fw-medium p-0">
+			                        <input id="checkList3" class="form-check-input rounded-1 m-0" type="checkbox" value="">
+			                        <label class="visually-hidden" for="checkList3">勾選</label>
+			                      </div>
+			                    </div>
+			                  </div>
+			                </li>
+			                <li class="list-group-item list-group-item-action px-0 py-3 tw:border-b! tw:border-black/7!">
+			                  <div class="row g-3 gx-xxl-4 mb-1">
+			                    <div class="col-auto">
+			                      <button class="btn border-0 rounded-0 pt-0 px-0 me-auto mt-n1 mt-md-0 tw:group" type="button" data-bs-toggle="button"><i class="bi bi-bookmark-plus tw:group-[.active]:before:content-['\F199']!"></i><span class="tw:sr-only tw:group-[.active]:hidden">加入收藏</span><span class="tw:hidden tw:group-[.active]:sr-only tw:group-[.active]:block">移除收藏</span></button>
+			                    </div>
+			                    <div class="col-md order-last order-md-2">
+			                      <div class="vstack gap-4 position-relative fw-medium h-100">
+			                        <div class="vstack gap-3">
+			                          <h2 class="fw-medium lh-base m-0 tw:text-[calc(18rem/16)]! tw:line-clamp-3 tw:lg:line-clamp-2"><a class="stretched-link text-body" href="">道成肉身中的神性與人性關係之詮釋分歧：以亞歷山大的區利羅與君士坦丁堡的涅斯托留之書信為例</a></h2>
+			                          <div class="hstack flex-wrap gap-2 mt-n2">
+			                            <span class="badge text-primary fw-normal bg-primary bg-opacity-10 rounded-0 p-2 tw:text-[calc(14rem/16)]!">宣教博士</span>
+			                            <span class="badge text-primary fw-normal bg-primary bg-opacity-10 rounded-0 p-2 tw:text-[calc(14rem/16)]!">2025</span>
+			                          </div>
+			                          <p class="fw-normal">道成肉身中的神性與人性關係之詮釋分歧：以亞歷山大的區利羅與君士坦丁堡的涅斯托留之書信為例道成肉身中的神性與人性關係之詮釋分歧：以亞歷山大的區利羅</p>
+			                        </div>
+			                        <span class="hstack gap-1 mt-auto"><span class="material-symbols-rounded" aria-hidden="true">account_circle</span>邱婉茜</span>
+			                      </div>
+			                    </div>
+			                    <div class="col col-md-auto order-md-3 tw:group-has-[#btnradio2:checked]/all:hidden">
+			                      <div class="hstack justify-content-center">
+			                        <div class="ratio tw:w-[162px]! tw:[&.ratio]:[--bs-aspect-ratio:calc(100%*232/162)]">
+			                          <img class="object-fit-cover rounded-3" src="img/searchList.jpg" alt="">
+			                        </div>
+			                      </div>
+			                    </div>
+			                    <div class="col-auto order-md-last">
+			                      <div class="form-check d-flex justify-content-end fw-medium p-0">
+			                        <input id="checkList4" class="form-check-input rounded-1 m-0" type="checkbox" value="">
+			                        <label class="visually-hidden" for="checkList4">勾選</label>
+			                      </div>
+			                    </div>
+			                  </div>
+			                </li>
+			                <li class="list-group-item list-group-item-action px-0 py-3 tw:border-b! tw:border-black/7!">
+			                  <div class="row g-3 gx-xxl-4 mb-1">
+			                    <div class="col-auto">
+			                      <button class="btn border-0 rounded-0 pt-0 px-0 me-auto mt-n1 mt-md-0 tw:group" type="button" data-bs-toggle="button"><i class="bi bi-bookmark-plus tw:group-[.active]:before:content-['\F199']!"></i><span class="tw:sr-only tw:group-[.active]:hidden">加入收藏</span><span class="tw:hidden tw:group-[.active]:sr-only tw:group-[.active]:block">移除收藏</span></button>
+			                    </div>
+			                    <div class="col-md order-last order-md-2">
+			                      <div class="vstack gap-4 position-relative fw-medium h-100">
+			                        <div class="vstack gap-3">
+			                          <h2 class="fw-medium lh-base m-0 tw:text-[calc(18rem/16)]! tw:line-clamp-3 tw:lg:line-clamp-2"><a class="stretched-link text-body" href="">道成肉身中的神性與人性關係之詮釋分歧：以亞歷山大的區利羅與君士坦丁堡的涅斯托留之書信為例</a></h2>
+			                          <div class="hstack flex-wrap gap-2 mt-n2">
+			                            <span class="badge text-primary fw-normal bg-primary bg-opacity-10 rounded-0 p-2 tw:text-[calc(14rem/16)]!">宣教博士</span>
+			                            <span class="badge text-primary fw-normal bg-primary bg-opacity-10 rounded-0 p-2 tw:text-[calc(14rem/16)]!">2025</span>
+			                          </div>
+			                          <p class="fw-normal">道成肉身中的神性與人性關係之詮釋分歧：以亞歷山大的區利羅與君士坦丁堡的涅斯托留之書信為例道成肉身中的神性與人性關係之詮釋分歧：以亞歷山大的區利羅</p>
+			                        </div>
+			                        <span class="hstack gap-1 mt-auto"><span class="material-symbols-rounded" aria-hidden="true">account_circle</span>邱婉茜</span>
+			                      </div>
+			                    </div>
+			                    <div class="col col-md-auto order-md-3 tw:group-has-[#btnradio2:checked]/all:hidden">
+			                      <div class="hstack justify-content-center">
+			                        <div class="ratio tw:w-[162px]! tw:[&.ratio]:[--bs-aspect-ratio:calc(100%*232/162)]">
+			                          <img class="object-fit-cover rounded-3" src="img/searchList.jpg" alt="">
+			                        </div>
+			                      </div>
+			                    </div>
+			                    <div class="col-auto order-md-last">
+			                      <div class="form-check d-flex justify-content-end fw-medium p-0">
+			                        <input id="checkList5" class="form-check-input rounded-1 m-0" type="checkbox" value="">
+			                        <label class="visually-hidden" for="checkList5">勾選</label>
+			                      </div>
+			                    </div>
+			                  </div>
+			                </li>
+			                <li class="list-group-item list-group-item-action px-0 py-3 tw:border-b! tw:border-black/7!">
+			                  <div class="row g-3 gx-xxl-4 mb-1">
+			                    <div class="col-auto">
+			                      <button class="btn border-0 rounded-0 pt-0 px-0 me-auto mt-n1 mt-md-0 tw:group" type="button" data-bs-toggle="button"><i class="bi bi-bookmark-plus tw:group-[.active]:before:content-['\F199']!"></i><span class="tw:sr-only tw:group-[.active]:hidden">加入收藏</span><span class="tw:hidden tw:group-[.active]:sr-only tw:group-[.active]:block">移除收藏</span></button>
+			                    </div>
+			                    <div class="col-md order-last order-md-2">
+			                      <div class="vstack gap-4 position-relative fw-medium h-100">
+			                        <div class="vstack gap-3">
+			                          <h2 class="fw-medium lh-base m-0 tw:text-[calc(18rem/16)]! tw:line-clamp-3 tw:lg:line-clamp-2"><a class="stretched-link text-body" href="">道成肉身中的神性與人性關係之詮釋分歧：以亞歷山大的區利羅與君士坦丁堡的涅斯托留之書信為例</a></h2>
+			                          <div class="hstack flex-wrap gap-2 mt-n2">
+			                            <span class="badge text-primary fw-normal bg-primary bg-opacity-10 rounded-0 p-2 tw:text-[calc(14rem/16)]!">宣教博士</span>
+			                            <span class="badge text-primary fw-normal bg-primary bg-opacity-10 rounded-0 p-2 tw:text-[calc(14rem/16)]!">2025</span>
+			                          </div>
+			                          <p class="fw-normal">道成肉身中的神性與人性關係之詮釋分歧：以亞歷山大的區利羅與君士坦丁堡的涅斯托留之書信為例道成肉身中的神性與人性關係之詮釋分歧：以亞歷山大的區利羅</p>
+			                        </div>
+			                        <span class="hstack gap-1 mt-auto"><span class="material-symbols-rounded" aria-hidden="true">account_circle</span>邱婉茜</span>
+			                      </div>
+			                    </div>
+			                    <div class="col col-md-auto order-md-3 tw:group-has-[#btnradio2:checked]/all:hidden">
+			                      <div class="hstack justify-content-center">
+			                        <div class="ratio tw:w-[162px]! tw:[&.ratio]:[--bs-aspect-ratio:calc(100%*232/162)]">
+			                          <img class="object-fit-cover rounded-3" src="img/searchList.jpg" alt="">
+			                        </div>
+			                      </div>
+			                    </div>
+			                    <div class="col-auto order-md-last">
+			                      <div class="form-check d-flex justify-content-end fw-medium p-0">
+			                        <input id="checkList6" class="form-check-input rounded-1 m-0" type="checkbox" value="">
+			                        <label class="visually-hidden" for="checkList6">勾選</label>
+			                      </div>
+			                    </div>
+			                  </div>
+			                </li>
+			                <li class="list-group-item list-group-item-action px-0 py-3 tw:border-b! tw:border-black/7!">
+			                  <div class="row g-3 gx-xxl-4 mb-1">
+			                    <div class="col-auto">
+			                      <button class="btn border-0 rounded-0 pt-0 px-0 me-auto mt-n1 mt-md-0 tw:group" type="button" data-bs-toggle="button"><i class="bi bi-bookmark-plus tw:group-[.active]:before:content-['\F199']!"></i><span class="tw:sr-only tw:group-[.active]:hidden">加入收藏</span><span class="tw:hidden tw:group-[.active]:sr-only tw:group-[.active]:block">移除收藏</span></button>
+			                    </div>
+			                    <div class="col-md order-last order-md-2">
+			                      <div class="vstack gap-4 position-relative fw-medium h-100">
+			                        <div class="vstack gap-3">
+			                          <h2 class="fw-medium lh-base m-0 tw:text-[calc(18rem/16)]! tw:line-clamp-3 tw:lg:line-clamp-2"><a class="stretched-link text-body" href="">道成肉身中的神性與人性關係之詮釋分歧：以亞歷山大的區利羅與君士坦丁堡的涅斯托留之書信為例</a></h2>
+			                          <div class="hstack flex-wrap gap-2 mt-n2">
+			                            <span class="badge text-primary fw-normal bg-primary bg-opacity-10 rounded-0 p-2 tw:text-[calc(14rem/16)]!">宣教博士</span>
+			                            <span class="badge text-primary fw-normal bg-primary bg-opacity-10 rounded-0 p-2 tw:text-[calc(14rem/16)]!">2025</span>
+			                          </div>
+			                          <p class="fw-normal">道成肉身中的神性與人性關係之詮釋分歧：以亞歷山大的區利羅與君士坦丁堡的涅斯托留之書信為例道成肉身中的神性與人性關係之詮釋分歧：以亞歷山大的區利羅</p>
+			                        </div>
+			                        <span class="hstack gap-1 mt-auto"><span class="material-symbols-rounded" aria-hidden="true">account_circle</span>邱婉茜</span>
+			                      </div>
+			                    </div>
+			                    <div class="col col-md-auto order-md-3 tw:group-has-[#btnradio2:checked]/all:hidden">
+			                      <div class="hstack justify-content-center">
+			                        <div class="ratio tw:w-[162px]! tw:[&.ratio]:[--bs-aspect-ratio:calc(100%*232/162)]">
+			                          <img class="object-fit-cover rounded-3" src="img/searchList.jpg" alt="">
+			                        </div>
+			                      </div>
+			                    </div>
+			                    <div class="col-auto order-md-last">
+			                      <div class="form-check d-flex justify-content-end fw-medium p-0">
+			                        <input id="checkList7" class="form-check-input rounded-1 m-0" type="checkbox" value="">
+			                        <label class="visually-hidden" for="checkList7">勾選</label>
+			                      </div>
+			                    </div>
+			                  </div>
+			                </li>
+			                <li class="list-group-item list-group-item-action px-0 py-3 tw:border-b! tw:border-black/7!">
+			                  <div class="row g-3 gx-xxl-4 mb-1">
+			                    <div class="col-auto">
+			                      <button class="btn border-0 rounded-0 pt-0 px-0 me-auto mt-n1 mt-md-0 tw:group" type="button" data-bs-toggle="button"><i class="bi bi-bookmark-plus tw:group-[.active]:before:content-['\F199']!"></i><span class="tw:sr-only tw:group-[.active]:hidden">加入收藏</span><span class="tw:hidden tw:group-[.active]:sr-only tw:group-[.active]:block">移除收藏</span></button>
+			                    </div>
+			                    <div class="col-md order-last order-md-2">
+			                      <div class="vstack gap-4 position-relative fw-medium h-100">
+			                        <div class="vstack gap-3">
+			                          <h2 class="fw-medium lh-base m-0 tw:text-[calc(18rem/16)]! tw:line-clamp-3 tw:lg:line-clamp-2"><a class="stretched-link text-body" href="">道成肉身中的神性與人性關係之詮釋分歧：以亞歷山大的區利羅與君士坦丁堡的涅斯托留之書信為例</a></h2>
+			                          <div class="hstack flex-wrap gap-2 mt-n2">
+			                            <span class="badge text-primary fw-normal bg-primary bg-opacity-10 rounded-0 p-2 tw:text-[calc(14rem/16)]!">宣教博士</span>
+			                            <span class="badge text-primary fw-normal bg-primary bg-opacity-10 rounded-0 p-2 tw:text-[calc(14rem/16)]!">2025</span>
+			                          </div>
+			                          <p class="fw-normal">道成肉身中的神性與人性關係之詮釋分歧：以亞歷山大的區利羅與君士坦丁堡的涅斯托留之書信為例道成肉身中的神性與人性關係之詮釋分歧：以亞歷山大的區利羅</p>
+			                        </div>
+			                        <span class="hstack gap-1 mt-auto"><span class="material-symbols-rounded" aria-hidden="true">account_circle</span>邱婉茜</span>
+			                      </div>
+			                    </div>
+			                    <div class="col col-md-auto order-md-3 tw:group-has-[#btnradio2:checked]/all:hidden">
+			                      <div class="hstack justify-content-center">
+			                        <div class="ratio tw:w-[162px]! tw:[&.ratio]:[--bs-aspect-ratio:calc(100%*232/162)]">
+			                          <img class="object-fit-cover rounded-3" src="img/searchList.jpg" alt="">
+			                        </div>
+			                      </div>
+			                    </div>
+			                    <div class="col-auto order-md-last">
+			                      <div class="form-check d-flex justify-content-end fw-medium p-0">
+			                        <input id="checkList8" class="form-check-input rounded-1 m-0" type="checkbox" value="">
+			                        <label class="visually-hidden" for="checkList8">勾選</label>
+			                      </div>
+			                    </div>
+			                  </div>
+			                </li>
+			                <li class="list-group-item list-group-item-action px-0 py-3 tw:border-b! tw:border-black/7!">
+			                  <div class="row g-3 gx-xxl-4 mb-1">
+			                    <div class="col-auto">
+			                      <button class="btn border-0 rounded-0 pt-0 px-0 me-auto mt-n1 mt-md-0 tw:group" type="button" data-bs-toggle="button"><i class="bi bi-bookmark-plus tw:group-[.active]:before:content-['\F199']!"></i><span class="tw:sr-only tw:group-[.active]:hidden">加入收藏</span><span class="tw:hidden tw:group-[.active]:sr-only tw:group-[.active]:block">移除收藏</span></button>
+			                    </div>
+			                    <div class="col-md order-last order-md-2">
+			                      <div class="vstack gap-4 position-relative fw-medium h-100">
+			                        <div class="vstack gap-3">
+			                          <h2 class="fw-medium lh-base m-0 tw:text-[calc(18rem/16)]! tw:line-clamp-3 tw:lg:line-clamp-2"><a class="stretched-link text-body" href="">道成肉身中的神性與人性關係之詮釋分歧：以亞歷山大的區利羅與君士坦丁堡的涅斯托留之書信為例</a></h2>
+			                          <div class="hstack flex-wrap gap-2 mt-n2">
+			                            <span class="badge text-primary fw-normal bg-primary bg-opacity-10 rounded-0 p-2 tw:text-[calc(14rem/16)]!">宣教博士</span>
+			                            <span class="badge text-primary fw-normal bg-primary bg-opacity-10 rounded-0 p-2 tw:text-[calc(14rem/16)]!">2025</span>
+			                          </div>
+			                          <p class="fw-normal">道成肉身中的神性與人性關係之詮釋分歧：以亞歷山大的區利羅與君士坦丁堡的涅斯托留之書信為例道成肉身中的神性與人性關係之詮釋分歧：以亞歷山大的區利羅</p>
+			                        </div>
+			                        <span class="hstack gap-1 mt-auto"><span class="material-symbols-rounded" aria-hidden="true">account_circle</span>邱婉茜</span>
+			                      </div>
+			                    </div>
+			                    <div class="col col-md-auto order-md-3 tw:group-has-[#btnradio2:checked]/all:hidden">
+			                      <div class="hstack justify-content-center">
+			                        <div class="ratio tw:w-[162px]! tw:[&.ratio]:[--bs-aspect-ratio:calc(100%*232/162)]">
+			                          <img class="object-fit-cover rounded-3" src="img/searchList.jpg" alt="">
+			                        </div>
+			                      </div>
+			                    </div>
+			                    <div class="col-auto order-md-last">
+			                      <div class="form-check d-flex justify-content-end fw-medium p-0">
+			                        <input id="checkList9" class="form-check-input rounded-1 m-0" type="checkbox" value="">
+			                        <label class="visually-hidden" for="checkList9">勾選</label>
+			                      </div>
+			                    </div>
+			                  </div>
+			                </li>
+			                <li class="list-group-item list-group-item-action px-0 py-3 tw:border-b! tw:border-black/7!">
+			                  <div class="row g-3 gx-xxl-4 mb-1">
+			                    <div class="col-auto">
+			                      <button class="btn border-0 rounded-0 pt-0 px-0 me-auto mt-n1 mt-md-0 tw:group" type="button" data-bs-toggle="button"><i class="bi bi-bookmark-plus tw:group-[.active]:before:content-['\F199']!"></i><span class="tw:sr-only tw:group-[.active]:hidden">加入收藏</span><span class="tw:hidden tw:group-[.active]:sr-only tw:group-[.active]:block">移除收藏</span></button>
+			                    </div>
+			                    <div class="col-md order-last order-md-2">
+			                      <div class="vstack gap-4 position-relative fw-medium h-100">
+			                        <div class="vstack gap-3">
+			                          <h2 class="fw-medium lh-base m-0 tw:text-[calc(18rem/16)]! tw:line-clamp-3 tw:lg:line-clamp-2"><a class="stretched-link text-body" href="">道成肉身中的神性與人性關係之詮釋分歧：以亞歷山大的區利羅與君士坦丁堡的涅斯托留之書信為例</a></h2>
+			                          <div class="hstack flex-wrap gap-2 mt-n2">
+			                            <span class="badge text-primary fw-normal bg-primary bg-opacity-10 rounded-0 p-2 tw:text-[calc(14rem/16)]!">宣教博士</span>
+			                            <span class="badge text-primary fw-normal bg-primary bg-opacity-10 rounded-0 p-2 tw:text-[calc(14rem/16)]!">2025</span>
+			                          </div>
+			                          <p class="fw-normal">道成肉身中的神性與人性關係之詮釋分歧：以亞歷山大的區利羅與君士坦丁堡的涅斯托留之書信為例道成肉身中的神性與人性關係之詮釋分歧：以亞歷山大的區利羅</p>
+			                        </div>
+			                        <span class="hstack gap-1 mt-auto"><span class="material-symbols-rounded" aria-hidden="true">account_circle</span>邱婉茜</span>
+			                      </div>
+			                    </div>
+			                    <div class="col col-md-auto order-md-3 tw:group-has-[#btnradio2:checked]/all:hidden">
+			                      <div class="hstack justify-content-center">
+			                        <div class="ratio tw:w-[162px]! tw:[&.ratio]:[--bs-aspect-ratio:calc(100%*232/162)]">
+			                          <img class="object-fit-cover rounded-3" src="img/searchList.jpg" alt="">
+			                        </div>
+			                      </div>
+			                    </div>
+			                    <div class="col-auto order-md-last">
+			                      <div class="form-check d-flex justify-content-end fw-medium p-0">
+			                        <input id="checkList10" class="form-check-input rounded-1 m-0" type="checkbox" value="">
+			                        <label class="visually-hidden" for="checkList10">勾選</label>
+			                      </div>
+			                    </div>
+			                  </div>
+			                </li>
+			              </ul>
+			            </div>
+			            <!-- /searchList -->
+			          </div>
+			          <!-- /right -->
+			          <div class="col">
+			            <!-- pagination -->
+			            <nav class="paginationNav col-10 mx-auto mt-4">
+			            	<ul class="pagination justify-content-center flex-wrap gap-lg-1 m-0">
+			            		<li class="page-item m-0 disabled">
+			            			<a class="page-link d-flex align-items-center justify-content-center border-0 fw-bold" href="" title="上一頁" tabindex="-1">
+			            				<span class="visually-hidden">上一頁</span>
+			            				<i class="bi bi-chevron-left" aria-hidden="true"></i>
+			            			</a>
+			            		</li>
+			            		<li class="page-item m-0" hidden>
+			            			<a class="page-link d-flex align-items-center justify-content-center border-0 fw-bold" href="" title="上一頁">
+			            				<span class="visually-hidden">上一頁</span>
+			            				<i class="bi bi-chevron-left" aria-hidden="true"></i>
+			            			</a>
+			            		</li>
+			            		<li class="page-item m-0 active"><a class="page-link d-flex align-items-center justify-content-center border-0 fw-bold tw:text-[calc(18rem/16)]!" href="">1</a></li>
+			            		<li class="page-item m-0"><a class="page-link d-flex align-items-center justify-content-center border-0 fw-bold tw:text-[calc(18rem/16)]!" href="">2</a></li>
+			            		<li class="page-item m-0"><a class="page-link d-flex align-items-center justify-content-center border-0 fw-bold tw:text-[calc(18rem/16)]!" href="">3</a></li>
+			            		<li class="page-item m-0"><a class="page-link d-flex align-items-center justify-content-center border-0 fw-bold tw:text-[calc(18rem/16)]!" href="">4</a></li>
+			            		<li class="page-item m-0"><a class="page-link d-flex align-items-center justify-content-center border-0 fw-bold tw:text-[calc(18rem/16)]!" href="">5</a></li>
+			            		<li class="page-item m-0">
+			            			<a class="page-link d-flex align-items-center justify-content-center border-0 fw-bold" href="" title="下一頁">
+			            				<span class="visually-hidden">下一頁</span>
+			            				<i class="bi bi-chevron-right" aria-hidden="true"></i>
+			            			</a>
+			            		</li>
+			            		<li class="page-item m-0 disabled" hidden>
+			            			<a class="page-link d-flex align-items-center justify-content-center border-0 fw-bold" href="" title="下一頁" tabindex="-1">
+			            				<span class="visually-hidden">下一頁</span>
+			            				<i class="bi bi-chevron-right" aria-hidden="true"></i>
+			            			</a>
+			            		</li>
+			            	</ul>
+			            </nav>
+			            <!-- /pagination -->
+			          </div>
+			        </div>
+			        <!-- /row -->
+			      </div>
+			      <!-- /container -->
+			    </div>
+			    <!-- /list -->  </div>
+			  <!-- /content -->
+			</section>
+			<!-- /main content -->
+			<a id="gototop" class="btn btn-primary text-primary bg-transparent border-3 rounded-circle me-3 mb-3 px-2 py-0 d-none justify-content-center align-items-center position-absolute bottom-0 end-0 z-1 tw:group" title="回到最上" type="button" href="#top" style="width: 48px; height: 48px;"><span class="material-symbols-rounded tw:text-[3rem]! tw:group-hover:text-(--bs-primary)!" aria-hidden="true">arrow_upward_alt</span><span class="visually-hidden">回到最上</span></a>
+			<script>
+			  var gototop = document.getElementById('gototop');
+			  window.addEventListener('scroll', function() {
+			    if (window.scrollY > window.innerHeight) {
+			      gototop.classList.remove('d-none');
+			      gototop.classList.add('d-flex');
+			    } else {
+			      gototop.classList.remove('d-flex');
+			      gototop.classList.add('d-none');
+			    }
+			  });
+			</script>
+		</main>
+
+		<!-- footer -->
+		<footer class="text-white tw:bg-[#981E32]">
+		  <div id="footer" class="footerBg">
+		    <div class="footerContainer container-lg py-4 py-lg-5 vstack gap-4">
+		      <div class="position-absolute d-none d-lg-inline-block"><a class="btn btn-link text-decoration-none text-white text-nowrap position-absolute" href="#Z" id="AZ" name="Z" title="下方功能區塊" accesskey="Z" style="left: -10px;top: -40px;">:::</a></div>
+		      <div class="overflow-hidden">
+		        <div class="row row-cols-1 row-cols-md-auto g-4 gx-md-5">
+		          <div class="col me-auto me-xxl-5"><img src="img/logo-w.svg" alt="國家教育研究院" width="183"></div>
+		          <div class="col">
+		            <div class="fw-bold my-4 mt-md-0">關於系統</div>
+		            <ul class="list-unstyled vstack gap-3 m-0 tw:text-[calc(14rem/16)]">
+		              <li><a class="text-white" href="">系統簡介</a></li>
+		              <li><a class="text-white" href="">使用說明</a></li>
+		              <li><a class="text-white" href="">常見問題</a></li>
+		            </ul>
+		          </div>
+		          <div class="col">
+		            <div class="fw-bold my-4 mt-md-0">學術資源</div>
+		            <ul class="list-unstyled vstack gap-3 m-0 tw:text-[calc(14rem/16)]">
+		              <li><a class="text-white" href="">學術著作</a></li>
+		              <li><a class="text-white" href="">研究計畫</a></li>
+		              <li><a class="text-white" href="">研究人員</a></li>
+		              <li><a class="text-white" href="">統計數據</a></li>
+		            </ul>
+		          </div>
+		          <div class="col">
+		            <div class="fw-bold my-4 mt-md-0">相關連結</div>
+		            <ul class="list-unstyled vstack gap-3 m-0 tw:text-[calc(14rem/16)]">
+		              <li><a class="text-white" href="">圖書館</a></li>
+		              <li><a class="text-white" href="">綜合查詢</a></li>
+		              <li><a class="text-white" href="">政府研究資料系統</a></li>
+		            </ul>
+		          </div>
+		          <div class="col ms-lg-auto order-last">
+		            <ul class="list-unstyled order-md-first vstack gap-3 mb-2 m-md-0 fw-medium tw:text-[calc(14rem/16)]">
+		              <li class="hstack gap-2"><i class="bi bi-geo-alt"></i>237201 新北市三峽區三樹路 2 號</li>
+		              <li class="hstack gap-2"><i class="bi bi-envelope"></i>message@mail.naer.edu.tw</li>
+		              <li class="hstack gap-2"><i class="bi bi-telephone"></i>02 - 77407890</li>
+		            </ul>
+		            <small class="d-block d-md-none text-md-end mt-5 tw:text-[calc(12rem/16)]!">Copyright © 2025 國家教育研究院</small>
+		          </div>
+		          <div class="col-md-12 vstack order-md-last">
+		            <hr class="opacity-30 tw:border-[#FFFFFF]!">
+		            <small class="d-none d-md-block text-md-end mt-2 tw:text-[calc(12rem/16)]!">Copyright © 2025 國家教育研究院</small>
+		          </div>
+		        </div>
+		        <!-- /row -->
+		      </div>
+		      <!-- /overflow -->
+		    </div>
+		    <!-- /footerContainer -->
+		  </div>
+		  <!-- /footerBg -->
+		  </footer>
+		  <!-- /footer -->
+		
+		<script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
+		<script type="text/javascript" src="js/swiper-bundle.min.js"></script>
+		<script>
+			if (window.matchMedia("(min-width: 768px)").matches) {
+				const collapseEls = document.querySelectorAll('#collapseOption')
+				const collapseList = [...collapseEls].map(el => new bootstrap.Collapse(el))
+				collapseList.forEach(collapse => collapse.show())
+			}
+		</script>
+	</body>
+</html>

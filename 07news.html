@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html class="text-m" lang="zh-Hant-TW">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="Developer" content="楊軒羽 Shen Yang | Front-end Developer | 前端設計工程師">
+		<title>國家教育研究院-研究成果典藏庫</title>
+		<!-- favicon -->
+		<link rel="shortcut icon" type="image/gif" href="img/blank.gif" />
+		<!-- /favicon -->
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="css/bootstrap-icons.css">
+		<link rel="stylesheet" type="text/css" href="css/fontawesome.min.css">
+		<link rel="stylesheet" type="text/css" href="css/swiper-bundle.min.css">
+		<link rel="stylesheet" type="text/css" href="css/tailwind.css">
+		<link rel="stylesheet" type="text/css" href="css/main.min.css">
+		<link rel="stylesheet" type="text/css" href="css/style.min.css">
+	</head>
+
+	<body id="top" class="page focus tw:min-h-screen">
+		<div class="tw:text-center tw:leading-10 tw:text-white tw:bg-pink-900"><noscript class="tw:py-1">您的瀏覽器不支援JavaScript功能，若網頁功能無法正常使用時，請開啟瀏覽器JavaScript狀態！</noscript></div>
+		<!-- header -->
+		<header class="header shadow-lg ps-2 ps-lg-0">
+			<span class="d-none d-lg-inline-block tw:absolute z-1"><a id="gotocenter" class="btn btn-primary visually-hidden-focusable" href="#AC" title="移到主要內容">跳到主要內容</a></span>
+			<!-- container -->
+		  <div class="headerContainer bg-white">
+		    <nav class="navbar navbar-expand-md gap-1 p-0 tw:h-[69px]">
+		      <!-- navbarBg -->
+		      <div class="navbarBg w-100">
+		        <!-- navbarContainer -->
+		        <div class="navbarContainer d-flex justify-content-between align-items-center container-fluid px-3 px-lg-5">
+		          <!-- Logo -->
+		          <div class="logoBG">
+		            <div class="logoContainer d-flex align-items-center w-100 me-auto">
+		              <a class="logo me-3" href="index.html">
+		                <h1 class="visually-hidden-focusable">國家教育研究院-研究成果典藏庫</h1>
+		                <img class="w-100" src="img/logo.svg" alt="國家圖書館Logo" width="118">
+		              </a>
+		              <a class="logo2 navbar-brand d-none d-lg-block" href="" title="">
+		                <img src="img/logo2.svg" alt="登入服務Logo" width="104">
+		              </a>
+		            </div>
+		          </div>
+		          <!-- /Logo -->
+		          <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbarOffcanvas" aria-controls="navbarOffcanvas">
+		            <i class="h2 bi bi-list tw:leading-0"></i>
+		            <span class="visually-hidden">開啟選單</span>
+		          </button>
+		          <!-- offcanvas -->
+		          <div id="navbarOffcanvas" class="mainmenuBG bg-white bg-opacity-90 offcanvas offcanvas-start tw:group" tabindex="-1" aria-labelledby="offcanvasTitle">
+		            <div class="mainmenuContainer d-flex flex-column flex-lg-row justify-content-end h-100">
+		              <div class="offcanvas-header">
+		                <h2 id="offcanvasTitle" class="offcanvas-title h5"><img src="img/logo.svg" alt="網站Logo" width="118"></h2>
+		                <button type="button" class="btnClose h4 ms-auto me-2" data-bs-dismiss="offcanvas" aria-label="Close"><i class="bi bi-x-lg"></i></button>
+		              </div>
+		              <span class="d-none d-lg-inline-block"><a class="btn btn-link text-decoration-none text-body" href="#U" id="AU" name="U" title="上方功能區塊" accesskey="U">:::</a></span>
+		              <ul id="mainmenuAccordion" class="mainmenu navbar-nav gap-lg-2 offcanvas-body justify-content-center justify-content-md-end align-items-center tw:**:[&amp;.nav-link.active]:text-(--bs-primary)!">
+		                <li class="nav-item flex-shrink-0">
+		                  <a class="nav-link fw-bold tw:text-[#444444]! tw:hover:text-(--bs-primary)! tw:group-[.show]:my-5" href="">系統簡介</a>
+		                </li>
+		                <li class="nav-item flex-shrink-0">
+		                  <a class="nav-link fw-bold tw:text-[#444444]! tw:hover:text-(--bs-primary)! tw:group-[.show]:my-5" href="">進階檢索</a>
+		                </li>
+		                <li class="nav-item flex-shrink-0">
+		                  <a class="nav-link fw-bold tw:text-[#444444]! tw:hover:text-(--bs-primary)! tw:group-[.show]:my-5" href="">學術著作</a>
+		                </li>
+		                <li class="nav-item flex-shrink-0">
+		                  <a class="nav-link fw-bold tw:text-[#444444]! tw:hover:text-(--bs-primary)! tw:group-[.show]:my-5" href="">研究計劃成果</a>
+		                </li>
+		                <li class="nav-item flex-shrink-0">
+		                  <a class="nav-link fw-bold tw:text-[#444444]! tw:hover:text-(--bs-primary)! tw:group-[.show]:my-5" href="">研究人員</a>
+		                </li>
+		                <li class="nav-item flex-shrink-0">
+		                  <a class="nav-link fw-bold tw:text-[#444444]! tw:hover:text-(--bs-primary)! tw:group-[.show]:my-5" href="">EN</a>
+		                </li>
+		                <li class="nav-item flex-shrink-0">
+		                  <a class="nav-link fw-bold tw:text-[#444444]! tw:hover:text-(--bs-primary)! tw:group-[.show]:my-5" href=""><span class="bg-primary text-white px-3 py-1">登入</span></a>
+		                </li>
+		              </ul>
+		            </div>
+		          </div>
+		          <!-- /offcanvas -->
+		        </div>
+		        <!-- /navbarContainer -->
+		      </div>
+		      <!-- /navbarBg -->
+		    </nav>
+		  </div>
+		  <!-- /container -->
+		</header>
+		<!-- /header -->
+
+		<main>
+			<!-- main content -->
+			<section>
+			  <!-- content -->
+			  <div id="content" class="vstack">
+			    <!-- accesskey -->
+			    <div class="position-absolute d-none d-lg-inline-block">
+			      <a class="btn btn-link text-decoration-none text-body text-nowrap position-absolute" href="#C" id="AC" name="C" title="中央內容區塊" accesskey="C" style="left:20px; top:20px;">:::</a>
+			    </div>
+			    <!-- /accesskey -->
+			    <div class="container-lg py-3 my-5 pt-5">
+			      <h2 class="text-primary fw-bold border-bottom border-primary pb-4 mb-5 tw:text-[calc(28rem/16)]!">最新資訊</h2>
+			      <p class="fw-medium tw:text-[calc(18rem/16)]!">即時掌握國內外教育政策、研究成果與活動資訊，打造前瞻教育視野。</p>
+			    </div>
+			    <!-- /container -->
+			    <div class="list px-3 tw:pt-8 tw:lg:pt-14 tw:bg-[#F3F3F3] tw:pb-24">
+			      <div class="container-lg px-0 vstack gap-5">
+			        <div class="vstack gap-4">
+			          <div class="card card-body border-0 p-4 shadow-sm">
+			            <div class="row g-4">
+			              <div class="col-sm me-auto tw:text-[calc(18rem/16)]! tw:lg:text-[calc(24rem/16)]!">邀請教育專家與社會大眾參與制度優化，共同打造更公平的選才機制。</div>
+			              <div class="col-auto">
+			                <div class="vstack align-items-sm-end gap-2 gap-sm-3">
+			                  <span class="badge text-primary fw-normal bg-primary bg-opacity-10 rounded-0 p-2 tw:text-[calc(14rem/16)]!">原住民族教育研究中心</span>
+			                  <time class="d-block text-primary fw-medium tw:text-[calc(14rem/16)]! tw:lg:text-[calc(18rem/16)]!">2025.12.22</time>
+			                </div>
+			              </div>
+			            </div>
+			          </div>
+			          <!-- /card -->
+			          <div class="card card-body border-0 p-4 shadow-sm">
+			            <div class="row g-4">
+			              <div class="col-sm me-auto tw:text-[calc(18rem/16)]! tw:lg:text-[calc(24rem/16)]!">邀請教育專家與社會大眾參與制度優化，共同打造更公平的選才機制。邀請教育專家與社會大眾參與制度優化，共同打造更公平的選才機制。</div>
+			              <div class="col-auto">
+			                <div class="vstack align-items-sm-end gap-2 gap-sm-3">
+			                  <span class="badge text-primary fw-normal bg-primary bg-opacity-10 rounded-0 p-2 tw:text-[calc(14rem/16)]!">原住民族教育研究中心</span>
+			                  <time class="d-block text-primary fw-medium tw:text-[calc(14rem/16)]! tw:lg:text-[calc(18rem/16)]!">2025.12.22</time>
+			                </div>
+			              </div>
+			            </div>
+			          </div>
+			          <!-- /card -->
+			          <div class="card card-body border-0 p-4 shadow-sm">
+			            <div class="row g-4">
+			              <div class="col-sm me-auto tw:text-[calc(18rem/16)]! tw:lg:text-[calc(24rem/16)]!">邀請教育專家與社會大眾參與制度優化，共同打造更公平的選才機制。</div>
+			              <div class="col-auto">
+			                <div class="vstack align-items-sm-end gap-2 gap-sm-3">
+			                  <span class="badge text-primary fw-normal bg-primary bg-opacity-10 rounded-0 p-2 tw:text-[calc(14rem/16)]!">原住民族教育研究中心</span>
+			                  <time class="d-block text-primary fw-medium tw:text-[calc(14rem/16)]! tw:lg:text-[calc(18rem/16)]!">2025.12.22</time>
+			                </div>
+			              </div>
+			            </div>
+			          </div>
+			          <!-- /card -->
+			          <div class="card card-body border-0 p-4 shadow-sm">
+			            <div class="row g-4">
+			              <div class="col-sm me-auto tw:text-[calc(18rem/16)]! tw:lg:text-[calc(24rem/16)]!">邀請教育專家與社會大眾參與制度優化，共同打造更公平的選才機制。</div>
+			              <div class="col-auto">
+			                <div class="vstack align-items-sm-end gap-2 gap-sm-3">
+			                  <span class="badge text-primary fw-normal bg-primary bg-opacity-10 rounded-0 p-2 tw:text-[calc(14rem/16)]!">原住民族教育研究中心</span>
+			                  <time class="d-block text-primary fw-medium tw:text-[calc(14rem/16)]! tw:lg:text-[calc(18rem/16)]!">2025.12.22</time>
+			                </div>
+			              </div>
+			            </div>
+			          </div>
+			          <!-- /card -->
+			          <div class="card card-body border-0 p-4 shadow-sm">
+			            <div class="row g-4">
+			              <div class="col-sm me-auto tw:text-[calc(18rem/16)]! tw:lg:text-[calc(24rem/16)]!">邀請教育專家與社會大眾參與制度優化，共同打造更公平的選才機制。邀請教育專家與社會大眾參與制度優化，共同打造更公平的選才機制。</div>
+			              <div class="col-auto">
+			                <div class="vstack align-items-sm-end gap-2 gap-sm-3">
+			                  <span class="badge text-primary fw-normal bg-primary bg-opacity-10 rounded-0 p-2 tw:text-[calc(14rem/16)]!">原住民族教育研究中心</span>
+			                  <time class="d-block text-primary fw-medium tw:text-[calc(14rem/16)]! tw:lg:text-[calc(18rem/16)]!">2025.12.22</time>
+			                </div>
+			              </div>
+			            </div>
+			          </div>
+			          <!-- /card -->
+			          <div class="card card-body border-0 p-4 shadow-sm">
+			            <div class="row g-4">
+			              <div class="col-sm me-auto tw:text-[calc(18rem/16)]! tw:lg:text-[calc(24rem/16)]!">邀請教育專家與社會大眾參與制度優化，共同打造更公平的選才機制。</div>
+			              <div class="col-auto">
+			                <div class="vstack align-items-sm-end gap-2 gap-sm-3">
+			                  <span class="badge text-primary fw-normal bg-primary bg-opacity-10 rounded-0 p-2 tw:text-[calc(14rem/16)]!">原住民族教育研究中心</span>
+			                  <time class="d-block text-primary fw-medium tw:text-[calc(14rem/16)]! tw:lg:text-[calc(18rem/16)]!">2025.12.22</time>
+			                </div>
+			              </div>
+			            </div>
+			          </div>
+			          <!-- /card -->
+			          <div class="card card-body border-0 p-4 shadow-sm">
+			            <div class="row g-4">
+			              <div class="col-sm me-auto tw:text-[calc(18rem/16)]! tw:lg:text-[calc(24rem/16)]!">邀請教育專家與社會大眾參與制度優化，共同打造更公平的選才機制。邀請教育專家與社會大眾參與制度優化，共同打造更公平的選才機制。</div>
+			              <div class="col-auto">
+			                <div class="vstack align-items-sm-end gap-2 gap-sm-3">
+			                  <span class="badge text-primary fw-normal bg-primary bg-opacity-10 rounded-0 p-2 tw:text-[calc(14rem/16)]!">原住民族教育研究中心</span>
+			                  <time class="d-block text-primary fw-medium tw:text-[calc(14rem/16)]! tw:lg:text-[calc(18rem/16)]!">2025.12.22</time>
+			                </div>
+			              </div>
+			            </div>
+			          </div>
+			          <!-- /card -->
+			          <div class="card card-body border-0 p-4 shadow-sm">
+			            <div class="row g-4">
+			              <div class="col-sm me-auto tw:text-[calc(18rem/16)]! tw:lg:text-[calc(24rem/16)]!">邀請教育專家與社會大眾參與制度優化，共同打造更公平的選才機制。邀請教育專家與社會大眾參與制度優化，共同打造更公平的選才機制。</div>
+			              <div class="col-auto">
+			                <div class="vstack align-items-sm-end gap-2 gap-sm-3">
+			                  <span class="badge text-primary fw-normal bg-primary bg-opacity-10 rounded-0 p-2 tw:text-[calc(14rem/16)]!">原住民族教育研究中心</span>
+			                  <time class="d-block text-primary fw-medium tw:text-[calc(14rem/16)]! tw:lg:text-[calc(18rem/16)]!">2025.12.22</time>
+			                </div>
+			              </div>
+			            </div>
+			          </div>
+			          <!-- /card -->
+			          <div class="card card-body border-0 p-4 shadow-sm">
+			            <div class="row g-4">
+			              <div class="col-sm me-auto tw:text-[calc(18rem/16)]! tw:lg:text-[calc(24rem/16)]!">邀請教育專家與社會大眾參與制度優化，共同打造更公平的選才機制。</div>
+			              <div class="col-auto">
+			                <div class="vstack align-items-sm-end gap-2 gap-sm-3">
+			                  <span class="badge text-primary fw-normal bg-primary bg-opacity-10 rounded-0 p-2 tw:text-[calc(14rem/16)]!">原住民族教育研究中心</span>
+			                  <time class="d-block text-primary fw-medium tw:text-[calc(14rem/16)]! tw:lg:text-[calc(18rem/16)]!">2025.12.22</time>
+			                </div>
+			              </div>
+			            </div>
+			          </div>
+			          <!-- /card -->
+			          <div class="card card-body border-0 p-4 shadow-sm">
+			            <div class="row g-4">
+			              <div class="col-sm me-auto tw:text-[calc(18rem/16)]! tw:lg:text-[calc(24rem/16)]!">邀請教育專家與社會大眾參與制度優化，共同打造更公平的選才機制。</div>
+			              <div class="col-auto">
+			                <div class="vstack align-items-sm-end gap-2 gap-sm-3">
+			                  <span class="badge text-primary fw-normal bg-primary bg-opacity-10 rounded-0 p-2 tw:text-[calc(14rem/16)]!">原住民族教育研究中心</span>
+			                  <time class="d-block text-primary fw-medium tw:text-[calc(14rem/16)]! tw:lg:text-[calc(18rem/16)]!">2025.12.22</time>
+			                </div>
+			              </div>
+			            </div>
+			          </div>
+			          <!-- /card -->
+			        </div>
+			        <!-- pagination -->
+			        <nav class="paginationNav col-10 mx-auto mt-4">
+			        	<ul class="pagination justify-content-center flex-wrap gap-lg-1 m-0">
+			        		<li class="page-item m-0 disabled">
+			        			<a class="page-link d-flex align-items-center justify-content-center border-0 fw-bold" href="" title="上一頁" tabindex="-1">
+			        				<span class="visually-hidden">上一頁</span>
+			        				<i class="bi bi-chevron-left" aria-hidden="true"></i>
+			        			</a>
+			        		</li>
+			        		<li class="page-item m-0" hidden>
+			        			<a class="page-link d-flex align-items-center justify-content-center border-0 fw-bold" href="" title="上一頁">
+			        				<span class="visually-hidden">上一頁</span>
+			        				<i class="bi bi-chevron-left" aria-hidden="true"></i>
+			        			</a>
+			        		</li>
+			        		<li class="page-item m-0 active"><a class="page-link d-flex align-items-center justify-content-center border-0 fw-bold tw:text-[calc(18rem/16)]!" href="">1</a></li>
+			        		<li class="page-item m-0"><a class="page-link d-flex align-items-center justify-content-center border-0 fw-bold tw:text-[calc(18rem/16)]!" href="">2</a></li>
+			        		<li class="page-item m-0"><a class="page-link d-flex align-items-center justify-content-center border-0 fw-bold tw:text-[calc(18rem/16)]!" href="">3</a></li>
+			        		<li class="page-item m-0"><a class="page-link d-flex align-items-center justify-content-center border-0 fw-bold tw:text-[calc(18rem/16)]!" href="">4</a></li>
+			        		<li class="page-item m-0"><a class="page-link d-flex align-items-center justify-content-center border-0 fw-bold tw:text-[calc(18rem/16)]!" href="">5</a></li>
+			        		<li class="page-item m-0">
+			        			<a class="page-link d-flex align-items-center justify-content-center border-0 fw-bold" href="" title="下一頁">
+			        				<span class="visually-hidden">下一頁</span>
+			        				<i class="bi bi-chevron-right" aria-hidden="true"></i>
+			        			</a>
+			        		</li>
+			        		<li class="page-item m-0 disabled" hidden>
+			        			<a class="page-link d-flex align-items-center justify-content-center border-0 fw-bold" href="" title="下一頁" tabindex="-1">
+			        				<span class="visually-hidden">下一頁</span>
+			        				<i class="bi bi-chevron-right" aria-hidden="true"></i>
+			        			</a>
+			        		</li>
+			        	</ul>
+			        </nav>
+			        <!-- /pagination -->
+			      </div>
+			      <!-- /container -->
+			    </div>
+			    <!-- /list -->
+			  </div>
+			  <!-- /content -->
+			</section>
+			<!-- /main content -->
+			<a id="gototop" class="btn btn-primary text-primary bg-transparent border-3 rounded-circle me-3 mb-3 px-2 py-0 d-none justify-content-center align-items-center position-absolute bottom-0 end-0 z-1 tw:group" title="回到最上" type="button" href="#top" style="width: 48px; height: 48px;"><span class="material-symbols-rounded tw:text-[3rem]! tw:group-hover:text-(--bs-primary)!" aria-hidden="true">arrow_upward_alt</span><span class="visually-hidden">回到最上</span></a>
+			<script>
+			  var gototop = document.getElementById('gototop');
+			  window.addEventListener('scroll', function() {
+			    if (window.scrollY > window.innerHeight) {
+			      gototop.classList.remove('d-none');
+			      gototop.classList.add('d-flex');
+			    } else {
+			      gototop.classList.remove('d-flex');
+			      gototop.classList.add('d-none');
+			    }
+			  });
+			</script>
+		</main>
+
+		<!-- footer -->
+		<footer class="text-white tw:bg-[#981E32]">
+		  <div id="footer" class="footerBg">
+		    <div class="footerContainer container-lg py-4 py-lg-5 vstack gap-4">
+		      <div class="position-absolute d-none d-lg-inline-block"><a class="btn btn-link text-decoration-none text-white text-nowrap position-absolute" href="#Z" id="AZ" name="Z" title="下方功能區塊" accesskey="Z" style="left: -10px;top: -40px;">:::</a></div>
+		      <div class="overflow-hidden">
+		        <div class="row row-cols-1 row-cols-md-auto g-4 gx-md-5">
+		          <div class="col me-auto me-xxl-5"><img src="img/logo-w.svg" alt="國家教育研究院" width="183"></div>
+		          <div class="col">
+		            <div class="fw-bold my-4 mt-md-0">關於系統</div>
+		            <ul class="list-unstyled vstack gap-3 m-0 tw:text-[calc(14rem/16)]">
+		              <li><a class="text-white" href="">系統簡介</a></li>
+		              <li><a class="text-white" href="">使用說明</a></li>
+		              <li><a class="text-white" href="">常見問題</a></li>
+		            </ul>
+		          </div>
+		          <div class="col">
+		            <div class="fw-bold my-4 mt-md-0">學術資源</div>
+		            <ul class="list-unstyled vstack gap-3 m-0 tw:text-[calc(14rem/16)]">
+		              <li><a class="text-white" href="">學術著作</a></li>
+		              <li><a class="text-white" href="">研究計畫</a></li>
+		              <li><a class="text-white" href="">研究人員</a></li>
+		              <li><a class="text-white" href="">統計數據</a></li>
+		            </ul>
+		          </div>
+		          <div class="col">
+		            <div class="fw-bold my-4 mt-md-0">相關連結</div>
+		            <ul class="list-unstyled vstack gap-3 m-0 tw:text-[calc(14rem/16)]">
+		              <li><a class="text-white" href="">圖書館</a></li>
+		              <li><a class="text-white" href="">綜合查詢</a></li>
+		              <li><a class="text-white" href="">政府研究資料系統</a></li>
+		            </ul>
+		          </div>
+		          <div class="col ms-lg-auto order-last">
+		            <ul class="list-unstyled order-md-first vstack gap-3 mb-2 m-md-0 fw-medium tw:text-[calc(14rem/16)]">
+		              <li class="hstack gap-2"><i class="bi bi-geo-alt"></i>237201 新北市三峽區三樹路 2 號</li>
+		              <li class="hstack gap-2"><i class="bi bi-envelope"></i>message@mail.naer.edu.tw</li>
+		              <li class="hstack gap-2"><i class="bi bi-telephone"></i>02 - 77407890</li>
+		            </ul>
+		            <small class="d-block d-md-none text-md-end mt-5 tw:text-[calc(12rem/16)]!">Copyright © 2025 國家教育研究院</small>
+		          </div>
+		          <div class="col-md-12 vstack order-md-last">
+		            <hr class="opacity-30 tw:border-[#FFFFFF]!">
+		            <small class="d-none d-md-block text-md-end mt-2 tw:text-[calc(12rem/16)]!">Copyright © 2025 國家教育研究院</small>
+		          </div>
+		        </div>
+		        <!-- /row -->
+		      </div>
+		      <!-- /overflow -->
+		    </div>
+		    <!-- /footerContainer -->
+		  </div>
+		  <!-- /footerBg -->
+		  </footer>
+		  <!-- /footer -->
+		
+		<script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
+		<script type="text/javascript" src="js/swiper-bundle.min.js"></script>
+	</body>
+</html>
