@@ -26,18 +26,24 @@
 			.searchList > .list-group-item:nth-child(odd) {
 				border-radius: 12px;
 				overflow: hidden;
+				/* 因為 HTML 有 px-0（bootstrap 會用 !important 清掉 padding），所以這裡也用 !important 保留右側留白 */
+				padding-right: 20px !important;
 			}
-			/* checkbox + 編號：垂直置中、左側留白避免貼邊 */
+			/* checkbox + 編號：垂直靠上對齊、左側留白避免貼邊 */
 			.searchList .col-auto.d-flex {
-				align-items: center !important;
-				padding-left: 12px;
+				align-items: flex-start !important;
+				padding-left: 20px;
+				padding-top: 0 !important; /* 覆蓋原本的 pt-1，讓頂端能與題名對齊 */
 			}
 			.searchList .form-check {
 				display: inline-flex;
-				align-items: center;
+				align-items: flex-start;
 			}
 			.searchList .form-check .form-check-input {
 				margin-top: 0;
+			}
+			.searchList .form-check > span[aria-hidden="true"] {
+				line-height: 1;
 			}
 		</style>
 	</head>
@@ -408,7 +414,7 @@
 			                    <div class="col-md">
 			                      <div class="vstack gap-3 position-relative fw-medium h-100">
 			                        <div class="vstack gap-3">
-			                          <h2 class="fw-medium lh-base m-0 tw:text-[calc(18rem/16)]! tw:line-clamp-3 tw:lg:line-clamp-2"><a class="stretched-link text-body" href="">十二年國民基本教育素養導向教學之課程轉化與教師專業發展研究</a></h2>
+			                          <h2 class="fw-medium lh-base m-0 tw:text-[calc(18rem/16)]! tw:line-clamp-3 tw:lg:line-clamp-2"><a class="stretched-link text-body" href="04details.html">十二年國民基本教育素養導向教學之課程轉化與教師專業發展研究</a></h2>
 			                          <div class="hstack flex-wrap gap-2 mt-n2 search-meta-row">
 			                            <span class="badge search-doctype-tag search-doctype--期刊論文">期刊論文</span>
 			                            <span class="badge search-doctype-tag search-year-tone">2024</span>
@@ -434,7 +440,7 @@
 			                    <div class="col-md">
 			                      <div class="vstack gap-3 position-relative fw-medium h-100">
 			                        <div class="vstack gap-3">
-			                          <h2 class="fw-medium lh-base m-0 tw:text-[calc(18rem/16)]! tw:line-clamp-3 tw:lg:line-clamp-2"><a class="stretched-link text-body" href="">Teacher Self-Efficacy and Student Engagement in Technology-Enhanced Classrooms: Evidence from Taiwan</a></h2>
+			                          <h2 class="fw-medium lh-base m-0 tw:text-[calc(18rem/16)]! tw:line-clamp-3 tw:lg:line-clamp-2"><a class="stretched-link text-body" href="04details.html">Teacher Self-Efficacy and Student Engagement in Technology-Enhanced Classrooms: Evidence from Taiwan</a></h2>
 			                          <div class="hstack flex-wrap gap-2 mt-n2 search-meta-row">
 			                            <span class="badge search-doctype-tag search-doctype--期刊論文">期刊論文</span>
 			                            <span class="badge search-doctype-tag search-year-tone">2023</span>
@@ -460,7 +466,7 @@
 			                    <div class="col-md">
 			                      <div class="vstack gap-3 position-relative fw-medium h-100">
 			                        <div class="vstack gap-3">
-			                          <h2 class="fw-medium lh-base m-0 tw:text-[calc(18rem/16)]! tw:line-clamp-3 tw:lg:line-clamp-2"><a class="stretched-link text-body" href="">教育政策分析：理論、方法與實務（專書）</a></h2>
+			                          <h2 class="fw-medium lh-base m-0 tw:text-[calc(18rem/16)]! tw:line-clamp-3 tw:lg:line-clamp-2"><a class="stretched-link text-body" href="04details.html">教育政策分析：理論、方法與實務（專書）</a></h2>
 			                          <div class="hstack flex-wrap gap-2 mt-n2 search-meta-row">
 			                            <span class="badge search-doctype-tag search-doctype--專書">專書</span>
 			                            <span class="badge search-doctype-tag search-year-tone">2022</span>
@@ -486,7 +492,7 @@
 			                    <div class="col-md">
 			                      <div class="vstack gap-3 position-relative fw-medium h-100">
 			                        <div class="vstack gap-3">
-			                          <h2 class="fw-medium lh-base m-0 tw:text-[calc(18rem/16)]! tw:line-clamp-3 tw:lg:line-clamp-2"><a class="stretched-link text-body" href="">PISA 數學素養評量架構與我國學生表現趨勢分析</a></h2>
+			                          <h2 class="fw-medium lh-base m-0 tw:text-[calc(18rem/16)]! tw:line-clamp-3 tw:lg:line-clamp-2"><a class="stretched-link text-body" href="04details.html">PISA 數學素養評量架構與我國學生表現趨勢分析</a></h2>
 			                          <div class="hstack flex-wrap gap-2 mt-n2 search-meta-row">
 			                            <span class="badge search-doctype-tag search-doctype--會議論文">會議論文</span>
 			                            <span class="badge search-doctype-tag search-year-tone">2024</span>
@@ -512,7 +518,7 @@
 			                    <div class="col-md">
 			                      <div class="vstack gap-3 position-relative fw-medium h-100">
 			                        <div class="vstack gap-3">
-			                          <h2 class="fw-medium lh-base m-0 tw:text-[calc(18rem/16)]! tw:line-clamp-3 tw:lg:line-clamp-2"><a class="stretched-link text-body" href="">數位學習平台導入之成效評估與精進建議（專書章節）</a></h2>
+			                          <h2 class="fw-medium lh-base m-0 tw:text-[calc(18rem/16)]! tw:line-clamp-3 tw:lg:line-clamp-2"><a class="stretched-link text-body" href="04details.html">數位學習平台導入之成效評估與精進建議（專書章節）</a></h2>
 			                          <div class="hstack flex-wrap gap-2 mt-n2 search-meta-row">
 			                            <span class="badge search-doctype-tag search-doctype--專章">專章</span>
 			                            <span class="badge search-doctype-tag search-year-tone">2021</span>
@@ -538,7 +544,7 @@
 			                    <div class="col-md">
 			                      <div class="vstack gap-3 position-relative fw-medium h-100">
 			                        <div class="vstack gap-3">
-			                          <h2 class="fw-medium lh-base m-0 tw:text-[calc(18rem/16)]! tw:line-clamp-3 tw:lg:line-clamp-2"><a class="stretched-link text-body" href="">雙語教育政策在中小學實施之困境與調適策略研究</a></h2>
+			                          <h2 class="fw-medium lh-base m-0 tw:text-[calc(18rem/16)]! tw:line-clamp-3 tw:lg:line-clamp-2"><a class="stretched-link text-body" href="04details.html">雙語教育政策在中小學實施之困境與調適策略研究</a></h2>
 			                          <div class="hstack flex-wrap gap-2 mt-n2 search-meta-row">
 			                            <span class="badge search-doctype-tag search-doctype--brief">提要/建言/訊息</span>
 			                            <span class="badge search-doctype-tag search-year-tone">2020</span>
@@ -564,7 +570,7 @@
 			                    <div class="col-md">
 			                      <div class="vstack gap-3 position-relative fw-medium h-100">
 			                        <div class="vstack gap-3">
-			                          <h2 class="fw-medium lh-base m-0 tw:text-[calc(18rem/16)]! tw:line-clamp-3 tw:lg:line-clamp-2"><a class="stretched-link text-body" href="">學習歷程檔案與大學招生銜接：利害關係人觀點之質性研究</a></h2>
+			                          <h2 class="fw-medium lh-base m-0 tw:text-[calc(18rem/16)]! tw:line-clamp-3 tw:lg:line-clamp-2"><a class="stretched-link text-body" href="04details.html">學習歷程檔案與大學招生銜接：利害關係人觀點之質性研究</a></h2>
 			                          <div class="hstack flex-wrap gap-2 mt-n2 search-meta-row">
 			                            <span class="badge search-doctype-tag search-doctype--期刊論文">期刊論文</span>
 			                            <span class="badge search-doctype-tag search-year-tone">2024</span>
@@ -590,7 +596,7 @@
 			                    <div class="col-md">
 			                      <div class="vstack gap-3 position-relative fw-medium h-100">
 			                        <div class="vstack gap-3">
-			                          <h2 class="fw-medium lh-base m-0 tw:text-[calc(18rem/16)]! tw:line-clamp-3 tw:lg:line-clamp-2"><a class="stretched-link text-body" href="">International Conference on Educational Assessment — Keynote Summary</a></h2>
+			                          <h2 class="fw-medium lh-base m-0 tw:text-[calc(18rem/16)]! tw:line-clamp-3 tw:lg:line-clamp-2"><a class="stretched-link text-body" href="04details.html">International Conference on Educational Assessment — Keynote Summary</a></h2>
 			                          <div class="hstack flex-wrap gap-2 mt-n2 search-meta-row">
 			                            <span class="badge search-doctype-tag search-doctype--會議論文">會議論文</span>
 			                            <span class="badge search-doctype-tag search-year-tone">2023</span>
@@ -616,7 +622,7 @@
 			                    <div class="col-md">
 			                      <div class="vstack gap-3 position-relative fw-medium h-100">
 			                        <div class="vstack gap-3">
-			                          <h2 class="fw-medium lh-base m-0 tw:text-[calc(18rem/16)]! tw:line-clamp-3 tw:lg:line-clamp-2"><a class="stretched-link text-body" href="">課程綱要轉化之教學示例：素養導向評量設計（專書章節）</a></h2>
+			                          <h2 class="fw-medium lh-base m-0 tw:text-[calc(18rem/16)]! tw:line-clamp-3 tw:lg:line-clamp-2"><a class="stretched-link text-body" href="04details.html">課程綱要轉化之教學示例：素養導向評量設計（專書章節）</a></h2>
 			                          <div class="hstack flex-wrap gap-2 mt-n2 search-meta-row">
 			                            <span class="badge search-doctype-tag search-doctype--專章">專章</span>
 			                            <span class="badge search-doctype-tag search-year-tone">2024</span>
@@ -642,7 +648,7 @@
 			                    <div class="col-md">
 			                      <div class="vstack gap-3 position-relative fw-medium h-100">
 			                        <div class="vstack gap-3">
-			                          <h2 class="fw-medium lh-base m-0 tw:text-[calc(18rem/16)]! tw:line-clamp-3 tw:lg:line-clamp-2"><a class="stretched-link text-body" href="">教育大數據分析：學習行為樣態與預警指標建置</a></h2>
+			                          <h2 class="fw-medium lh-base m-0 tw:text-[calc(18rem/16)]! tw:line-clamp-3 tw:lg:line-clamp-2"><a class="stretched-link text-body" href="04details.html">教育大數據分析：學習行為樣態與預警指標建置</a></h2>
 			                          <div class="hstack flex-wrap gap-2 mt-n2 search-meta-row">
 			                            <span class="badge search-doctype-tag search-doctype--brief">提要/建言/訊息</span>
 			                            <span class="badge search-doctype-tag search-year-tone">2022</span>
