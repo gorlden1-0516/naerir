@@ -17,6 +17,29 @@
 		<link rel="stylesheet" type="text/css" href="css/main.min.css">
 		<link rel="stylesheet" type="text/css" href="css/style.min.css">
 		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<style>
+			/* 統一：單列白底、雙列維持原樣（由既有樣式控制） */
+			.searchList > .list-group-item:nth-child(odd) {
+				background-color: #ffffff;
+			}
+			/* 單列白底：導角 */
+			.searchList > .list-group-item:nth-child(odd) {
+				border-radius: 12px;
+				overflow: hidden;
+			}
+			/* checkbox + 編號：垂直置中、左側留白避免貼邊 */
+			.searchList .col-auto.d-flex {
+				align-items: center !important;
+				padding-left: 12px;
+			}
+			.searchList .form-check {
+				display: inline-flex;
+				align-items: center;
+			}
+			.searchList .form-check .form-check-input {
+				margin-top: 0;
+			}
+		</style>
 	</head>
 
 	<body id="top" class="page focus tw:min-h-screen">
@@ -64,11 +87,11 @@
 		                  <a class="nav-link fw-bold tw:text-[#444444]! tw:hover:text-(--bs-primary)! tw:group-[.show]:my-5" href="03search.html">進階檢索</a>
 		                </li>
 		                <li class="nav-item flex-shrink-0">
-		                  <a class="nav-link fw-bold tw:text-[#444444]! tw:hover:text-(--bs-primary)! tw:group-[.show]:my-5" href="03search.html">學術著作</a>
-		                </li>
-		                <li class="nav-item flex-shrink-0">
-		                  <a class="nav-link fw-bold tw:text-[#444444]! tw:hover:text-(--bs-primary)! tw:group-[.show]:my-5" href="03search.html">研究計畫成果</a>
-		                </li>
+							<a class="nav-link fw-bold tw:text-[#444444]! tw:hover:text-(--bs-primary)! tw:group-[.show]:my-5" href="03search_2.html">學術著作</a>
+						</li>
+						<li class="nav-item flex-shrink-0">
+							<a class="nav-link fw-bold tw:text-[#444444]! tw:hover:text-(--bs-primary)! tw:group-[.show]:my-5" href="03search_3.html">研究計畫成果</a>
+						</li>
 		                <li class="nav-item flex-shrink-0">
 		                  <a class="nav-link fw-bold tw:text-[#444444]! tw:hover:text-(--bs-primary)! tw:group-[.show]:my-5" href="01search.html">研究人員</a>
 		                </li>
@@ -150,7 +173,7 @@
 			                      <button class="btn px-0 rounded-0 text-decoration-underline" type="button">全部清空</button>
 			                    </div>
 			                    <div class="vstack gap-3">
-			                      <button class="btn text-body fw-medium border-0 rounded-0 p-0 bg-transparent text-start hstack" type="button" title="刪除條件">資料類型：研究計畫<i class="bi bi-x-lg ps-1 ms-auto tw:text-xs"></i><span class="visually-hidden">刪除</span></button>
+			                      <button class="btn text-body fw-medium border-0 rounded-0 p-0 bg-transparent text-start hstack" type="button" title="刪除條件">資料類型：期刊論文<i class="bi bi-x-lg ps-1 ms-auto tw:text-xs"></i><span class="visually-hidden">刪除</span></button>
 			                      <button class="btn text-body fw-medium border-0 rounded-0 p-0 bg-transparent text-start hstack" type="button" title="刪除條件">年度：2024<i class="bi bi-x-lg ps-1 ms-auto tw:text-xs"></i><span class="visually-hidden">刪除</span></button>
 			                      <div class="hstack gap-2 justify-content-end">
 			                        <button class="btn btn-primary rounded-0 fw-medium" type="button">套用</button>
@@ -162,7 +185,7 @@
 			                      <button class="btn px-0 rounded-0 text-decoration-underline" type="button">全部清空</button>
 			                    </div>
 			                    <div class="vstack gap-3">
-			                      <button class="btn text-body fw-medium border-0 rounded-0 p-0 bg-transparent text-start hstack" type="button" title="刪除條件">資料類型：研究計畫<i class="bi bi-x-lg ps-1 ms-auto tw:text-xs"></i><span class="visually-hidden">刪除</span></button>
+			                      <button class="btn text-body fw-medium border-0 rounded-0 p-0 bg-transparent text-start hstack" type="button" title="刪除條件">資料類型：期刊論文<i class="bi bi-x-lg ps-1 ms-auto tw:text-xs"></i><span class="visually-hidden">刪除</span></button>
 			                      <button class="btn text-body fw-medium border-0 rounded-0 p-0 bg-transparent text-start hstack" type="button" title="刪除條件">年度：2024<i class="bi bi-x-lg ps-1 ms-auto tw:text-xs"></i><span class="visually-hidden">刪除</span></button>
 			                    </div>
 			                  </div>
@@ -180,49 +203,35 @@
 			                        <div class="hstack flex-wrap gap-2">
 			                          <div class="form-check me-auto">
 			                            <input id="checka1" class="form-check-input rounded-1" type="checkbox" value="" checked>
-			                            <label class="form-check-label" for="checka1">研究計畫</label>
-			                          </div>
-			                          <span class="text-cyan bg-cyan bg-opacity-10 d-inline-flex align-items-center tw:px-[6px] tw:h-[21px] tw:text-[calc(14rem/16)]">42</span>
-			                        </div>
-			                        <div class="hstack flex-wrap gap-2">
-			                          <div class="form-check me-auto">
-			                            <input id="checka2" class="form-check-input rounded-1" type="checkbox" value="">
-			                            <label class="form-check-label" for="checka2">工作計畫</label>
-			                          </div>
-			                          <span class="text-cyan bg-cyan bg-opacity-10 d-inline-flex align-items-center tw:px-[6px] tw:h-[21px] tw:text-[calc(14rem/16)]">28</span>
-			                        </div>
-			                        <div class="hstack flex-wrap gap-2">
-			                          <div class="form-check me-auto">
-			                            <input id="checka3" class="form-check-input rounded-1" type="checkbox" value="">
-			                            <label class="form-check-label" for="checka3">期刊論文</label>
+			                            <label class="form-check-label" for="checka1">期刊論文</label>
 			                          </div>
 			                          <span class="text-cyan bg-cyan bg-opacity-10 d-inline-flex align-items-center tw:px-[6px] tw:h-[21px] tw:text-[calc(14rem/16)]">118</span>
 			                        </div>
 			                        <div class="hstack flex-wrap gap-2">
 			                          <div class="form-check me-auto">
-			                            <input id="checka4" class="form-check-input rounded-1" type="checkbox" value="">
-			                            <label class="form-check-label" for="checka4">專書</label>
-			                          </div>
-			                          <span class="text-cyan bg-cyan bg-opacity-10 d-inline-flex align-items-center tw:px-[6px] tw:h-[21px] tw:text-[calc(14rem/16)]">22</span>
-			                        </div>
-			                        <div class="hstack flex-wrap gap-2">
-			                          <div class="form-check me-auto">
-			                            <input id="checka5" class="form-check-input rounded-1" type="checkbox" value="">
-			                            <label class="form-check-label" for="checka5">專章</label>
-			                          </div>
-			                          <span class="text-cyan bg-cyan bg-opacity-10 d-inline-flex align-items-center tw:px-[6px] tw:h-[21px] tw:text-[calc(14rem/16)]">31</span>
-			                        </div>
-			                        <div class="hstack flex-wrap gap-2">
-			                          <div class="form-check me-auto">
-			                            <input id="checka6" class="form-check-input rounded-1" type="checkbox" value="">
-			                            <label class="form-check-label" for="checka6">會議論文</label>
+			                            <input id="checka2" class="form-check-input rounded-1" type="checkbox" value="">
+			                            <label class="form-check-label" for="checka2">會議論文</label>
 			                          </div>
 			                          <span class="text-cyan bg-cyan bg-opacity-10 d-inline-flex align-items-center tw:px-[6px] tw:h-[21px] tw:text-[calc(14rem/16)]">56</span>
 			                        </div>
 			                        <div class="hstack flex-wrap gap-2">
 			                          <div class="form-check me-auto">
-			                            <input id="checka7" class="form-check-input rounded-1" type="checkbox" value="">
-			                            <label class="form-check-label" for="checka7">提要/建言/訊息</label>
+			                            <input id="checka3" class="form-check-input rounded-1" type="checkbox" value="">
+			                            <label class="form-check-label" for="checka3">專書</label>
+			                          </div>
+			                          <span class="text-cyan bg-cyan bg-opacity-10 d-inline-flex align-items-center tw:px-[6px] tw:h-[21px] tw:text-[calc(14rem/16)]">22</span>
+			                        </div>
+			                        <div class="hstack flex-wrap gap-2">
+			                          <div class="form-check me-auto">
+			                            <input id="checka4" class="form-check-input rounded-1" type="checkbox" value="">
+			                            <label class="form-check-label" for="checka4">專章</label>
+			                          </div>
+			                          <span class="text-cyan bg-cyan bg-opacity-10 d-inline-flex align-items-center tw:px-[6px] tw:h-[21px] tw:text-[calc(14rem/16)]">31</span>
+			                        </div>
+			                        <div class="hstack flex-wrap gap-2">
+			                          <div class="form-check me-auto">
+			                            <input id="checka5" class="form-check-input rounded-1" type="checkbox" value="">
+			                            <label class="form-check-label" for="checka5">提要/建言/訊息</label>
 			                          </div>
 			                          <span class="text-cyan bg-cyan bg-opacity-10 d-inline-flex align-items-center tw:px-[6px] tw:h-[21px] tw:text-[calc(14rem/16)]">19</span>
 			                        </div>
@@ -393,6 +402,7 @@
 			                      <div class="form-check fw-medium p-0 m-0">
 			                        <input id="checkList1" class="form-check-input rounded-1 m-0" type="checkbox" value="">
 			                        <label class="visually-hidden" for="checkList1">勾選</label>
+			                        <span class="ms-2 fw-semibold text-body-secondary" aria-hidden="true">1</span>
 			                      </div>
 			                    </div>
 			                    <div class="col-md">
@@ -400,13 +410,13 @@
 			                        <div class="vstack gap-3">
 			                          <h2 class="fw-medium lh-base m-0 tw:text-[calc(18rem/16)]! tw:line-clamp-3 tw:lg:line-clamp-2"><a class="stretched-link text-body" href="">十二年國民基本教育素養導向教學之課程轉化與教師專業發展研究</a></h2>
 			                          <div class="hstack flex-wrap gap-2 mt-n2 search-meta-row">
-			                            <span class="badge search-doctype-tag search-doctype--研究計畫">研究計畫</span>
+			                            <span class="badge search-doctype-tag search-doctype--期刊論文">期刊論文</span>
 			                            <span class="badge search-doctype-tag search-year-tone">2024</span>
 			                          </div>
 			                          <p class="fw-normal text-body-secondary">本研究旨在探討素養導向教學理念落實於學校課程與教學現場時，教師所需之支持系統與專業學習路徑，並提出可促進課程轉化之具體建議。</p>
 			                        </div>
 			                        <div class="hstack gap-1 fw-normal mt-auto align-items-center">
-			                          <span class="material-symbols-rounded flex-shrink-0" aria-hidden="true" title="作者">account_circle</span>
+			                          <span class="material-symbols-rounded flex-shrink-0" aria-hidden="true" title="作者/專章作者/第一作者">account_circle</span>
 			                          <span>王志宏、林雅婷</span>
 			                        </div>
 			                      </div>
@@ -418,6 +428,7 @@
 			                      <div class="form-check fw-medium p-0 m-0">
 			                        <input id="checkList2" class="form-check-input rounded-1 m-0" type="checkbox" value="" checked>
 			                        <label class="visually-hidden" for="checkList2">勾選</label>
+			                        <span class="ms-2 fw-semibold text-body-secondary" aria-hidden="true">2</span>
 			                      </div>
 			                    </div>
 			                    <div class="col-md">
@@ -431,7 +442,7 @@
 			                          <p class="fw-normal text-body-secondary" lang="en">This article examines relationships between teacher self-efficacy and student engagement in technology-enhanced learning environments, using survey and classroom observation data collected in Taiwan.</p>
 			                        </div>
 			                        <div class="hstack gap-1 fw-normal mt-auto align-items-center">
-			                          <span class="material-symbols-rounded flex-shrink-0" aria-hidden="true" title="作者">account_circle</span>
+			                          <span class="material-symbols-rounded flex-shrink-0" aria-hidden="true" title="作者/專章作者/第一作者">account_circle</span>
 			                          <span>陳俊銘</span>
 			                        </div>
 			                      </div>
@@ -443,6 +454,7 @@
 			                      <div class="form-check fw-medium p-0 m-0">
 			                        <input id="checkList3" class="form-check-input rounded-1 m-0" type="checkbox" value="">
 			                        <label class="visually-hidden" for="checkList3">勾選</label>
+			                        <span class="ms-2 fw-semibold text-body-secondary" aria-hidden="true">3</span>
 			                      </div>
 			                    </div>
 			                    <div class="col-md">
@@ -456,7 +468,7 @@
 			                          <p class="fw-normal text-body-secondary">本書統整教育政策分析之主要理論觀點、研究方法與本土案例，協助讀者理解政策形成、執行與評估之完整歷程，並連結國教院政策研究實務經驗。</p>
 			                        </div>
 			                        <div class="hstack gap-1 fw-normal mt-auto align-items-center">
-			                          <span class="material-symbols-rounded flex-shrink-0" aria-hidden="true" title="作者">account_circle</span>
+			                          <span class="material-symbols-rounded flex-shrink-0" aria-hidden="true" title="作者/專章作者/第一作者">account_circle</span>
 			                          <span>張淑玲、李建國、林雅婷</span>
 			                        </div>
 			                      </div>
@@ -468,6 +480,7 @@
 			                      <div class="form-check fw-medium p-0 m-0">
 			                        <input id="checkList4" class="form-check-input rounded-1 m-0" type="checkbox" value="">
 			                        <label class="visually-hidden" for="checkList4">勾選</label>
+			                        <span class="ms-2 fw-semibold text-body-secondary" aria-hidden="true">4</span>
 			                      </div>
 			                    </div>
 			                    <div class="col-md">
@@ -481,7 +494,7 @@
 			                          <p class="fw-normal text-body-secondary">本文比較 PISA 數學素養架構演變與我國學生近年表現，並討論課程與教學調整對評量結果之可能影響。</p>
 			                        </div>
 			                        <div class="hstack gap-1 fw-normal mt-auto align-items-center">
-			                          <span class="material-symbols-rounded flex-shrink-0" aria-hidden="true" title="作者">account_circle</span>
+			                          <span class="material-symbols-rounded flex-shrink-0" aria-hidden="true" title="作者/專章作者/第一作者">account_circle</span>
 			                          <span>王志宏</span>
 			                        </div>
 			                      </div>
@@ -493,20 +506,21 @@
 			                      <div class="form-check fw-medium p-0 m-0">
 			                        <input id="checkList5" class="form-check-input rounded-1 m-0" type="checkbox" value="">
 			                        <label class="visually-hidden" for="checkList5">勾選</label>
+			                        <span class="ms-2 fw-semibold text-body-secondary" aria-hidden="true">5</span>
 			                      </div>
 			                    </div>
 			                    <div class="col-md">
 			                      <div class="vstack gap-3 position-relative fw-medium h-100">
 			                        <div class="vstack gap-3">
-			                          <h2 class="fw-medium lh-base m-0 tw:text-[calc(18rem/16)]! tw:line-clamp-3 tw:lg:line-clamp-2"><a class="stretched-link text-body" href="">數位學習平台導入之成效評估與精進建議（工作計畫）</a></h2>
+			                          <h2 class="fw-medium lh-base m-0 tw:text-[calc(18rem/16)]! tw:line-clamp-3 tw:lg:line-clamp-2"><a class="stretched-link text-body" href="">數位學習平台導入之成效評估與精進建議（專書章節）</a></h2>
 			                          <div class="hstack flex-wrap gap-2 mt-n2 search-meta-row">
-			                            <span class="badge search-doctype-tag search-doctype--工作計畫">工作計畫</span>
+			                            <span class="badge search-doctype-tag search-doctype--專章">專章</span>
 			                            <span class="badge search-doctype-tag search-year-tone">2021</span>
 			                          </div>
 			                          <p class="fw-normal text-body-secondary">本報告彙整多校試行數位學習平台之質性訪談與量化使用紀錄，提出系統介面、教師培訓與資安防護等面向之精進方向。</p>
 			                        </div>
 			                        <div class="hstack gap-1 fw-normal mt-auto align-items-center">
-			                          <span class="material-symbols-rounded flex-shrink-0" aria-hidden="true" title="作者">account_circle</span>
+			                          <span class="material-symbols-rounded flex-shrink-0" aria-hidden="true" title="作者/專章作者/第一作者">account_circle</span>
 			                          <span>林雅婷、陳俊銘</span>
 			                        </div>
 			                      </div>
@@ -518,6 +532,7 @@
 			                      <div class="form-check fw-medium p-0 m-0">
 			                        <input id="checkList6" class="form-check-input rounded-1 m-0" type="checkbox" value="">
 			                        <label class="visually-hidden" for="checkList6">勾選</label>
+			                        <span class="ms-2 fw-semibold text-body-secondary" aria-hidden="true">6</span>
 			                      </div>
 			                    </div>
 			                    <div class="col-md">
@@ -525,13 +540,13 @@
 			                        <div class="vstack gap-3">
 			                          <h2 class="fw-medium lh-base m-0 tw:text-[calc(18rem/16)]! tw:line-clamp-3 tw:lg:line-clamp-2"><a class="stretched-link text-body" href="">雙語教育政策在中小學實施之困境與調適策略研究</a></h2>
 			                          <div class="hstack flex-wrap gap-2 mt-n2 search-meta-row">
-			                            <span class="badge search-doctype-tag search-doctype--研究計畫">研究計畫</span>
+			                            <span class="badge search-doctype-tag search-doctype--brief">提要/建言/訊息</span>
 			                            <span class="badge search-doctype-tag search-year-tone">2020</span>
 			                          </div>
 			                          <p class="fw-normal text-body-secondary" lang="en">This policy-oriented study documents implementation challenges of bilingual education in basic education schools and proposes governance and resource allocation adjustments.</p>
 			                        </div>
 			                        <div class="hstack gap-1 fw-normal mt-auto align-items-center">
-			                          <span class="material-symbols-rounded flex-shrink-0" aria-hidden="true" title="作者">account_circle</span>
+			                          <span class="material-symbols-rounded flex-shrink-0" aria-hidden="true" title="作者/專章作者/第一作者">account_circle</span>
 			                          <span>李建國</span>
 			                        </div>
 			                      </div>
@@ -543,6 +558,7 @@
 			                      <div class="form-check fw-medium p-0 m-0">
 			                        <input id="checkList7" class="form-check-input rounded-1 m-0" type="checkbox" value="">
 			                        <label class="visually-hidden" for="checkList7">勾選</label>
+			                        <span class="ms-2 fw-semibold text-body-secondary" aria-hidden="true">7</span>
 			                      </div>
 			                    </div>
 			                    <div class="col-md">
@@ -556,7 +572,7 @@
 			                          <p class="fw-normal text-body-secondary">透過深度訪談高中教師、家長與大學招生人員，分析學習歷程檔案在升學銜接中的認知落差與實務運用情形。</p>
 			                        </div>
 			                        <div class="hstack gap-1 fw-normal mt-auto align-items-center">
-			                          <span class="material-symbols-rounded flex-shrink-0" aria-hidden="true" title="作者">account_circle</span>
+			                          <span class="material-symbols-rounded flex-shrink-0" aria-hidden="true" title="作者/專章作者/第一作者">account_circle</span>
 			                          <span>張淑玲</span>
 			                        </div>
 			                      </div>
@@ -568,6 +584,7 @@
 			                      <div class="form-check fw-medium p-0 m-0">
 			                        <input id="checkList8" class="form-check-input rounded-1 m-0" type="checkbox" value="">
 			                        <label class="visually-hidden" for="checkList8">勾選</label>
+			                        <span class="ms-2 fw-semibold text-body-secondary" aria-hidden="true">8</span>
 			                      </div>
 			                    </div>
 			                    <div class="col-md">
@@ -581,7 +598,7 @@
 			                          <p class="fw-normal text-body-secondary" lang="en">Conference paper summarizing recent developments in large-scale educational assessment and implications for national testing policy.</p>
 			                        </div>
 			                        <div class="hstack gap-1 fw-normal mt-auto align-items-center">
-			                          <span class="material-symbols-rounded flex-shrink-0" aria-hidden="true" title="作者">account_circle</span>
+			                          <span class="material-symbols-rounded flex-shrink-0" aria-hidden="true" title="作者/專章作者/第一作者">account_circle</span>
 			                          <span>王志宏、陳俊銘</span>
 			                        </div>
 			                      </div>
@@ -593,6 +610,7 @@
 			                      <div class="form-check fw-medium p-0 m-0">
 			                        <input id="checkList9" class="form-check-input rounded-1 m-0" type="checkbox" value="">
 			                        <label class="visually-hidden" for="checkList9">勾選</label>
+			                        <span class="ms-2 fw-semibold text-body-secondary" aria-hidden="true">9</span>
 			                      </div>
 			                    </div>
 			                    <div class="col-md">
@@ -606,7 +624,7 @@
 			                          <p class="fw-normal text-body-secondary">本章以具體學科單元為例，示範如何將課綱學習重點轉化為素養導向之形成性與總結性評量任務。</p>
 			                        </div>
 			                        <div class="hstack gap-1 fw-normal mt-auto align-items-center">
-			                          <span class="material-symbols-rounded flex-shrink-0" aria-hidden="true" title="作者">account_circle</span>
+			                          <span class="material-symbols-rounded flex-shrink-0" aria-hidden="true" title="作者/專章作者/第一作者">account_circle</span>
 			                          <span>林雅婷、張淑玲</span>
 			                        </div>
 			                      </div>
@@ -618,6 +636,7 @@
 			                      <div class="form-check fw-medium p-0 m-0">
 			                        <input id="checkList10" class="form-check-input rounded-1 m-0" type="checkbox" value="">
 			                        <label class="visually-hidden" for="checkList10">勾選</label>
+			                        <span class="ms-2 fw-semibold text-body-secondary" aria-hidden="true">10</span>
 			                      </div>
 			                    </div>
 			                    <div class="col-md">
@@ -631,7 +650,7 @@
 			                          <p class="fw-normal text-body-secondary">報告說明如何運用去識別化之學習歷程資料，建立早期預警指標，並討論資料治理與倫理規範。</p>
 			                        </div>
 			                        <div class="hstack gap-1 fw-normal mt-auto align-items-center">
-			                          <span class="material-symbols-rounded flex-shrink-0" aria-hidden="true" title="作者">account_circle</span>
+			                          <span class="material-symbols-rounded flex-shrink-0" aria-hidden="true" title="作者/專章作者/第一作者">account_circle</span>
 			                          <span>陳俊銘、王志宏、李建國</span>
 			                        </div>
 			                      </div>
