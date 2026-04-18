@@ -21,3 +21,86 @@
         document.addEventListener('DOMContentLoaded', initNavDropdown);
     }
 })();
+
+/* 進階檢索頁 (03search.html) */
+(function () {
+    function onReady(fn) {
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', fn);
+        } else {
+            fn();
+        }
+    }
+
+    function initAdvancedSearch() {
+        // 回到最上：滾動時顯示/隱藏
+        try {
+            var gototop = document.getElementById('gototop');
+            if (gototop) {
+                window.addEventListener('scroll', function () {
+                    if (window.scrollY > window.innerHeight) {
+                        gototop.classList.remove('d-none');
+                        gototop.classList.add('d-flex');
+                    } else {
+                        gototop.classList.remove('d-flex');
+                        gototop.classList.add('d-none');
+                    }
+                });
+            }
+        } catch (_e) {}
+
+        // 左側篩選：桌面版預設展開（需要 bootstrap.bundle）
+        try {
+            if (window.matchMedia && window.matchMedia('(min-width: 768px)').matches) {
+                if (typeof bootstrap !== 'undefined' && bootstrap.Collapse) {
+                    var collapseEls = document.querySelectorAll('#collapseOption');
+                    var collapseList = Array.prototype.slice.call(collapseEls).map(function (el) {
+                        return new bootstrap.Collapse(el);
+                    });
+                    collapseList.forEach(function (collapse) { collapse.show(); });
+                }
+            }
+        } catch (_e) {}
+
+        // 全選：連動每筆勾選
+        var checkall = document.getElementById('checkall');
+        var listEl = document.querySelector('.searchList');
+        if (!checkall || !listEl) return;
+
+        function itemCheckboxes() {
+            return listEl.querySelectorAll('input[type=\"checkbox\"][id^=\"checkList\"]');
+        }
+        function syncSelectAllState() {
+            var items = itemCheckboxes();
+            if (!items.length) {
+                checkall.checked = false;
+                checkall.indeterminate = false;
+                return;
+            }
+            var n = 0;
+            for (var i = 0; i < items.length; i++) {
+                if (items[i].checked) n++;
+            }
+            checkall.checked = n === items.length;
+            checkall.indeterminate = n > 0 && n < items.length;
+        }
+
+        checkall.addEventListener('change', function () {
+            checkall.indeterminate = false;
+            itemCheckboxes().forEach(function (cb) {
+                cb.checked = checkall.checked;
+            });
+        });
+
+        listEl.addEventListener('change', function (e) {
+            var t = e.target;
+            if (t && t.matches && t.matches('input[type=\"checkbox\"][id^=\"checkList\"]')) {
+                syncSelectAllState();
+            }
+        });
+
+        syncSelectAllState();
+    }
+
+    onReady(initAdvancedSearch);
+})();

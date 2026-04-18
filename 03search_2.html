@@ -16,39 +16,7 @@
 		<link rel="stylesheet" type="text/css" href="css/tailwind.css">
 		<link rel="stylesheet" type="text/css" href="css/main.min.css">
 		<link rel="stylesheet" type="text/css" href="css/style.min.css">
-		<style>
-			/* 進階檢索結果：資料類型與年度共用同一套標籤盒模型，僅底色／字色不同 */
-			.searchList .search-meta-row {
-				align-items: center;
-			}
-			.searchList .search-meta-row .search-doctype-tag {
-				display: inline-flex !important;
-				align-items: center;
-				justify-content: center;
-				box-sizing: border-box;
-				min-height: 2.125rem;
-				padding: 0.375rem 0.625rem !important;
-				font-size: calc(14rem / 16) !important;
-				line-height: 1.25 !important;
-				font-weight: 400 !important;
-				border-radius: 0 !important;
-			}
-			/* 年度：與資料類型相同版型，維持原 primary 淺底＋主色字 */
-			.searchList .search-doctype-tag.search-year-tone {
-				background-color: rgba(152, 30, 50, 0.1) !important;
-				color: #981e32 !important;
-				background-color: rgba(var(--bs-primary-rgb), 0.1) !important;
-				color: var(--bs-primary) !important;
-			}
-			/* 資料類型標籤底色 */
-			.searchList .search-doctype-tag.search-doctype--研究計畫 { background-color: #E8F5E9 !important; color: #1B5E20 !important; }
-			.searchList .search-doctype-tag.search-doctype--工作計畫 { background-color: #E0F2F1 !important; color: #00695C !important; }
-			.searchList .search-doctype-tag.search-doctype--期刊論文 { background-color: #E3F2FD !important; color: #0D47A1 !important; }
-			.searchList .search-doctype-tag.search-doctype--專書 { background-color: #F3E5F5 !important; color: #4A148C !important; }
-			.searchList .search-doctype-tag.search-doctype--專章 { background-color: #EDE7F6 !important; color: #4527A0 !important; }
-			.searchList .search-doctype-tag.search-doctype--會議論文 { background-color: #FFF3E0 !important; color: #E65100 !important; }
-			.searchList .search-doctype-tag.search-doctype--brief { background-color: #ECEFF1 !important; color: #37474F !important; }
-		</style>
+		<link rel="stylesheet" type="text/css" href="css/style.css">
 	</head>
 
 	<body id="top" class="page focus tw:min-h-screen">
@@ -721,18 +689,6 @@
 			</section>
 			<!-- /main content -->
 			<a id="gototop" class="btn btn-primary text-primary bg-transparent border-3 rounded-circle me-3 mb-3 px-2 py-0 d-none justify-content-center align-items-center position-absolute bottom-0 end-0 z-1 tw:group" title="回到最上" type="button" href="#top" style="width: 48px; height: 48px;"><span class="material-symbols-rounded tw:text-[3rem]! tw:group-hover:text-(--bs-primary)!" aria-hidden="true">arrow_upward_alt</span><span class="visually-hidden">回到最上</span></a>
-			<script>
-			  var gototop = document.getElementById('gototop');
-			  window.addEventListener('scroll', function() {
-			    if (window.scrollY > window.innerHeight) {
-			      gototop.classList.remove('d-none');
-			      gototop.classList.add('d-flex');
-			    } else {
-			      gototop.classList.remove('d-flex');
-			      gototop.classList.add('d-none');
-			    }
-			  });
-			</script>
 		</main>
 
 		<!-- footer -->
@@ -790,47 +746,6 @@
 		
 		<script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
 		<script type="text/javascript" src="js/swiper-bundle.min.js"></script>
-		<script>
-			if (window.matchMedia("(min-width: 768px)").matches) {
-				const collapseEls = document.querySelectorAll('#collapseOption')
-				const collapseList = [...collapseEls].map(el => new bootstrap.Collapse(el))
-				collapseList.forEach(collapse => collapse.show())
-			}
-			(function () {
-				var checkall = document.getElementById('checkall')
-				var listEl = document.querySelector('.searchList')
-				if (!checkall || !listEl) return
-				function itemCheckboxes() {
-					return listEl.querySelectorAll('input[type="checkbox"][id^="checkList"]')
-				}
-				function syncSelectAllState() {
-					var items = itemCheckboxes()
-					if (!items.length) {
-						checkall.checked = false
-						checkall.indeterminate = false
-						return
-					}
-					var n = 0
-					for (var i = 0; i < items.length; i++) {
-						if (items[i].checked) n++
-					}
-					checkall.checked = n === items.length
-					checkall.indeterminate = n > 0 && n < items.length
-				}
-				checkall.addEventListener('change', function () {
-					checkall.indeterminate = false
-					itemCheckboxes().forEach(function (cb) {
-						cb.checked = checkall.checked
-					})
-				})
-				listEl.addEventListener('change', function (e) {
-					var t = e.target
-					if (t && t.matches && t.matches('input[type="checkbox"][id^="checkList"]')) {
-						syncSelectAllState()
-					}
-				})
-				syncSelectAllState()
-			})()
-		</script>
+		<script type="text/javascript" src="js/naer-nav.js"></script>
 	</body>
 </html>
