@@ -99,6 +99,39 @@ body.page .sticky-sidebar .nav-link {
 .searchList .search-doctype-tag.search-doctype--會議論文 { background-color: #FFF3E0 !important; color: #E65100 !important; }
 .searchList .search-doctype-tag.search-doctype--brief { background-color: #ECEFF1 !important; color: #37474F !important; }
 
+/* 查詢結果清單：單雙列底色、導角、checkbox 與編號對齊（03search*.html 共用） */
+.searchList > .list-group-item:nth-child(odd) {
+    background-color: #ffffff;
+}
+.searchList > .list-group-item:nth-child(even) {
+    background-color: #f7f7f7;
+}
+/* 導角 + 右側留白（覆蓋 HTML 的 px-0 !important） */
+.searchList > .list-group-item {
+    border-radius: 12px;
+    overflow: hidden;
+    padding-right: 20px !important;
+}
+/* checkbox + 編號：垂直靠上對齊、左側留白避免貼邊 */
+.searchList .col-auto.d-flex {
+    align-items: flex-start !important;
+    padding-left: 20px;
+    padding-top: 0 !important; /* 覆蓋原本的 pt-1，讓頂端能與題名對齊 */
+}
+.searchList .form-check {
+    display: inline-flex;
+    align-items: flex-start;
+}
+.searchList .form-check .form-check-input {
+    margin-top: 0;
+}
+.searchList .form-check > span[aria-hidden="true"] {
+    display: inline-block;
+    min-width: 4ch; /* 編號可能到 4 位數 */
+    text-align: right;
+    line-height: 1;
+}
+
 /* === 查詢結果表格 === */
 .badge-type {
     width: 120px; display: inline-block; text-align: center; font-size: 0.9rem;
@@ -327,6 +360,110 @@ footer, .footer, footer.footer {
     background-color: #002e6d;
     border-color: #002e6d;
     color: #fff;
+}
+
+/* ============================================
+   詳細頁 (04details.html)
+   ============================================ */
+
+/* 右上角預覽：桌機顯示、手機隱藏，並保留主內容可視範圍 */
+.detailsHasPreview {
+    position: relative;
+}
+.detailsPreview {
+    position: fixed;
+    top: 85px; /* header 高度(69px) + 留白 */
+    right: 16px;
+    width: calc(100% / 6);
+    max-width: 320px;
+    min-width: 220px;
+    z-index: 1030;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,.12);
+    overflow: hidden;
+}
+@media (min-width: 576px) {
+    .detailsHasPreview {
+        padding-right: calc(100% / 6 + 24px);
+    }
+}
+@media (max-width: 575.98px) {
+    /* 手機版：有全文檔才顯示預覽；無全文檔則不顯示 */
+    .detailsPreview {
+        display: none;
+    }
+    .detailsPreview.is-has-file {
+        display: block;
+        position: static;
+        width: 100%;
+        max-width: none;
+        min-width: 0;
+        margin: 0 16px 12px;
+    }
+    .detailsHasPreview {
+        padding-right: 0;
+    }
+}
+
+/* 詳細頁欄位：名稱/值同列，名稱寬度一致，單雙列底色 */
+.detailsDataTableWrap {
+    --details-label-width: 220px;
+}
+.detailsDataTable {
+    margin: 0;
+    border-collapse: separate;
+    border-spacing: 0;
+    overflow: hidden;
+    border-radius: 12px;
+}
+.detailsDataTable > :not(caption) > * > * {
+    padding: 14px 14px;
+    vertical-align: middle; /* 欄位內容垂直置中 */
+    border-color: rgba(0,0,0,.07);
+}
+.detailsDataTable tbody tr:nth-child(odd) th,
+.detailsDataTable tbody tr:nth-child(odd) td {
+    background: #ffffff; /* 單列白色 */
+}
+.detailsDataTable tbody tr:nth-child(even) th,
+.detailsDataTable tbody tr:nth-child(even) td {
+    background: rgba(255,255,255,.55);
+}
+.detailsDataTable th {
+    width: var(--details-label-width);
+    font-weight: 700;
+    color: var(--bs-primary);
+    background-color: inherit;
+    white-space: nowrap;
+}
+.detailsDataTable td {
+    word-break: break-word;
+}
+@media (max-width: 575.98px) {
+    .detailsDataTableWrap {
+        --details-label-width: 140px;
+    }
+}
+
+/* 題名中英行高與間距 */
+.detailsTitleZh,
+.detailsTitleEn {
+    line-height: 1.6;
+}
+.detailsTitleEn {
+    margin-top: 6px;
+}
+
+/* 預覽內容：依有無全文檔切換 */
+.previewHasFile {
+    display: none;
+}
+.detailsPreview.is-has-file .previewHasFile {
+    display: block;
+}
+.detailsPreview.is-has-file .previewNoFile {
+    display: none;
 }
 
 /* 功能列：目標 90px（若頁面有 150% 縮放，設 60px 可顯示為 90px） */

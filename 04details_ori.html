@@ -16,8 +16,6 @@
 		<link rel="stylesheet" type="text/css" href="css/tailwind.css">
 		<link rel="stylesheet" type="text/css" href="css/main.min.css">
 		<link rel="stylesheet" type="text/css" href="css/style.min.css">
-		<link rel="stylesheet" type="text/css" href="css/style.css">
-		<!-- 本頁自訂樣式已整合至 css/style.css -->
 	</head>
 
 	<body id="top" class="page focus tw:min-h-screen">
@@ -107,121 +105,204 @@
 			    </div>
 			    <!-- /accesskey -->
 			    <div class="details tw:pb-20 tw:sm:pb-0 tw:sm:h-[calc(100vh-69px)] tw:sm:overflow-hidden">
-			      <!-- 右上角預覽（桌機顯示、手機隱藏） -->
-			      <aside class="detailsPreview" aria-label="預覽區">
-			        <div class="p-3 border-bottom">
-			          <div class="text-primary fw-bold">預覽</div>
-			        </div>
-			        <div class="p-3">
-			          <!-- 有全文檔案：顯示預覽圖（手機版需顯示） -->
-			          <div class="previewHasFile ratio mx-auto tw:[&.ratio]:[--bs-aspect-ratio:calc(100%*777/613)] tw:bg-[#F3F3F3] tw:rounded-[10px] tw:overflow-hidden">
-			            <img src="img/pdf.png" class="object-fit-fill" alt="全文檔案預覽圖">
-			          </div>
-			          <!-- 無全文檔案：顯示預設示意圖（手機版需隱藏整個預覽區） -->
-			          <div class="previewNoFile ratio mx-auto tw:[&.ratio]:[--bs-aspect-ratio:calc(100%*777/613)] tw:bg-[#F3F3F3] tw:rounded-[10px] tw:overflow-hidden">
-			            <svg viewBox="0 0 613 777" width="100%" height="100%" role="img" aria-label="無全文檔案示意圖" preserveAspectRatio="xMidYMid meet">
-			              <defs>
-			                <linearGradient id="naerNoFileBg" x1="0" y1="0" x2="0" y2="1">
-			                  <stop offset="0%" stop-color="#ffffff"/>
-			                  <stop offset="100%" stop-color="#f3f3f3"/>
-			                </linearGradient>
-			              </defs>
-			              <rect x="0" y="0" width="613" height="777" fill="url(#naerNoFileBg)"/>
-			              <text x="50%" y="90" text-anchor="middle" font-size="42" font-weight="700" fill="#666666" font-family="system-ui, -apple-system, 'Segoe UI', Arial">
-			                無全文檔案
-			              </text>
-			              <g transform="translate(150,170)">
-			                <rect x="0" y="0" rx="18" ry="18" width="313" height="420" fill="#ffffff" stroke="#d1d5db" stroke-width="4"/>
-			                <path d="M235 0 L313 78 L235 78 Z" fill="#eef2f7" stroke="#d1d5db" stroke-width="4"/>
-			                <rect x="40" y="120" width="235" height="16" rx="8" fill="#e5e7eb"/>
-			                <rect x="40" y="170" width="190" height="16" rx="8" fill="#e5e7eb"/>
-			                <rect x="40" y="220" width="235" height="16" rx="8" fill="#e5e7eb"/>
-			                <rect x="40" y="270" width="160" height="16" rx="8" fill="#e5e7eb"/>
-			                <g transform="translate(185,305)">
-			                  <circle cx="55" cy="55" r="46" fill="none" stroke="#9ca3af" stroke-width="10"/>
-			                  <line x1="88" y1="88" x2="130" y2="130" stroke="#9ca3af" stroke-width="12" stroke-linecap="round"/>
-			                  <line x1="38" y1="55" x2="72" y2="55" stroke="#9ca3af" stroke-width="10" stroke-linecap="round"/>
-			                </g>
-			              </g>
-			            </svg>
-			          </div>
-			        </div>
-			      </aside>
-			      <!-- /右上角預覽 -->
-
 			      <div class="row g-0">
-			        <div class="col-12 tw:bg-[#F3F3F3]">
-			          <div class="detailsHasPreview scrollbar vstack gap-4 ps-lg-3 pt-5 pb-4 tw:sm:h-[calc(100vh-69px)]">
+			        <div class="col-sm-5 order-last order-sm-first tw:bg-[#F3F3F3]">
+			          <div class="scrollbar vstack gap-4 ps-lg-3 pt-5 pb-4 tw:sm:h-[calc(100vh-69px)]">
 			            <div class="hstack mb-n3 tw:px-[0.8rem]">
-			              <a class="btn btn-outline-secondary btn-sm me-auto d-inline-flex align-items-center gap-2"
-			                href="javascript:history.back()"
-			                title="回上一頁"
-			                aria-label="回上一頁">
-			                <i class="bi bi-arrow-left"></i>
-			                <span class="fw-medium">回上一頁</span>
-			              </a>
+			              <button class="btn border-0 me-auto tw:group" type="button" data-bs-toggle="button"><i class="bi bi-bookmark-plus tw:group-[.active]:before:content-['\F199']!"></i><span class="tw:sr-only tw:group-[.active]:hidden">加入收藏</span><span class="tw:hidden tw:group-[.active]:sr-only tw:group-[.active]:block">移除收藏</span></button>
 			              <button class="btn px-1" type="button"><img src="img/line.svg" alt="Line" width="18"><span class="visually-hidden">Line</span></button>
 			              <button class="btn px-1" type="button"><i class="fa-brands fa-facebook tw:text-[#5D5D5D]"></i><span class="visually-hidden">Facebook</span></button>
 			              <button class="btn px-1" type="button"><i class="bi bi-link-45deg tw:text-[#5D5D5D]"></i><span class="visually-hidden">連結</span></button>
 			            </div>
 			            <div class="px-4">
-			              <h2 class="text-body fw-bold tw:text-[calc(24rem/16)]!">
-			                <span class="detailsTitleZh d-block">中小學教科書價格彈性調整機制可行性研究</span>
-			                <span class="detailsTitleEn eng d-block tw:text-[calc(16rem/16)]! tw:text-[#666666]">She is proficient in psychological experiment design</span>
-			              </h2>
+			              <h2 class="text-body fw-bold tw:text-[calc(24rem/16)]!">中小學教科書價格彈性調整機制可行性研究<span class="eng d-inline-block">She is proficient in psychological experiment design</span></h2>
 			            </div>
+			            <hr class="opacity-100 tw:border-black/7!">
 			            <div class="px-4">
-			              <!-- 表格化呈現：所有資料為同一個表格 -->
-			              <div class="detailsDataTableWrap table-responsive tw:text-[#444444]">
-			                <table class="detailsDataTable table table-bordered align-middle">
-			                  <tbody>
-			                    <tr><th scope="row">資料類型</th><td>研究計畫</td></tr>
-			                    <tr><th scope="row">計畫編號</th><td>NAER-2022-024-C-2-1-E8-01</td></tr>
-			                    <tr><th scope="row">GRB 編號</th><td>PG10110-0008</td></tr>
-			                    <tr><th scope="row">計畫類型</th><td>個別型</td></tr>
-			                    <tr><th scope="row">計畫名稱</th><td>中小學教科書價格彈性調整機制可行性研究</td></tr>
-			                    <tr><th scope="row">計畫名稱（英文）</th><td>She is proficient in psychological experiment design</td></tr>
-			                    <tr><th scope="row">整合型計畫名稱</th><td>我國數位教科書研發與評鑑之研究（I）</td></tr>
-			                    <tr><th scope="row">整合型計畫名稱（英文）</th><td>A Research on the Development and Evaluation of Digital Textbooks (I)</td></tr>
-			                    <tr><th scope="row">所屬計畫</th><td>子計畫二</td></tr>
-			                    <tr><th scope="row">計畫主持人</th><td>王立心</td></tr>
-			                    <tr><th scope="row">計畫主持人（英文名）</th><td>Wang, Li-Hsin</td></tr>
-			                    <tr><th scope="row">共同主持人</th><td>李○○、陳○○</td></tr>
-			                    <tr><th scope="row">共同主持人（英文名）</th><td>Lee, OOO; Chen, OOO</td></tr>
-			                    <tr><th scope="row">協同主持人</th><td>林○○</td></tr>
-			                    <tr><th scope="row">協同主持人（英文名）</th><td>Lin, OOO</td></tr>
-			                    <tr><th scope="row">研究員</th><td>張○○</td></tr>
-			                    <tr><th scope="row">研究員（英文名）</th><td>Chang, OOO</td></tr>
-			                    <tr><th scope="row">研究助理</th><td>黃○○</td></tr>
-			                    <tr><th scope="row">研究助理（英文名）</th><td>Huang, OOO</td></tr>
-			                    <tr><th scope="row">經費來源</th><td>國家教育研究院</td></tr>
-			                    <tr><th scope="row">執行方式</th><td>自行研究（機關預算－機關人員）</td></tr>
-			                    <tr><th scope="row">執行機構</th><td>國家教育研究院</td></tr>
-			                    <tr><th scope="row">執行單位</th><td>教科書研究中心</td></tr>
-			                    <tr><th scope="row">年度</th><td>2022</td></tr>
-			                    <tr><th scope="row">期程（起）</th><td>2022-07-01</td></tr>
-			                    <tr><th scope="row">期程（迄）</th><td>2023-06-30</td></tr>
-			                    <tr><th scope="row">執行狀態</th><td>已結案</td></tr>
-			                    <tr><th scope="row">計畫經費</th><td>新臺幣 1,000,000 元</td></tr>
-			                    <tr><th scope="row">研究領域</th><td>中等教育</td></tr>
-			                    <tr><th scope="row">研究主題</th><td>十二年國民基本教育</td></tr>
-			                    <tr><th scope="row">關鍵字</th><td>教科書；價格彈性；教育政策</td></tr>
-			                    <tr><th scope="row">關鍵字（英文）</th><td>textbook; price elasticity; education policy</td></tr>
-			                    <tr><th scope="row">頁數</th><td>150</td></tr>
-			                    <tr><th scope="row">線上公開</th><td>公開</td></tr>
-			                    <tr><th scope="row">相關連結</th><td>https://www.naer.edu.tw/</td></tr>
-			                    <tr><th scope="row">政策建議（文字）</th><td>一、建立教科書價格彈性調整之評估指標；二、結合市場調查與成本結構分析，制定分級調整機制。</td></tr>
-			                    <tr><th scope="row">備註（文字）</th><td>本計畫為示例資料，內容可依實際建檔調整。</td></tr>
-			                    <tr><th scope="row">摘要</th><td>本研究探討中小學教科書價格彈性調整之可行性，並提出分級調整與配套機制建議。</td></tr>
-			                    <tr><th scope="row">摘要（英文）</th><td>This study examines the feasibility of adjusting K-12 textbook prices based on elasticity and proposes a tiered adjustment mechanism with supporting measures.</td></tr>
-			                    <tr><th scope="row">政策建議（檔案）</th><td>PDF 全文檔</td></tr>
-			                    <tr><th scope="row">報告全文</th><td>PDF 全文檔</td></tr>
-			                    <tr><th scope="row">備註（附件）</th><td>附錄資料（ZIP）</td></tr>
-			                    <tr><th scope="row">研究主軸</th><td>教育制度與政策研究</td></tr>
-			                  </tbody>
-			                </table>
+			              <div class="text-primary fw-bold mb-4 tw:text-[calc(22rem/16)]">內容</div>
+			              <ul class="list-group list-group-flush gap-4 tw:text-[#444444]">
+			                <li class="list-group-item px-0 pb-4 tw:border-black/7!">
+			                  <div class="vstack gap-4">
+			                    <div>
+			                      <span class="fw-medium bg-primary text-white tw:px-[12px]! tw:py-[6px]!">資料類型</span>
+			                    </div>
+			                    <div class="vstack gap-2">
+			                      <span>研究計劃</span>
+			                    </div>
+			                  </div>
+			                </li>
+			                <li class="list-group-item px-0 pb-4 tw:border-black/7!">
+			                  <div class="vstack gap-4">
+			                    <div>
+			                      <span class="fw-medium bg-primary text-white tw:px-[12px]! tw:py-[6px]!">計劃編號</span>
+			                    </div>
+			                    <div class="vstack gap-2">
+			                      <span>NAER-2022-024-C-2-1-E8-01</span>
+			                    </div>
+			                  </div>
+			                </li>
+			                <li class="list-group-item px-0 pb-4 tw:border-black/7!">
+			                  <div class="vstack gap-4">
+			                    <div>
+			                      <span class="fw-medium bg-primary text-white tw:px-[12px]! tw:py-[6px]!">GRB 編號</span>
+			                    </div>
+			                    <div class="vstack gap-2">
+			                      <span>-</span>
+			                    </div>
+			                  </div>
+			                </li>
+			                <li class="list-group-item px-0 pb-4 tw:border-black/7!">
+			                  <div class="vstack gap-4">
+			                    <div>
+			                      <span class="fw-medium bg-primary text-white tw:px-[12px]! tw:py-[6px]!">計畫類型</span>
+			                    </div>
+			                    <div class="vstack gap-2">
+			                      <span>個別型</span>
+			                    </div>
+			                  </div>
+			                </li>
+			                <li class="list-group-item px-0 pb-4 tw:border-black/7!">
+			                  <div class="vstack gap-4">
+			                    <div>
+			                      <span class="fw-medium bg-primary text-white tw:px-[12px]! tw:py-[6px]!">計畫主持人</span>
+			                    </div>
+			                    <div class="vstack gap-2">
+			                      <span>王立心</span>
+			                    </div>
+			                  </div>
+			                </li>
+			                <li class="list-group-item px-0 pb-4 tw:border-black/7!">
+			                  <div class="vstack gap-4">
+			                    <div>
+			                      <span class="fw-medium bg-primary text-white tw:px-[12px]! tw:py-[6px]!">經費來源</span>
+			                    </div>
+			                    <div class="vstack gap-2">
+			                      <span>-</span>
+			                    </div>
+			                  </div>
+			                </li>
+			                <li class="list-group-item px-0 pb-4 tw:border-black/7!">
+			                  <div class="vstack gap-4">
+			                    <div>
+			                      <span class="fw-medium bg-primary text-white tw:px-[12px]! tw:py-[6px]!">執行方式</span>
+			                    </div>
+			                    <div class="vstack gap-2">
+			                      <span>-</span>
+			                    </div>
+			                  </div>
+			                </li>
+			                <li class="list-group-item px-0 pb-4 tw:border-black/7!">
+			                  <div class="vstack gap-4">
+			                    <div>
+			                      <span class="fw-medium bg-primary text-white tw:px-[12px]! tw:py-[6px]!">執行機構</span>
+			                    </div>
+			                    <div class="vstack gap-2">
+			                      <span>國家教育研究院</span>
+			                    </div>
+			                  </div>
+			                </li>
+			                <li class="list-group-item px-0 pb-4 tw:border-black/7!">
+			                  <div class="vstack gap-4">
+			                    <div>
+			                      <span class="fw-medium bg-primary text-white tw:px-[12px]! tw:py-[6px]!">執行單位</span>
+			                    </div>
+			                    <div class="vstack gap-2">
+			                      <span>教科書研究中心</span>
+			                    </div>
+			                  </div>
+			                </li>
+			                <li class="list-group-item px-0 pb-4 tw:border-black/7!">
+			                  <div class="vstack gap-4">
+			                    <div>
+			                      <span class="fw-medium bg-primary text-white tw:px-[12px]! tw:py-[6px]!">年度</span>
+			                    </div>
+			                    <div class="vstack gap-2">
+			                      <span>2022</span>
+			                    </div>
+			                  </div>
+			                </li>
+			                <li class="list-group-item px-0 pb-4 tw:border-black/7!">
+			                  <div class="vstack gap-4">
+			                    <div>
+			                      <span class="fw-medium bg-primary text-white tw:px-[12px]! tw:py-[6px]!">期程（起）</span>
+			                    </div>
+			                    <div class="vstack gap-2">
+			                      <span>2022-07-01</span>
+			                    </div>
+			                  </div>
+			                </li>
+			                <li class="list-group-item px-0 pb-4 tw:border-black/7!">
+			                  <div class="vstack gap-4">
+			                    <div>
+			                      <span class="fw-medium bg-primary text-white tw:px-[12px]! tw:py-[6px]!">期程（迄）</span>
+			                    </div>
+			                    <div class="vstack gap-2">
+			                      <span>2023-06-30</span>
+			                    </div>
+			                  </div>
+			                </li>
+			                <li class="list-group-item px-0 pb-4 tw:border-black/7!">
+			                  <div class="vstack gap-4">
+			                    <div>
+			                      <span class="fw-medium bg-primary text-white tw:px-[12px]! tw:py-[6px]!">執行狀態</span>
+			                    </div>
+			                    <div class="vstack gap-2">
+			                      <span>已結案</span>
+			                    </div>
+			                  </div>
+			                </li>
+			                <li class="list-group-item px-0 pb-4 tw:border-black/7!">
+			                  <div class="vstack gap-4">
+			                    <div>
+			                      <span class="fw-medium bg-primary text-white tw:px-[12px]! tw:py-[6px]!">關鍵字</span>
+			                    </div>
+			                    <div class="vstack gap-2">
+			                      <span>-</span>
+			                    </div>
+			                  </div>
+			                </li>
+			                <li class="list-group-item px-0 pb-4 tw:border-black/7!">
+			                  <div class="vstack gap-4">
+			                    <div>
+			                      <span class="fw-medium bg-primary text-white tw:px-[12px]! tw:py-[6px]!">研究主軸</span>
+			                    </div>
+			                    <div class="vstack gap-2">
+			                      <span>-</span>
+			                    </div>
+			                  </div>
+			                </li>
+			              </ul>
+			            </div>
+			          </div>
+			        </div>
+			        <div class="col">
+			          <div class="vstack justify-content-center p-4 h-100">
+			            <div>
+			              <div class="vstack gap-4">
+			                <!-- Tab Pane -->
+			                <div class="tab-content text-white">
+			                  <div class="tab-pane fade show active" id="tabpanel1" role="tabpanel" aria-labelledby="tab1">
+			                    <div class="ratio mx-auto tw:[&.ratio]:[--bs-aspect-ratio:calc(100%*777/613)] tw:max-w-[500px] tw:bg-[#474747]">
+			                      <img src="img/pdf.png" class="object-fit-fill" alt="PDF Placeholder">
+			                    </div>
+			                  </div>
+			                  <div class="tab-pane fade" id="tabpanel2" role="tabpanel" aria-labelledby="tab2">
+			                    <div class="ratio mx-auto tw:[&.ratio]:[--bs-aspect-ratio:calc(100%*777/613)] tw:max-w-[500px] tw:bg-[#474747]">
+			                      <div class="d-flex align-items-center justify-content-center">尚無檔案內容</div>
+			                    </div>
+			                  </div>
+			                </div>
+			                <ul class="nav nav-pills justify-content-center align-items-center gap-3" role="tablist">
+			                  <li class="nav-item" role="presentation">
+			                    <button id="tab1" class="nav-link rounded-0 fw-medium tw:px-[12px]! tw:py-[6px]! active" data-bs-toggle="pill" data-bs-target="#tabpanel1" type="button" role="tab" aria-controls="tabpanel1">文檔</button>
+			                  </li>
+			                  <li><div class="vr tw:h-[25px]"></div></li>
+			                  <li class="nav-item" role="presentation">
+			                    <button id="tab2" class="nav-link rounded-0 fw-medium tw:px-[12px]! tw:py-[6px]!" data-bs-toggle="pill" data-bs-target="#tabpanel2" type="button" role="tab" aria-controls="tabpanel2">圖檔</button>
+			                  </li>
+			                </ul>
+			                <!-- /Tab Pane -->
 			              </div>
-			              <!-- /表格化呈現 -->
 			            </div>
 			          </div>
 			        </div>
@@ -233,7 +314,18 @@
 			</section>
 			<!-- /main content -->
 			<a id="gototop" class="btn btn-primary text-primary bg-transparent border-3 rounded-circle me-3 mb-3 px-2 py-0 d-none justify-content-center align-items-center position-absolute bottom-0 end-0 z-1 tw:group" title="回到最上" type="button" href="#top" style="width: 48px; height: 48px;"><span class="material-symbols-rounded tw:text-[3rem]! tw:group-hover:text-(--bs-primary)!" aria-hidden="true">arrow_upward_alt</span><span class="visually-hidden">回到最上</span></a>
-			<!-- 回到最上行為已整合至 js/naer-nav.js -->
+			<script>
+			  var gototop = document.getElementById('gototop');
+			  window.addEventListener('scroll', function() {
+			    if (window.scrollY > window.innerHeight) {
+			      gototop.classList.remove('d-none');
+			      gototop.classList.add('d-flex');
+			    } else {
+			      gototop.classList.remove('d-flex');
+			      gototop.classList.add('d-none');
+			    }
+			  });
+			</script>
 		</main>
 
 		<!-- footer -->
@@ -291,6 +383,5 @@
 		
 		<script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
 		<script type="text/javascript" src="js/swiper-bundle.min.js"></script>
-		<script type="text/javascript" src="js/naer-nav.js"></script>
 	</body>
 </html>

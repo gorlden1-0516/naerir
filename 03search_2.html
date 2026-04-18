@@ -17,35 +17,7 @@
 		<link rel="stylesheet" type="text/css" href="css/main.min.css">
 		<link rel="stylesheet" type="text/css" href="css/style.min.css">
 		<link rel="stylesheet" type="text/css" href="css/style.css">
-		<style>
-			/* 統一：單列白底、雙列維持原樣（由既有樣式控制） */
-			.searchList > .list-group-item:nth-child(odd) {
-				background-color: #ffffff;
-			}
-			/* 單列白底：導角 */
-			.searchList > .list-group-item:nth-child(odd) {
-				border-radius: 12px;
-				overflow: hidden;
-				/* 因為 HTML 有 px-0（bootstrap 會用 !important 清掉 padding），所以這裡也用 !important 保留右側留白 */
-				padding-right: 20px !important;
-			}
-			/* checkbox + 編號：垂直靠上對齊、左側留白避免貼邊 */
-			.searchList .col-auto.d-flex {
-				align-items: flex-start !important;
-				padding-left: 20px;
-				padding-top: 0 !important; /* 覆蓋原本的 pt-1，讓頂端能與題名對齊 */
-			}
-			.searchList .form-check {
-				display: inline-flex;
-				align-items: flex-start;
-			}
-			.searchList .form-check .form-check-input {
-				margin-top: 0;
-			}
-			.searchList .form-check > span[aria-hidden="true"] {
-				line-height: 1;
-			}
-		</style>
+		<!-- 本頁自訂樣式已整合至 css/style.css -->
 	</head>
 
 	<body id="top" class="page focus tw:min-h-screen">

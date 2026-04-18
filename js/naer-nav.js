@@ -104,3 +104,57 @@
 
     onReady(initAdvancedSearch);
 })();
+
+/* 詳細頁 (04details.html)：依「報告全文」欄位切換預覽顯示 */
+(function () {
+    function onReady(fn) {
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', fn);
+        } else {
+            fn();
+        }
+    }
+
+    function normalizeText(t) {
+        return (t || '').replace(/\s+/g, ' ').trim();
+    }
+
+    function initDetailsPreview() {
+        var preview = document.querySelector('.detailsPreview');
+        if (!preview) return;
+
+        // 依表格欄位「報告全文」判斷是否有全文檔案（示例：PDF 全文檔）
+        var table = document.querySelector('.detailsDataTable');
+        if (!table) return;
+
+        var hasFile = false;
+        var rows = table.querySelectorAll('tbody tr');
+        for (var i = 0; i < rows.length; i++) {
+            var th = rows[i].querySelector('th');
+            var td = rows[i].querySelector('td');
+            if (!th || !td) continue;
+
+            if (normalizeText(th.textContent) === '報告全文') {
+                var v = normalizeText(td.textContent);
+                if (!v || v === '-' || v === '無') {
+                    hasFile = false;
+                } else if (v.indexOf('尚無') !== -1 || v.indexOf('無全文') !== -1 || v.indexOf('未提供') !== -1) {
+                    hasFile = false;
+                } else {
+                    hasFile = true;
+                }
+                break;
+            }
+        }
+
+        if (hasFile) {
+            preview.classList.add('is-has-file');
+            preview.classList.remove('is-no-file');
+        } else {
+            preview.classList.add('is-no-file');
+            preview.classList.remove('is-has-file');
+        }
+    }
+
+    onReady(initDetailsPreview);
+})();
