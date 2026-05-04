@@ -370,6 +370,17 @@ footer, .footer, footer.footer {
 .detailsHasPreview {
     position: relative;
 }
+
+/* 僅保留瀏覽器(頁面) scrollbar：避免內容區再產生一個捲軸 */
+.details {
+    height: auto !important;
+    overflow: visible !important;
+}
+.detailsHasPreview.scrollbar {
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+}
 .detailsPreview {
     position: fixed;
     top: 85px; /* header 高度(69px) + 留白 */
@@ -438,7 +449,16 @@ footer, .footer, footer.footer {
     white-space: nowrap;
 }
 .detailsDataTable td {
+    /* 欄位內容一律黑色（需壓過既有樣式/連結色） */
+    color: #000000 !important;
     word-break: break-word;
+}
+.detailsDataTable td a,
+.detailsDataTable td span,
+.detailsDataTable td small,
+.detailsDataTable td strong,
+.detailsDataTable td em {
+    color: #000000 !important;
 }
 @media (max-width: 575.98px) {
     .detailsDataTableWrap {
@@ -464,6 +484,56 @@ footer, .footer, footer.footer {
 }
 .detailsPreview.is-has-file .previewNoFile {
     display: none;
+}
+
+/* ============================================
+   進階查詢頁 (03search_1.html)
+   ============================================ */
+
+/* 熱門關鍵字：膠囊標籤樣式（比照設計圖示意） */
+.hotKeywords {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px 10px;
+    margin: 0;
+}
+.hotKeywords__label {
+    color: #6c757d;
+    font-weight: 500;
+    margin-right: 2px;
+}
+.hotKeywords__item a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 12px;
+    border-radius: 999px;
+    border: 1px solid rgba(152, 30, 50, 0.35);
+    background: rgba(255, 255, 255, 0.92);
+    color: var(--naer-primary) !important;
+    text-decoration: none;
+    line-height: 1.2;
+    font-weight: 500;
+}
+.hotKeywords__item a:hover,
+.hotKeywords__item a:focus {
+    background: rgba(152, 30, 50, 0.08);
+    border-color: rgba(152, 30, 50, 0.55);
+    text-decoration: none;
+}
+
+/* Tooltip（查詢模式說明）：文字靠左、標題用不同色 */
+.naer-tooltip .tooltip-inner {
+    text-align: left;
+    max-width: 280px;
+}
+.naer-tooltip .naer-tip-title {
+    /* tooltip 背景為深紅時，標題需用淺色才看得見 */
+    color: #ffffff;
+    font-weight: 700;
+    margin-bottom: 4px;
 }
 
 /* 功能列：目標 90px（若頁面有 150% 縮放，設 60px 可顯示為 90px） */

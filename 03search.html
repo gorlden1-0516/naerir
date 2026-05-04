@@ -100,606 +100,173 @@
 			<!-- main content -->
 			<section>
 			  <!-- content -->
-			  <div id="content" class="vstack position-relative">
-			    <!-- accesskey -->
+			  <div id="content" class="vstack">
+				<!-- accesskey -->
 			    <div class="position-absolute d-none d-lg-inline-block">
-			      <a class="btn btn-link text-decoration-none text-body text-nowrap position-absolute" href="#C" id="AC" name="C" title="中央內容區塊" accesskey="C" style="left:20px; top:20px;">:::</a>
-			    </div>
-			    <!-- /accesskey -->
-			    <div class="container-lg py-3 my-5 pt-5">
-			      <h2 class="text-primary fw-bold border-bottom border-primary pb-4 mb-5 tw:text-[calc(28rem/16)]!">進階檢索</h2>
-			      <p class="fw-medium tw:text-[calc(18rem/16)]!">本院目前聘有約 60 多位研究人員，其研究專長包含教育行政、課程教學、測驗評量、資訊科技，以及語言、歷史、政治等學科領域，各自負有研究發展與行政服務之職責。</p>
-			    </div>
-			    <!-- /container -->
-			    <div class="list vstack gap-4 px-3 tw:pt-8 tw:lg:pt-14 tw:bg-[#F3F3F3] tw:pb-24">
-			      <div class="container-lg px-0 vstack gap-5">
-			        <div class="row g-2 gx-md-4 gx-xxl-5">
-			          <div class="col d-md-none">
-			            <div class="hstack gap-2">
-			              <div class="search input-group bg-white rounded-3 row g-0 z-1 tw:h-[44px] tw:lg:h-[48px]">
-			                <div class="col-auto">
-			                  <div class="dropdown h-100">
-			                    <button id="dropdownBtn01" class="btn btn-primary text-primary fw-semibold bg-transparent border-0 border-end rounded-0 align-items-center px-lg-4 h-100" type="button" data-bs-toggle="dropdown" aria-expanded="false">不限範圍<i class="bi bi-chevron-down ms-2" aria-hidden="true"></i></button>
-			                    <ul class="dropdown-menu border-0 rounded-3 tw:min-w-full!" aria-labelledby="dropdownBtn01">
-			                      <li><button class="dropdown-item bg-transparent tw:hover:text-(--bs-primary)! tw:[&.active]:text-(--bs-primary)! active" type="button" data-value="">不限範圍</button></li>
-			                      <li><button class="dropdown-item bg-transparent tw:hover:text-(--bs-primary)! tw:[&.active]:text-(--bs-primary)!" type="button" data-value="1">題名</button></li>
-			                      <li><button class="dropdown-item bg-transparent tw:hover:text-(--bs-primary)! tw:[&.active]:text-(--bs-primary)!" type="button" data-value="2">作者</button></li>
-			                      <li><button class="dropdown-item bg-transparent tw:hover:text-(--bs-primary)! tw:[&.active]:text-(--bs-primary)!" type="button" data-value="3">摘要</button></li>
-			                    </ul>
-			                  </div>
-			                </div>
-			                <div class="col">
-			                  <input id="input-mobile" class="form-control border-end-0 h-100 fw-medium tw:border-transparent! tw:placeholder:text-[#A5A5A5]!" type="text" placeholder="請輸入關鍵字" aria-label="輸入文字搭配下拉選單選項">
-			                </div>
-			                <div class="col-auto">
-			                  <button class="btn btn-primary text-primary bg-transparent border border-primary border-opacity-0 pe-lg-4 h-100" type="button"><i class="bi bi-search" aria-hidden="true"></i><span class="visually-hidden">搜尋</span></button>
-			                </div>
+					<a class="btn btn-link text-decoration-none text-body text-nowrap position-absolute" href="#C" id="AC" name="C" title="中央內容區塊" accesskey="C" style="left:20px; top:20px;">:::</a>
+				  </div>
+				<!-- /accesskey -->
+			    <div class="container-lg py-3 my-5 pt-5"">
+			 	  <h2 class="text-primary fw-bold text-center pb-4 mb-5 tw:text-[calc(28rem/16)]!">進階查詢</h2>
+			      <!-- plus search -->
+			      <div class="search col-lg-8 col-xl-6 mx-auto">
+			        <div class="form vstack gap-3">
+			          <div class="input-group row gx-0 gy-3">
+			            <div class="col-auto me-sm-3 tw:min-w-[calc(100%-44px)] tw:sm:min-w-auto">
+			              <div class="dropdown h-100">
+			                <button class="btn btn-secondary text-primary fw-semibold bg-white border border-trasparent dropdown-toggle align-items-center px-3 h-100 z-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">包含</button>
+			                <ul class="dropdown-menu">
+			                  <li><button class="dropdown-item fw-semibold px-4 py-2 tw:p-[0.75rem_1.1rem]" type="button">option</button></li>
+			                  <li><button class="dropdown-item fw-semibold px-4 py-2 tw:p-[0.75rem_1.1rem]" type="button">option</button></li>
+			                </ul>
 			              </div>
-			              <!-- /input-group -->
-			              <button class="btn btn-link fw-medium bg-white rounded-3 flex-shrink-0 tw:h-[44px] tw:lg:h-[48px]" type="button"><span class="d-none d-md-inline-block me-2">縮小範圍</span><i class="bi bi-zoom-out" aria-hidden="true"></i></button>
 			            </div>
-			            <!-- /search -->
-			          </div>
-			          <div class="col-md-4 col-xxl-3 order-md-first">
-			            <div class="vstack gap-3">
-			              <button class="btn btn-primary text-primary bg-white border-0 rounded-3 fw-semibold collapsed d-md-none tw:group" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOption" aria-expanded="false" aria-controls="collapseOption">進階篩選<i class="bi bi-chevron-down ms-2 tw:group-[:not(.collapsed)]:before:content-['\F286']!" aria-hidden="true"></i></button>
-			              <div id="collapseOption" class="vstack gap-3 collapse">
-			                <div class="bg-white rounded-3 p-3">
-			                  <div class="vstack gap-3">
-			                    <div class="hstack">
-			                      <div class="text-primary fw-semibold me-auto tw:text-[calc(18rem/16)]!">篩選條件</div>
-			                      <button class="btn px-0 rounded-0 text-decoration-underline" type="button">全部清空</button>
-			                    </div>
-			                    <div class="vstack gap-3">
-			                      <button class="btn text-body fw-medium border-0 rounded-0 p-0 bg-transparent text-start hstack" type="button" title="刪除條件">資料類型：研究計畫<i class="bi bi-x-lg ps-1 ms-auto tw:text-xs"></i><span class="visually-hidden">刪除</span></button>
-			                      <button class="btn text-body fw-medium border-0 rounded-0 p-0 bg-transparent text-start hstack" type="button" title="刪除條件">年度：2024<i class="bi bi-x-lg ps-1 ms-auto tw:text-xs"></i><span class="visually-hidden">刪除</span></button>
-			                      <div class="hstack gap-2 justify-content-end">
-			                        <button class="btn btn-primary rounded-0 fw-medium" type="button">套用</button>
-			                      </div>
-			                    </div>
-			                    <hr class="my-0">
-			                    <div class="hstack">
-			                      <div class="text-primary fw-semibold me-auto tw:text-[calc(18rem/16)]!">已套用篩選條件</div>
-			                      <button class="btn px-0 rounded-0 text-decoration-underline" type="button">全部清空</button>
-			                    </div>
-			                    <div class="vstack gap-3">
-			                      <button class="btn text-body fw-medium border-0 rounded-0 p-0 bg-transparent text-start hstack" type="button" title="刪除條件">資料類型：研究計畫<i class="bi bi-x-lg ps-1 ms-auto tw:text-xs"></i><span class="visually-hidden">刪除</span></button>
-			                      <button class="btn text-body fw-medium border-0 rounded-0 p-0 bg-transparent text-start hstack" type="button" title="刪除條件">年度：2024<i class="bi bi-x-lg ps-1 ms-auto tw:text-xs"></i><span class="visually-hidden">刪除</span></button>
-			                    </div>
-			                  </div>
-			                  <!-- /vstack -->
-			                </div>
-			                <!-- /bg-white -->
-			                <div class="bg-white rounded-3 p-3">
-			                  <ul id="accordion" class="list-group list-group-flush accordion gap-3 tw:[&.accordion]:[--bs-accordion-btn-active-icon:var(--bs-accordion-btn-icon)]!">
-			                    <li class="list-group-item bg-transparent accordion-item px-1 pt-0 pb-3 tw:border-[rgb(206_212_218/70%)]!">
-			                      <div class="accordion-header d-flex align-items-center">
-			                        <button class="accordion-button text-body bg-transparent shadow-none rounded-0 p-0 mb-3 tw:text-[calc(18rem/16)]!" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1" aria-expanded="true" aria-controls="collapse1">資料類型</button>
-			                      </div>
-			                      <!-- /accordion-header -->
-			                      <div id="collapse1" class="accordion-collapse collapse show vstack gap-3" data-bs-parent="#accordion">
-			                        <div class="hstack flex-wrap gap-2">
-			                          <div class="form-check me-auto">
-			                            <input id="checka1" class="form-check-input rounded-1" type="checkbox" value="" checked>
-			                            <label class="form-check-label" for="checka1">研究計畫</label>
-			                          </div>
-			                          <span class="text-cyan bg-cyan bg-opacity-10 d-inline-flex align-items-center tw:px-[6px] tw:h-[21px] tw:text-[calc(14rem/16)]">42</span>
-			                        </div>
-			                        <div class="hstack flex-wrap gap-2">
-			                          <div class="form-check me-auto">
-			                            <input id="checka2" class="form-check-input rounded-1" type="checkbox" value="">
-			                            <label class="form-check-label" for="checka2">工作計畫</label>
-			                          </div>
-			                          <span class="text-cyan bg-cyan bg-opacity-10 d-inline-flex align-items-center tw:px-[6px] tw:h-[21px] tw:text-[calc(14rem/16)]">28</span>
-			                        </div>
-			                        <div class="hstack flex-wrap gap-2">
-			                          <div class="form-check me-auto">
-			                            <input id="checka3" class="form-check-input rounded-1" type="checkbox" value="">
-			                            <label class="form-check-label" for="checka3">期刊論文</label>
-			                          </div>
-			                          <span class="text-cyan bg-cyan bg-opacity-10 d-inline-flex align-items-center tw:px-[6px] tw:h-[21px] tw:text-[calc(14rem/16)]">118</span>
-			                        </div>
-			                        <div class="hstack flex-wrap gap-2">
-			                          <div class="form-check me-auto">
-			                            <input id="checka4" class="form-check-input rounded-1" type="checkbox" value="">
-			                            <label class="form-check-label" for="checka4">專書</label>
-			                          </div>
-			                          <span class="text-cyan bg-cyan bg-opacity-10 d-inline-flex align-items-center tw:px-[6px] tw:h-[21px] tw:text-[calc(14rem/16)]">22</span>
-			                        </div>
-			                        <div class="hstack flex-wrap gap-2">
-			                          <div class="form-check me-auto">
-			                            <input id="checka5" class="form-check-input rounded-1" type="checkbox" value="">
-			                            <label class="form-check-label" for="checka5">專章</label>
-			                          </div>
-			                          <span class="text-cyan bg-cyan bg-opacity-10 d-inline-flex align-items-center tw:px-[6px] tw:h-[21px] tw:text-[calc(14rem/16)]">31</span>
-			                        </div>
-			                        <div class="hstack flex-wrap gap-2">
-			                          <div class="form-check me-auto">
-			                            <input id="checka6" class="form-check-input rounded-1" type="checkbox" value="">
-			                            <label class="form-check-label" for="checka6">會議論文</label>
-			                          </div>
-			                          <span class="text-cyan bg-cyan bg-opacity-10 d-inline-flex align-items-center tw:px-[6px] tw:h-[21px] tw:text-[calc(14rem/16)]">56</span>
-			                        </div>
-			                        <div class="hstack flex-wrap gap-2">
-			                          <div class="form-check me-auto">
-			                            <input id="checka7" class="form-check-input rounded-1" type="checkbox" value="">
-			                            <label class="form-check-label" for="checka7">提要/建言/訊息</label>
-			                          </div>
-			                          <span class="text-cyan bg-cyan bg-opacity-10 d-inline-flex align-items-center tw:px-[6px] tw:h-[21px] tw:text-[calc(14rem/16)]">19</span>
-			                        </div>
-			                      </div>
-			                      <!-- /collapse -->
-			                    </li>
-			                    <li class="list-group-item bg-transparent accordion-item px-1 pt-0 pb-3 tw:border-[rgb(206_212_218/70%)]!">
-			                      <div class="accordion-header d-flex align-items-center">
-			                        <button class="accordion-button text-body bg-transparent shadow-none rounded-0 p-0 mb-3 tw:text-[calc(18rem/16)]!" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2" aria-expanded="true" aria-controls="collapse2">年度</button>
-			                      </div>
-			                      <!-- /accordion-header -->
-			                      <div id="collapse2" class="accordion-collapse collapse show vstack gap-3" data-bs-parent="#accordion">
-			                        <div class="hstack flex-wrap gap-2">
-			                          <div class="form-check me-auto">
-			                            <input id="checkd1" class="form-check-input rounded-1" type="checkbox" value="" checked>
-			                            <label class="form-check-label" for="checkd1">2024</label>
-			                          </div>
-			                          <span class="text-cyan bg-cyan bg-opacity-10 d-inline-flex align-items-center tw:px-[6px] tw:h-[21px] tw:text-[calc(14rem/16)]">72</span>
-			                        </div>
-			                        <div class="hstack flex-wrap gap-2">
-			                          <div class="form-check me-auto">
-			                            <input id="checkd2" class="form-check-input rounded-1" type="checkbox" value="">
-			                            <label class="form-check-label" for="checkd2">2023</label>
-			                          </div>
-			                          <span class="text-cyan bg-cyan bg-opacity-10 d-inline-flex align-items-center tw:px-[6px] tw:h-[21px] tw:text-[calc(14rem/16)]">65</span>
-			                        </div>
-			                        <div class="hstack flex-wrap gap-2">
-			                          <div class="form-check me-auto">
-			                            <input id="checkd3" class="form-check-input rounded-1" type="checkbox" value="">
-			                            <label class="form-check-label" for="checkd3">2022</label>
-			                          </div>
-			                          <span class="text-cyan bg-cyan bg-opacity-10 d-inline-flex align-items-center tw:px-[6px] tw:h-[21px] tw:text-[calc(14rem/16)]">58</span>
-			                        </div>
-			                        <div class="hstack flex-wrap gap-2">
-			                          <div class="form-check me-auto">
-			                            <input id="checkd4" class="form-check-input rounded-1" type="checkbox" value="">
-			                            <label class="form-check-label" for="checkd4">2021</label>
-			                          </div>
-			                          <span class="text-cyan bg-cyan bg-opacity-10 d-inline-flex align-items-center tw:px-[6px] tw:h-[21px] tw:text-[calc(14rem/16)]">49</span>
-			                        </div>
-			                        <div class="hstack flex-wrap gap-2">
-			                          <div class="form-check me-auto">
-			                            <input id="checkd5" class="form-check-input rounded-1" type="checkbox" value="">
-			                            <label class="form-check-label" for="checkd5">2020</label>
-			                          </div>
-			                          <span class="text-cyan bg-cyan bg-opacity-10 d-inline-flex align-items-center tw:px-[6px] tw:h-[21px] tw:text-[calc(14rem/16)]">41</span>
-			                        </div>
-			                      </div>
-			                      <!-- /collapse -->
-			                    </li>
-			                    <li class="list-group-item bg-transparent accordion-item px-1 pt-0 pb-3 tw:border-[rgb(206_212_218/70%)]!">
-			                      <div class="accordion-header d-flex align-items-center">
-			                        <button class="accordion-button text-body bg-transparent shadow-none rounded-0 p-0 mb-3 tw:text-[calc(18rem/16)]!" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3" aria-expanded="true" aria-controls="collapse3">作者</button>
-			                      </div>
-			                      <!-- /accordion-header -->
-			                      <div id="collapse3" class="accordion-collapse collapse show vstack gap-3" data-bs-parent="#accordion">
-			                        <div class="hstack flex-wrap gap-2">
-			                          <div class="form-check me-auto">
-			                            <input id="checkc1" class="form-check-input rounded-1" type="checkbox" value="" checked>
-			                            <label class="form-check-label" for="checkc1">王志宏</label>
-			                          </div>
-			                          <span class="text-cyan bg-cyan bg-opacity-10 d-inline-flex align-items-center tw:px-[6px] tw:h-[21px] tw:text-[calc(14rem/16)]">19</span>
-			                        </div>
-			                        <div class="hstack flex-wrap gap-2">
-			                          <div class="form-check me-auto">
-			                            <input id="checkc2" class="form-check-input rounded-1" type="checkbox" value="">
-			                            <label class="form-check-label" for="checkc2">林雅婷</label>
-			                          </div>
-			                          <span class="text-cyan bg-cyan bg-opacity-10 d-inline-flex align-items-center tw:px-[6px] tw:h-[21px] tw:text-[calc(14rem/16)]">16</span>
-			                        </div>
-			                        <div class="hstack flex-wrap gap-2">
-			                          <div class="form-check me-auto">
-			                            <input id="checkc3" class="form-check-input rounded-1" type="checkbox" value="">
-			                            <label class="form-check-label" for="checkc3">陳俊銘</label>
-			                          </div>
-			                          <span class="text-cyan bg-cyan bg-opacity-10 d-inline-flex align-items-center tw:px-[6px] tw:h-[21px] tw:text-[calc(14rem/16)]">14</span>
-			                        </div>
-			                        <div class="hstack flex-wrap gap-2">
-			                          <div class="form-check me-auto">
-			                            <input id="checkc4" class="form-check-input rounded-1" type="checkbox" value="">
-			                            <label class="form-check-label" for="checkc4">張淑玲</label>
-			                          </div>
-			                          <span class="text-cyan bg-cyan bg-opacity-10 d-inline-flex align-items-center tw:px-[6px] tw:h-[21px] tw:text-[calc(14rem/16)]">12</span>
-			                        </div>
-			                        <div class="hstack flex-wrap gap-2">
-			                          <div class="form-check me-auto">
-			                            <input id="checkc5" class="form-check-input rounded-1" type="checkbox" value="">
-			                            <label class="form-check-label" for="checkc5">李建國</label>
-			                          </div>
-			                          <span class="text-cyan bg-cyan bg-opacity-10 d-inline-flex align-items-center tw:px-[6px] tw:h-[21px] tw:text-[calc(14rem/16)]">11</span>
-			                        </div>
-			                      </div>
-			                      <!-- /collapse -->
-			                    </li>
-			                  </ul>
-			                </div>
-			                <!-- /bg-white -->
+			            <div class="col-auto order-3 order-sm-2">
+			              <div class="dropdown h-100">
+			                <button class="btn btn-secondary text-primary fw-semibold bg-white border border-trasparent dropdown-toggle align-items-center px-3 h-100 z-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">不限範圍</button>
+			                <ul class="dropdown-menu">
+			                  <li><button class="dropdown-item fw-semibold px-4 py-2 tw:p-[0.75rem_1.1rem]" type="button">option</button></li>
+			                  <li><button class="dropdown-item fw-semibold px-4 py-2 tw:p-[0.75rem_1.1rem]" type="button">option</button></li>
+			                </ul>
 			              </div>
+			            </div>
+			            <div class="col order-4 order-sm-3">
+			              <label class="visually-hidden" for="input">輸入查詢</label>
+			              <input id="input" type="text" class="form-control tw:placeholder:text-[#A5A5A5]!" placeholder="請輸入關鍵字">
+			            </div>
+			            <div class="col-auto order-2 order-sm-last tw-min-w-[50px]">
+			              <button class="btn btn-primary bg-transparent border-0 pe-0 pe-sm-2 z-0" type="button" title="新增查詢欄位"><span class="text-primary material-symbols-outlined fill" aria-hidden="true" style="font-size: calc(25rem / 16);">add_circle</span></button>
 			            </div>
 			          </div>
-			          <!-- /left -->
-			          <div class="col-md-8 col-xxl-9 vstack gap-4">
-			            <div class="hstack gap-2 d-none d-md-flex">
-			              <div class="search input-group bg-white rounded-3 row g-0 z-1 tw:h-[44px] tw:lg:h-[48px]">
-			                <div class="col-auto">
-			                  <div class="dropdown h-100">
-			                    <button id="dropdownBtn02" class="btn btn-primary text-primary fw-semibold bg-transparent border-0 border-end rounded-0 align-items-center px-lg-4 h-100" type="button" data-bs-toggle="dropdown" aria-expanded="false">不限範圍<i class="bi bi-chevron-down ms-2" aria-hidden="true"></i></button>
-			                    <ul class="dropdown-menu border-0 rounded-3 tw:min-w-full!" aria-labelledby="dropdownBtn02">
-			                      <li><button class="dropdown-item bg-transparent tw:hover:text-(--bs-primary)! tw:[&.active]:text-(--bs-primary)! active" type="button" data-value="">不限範圍</button></li>
-			                      <li><button class="dropdown-item bg-transparent tw:hover:text-(--bs-primary)! tw:[&.active]:text-(--bs-primary)!" type="button" data-value="1">題名</button></li>
-			                      <li><button class="dropdown-item bg-transparent tw:hover:text-(--bs-primary)! tw:[&.active]:text-(--bs-primary)!" type="button" data-value="2">作者</button></li>
-			                      <li><button class="dropdown-item bg-transparent tw:hover:text-(--bs-primary)! tw:[&.active]:text-(--bs-primary)!" type="button" data-value="3">摘要</button></li>
-			                    </ul>
-			                  </div>
-			                </div>
-			                <div class="col">
-			                  <input id="input-group-input" class="form-control border-end-0 h-100 fw-medium tw:border-transparent! tw:placeholder:text-[#A5A5A5]!" type="text" placeholder="請輸入關鍵字" aria-label="輸入文字搭配下拉選單選項">
-			                </div>
-			                <div class="col-auto">
-			                  <button class="btn btn-primary text-primary bg-transparent border border-primary border-opacity-0 pe-lg-4 h-100" type="button"><i class="bi bi-search" aria-hidden="true"></i><span class="visually-hidden">搜尋</span></button>
-			                </div>
+			          <!-- /input-group -->
+			          <div class="input-group row gx-0 gy-3">
+			            <div class="col-auto me-sm-3 tw:min-w-[calc(100%-44px)] tw:sm:min-w-auto">
+			              <div class="dropdown h-100">
+			                <button class="btn btn-secondary text-primary fw-semibold bg-white border border-trasparent dropdown-toggle align-items-center px-3 h-100 z-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">或是</button>
+			                <ul class="dropdown-menu">
+			                  <li><button class="dropdown-item fw-semibold px-4 py-2 tw:p-[0.75rem_1.1rem]" type="button">option</button></li>
+			                  <li><button class="dropdown-item fw-semibold px-4 py-2 tw:p-[0.75rem_1.1rem]" type="button">option</button></li>
+			                </ul>
 			              </div>
-			              <!-- /input-group -->
-			              <button class="btn btn-link fw-medium bg-white rounded-3 flex-shrink-0 tw:h-[44px] tw:lg:h-[48px]" type="button"><span class="d-none d-md-inline-block me-2">縮小範圍</span><i class="bi bi-zoom-out" aria-hidden="true"></i></button>
 			            </div>
-			            <!-- /search -->
-			            <div class="vstack gap-4">
-			              <div class="sort vstack gap-3">
-			                <p class="tw:max-w-[556px] mb-0">查詢條件：<span class="text-primary">（示意：關鍵字「素養」／精確比對）</span> 總共找到<span class="text-primary">328</span>筆結果</p>
-			                <div class="d-flex flex-wrap align-items-center gap-2 gap-md-3">
-			                  <div class="hstack gap-2 fw-medium align-items-center flex-shrink-0">
-			                    <input id="checkall" class="form-check-input rounded-1 m-0" type="checkbox" value="">
-			                    <label class="form-check-label mb-0" for="checkall">全選</label>
-			                  </div>
-			                  <div class="hstack gap-2 flex-wrap ms-md-auto">
-			                    <div class="dropdown flex-shrink-0">
-			                      <button id="dropdownBtn1" class="btn btn-primary text-primary bg-white border-0 rounded-3 justify-content-center tw:min-w-[5.5rem]" type="button" data-bs-toggle="dropdown" data-bs-auto-close="outside">功能<i class="bi bi-chevron-down ms-2" aria-hidden="true"></i></button>
-			                      <ul class="dropdown-menu border-0 rounded-3 tw:min-w-full!" aria-labelledby="dropdownBtn1">
-			                        <li><a class="dropdown-item bg-transparent tw:hover:text-(--bs-primary)! tw:[&.active]:text-(--bs-primary)! active" href="">儲存</a></li>
-			                        <li><a class="dropdown-item bg-transparent tw:hover:text-(--bs-primary)! tw:[&.active]:text-(--bs-primary)!" href="">列印</a></li>
-			                        <li><a class="dropdown-item bg-transparent tw:hover:text-(--bs-primary)! tw:[&.active]:text-(--bs-primary)!" href="">E-mail</a></li>
-			                      </ul>
-			                    </div>
-			                    <div class="dropdown flex-shrink-0">
-			                      <button id="dropdownBtn2" class="btn btn-primary text-primary bg-white border-0 rounded-3 justify-content-center tw:min-w-[5.5rem]" type="button" data-bs-toggle="dropdown" data-bs-auto-close="outside">排序<i class="bi bi-chevron-down ms-2" aria-hidden="true"></i></button>
-			                      <ul class="dropdown-menu border-0 rounded-3 tw:min-w-full!" aria-labelledby="dropdownBtn2">
-			                        <li><a class="dropdown-item bg-transparent tw:hover:text-(--bs-primary)! tw:[&.active]:text-(--bs-primary)! active" href="">年度</a></li>
-			                        <li><a class="dropdown-item bg-transparent tw:hover:text-(--bs-primary)! tw:[&.active]:text-(--bs-primary)!" href="">資料類型</a></li>
-			                      </ul>
-			                    </div>
-			                    <div class="dropdown flex-shrink-0">
-			                      <button id="dropdownBtn3" class="btn btn-primary text-primary bg-white border-0 rounded-3 justify-content-center tw:min-w-[5.5rem]" type="button" data-bs-toggle="dropdown" data-bs-auto-close="outside">數量<i class="bi bi-chevron-down ms-2" aria-hidden="true"></i></button>
-			                      <ul class="dropdown-menu border-0 rounded-3 tw:min-w-full!" aria-labelledby="dropdownBtn3">
-			                        <li><a class="dropdown-item bg-transparent tw:hover:text-(--bs-primary)! tw:[&.active]:text-(--bs-primary)! active" href="">10</a></li>
-			                        <li><a class="dropdown-item bg-transparent tw:hover:text-(--bs-primary)! tw:[&.active]:text-(--bs-primary)!" href="">20</a></li>
-			                        <li><a class="dropdown-item bg-transparent tw:hover:text-(--bs-primary)! tw:[&.active]:text-(--bs-primary)!" href="">50</a></li>
-			                        <li><a class="dropdown-item bg-transparent tw:hover:text-(--bs-primary)! tw:[&.active]:text-(--bs-primary)!" href="">100</a></li>
-			                      </ul>
-			                    </div>
-			                  </div>
-			                </div>
+			            <div class="col-auto order-3 order-sm-2">
+			              <div class="dropdown h-100">
+			                <button class="btn btn-secondary text-primary fw-semibold bg-white border border-trasparent dropdown-toggle align-items-center px-3 h-100 z-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">不限範圍</button>
+			                <ul class="dropdown-menu">
+			                  <li><button class="dropdown-item fw-semibold px-4 py-2 tw:p-[0.75rem_1.1rem]" type="button">option</button></li>
+			                  <li><button class="dropdown-item fw-semibold px-4 py-2 tw:p-[0.75rem_1.1rem]" type="button">option</button></li>
+			                </ul>
 			              </div>
-			              <!-- /sort -->
-			              <ul class="searchList list-group list-group-flush gap-2 mt-2">
-			                <li class="list-group-item list-group-item-action px-0 py-3 tw:border-b! tw:border-black/7!">
-			                  <div class="row g-3 gx-xxl-4 mb-1">
-			                    <div class="col-auto d-flex align-items-start pt-1">
-			                      <div class="form-check fw-medium p-0 m-0">
-			                        <input id="checkList1" class="form-check-input rounded-1 m-0" type="checkbox" value="">
-			                        <label class="visually-hidden" for="checkList1">勾選</label>
-			                        <span class="ms-2 fw-semibold text-body-secondary" aria-hidden="true">1</span>
-			                      </div>
-			                    </div>
-			                    <div class="col-md">
-			                      <div class="vstack gap-3 position-relative fw-medium h-100">
-			                        <div class="vstack gap-3">
-			                          <h2 class="fw-medium lh-base m-0 tw:text-[calc(18rem/16)]! tw:line-clamp-3 tw:lg:line-clamp-2"><a class="stretched-link text-body" href="04details.html">十二年國民基本教育素養導向教學之課程轉化與教師專業發展研究</a></h2>
-			                          <div class="hstack flex-wrap gap-2 mt-n2 search-meta-row">
-			                            <span class="badge search-doctype-tag search-doctype--研究計畫">研究計畫</span>
-			                            <span class="badge search-doctype-tag search-year-tone">2024</span>
-			                          </div>
-			                          <p class="fw-normal text-body-secondary">本研究旨在探討素養導向教學理念落實於學校課程與教學現場時，教師所需之支持系統與專業學習路徑，並提出可促進課程轉化之具體建議。</p>
-			                        </div>
-			                        <div class="hstack gap-1 fw-normal mt-auto align-items-center">
-			                          <span class="material-symbols-rounded flex-shrink-0" aria-hidden="true" title="作者/計畫主持人">account_circle</span>
-			                          <span>王志宏、林雅婷</span>
-			                        </div>
-			                      </div>
-			                    </div></div>
-			                </li>
-			                <li class="list-group-item list-group-item-action px-0 py-3 tw:border-b! tw:border-black/7!">
-			                  <div class="row g-3 gx-xxl-4 mb-1">
-			                    <div class="col-auto d-flex align-items-start pt-1">
-			                      <div class="form-check fw-medium p-0 m-0">
-			                        <input id="checkList2" class="form-check-input rounded-1 m-0" type="checkbox" value="" checked>
-			                        <label class="visually-hidden" for="checkList2">勾選</label>
-			                        <span class="ms-2 fw-semibold text-body-secondary" aria-hidden="true">2</span>
-			                      </div>
-			                    </div>
-			                    <div class="col-md">
-			                      <div class="vstack gap-3 position-relative fw-medium h-100">
-			                        <div class="vstack gap-3">
-			                          <h2 class="fw-medium lh-base m-0 tw:text-[calc(18rem/16)]! tw:line-clamp-3 tw:lg:line-clamp-2"><a class="stretched-link text-body" href="04details.html">Teacher Self-Efficacy and Student Engagement in Technology-Enhanced Classrooms: Evidence from Taiwan</a></h2>
-			                          <div class="hstack flex-wrap gap-2 mt-n2 search-meta-row">
-			                            <span class="badge search-doctype-tag search-doctype--期刊論文">期刊論文</span>
-			                            <span class="badge search-doctype-tag search-year-tone">2023</span>
-			                          </div>
-			                          <p class="fw-normal text-body-secondary" lang="en">This article examines relationships between teacher self-efficacy and student engagement in technology-enhanced learning environments, using survey and classroom observation data collected in Taiwan.</p>
-			                        </div>
-			                        <div class="hstack gap-1 fw-normal mt-auto align-items-center">
-			                          <span class="material-symbols-rounded flex-shrink-0" aria-hidden="true" title="作者/計畫主持人">account_circle</span>
-			                          <span>陳俊銘</span>
-			                        </div>
-			                      </div>
-			                    </div></div>
-			                </li>
-			                <li class="list-group-item list-group-item-action px-0 py-3 tw:border-b! tw:border-black/7!">
-			                  <div class="row g-3 gx-xxl-4 mb-1">
-			                    <div class="col-auto d-flex align-items-start pt-1">
-			                      <div class="form-check fw-medium p-0 m-0">
-			                        <input id="checkList3" class="form-check-input rounded-1 m-0" type="checkbox" value="">
-			                        <label class="visually-hidden" for="checkList3">勾選</label>
-			                        <span class="ms-2 fw-semibold text-body-secondary" aria-hidden="true">3</span>
-			                      </div>
-			                    </div>
-			                    <div class="col-md">
-			                      <div class="vstack gap-3 position-relative fw-medium h-100">
-			                        <div class="vstack gap-3">
-			                          <h2 class="fw-medium lh-base m-0 tw:text-[calc(18rem/16)]! tw:line-clamp-3 tw:lg:line-clamp-2"><a class="stretched-link text-body" href="04details.html">教育政策分析：理論、方法與實務（專書）</a></h2>
-			                          <div class="hstack flex-wrap gap-2 mt-n2 search-meta-row">
-			                            <span class="badge search-doctype-tag search-doctype--專書">專書</span>
-			                            <span class="badge search-doctype-tag search-year-tone">2022</span>
-			                          </div>
-			                          <p class="fw-normal text-body-secondary">本書統整教育政策分析之主要理論觀點、研究方法與本土案例，協助讀者理解政策形成、執行與評估之完整歷程，並連結國教院政策研究實務經驗。</p>
-			                        </div>
-			                        <div class="hstack gap-1 fw-normal mt-auto align-items-center">
-			                          <span class="material-symbols-rounded flex-shrink-0" aria-hidden="true" title="作者/計畫主持人">account_circle</span>
-			                          <span>張淑玲、李建國、林雅婷</span>
-			                        </div>
-			                      </div>
-			                    </div></div>
-			                </li>
-			                <li class="list-group-item list-group-item-action px-0 py-3 tw:border-b! tw:border-black/7!">
-			                  <div class="row g-3 gx-xxl-4 mb-1">
-			                    <div class="col-auto d-flex align-items-start pt-1">
-			                      <div class="form-check fw-medium p-0 m-0">
-			                        <input id="checkList4" class="form-check-input rounded-1 m-0" type="checkbox" value="">
-			                        <label class="visually-hidden" for="checkList4">勾選</label>
-			                        <span class="ms-2 fw-semibold text-body-secondary" aria-hidden="true">4</span>
-			                      </div>
-			                    </div>
-			                    <div class="col-md">
-			                      <div class="vstack gap-3 position-relative fw-medium h-100">
-			                        <div class="vstack gap-3">
-			                          <h2 class="fw-medium lh-base m-0 tw:text-[calc(18rem/16)]! tw:line-clamp-3 tw:lg:line-clamp-2"><a class="stretched-link text-body" href="04details.html">PISA 數學素養評量架構與我國學生表現趨勢分析</a></h2>
-			                          <div class="hstack flex-wrap gap-2 mt-n2 search-meta-row">
-			                            <span class="badge search-doctype-tag search-doctype--會議論文">會議論文</span>
-			                            <span class="badge search-doctype-tag search-year-tone">2024</span>
-			                          </div>
-			                          <p class="fw-normal text-body-secondary">本文比較 PISA 數學素養架構演變與我國學生近年表現，並討論課程與教學調整對評量結果之可能影響。</p>
-			                        </div>
-			                        <div class="hstack gap-1 fw-normal mt-auto align-items-center">
-			                          <span class="material-symbols-rounded flex-shrink-0" aria-hidden="true" title="作者/計畫主持人">account_circle</span>
-			                          <span>王志宏</span>
-			                        </div>
-			                      </div>
-			                    </div></div>
-			                </li>
-			                <li class="list-group-item list-group-item-action px-0 py-3 tw:border-b! tw:border-black/7!">
-			                  <div class="row g-3 gx-xxl-4 mb-1">
-			                    <div class="col-auto d-flex align-items-start pt-1">
-			                      <div class="form-check fw-medium p-0 m-0">
-			                        <input id="checkList5" class="form-check-input rounded-1 m-0" type="checkbox" value="">
-			                        <label class="visually-hidden" for="checkList5">勾選</label>
-			                        <span class="ms-2 fw-semibold text-body-secondary" aria-hidden="true">5</span>
-			                      </div>
-			                    </div>
-			                    <div class="col-md">
-			                      <div class="vstack gap-3 position-relative fw-medium h-100">
-			                        <div class="vstack gap-3">
-			                          <h2 class="fw-medium lh-base m-0 tw:text-[calc(18rem/16)]! tw:line-clamp-3 tw:lg:line-clamp-2"><a class="stretched-link text-body" href="04details.html">數位學習平台導入之成效評估與精進建議（工作計畫）</a></h2>
-			                          <div class="hstack flex-wrap gap-2 mt-n2 search-meta-row">
-			                            <span class="badge search-doctype-tag search-doctype--工作計畫">工作計畫</span>
-			                            <span class="badge search-doctype-tag search-year-tone">2021</span>
-			                          </div>
-			                          <p class="fw-normal text-body-secondary">本報告彙整多校試行數位學習平台之質性訪談與量化使用紀錄，提出系統介面、教師培訓與資安防護等面向之精進方向。</p>
-			                        </div>
-			                        <div class="hstack gap-1 fw-normal mt-auto align-items-center">
-			                          <span class="material-symbols-rounded flex-shrink-0" aria-hidden="true" title="作者/計畫主持人">account_circle</span>
-			                          <span>林雅婷、陳俊銘</span>
-			                        </div>
-			                      </div>
-			                    </div></div>
-			                </li>
-			                <li class="list-group-item list-group-item-action px-0 py-3 tw:border-b! tw:border-black/7!">
-			                  <div class="row g-3 gx-xxl-4 mb-1">
-			                    <div class="col-auto d-flex align-items-start pt-1">
-			                      <div class="form-check fw-medium p-0 m-0">
-			                        <input id="checkList6" class="form-check-input rounded-1 m-0" type="checkbox" value="">
-			                        <label class="visually-hidden" for="checkList6">勾選</label>
-			                        <span class="ms-2 fw-semibold text-body-secondary" aria-hidden="true">6</span>
-			                      </div>
-			                    </div>
-			                    <div class="col-md">
-			                      <div class="vstack gap-3 position-relative fw-medium h-100">
-			                        <div class="vstack gap-3">
-			                          <h2 class="fw-medium lh-base m-0 tw:text-[calc(18rem/16)]! tw:line-clamp-3 tw:lg:line-clamp-2"><a class="stretched-link text-body" href="04details.html">雙語教育政策在中小學實施之困境與調適策略研究</a></h2>
-			                          <div class="hstack flex-wrap gap-2 mt-n2 search-meta-row">
-			                            <span class="badge search-doctype-tag search-doctype--研究計畫">研究計畫</span>
-			                            <span class="badge search-doctype-tag search-year-tone">2020</span>
-			                          </div>
-			                          <p class="fw-normal text-body-secondary" lang="en">This policy-oriented study documents implementation challenges of bilingual education in basic education schools and proposes governance and resource allocation adjustments.</p>
-			                        </div>
-			                        <div class="hstack gap-1 fw-normal mt-auto align-items-center">
-			                          <span class="material-symbols-rounded flex-shrink-0" aria-hidden="true" title="作者/計畫主持人">account_circle</span>
-			                          <span>李建國</span>
-			                        </div>
-			                      </div>
-			                    </div></div>
-			                </li>
-			                <li class="list-group-item list-group-item-action px-0 py-3 tw:border-b! tw:border-black/7!">
-			                  <div class="row g-3 gx-xxl-4 mb-1">
-			                    <div class="col-auto d-flex align-items-start pt-1">
-			                      <div class="form-check fw-medium p-0 m-0">
-			                        <input id="checkList7" class="form-check-input rounded-1 m-0" type="checkbox" value="">
-			                        <label class="visually-hidden" for="checkList7">勾選</label>
-			                        <span class="ms-2 fw-semibold text-body-secondary" aria-hidden="true">7</span>
-			                      </div>
-			                    </div>
-			                    <div class="col-md">
-			                      <div class="vstack gap-3 position-relative fw-medium h-100">
-			                        <div class="vstack gap-3">
-			                          <h2 class="fw-medium lh-base m-0 tw:text-[calc(18rem/16)]! tw:line-clamp-3 tw:lg:line-clamp-2"><a class="stretched-link text-body" href="04details.html">學習歷程檔案與大學招生銜接：利害關係人觀點之質性研究</a></h2>
-			                          <div class="hstack flex-wrap gap-2 mt-n2 search-meta-row">
-			                            <span class="badge search-doctype-tag search-doctype--期刊論文">期刊論文</span>
-			                            <span class="badge search-doctype-tag search-year-tone">2024</span>
-			                          </div>
-			                          <p class="fw-normal text-body-secondary">透過深度訪談高中教師、家長與大學招生人員，分析學習歷程檔案在升學銜接中的認知落差與實務運用情形。</p>
-			                        </div>
-			                        <div class="hstack gap-1 fw-normal mt-auto align-items-center">
-			                          <span class="material-symbols-rounded flex-shrink-0" aria-hidden="true" title="作者/計畫主持人">account_circle</span>
-			                          <span>張淑玲</span>
-			                        </div>
-			                      </div>
-			                    </div></div>
-			                </li>
-			                <li class="list-group-item list-group-item-action px-0 py-3 tw:border-b! tw:border-black/7!">
-			                  <div class="row g-3 gx-xxl-4 mb-1">
-			                    <div class="col-auto d-flex align-items-start pt-1">
-			                      <div class="form-check fw-medium p-0 m-0">
-			                        <input id="checkList8" class="form-check-input rounded-1 m-0" type="checkbox" value="">
-			                        <label class="visually-hidden" for="checkList8">勾選</label>
-			                        <span class="ms-2 fw-semibold text-body-secondary" aria-hidden="true">8</span>
-			                      </div>
-			                    </div>
-			                    <div class="col-md">
-			                      <div class="vstack gap-3 position-relative fw-medium h-100">
-			                        <div class="vstack gap-3">
-			                          <h2 class="fw-medium lh-base m-0 tw:text-[calc(18rem/16)]! tw:line-clamp-3 tw:lg:line-clamp-2"><a class="stretched-link text-body" href="04details.html">International Conference on Educational Assessment — Keynote Summary</a></h2>
-			                          <div class="hstack flex-wrap gap-2 mt-n2 search-meta-row">
-			                            <span class="badge search-doctype-tag search-doctype--會議論文">會議論文</span>
-			                            <span class="badge search-doctype-tag search-year-tone">2023</span>
-			                          </div>
-			                          <p class="fw-normal text-body-secondary" lang="en">Conference paper summarizing recent developments in large-scale educational assessment and implications for national testing policy.</p>
-			                        </div>
-			                        <div class="hstack gap-1 fw-normal mt-auto align-items-center">
-			                          <span class="material-symbols-rounded flex-shrink-0" aria-hidden="true" title="作者/計畫主持人">account_circle</span>
-			                          <span>王志宏、陳俊銘</span>
-			                        </div>
-			                      </div>
-			                    </div></div>
-			                </li>
-			                <li class="list-group-item list-group-item-action px-0 py-3 tw:border-b! tw:border-black/7!">
-			                  <div class="row g-3 gx-xxl-4 mb-1">
-			                    <div class="col-auto d-flex align-items-start pt-1">
-			                      <div class="form-check fw-medium p-0 m-0">
-			                        <input id="checkList9" class="form-check-input rounded-1 m-0" type="checkbox" value="">
-			                        <label class="visually-hidden" for="checkList9">勾選</label>
-			                        <span class="ms-2 fw-semibold text-body-secondary" aria-hidden="true">9</span>
-			                      </div>
-			                    </div>
-			                    <div class="col-md">
-			                      <div class="vstack gap-3 position-relative fw-medium h-100">
-			                        <div class="vstack gap-3">
-			                          <h2 class="fw-medium lh-base m-0 tw:text-[calc(18rem/16)]! tw:line-clamp-3 tw:lg:line-clamp-2"><a class="stretched-link text-body" href="04details.html">課程綱要轉化之教學示例：素養導向評量設計（專書章節）</a></h2>
-			                          <div class="hstack flex-wrap gap-2 mt-n2 search-meta-row">
-			                            <span class="badge search-doctype-tag search-doctype--專章">專章</span>
-			                            <span class="badge search-doctype-tag search-year-tone">2024</span>
-			                          </div>
-			                          <p class="fw-normal text-body-secondary">本章以具體學科單元為例，示範如何將課綱學習重點轉化為素養導向之形成性與總結性評量任務。</p>
-			                        </div>
-			                        <div class="hstack gap-1 fw-normal mt-auto align-items-center">
-			                          <span class="material-symbols-rounded flex-shrink-0" aria-hidden="true" title="作者/計畫主持人">account_circle</span>
-			                          <span>林雅婷、張淑玲</span>
-			                        </div>
-			                      </div>
-			                    </div></div>
-			                </li>
-			                <li class="list-group-item list-group-item-action px-0 py-3 tw:border-b! tw:border-black/7!">
-			                  <div class="row g-3 gx-xxl-4 mb-1">
-			                    <div class="col-auto d-flex align-items-start pt-1">
-			                      <div class="form-check fw-medium p-0 m-0">
-			                        <input id="checkList10" class="form-check-input rounded-1 m-0" type="checkbox" value="">
-			                        <label class="visually-hidden" for="checkList10">勾選</label>
-			                        <span class="ms-2 fw-semibold text-body-secondary" aria-hidden="true">10</span>
-			                      </div>
-			                    </div>
-			                    <div class="col-md">
-			                      <div class="vstack gap-3 position-relative fw-medium h-100">
-			                        <div class="vstack gap-3">
-			                          <h2 class="fw-medium lh-base m-0 tw:text-[calc(18rem/16)]! tw:line-clamp-3 tw:lg:line-clamp-2"><a class="stretched-link text-body" href="04details.html">教育大數據分析：學習行為樣態與預警指標建置</a></h2>
-			                          <div class="hstack flex-wrap gap-2 mt-n2 search-meta-row">
-			                            <span class="badge search-doctype-tag search-doctype--brief">提要/建言/訊息</span>
-			                            <span class="badge search-doctype-tag search-year-tone">2022</span>
-			                          </div>
-			                          <p class="fw-normal text-body-secondary">報告說明如何運用去識別化之學習歷程資料，建立早期預警指標，並討論資料治理與倫理規範。</p>
-			                        </div>
-			                        <div class="hstack gap-1 fw-normal mt-auto align-items-center">
-			                          <span class="material-symbols-rounded flex-shrink-0" aria-hidden="true" title="作者/計畫主持人">account_circle</span>
-			                          <span>陳俊銘、王志宏、李建國</span>
-			                        </div>
-			                      </div>
-			                    </div></div>
-			                </li>
-			              </ul>
 			            </div>
-			            <!-- /searchList -->
+			            <div class="col order-4 order-sm-3">
+			              <label class="visually-hidden" for="input2">輸入查詢</label>
+			              <input id="input2" type="text" class="form-control tw:placeholder:text-[#A5A5A5]!" placeholder="請輸入關鍵字">
+			            </div>
+			            <div class="col-auto order-2 order-sm-last tw-min-w-[50px]">
+			              <button class="btn btn-primary bg-transparent border-0 pe-0 pe-sm-2 z-0" type="button" title="移除查詢欄位"><span class="text-primary material-symbols-outlined fill" aria-hidden="true" style="font-size: calc(25rem / 16);">do_not_disturb_on</span></button>
+			            </div>
 			          </div>
-			          <!-- /right -->
-			          <div class="col">
-			            <!-- pagination -->
-			            <nav class="paginationNav col-10 mx-auto mt-4">
-			            	<ul class="pagination justify-content-center flex-wrap gap-lg-1 m-0">
-			            		<li class="page-item m-0 disabled">
-			            			<a class="page-link d-flex align-items-center justify-content-center border-0 fw-bold" href="" title="上一頁" tabindex="-1">
-			            				<span class="visually-hidden">上一頁</span>
-			            				<i class="bi bi-chevron-left" aria-hidden="true"></i>
-			            			</a>
-			            		</li>
-			            		<li class="page-item m-0" hidden>
-			            			<a class="page-link d-flex align-items-center justify-content-center border-0 fw-bold" href="" title="上一頁">
-			            				<span class="visually-hidden">上一頁</span>
-			            				<i class="bi bi-chevron-left" aria-hidden="true"></i>
-			            			</a>
-			            		</li>
-			            		<li class="page-item m-0 active"><a class="page-link d-flex align-items-center justify-content-center border-0 fw-bold tw:text-[calc(18rem/16)]!" href="">1</a></li>
-			            		<li class="page-item m-0"><a class="page-link d-flex align-items-center justify-content-center border-0 fw-bold tw:text-[calc(18rem/16)]!" href="">2</a></li>
-			            		<li class="page-item m-0"><a class="page-link d-flex align-items-center justify-content-center border-0 fw-bold tw:text-[calc(18rem/16)]!" href="">3</a></li>
-			            		<li class="page-item m-0"><a class="page-link d-flex align-items-center justify-content-center border-0 fw-bold tw:text-[calc(18rem/16)]!" href="">4</a></li>
-			            		<li class="page-item m-0"><a class="page-link d-flex align-items-center justify-content-center border-0 fw-bold tw:text-[calc(18rem/16)]!" href="">5</a></li>
-			            		<li class="page-item m-0">
-			            			<a class="page-link d-flex align-items-center justify-content-center border-0 fw-bold" href="" title="下一頁">
-			            				<span class="visually-hidden">下一頁</span>
-			            				<i class="bi bi-chevron-right" aria-hidden="true"></i>
-			            			</a>
-			            		</li>
-			            		<li class="page-item m-0 disabled" hidden>
-			            			<a class="page-link d-flex align-items-center justify-content-center border-0 fw-bold" href="" title="下一頁" tabindex="-1">
-			            				<span class="visually-hidden">下一頁</span>
-			            				<i class="bi bi-chevron-right" aria-hidden="true"></i>
-			            			</a>
-			            		</li>
-			            	</ul>
-			            </nav>
-			            <!-- /pagination -->
+			          <!-- /input-group -->
+			          <div class="input-group row gx-0 gy-3">
+			            <div class="col-auto me-sm-3 tw:min-w-[calc(100%-44px)] tw:sm:min-w-auto">
+			              <div class="dropdown h-100">
+			                <button class="btn btn-secondary text-primary fw-semibold bg-white border border-trasparent dropdown-toggle align-items-center px-3 h-100 z-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">排除</button>
+			                <ul class="dropdown-menu">
+			                  <li><button class="dropdown-item fw-semibold px-4 py-2 tw:p-[0.75rem_1.1rem]" type="button">option</button></li>
+			                  <li><button class="dropdown-item fw-semibold px-4 py-2 tw:p-[0.75rem_1.1rem]" type="button">option</button></li>
+			                </ul>
+			              </div>
+			            </div>
+			            <div class="col-auto order-3 order-sm-2">
+			              <div class="dropdown h-100">
+			                <button class="btn btn-secondary text-primary fw-semibold bg-white border border-trasparent dropdown-toggle align-items-center px-3 h-100 z-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">不限範圍</button>
+			                <ul class="dropdown-menu">
+			                  <li><button class="dropdown-item fw-semibold px-4 py-2 tw:p-[0.75rem_1.1rem]" type="button">option</button></li>
+			                  <li><button class="dropdown-item fw-semibold px-4 py-2 tw:p-[0.75rem_1.1rem]" type="button">option</button></li>
+			                </ul>
+			              </div>
+			            </div>
+			            <div class="col order-4 order-sm-3">
+			              <label class="visually-hidden" for="input3">輸入查詢</label>
+			              <input id="input3" type="text" class="form-control tw:placeholder:text-[#A5A5A5]!" placeholder="請輸入關鍵字">
+			            </div>
+			            <div class="col-auto order-2 order-sm-last tw-min-w-[50px]">
+			              <button class="btn btn-primary bg-transparent border-0 pe-0 pe-sm-2 z-0" type="button" title="移除查詢欄位"><span class="text-primary material-symbols-outlined fill" aria-hidden="true" style="font-size: calc(25rem / 16);">do_not_disturb_on</span></button>
+			            </div>
+			          </div>
+			          <!-- /input-group -->
+			          <small class="d-block text-body-secondary text-end me-sm-5 mt-n2">欄位上限：5 個</small>
+			          <ul class="hotKeywords list-unstyled text-center mt-2 mb-3 mx-auto tw:text-[calc(16/18*1rem)]">
+			            <li class="hotKeywords__label">熱門關鍵字</li>
+			            <li class="hotKeywords__item"><a href="">耶穌</a></li>
+			            <li class="hotKeywords__item"><a href="">洗濯盆</a></li>
+			            <li class="hotKeywords__item"><a href="">洗禮</a></li>
+			            <li class="hotKeywords__item"><a href="">濯盆洗濯盆</a></li>
+			            <li class="hotKeywords__item"><a href="">洗禮</a></li>
+			          </ul>
+			          <hr class="border-black opacity-10">
+			          <p class="text-primary fw-semibold text-center tw:text-[calc(24/18*1rem)]">縮小查詢範圍</p>
+			          <div class="text-body vstack gap-4">
+			            <fieldset class="row gx-4 gy-2 align-items-center">
+			              <div class="col-12">
+			                <legend class="form-label fw-semibold hstack m-0 tw:text-[1rem]!">查詢模式<button type="button" class="btn btn-link btn-sm" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-html="true" data-bs-sanitize="false" data-bs-custom-class="naer-tooltip" data-bs-title="<div class='naer-tip-title'>查詢模式</div><div>精確：132wirwo</div><div>模糊：sdfsfdsdggrd</div>"><span class="fs-6 text-primary material-symbols-outlined fill" aria-hidden="true">info</span></button></legend>
+			              </div>
+			              <div class="col-auto">
+			                <div class="form-check">
+			                  <input class="form-check-input" type="radio" name="radio" id="radio1" value="" checked="">
+			                  <label class="form-check-label" for="radio1">精確</label>
+			                </div>
+			              </div>
+			              <div class="col-auto">
+			                <div class="form-check">
+			                  <input class="form-check-input" type="radio" name="radio" id="radio2" value="">
+			                  <label class="form-check-label" for="radio2">模糊</label>
+			                </div>
+			              </div>
+			            </fieldset>
+			            <fieldset class="row g-3 align-items-center">
+			              <div class="col-12">
+			                <legend class="form-label fw-semibold m-0 tw:text-[1rem]!">年度</legend>
+			              </div>
+			              <div class="col-12 col-sm-auto">
+			                <input class="year form-control tw:w-[170px]! tw:placeholder:text-[#A5A5A5]!" placeholder="請輸入開始年份" type="number" name="year" min="1900" max="2099" step="1" aria-label="起始年" required>
+			              </div>
+			              <div class="col-12 col-sm-auto">至</div>
+			              <div class="col-12 col-sm-auto">
+			                <input class="year form-control tw:w-[170px]! tw:placeholder:text-[#A5A5A5]!" placeholder="請輸入結束年份" type="number" name="year" min="1900" max="2099" step="1" aria-label="結束年" required>
+			              </div>
+			            </fieldset>
+			            <fieldset class="row gx-4 gy-2 align-items-center">
+			              <div class="col-12">
+			                <legend class="form-label fw-semibold m-0 tw:text-[1rem]!">資料類型</legend>
+			              </div>
+			              <div class="col-12 col-sm-auto"><div class="form-check"><input id="doctype1" class="form-check-input rounded-1" type="checkbox" checked><label class="form-check-label" for="doctype1">研究計畫</label></div></div>
+			              <div class="col-12 col-sm-auto"><div class="form-check"><input id="doctype2" class="form-check-input rounded-1" type="checkbox"><label class="form-check-label" for="doctype2">工作計畫</label></div></div>
+			              <div class="col-12 col-sm-auto"><div class="form-check"><input id="doctype3" class="form-check-input rounded-1" type="checkbox" checked><label class="form-check-label" for="doctype3">期刊論文</label></div></div>
+			              <div class="col-12 col-sm-auto"><div class="form-check"><input id="doctype4" class="form-check-input rounded-1" type="checkbox"><label class="form-check-label" for="doctype4">會議論文</label></div></div>
+			              <div class="col-12 col-sm-auto"><div class="form-check"><input id="doctype5" class="form-check-input rounded-1" type="checkbox"><label class="form-check-label" for="doctype5">專書</label></div></div>
+			              <div class="col-12 col-sm-auto"><div class="form-check"><input id="doctype6" class="form-check-input rounded-1" type="checkbox"><label class="form-check-label" for="doctype6">專章</label></div></div>
+			              <div class="col-12 col-sm-auto"><div class="form-check"><input id="doctype7" class="form-check-input rounded-1" type="checkbox"><label class="form-check-label" for="doctype7">提要/建言/訊息</label></div></div>
+			            </fieldset>
+			            <div class="row gx-3 justify-content-center my-4">
+			              <div class="col-auto">
+			                <button class="btn btn-outline-primary" type="reset">清除條件</button>
+			              </div>
+			              <div class="col-auto">
+			                <a class="btn btn-primary" href="03search_1.html">開始查詢</a>
+			              </div>
+			            </div>
+			            <!-- /row -->
 			          </div>
 			        </div>
-			        <!-- /row -->
+			        <!-- /form -->
 			      </div>
-			      <!-- /container -->
+			      <!-- /search -->
 			    </div>
-			    <!-- /list -->  </div>
+			  </div>
 			  <!-- /content -->
 			</section>
 			<!-- /main content -->
-			<a id="gototop" class="btn btn-primary text-primary bg-transparent border-3 rounded-circle me-3 mb-3 px-2 py-0 d-none justify-content-center align-items-center position-absolute bottom-0 end-0 z-1 tw:group" title="回到最上" type="button" href="#top" style="width: 48px; height: 48px;"><span class="material-symbols-rounded tw:text-[3rem]! tw:group-hover:text-(--bs-primary)!" aria-hidden="true">arrow_upward_alt</span><span class="visually-hidden">回到最上</span></a>
 		</main>
 
 		<!-- footer -->

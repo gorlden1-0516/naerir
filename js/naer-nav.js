@@ -32,6 +32,18 @@
         }
     }
 
+    function initBootstrapTooltips() {
+        try {
+            if (typeof bootstrap === 'undefined' || !bootstrap.Tooltip) return;
+            var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+            tooltipTriggerList.forEach(function (el) {
+                // 避免重複初始化
+                if (bootstrap.Tooltip.getInstance(el)) return;
+                new bootstrap.Tooltip(el);
+            });
+        } catch (_e) {}
+    }
+
     function initAdvancedSearch() {
         // 回到最上：滾動時顯示/隱藏
         try {
@@ -48,6 +60,9 @@
                 });
             }
         } catch (_e) {}
+
+        // 啟用 tooltip（03search_1.html/03search*.html 共用）
+        initBootstrapTooltips();
 
         // 左側篩選：桌面版預設展開（需要 bootstrap.bundle）
         try {
